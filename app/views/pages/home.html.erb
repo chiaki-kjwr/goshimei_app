@@ -1,4 +1,4 @@
-<p>トップページ</p>
+<h1>ゴシメイ！</h1>
 
 <% provide(:title, "TopPage") %>
 <html>
@@ -8,11 +8,17 @@
   
    <body>
 
+<p>最良のパートナーを、見つけよう。</p>
 
-     
+
+<% #<img src="/assets/toppage.jpeg" alt="" >%>
+<%= link_to "仮のボタンです", "#", class: "btn btn-primary" %>
+<div class = "top_image">
+      <%= image_tag 'toppage.jpeg', size: "1000x550" %>
     
      <!--  render 'shared/feed' %>-->
     </div>
+
 
 </body>
 </html>
