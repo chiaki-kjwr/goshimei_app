@@ -21,9 +21,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+ <p>ユーザー利用規約に同意します</p>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+
 
 <%= render "devise/shared/links" %>
