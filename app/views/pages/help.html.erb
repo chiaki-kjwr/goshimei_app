@@ -1,1 +1,28 @@
-<p>ここからお問い合わせができます</p>
+<h1>ここからお問い合わせができます</h1>
+
+<% provide(:title, "お問い合わせ") %>
+<html>
+<header>
+    
+</header>
+  
+   <body>
+
+
+
+
+<% #<img src="/assets/toppage.jpeg" alt="" >%>
+
+<%= link_to "仮のボタンです", "#", class: "btn btn-primary" %>
+<div class = "top_image">
+      <%= image_tag 'toppage.jpeg', size: "1000x550" %>
+  
+  <% if user_signed_in? %>
+  <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+  <% end %> 
+     <!--  render 'shared/feed' %>-->
+    </div>
+
+
+</body>
+</html>
