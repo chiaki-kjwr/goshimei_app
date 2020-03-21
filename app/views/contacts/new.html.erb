@@ -1,0 +1,19 @@
+<h1>ここからお問い合わせができます</h1>
+
+<% provide(:title, "お問い合わせ") %>
+<h2>お問い合わせ</h2>
+<%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
+
+<%= form_with model: @contact do |c| %>
+  <%= c.text_field :name %>
+  <%= c.submit %>
+<% end %>
+
+<%= form_with model: @contact do |c| %>
+  <%= c.email_field :email %>
+  <%= c.submit %>
+<% end %>
+
+
+ 

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get  'pages/terms'
 
   get '/users/:id', to: 'users#show'
-
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  resources :contacts
   
 
 end
