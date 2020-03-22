@@ -1,3 +1,4 @@
+<% provide(:title, "Sign_up") %>
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -28,13 +29,14 @@
 
   <%# プロフィールフォトを編集できるようにする%>
   <%#div class="field">
-    <%#= f.label :profile_photo %><br />
+    <%#= f.label :profile_photo %>
     <%#= f.field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
   <%#/div>
 
 <%#チェックボックスをつける%>
  <p>ユーザー利用規約に同意します</p>
- <%= link_to "ユーザー利用規",pages_terms_path >
+ <%= link_to "ユーザー利用規",pages_terms_path %>
+  
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
