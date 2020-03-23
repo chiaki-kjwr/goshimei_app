@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_051742) do
+ActiveRecord::Schema.define(version: 2020_03_23_152412) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 2020_03_21_051742) do
     t.datetime "updated_at", null: false
     t.string "name", default: "", null: false
     t.string "profile_photo"
+    t.string "age"
+    t.string "sex"
+    t.text "profile"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
