@@ -14,7 +14,7 @@
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
-  <div class="field">
+  <div class="field">π
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -35,7 +35,7 @@
 
 <%#チェックボックスをつける%>
  <p>ユーザー利用規約に同意します</p>
- <%= link_to "ユーザー利用規",pages_terms_path %>
+ <%= link_to "ユーザー利用規約",pages_terms_path %>
   
   <div class="actions">
     <%= f.submit "Sign up" %>

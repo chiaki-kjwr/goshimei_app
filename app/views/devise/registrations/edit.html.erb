@@ -37,10 +37,10 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
   <%# プロフィールフォトを編集できるようにする%>
-  <div class="field">
-    <%= f.label :profile_photo %><br />
-    <%= f.field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
-  </div>
+  
+    <%#= f.label :profile_photo %><br />
+    <%#= f.field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
+  
 
   <div class="actions">
     <%= f.submit "Update" %>

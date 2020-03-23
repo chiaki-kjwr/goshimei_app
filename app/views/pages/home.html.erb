@@ -1,29 +1,91 @@
-<h1>ゴシメイ！</h1>
-
 <% provide(:title, "TopPage") %>
+
 <html>
-<header>
-    
-</header>
+<head>
   
-   <body>
+</head>
+<body>
+  <header>
+   <div class="container">
+<div class="header-left">
+   <%#<img src="/assets/toppage.jpeg" alt="" >%>
 
-<p>最良のパートナーを、見つけよう。</p>
+
+<%#= image_tag 'toppage.jpeg', size: "1000x550" %>
 
 
-<% #<img src="/assets/toppage.jpeg" alt="" >%>
+      </div>
+      <div class="header-right">
+        <a href="#" class="login">ログイン</a>
+      </div>
+    </div>
+  </header>
 
-<%= link_to "仮のボタンです", "#", class: "btn btn-primary" %>
-<div class = "top_image">
-      <%= image_tag 'toppage.jpeg', size: "1000x550" %>
-  
+  <div class="top-wrapper">
+    <div class="container">
+    <div class = "top-image">
+
+    </div>
+      <h1><br>ゴシメイ！</h1>
+      <p>最良のパートナーを、見つけよう</p>
+      <%= link_to "新規登録はこちら", new_user_registration_path %>
+      
+
+    </div>
+  </div>
+  <div class="service-wrapper">
+    <div class="container">
+      <div class="heading">
+        <h2>ゴシメイでできること</h2>
+      </div>
+      <div class="details">
+        <div class="detail">
+          <div class="icon">
+            <img src="">
+            <p>①</p>
+          </div>
+          <p class="text-contents">説明</p>
+        </div>
+        <div class="detail">
+          <div class="icon">
+            <img src="">
+            <p>②</p>
+          </div>
+          <p class="text-contents">説明</p>
+        </div>
+        <div class="detaile">
+          <div class="icon">
+            <img src="">
+            <p>③</p>
+          </div>
+          <p class="text-contents">説明</p>
+        </div>
+        <div class="detaile">
+          <div class="icon">
+            <img src="">
+            <p>④</p>
+          </div>
+          <p class="text-contents">説明</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="message-wrapper">
+    <div class="container">
+      <div class="heading">
+        <h2>転職のパートナーを探してみませんか？</h2>
+        
+      </div>
+      <p>早速登録する</p>
+      <%= link_to "登録", new_user_registration_path, class: "btn btn-primary" %>
+    </div>
+  </div>
   <% if user_signed_in? %>
   <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
   <% end %> 
      <!--  render 'shared/feed' %>-->
-    </div>
-
-
+  
+  
 </body>
 </html>
 
