@@ -1,4 +1,6 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+ <div class="form-group text-center">
+
+    <h1>Edit <%= resource_name.to_s.humanize %></h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -40,14 +42,18 @@
   
     <%#= f.label :profile_photo %><br />
     <%#= f.field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
-  
+  <div class="field">
+    <%= f.label :profile %> 
+    <%= f.text_area :profile, autofocus: true, autocomplete: "profile" %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
 
-<h3>サービスを退会する</h3>
+<%#h3>サービスを退会する</%#h3>
  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 
-<%= link_to "Back", :back %>
+  <%= link_to "Back", :back %>
+</div>

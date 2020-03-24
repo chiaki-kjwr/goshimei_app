@@ -1,7 +1,7 @@
-<h1>ここからお問い合わせができます</h1>
-
-<% provide(:title, "お問い合わせ") %>
-<h2>お問い合わせ</h2>
+ <% provide(:title, "お問い合わせ") %>
+ <div class="form-group text-center">
+  <h1>ここからお問い合わせができます</h1>
+    
 
 <div class="profile-form-wrap">
   <%= form_with model:@contact,local: true, method: :post do |c| %>
@@ -18,11 +18,13 @@
 
 <div class="form-group">
   <%= c.label :contents, "お問い合わせ内容" %>
-  <%= c.text_field :contents %>
+  <%= c.text_area :contents %>
 </div>
 
 
-<%= c.submit "送信", class: "btn btn-primary" %>
-<% end %>
+  <%= c.submit "送信", class: "btn btn-primary" %>
+  <% end %>
+  </div>
 </div>
+
 
