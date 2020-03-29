@@ -96,8 +96,14 @@
     height: 580px;
     background-color: #f7f7f7;
     text-align: center;
+    
   }
   
+  .container{
+    margin-right:100px!important;
+    margin-left:100px!important;
+  }
+
   .heading {
     padding-top: 80px;
     padding-bottom: 50px;
@@ -108,9 +114,20 @@
     font-weight: normal;
   }
   
+.row{
+  position: absolute!important;
+}
+
   .detail{
+    position: relative;
     float: left;
     width: 25%;
+    margin-left:40px!important;
+    img{
+      width:350px!important;
+      height:246px!important;
+    }
+    
   }
   
   .icon {

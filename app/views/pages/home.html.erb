@@ -38,45 +38,45 @@
       <div class="heading">
         <h2>ゴシメイでできること</h2>
       </div>
-      <div class="details">
-        <div class="detail">
-          <div class="icon">
-            <img src="">
-            <p>①</p>
-          </div>
-          <p class="text-contents">説明</p>
-        </div>
-        <div class="detail">
-          <div class="icon">
-            <img src="">
-            <p>②</p>
-          </div>
-          <p class="text-contents">説明</p>
-        </div>
-        <div class="detaile">
-          <div class="icon">
-            <img src="">
-            <p>③</p>
-          </div>
-          <p class="text-contents">説明</p>
-        </div>
-        <div class="detaile">
-          <div class="icon">
-            <img src="">
-            <p>④</p>
-          </div>
-          <p class="text-contents">説明</p>
-        </div>
-      </div>
+      <div class="row">
+        
+         
+          
+            <div class="detail col-3" >
+              
+                <%= image_tag 'consultation.png'%>
+                
+              
+              <p class="text-contents">専門性の高い転職エージェントにいつでも相談できます</p>
+            </div>
+
+            <div class="detail col-3">
+              
+                <%= image_tag 'nominate.png' %>
+            
+              <p class="text-contents">自分にぴったりの転職エージェントを指名できます</p>
+            </div>
+
+            <div class="detail col-3">
+              
+                <%= image_tag 'free.png' %>
+              
+              <p class="text-contents">無料でサービス利用できます</p>
+            </div>
+
+      </div>   
+        
+      
     </div>
   </div>
+
   <div class="message-wrapper">
     <div class="container">
       <div class="heading">
         <h2>転職のパートナーを探してみませんか？</h2>
         
       </div>
-      <p>早速登録する</p>
+      <p>無料で新規登録する</p>
       <%= link_to "登録", new_user_registration_path, class: "btn btn-primary" %>
     </div>
   </div>
