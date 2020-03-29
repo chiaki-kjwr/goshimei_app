@@ -26,9 +26,12 @@
     <div class = "top-image">
 
     </div>
-      <h1><br>ゴシメイ！</h1>
-      <p>最良のパートナーを、見つけよう</p>
-      <%= link_to "新規登録はこちら", new_user_registration_path %>
+    <div class="text-center">
+      <h1 class="font-weight-bold mb-4"><br>ゴシメイ！</h1>
+
+      <h2>最良のパートナーを、見つけよう</h2>
+      <%#= link_to "新規登録はこちら", new_user_registration_path %>
+      </div>
       
 
     </div>
@@ -36,7 +39,7 @@
   <div class="service-wrapper">
     <div class="container">
       <div class="heading">
-        <h2>ゴシメイでできること</h2>
+        <h2>ゴシメイ！でできること</h2>
       </div>
       <div class="row">
         
@@ -47,21 +50,21 @@
                 <%= image_tag 'consultation.png'%>
                 
               
-              <p class="text-contents">専門性の高い転職エージェントにいつでも相談できます</p>
+              <p class="text-contents"><span class="font-weight-bold">専門性の高い転職エージェントにいつでも相談できます</span></p>
             </div>
 
-            <div class="detail col-3">
+            <div class="detail col-3 ">
               
-                <%= image_tag 'nominate.png' %>
+                <%= image_tag 'nominate.png'%>
             
-              <p class="text-contents">自分にぴったりの転職エージェントを指名できます</p>
+              <p class="text-contents"><span class="font-weight-bold">自分にぴったりの転職エージェントを指名できます</span></p>
             </div>
 
             <div class="detail col-3">
               
                 <%= image_tag 'free.png' %>
               
-              <p class="text-contents">無料でサービス利用できます</p>
+              <p class="text-contents"><span class="font-weight-bold">無料でサービス利用できます</span></p>
             </div>
 
       </div>   
@@ -76,13 +79,11 @@
         <h2>転職のパートナーを探してみませんか？</h2>
         
       </div>
-      <p>無料で新規登録する</p>
-      <%= link_to "登録", new_user_registration_path, class: "btn btn-primary" %>
+      
+      <%= link_to "無料で新規登録する", new_user_registration_path, class: "btn btn-dark btn-lg" %>
     </div>
   </div>
-  <% if user_signed_in? %>
-  <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
-  <% end %> 
+  
      <!--  render 'shared/feed' %>-->
   
   

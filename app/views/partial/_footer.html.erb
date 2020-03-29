@@ -1,12 +1,19 @@
 <footer>
-  <div class="container">
-    <div class="text-center">
-      <p>
-         <%= link_to "サービス退会", "" %>
-        <p>
-      <p>
-         ©goshimei Co.Ltd.
-      </p>
-    </div>
+<div class="container">
+  <div class="text-center">
+   <ul class="list-inline">
+    <li class="list-inline-item">
+        <%= link_to "サービス退会", "" %>
+      </li>
+      <li class="list-inline-item">
+      <% if user_signed_in? %>
+      <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+      <% end %> 
+      </li>
+    </ul>
+    <p>
+        ©goshimei Co.Ltd.
+    </p>
   </div>
+</div>
 </footer>

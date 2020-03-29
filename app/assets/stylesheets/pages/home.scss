@@ -1,13 +1,17 @@
 .h1 {
     font-size:80px ;
     font-family: "serif";
-    color:#800080;
-    font-weight: 900; 
+    color:#ddd;
+  }
+
+  .h2{
+    font-family: "serif";
+    color:#ddd;
   }
 
   html, body,
   ul, ol, li,
-  h1, h2, h3, h4, h5, h6, p, div {
+  h1, h2, p, div {
     margin: 0;
     padding: 0;
   }
