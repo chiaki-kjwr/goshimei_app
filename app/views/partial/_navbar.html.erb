@@ -1,41 +1,56 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #000">
-  <div class="container">
+  <%#div class="container"%>
     
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <%#button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-md-auto align-items-center">
+    </%#button>
+    <%#%iv class="collapse navbar-collapse" id="navbarSupportedContent"%>
+      <%#ul class="navbar-nav ml-md-auto align-items-center">
         <li class="nav-item">
           <%= link_to "Toppage", root_path %>
-        </li>
+        <%#/li>
         <li class="nav-item">
           <%= link_to "お問い合わせ", new_contact_path %>
-        </li>
+        <%#/li>
         <li class="nav-item">
-          <% if user_signed_in? %>
+          <%# if user_signed_in? %>
           <%#= link_to "マイページ",user_path(current_user) %>
-          <%else%>
-          <%= link_to "新規登録",new_user_registration_path %>
-          <%end%>
-        </li>
+          <%#else%>
+          <%#%%= link_to "新規登録",new_user_registration_path %>
+          
+        <%#/li>
          <li class="nav-item">
          <!--企業側のみ-->
           <%#= link_to "募集を行う", new_contact_path %>
-         </li>
+         <%#/li%>
         <!--検索フォーム入れる-->
-        <nav class="navbar navbar-light bg-light">
+        <%#nav class="navbar navbar-light bg-light"%>
+
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="#">Features</a>
+        <a class="p-2 text-dark" href="#">Enterprise</a>
+        <a class="p-2 text-dark" href="#">Support</a>
+        <a class="p-2 text-dark" href="#">Pricing</a>
+      </nav>
+      <a class="btn btn-outline-primary" href="#">Sign up</a>
+    </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  
         
       <%#form class="form-inline"%>
       <%#input class="form-control mr-sm-2" type="search" placeholder="検索..." aria-label="検索..."%>
        <%#button% type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</%#button%>
       <%#/%#form%>
-    </nav>
+    </%#nav>
 
-      </ul>
-    </div>
-  </div>
-</nav>
+      </%#ul>
+    </%#div>
+   </%div>
+ </div>
+<%#/nav>
 
 
 
