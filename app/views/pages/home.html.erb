@@ -93,6 +93,8 @@
       
       <%= link_to "ユーザー編集",edit_user_registration_path%>
       
+      <%= link_to "マイページ",user_path(current_user) if current_user%>
+      
     </div>
   </div>
   

@@ -1,6 +1,6 @@
 <% provide(:title, "Sign_up") %>
 <div class="form-group text-center"> 
-  <h2>新規登録</>
+  <h2>新規登録</h2>
  
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -15,7 +15,7 @@
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
-  <div class="field">π
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -39,7 +39,7 @@
  <%= link_to "ユーザー利用規約",pages_terms_path %>
   
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.submit "登録する", class: "btn btn-primary w-100" %>
     </div>
   <% end %>
 </div>
