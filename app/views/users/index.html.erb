@@ -1,0 +1,11 @@
+<% provide(:title, "ユーザー一覧") %>
+<%= search_form_for @q do |f| %>
+  <%= f.label :name, "Keyword" %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.label :age %>
+  <%= f.number_field :age_gteq %>以上〜
+  <%= f.number_field :age_lt %>未満
+
+  <%= f.submit "検索" %>
+<% end %>

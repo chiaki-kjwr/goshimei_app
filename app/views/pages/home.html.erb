@@ -76,7 +76,7 @@
   <div class="contacts">
     <div class="container">
       <div class="row">
-      <h2 class="text-center">お問い合わせはこちら</h2>
+      <h2 class="text-center">ゴシメイの使い方</h2>
       </div>   
     </div>
   </div>
@@ -88,12 +88,14 @@
         <h2>転職のパートナーを探してみませんか？</h2>
         
       </div>
-      
+      <%if user_signed_in?%>
+      <%= link_to "マイページ",user_path(current_user) if current_user%>
+      <%else%>
       <%= link_to "無料で新規登録する", new_user_registration_path, class: "btn btn-dark btn-lg" %>
-      
+      <%end%>
       <%= link_to "ユーザー編集",edit_user_registration_path%>
       
-      <%= link_to "マイページ",user_path(current_user) if current_user%>
+      
       
     </div>
   </div>

@@ -71,3 +71,4 @@ gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'rails-i18n'
 gem 'pry-rails'
+gem 'ransack'

@@ -1,6 +1,6 @@
-<% provide(:title, "Sign_up") %>
+<% provide(:title, "新規登録") %>
 <div class="form-group text-center"> 
-  <h2>新規登録</h2>
+  <h2>新規登録してエージェントをゴシメイしてみる</h2>
  
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -35,8 +35,10 @@
     <%#= f.field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
   <%#/div>
 <%#チェックボックスをつける%>
- <p>ユーザー利用規約に同意します</p>
- <%= link_to "ユーザー利用規約",pages_terms_path %>
+  <div class="terms">
+    <p>ユーザー利用規約に同意します。</p>
+     <%= link_to "ユーザー利用規約",pages_terms_path %>
+  </div>
   
     <div class="actions">
       <%= f.submit "登録する", class: "btn btn-primary w-100" %>
