@@ -16,7 +16,11 @@ class PostsController < ApplicationController
     end
 
     def index
-        @posts = Post.includes(:company).order('created_at DESC')
+        @q = user.posts.ransack(params[:q])
+        @posts = @q.result(distinct: true).recent
+    end
+
+    def edit
     end
 
     def show
