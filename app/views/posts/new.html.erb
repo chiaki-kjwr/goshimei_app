@@ -9,19 +9,19 @@
       <div class="card-body">
         <%= form_with model: @post do |f| %>
           <div class="form-group row mt-2">
-            <div class="col-auto ">
+            <%#div class="col-auto ">
               <%#= image_tag avatar_url(current_user), class: "post-profile-icon" %>
-            </div>
+            <%#div%>
             <div class="col-auto "> 
-            <%= f.label :titil,"ボシュウのタイトル"%>
+            <%= f.label :title,"ボシュウのタイトル"%>
             <%= f.text_field :title, class: "form-control border-0", placeholder: "ボシュウ内容" %>
               </div>
-            <div class="col ">
+            <div class="col">
             <%= f.label :contents,"詳細"%>
             <%= f.text_area :contents, class: "form-control border-0", placeholder: "詳細" %>
             </div>
             
-          <%= f.submit "ボシュウする", class: "btn btn-dark" %>
+            <%= f.submit "ボシュウする", class: "btn btn-dark btn-lg" %>
         <% end %>
       </div>
     </div>

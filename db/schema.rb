@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_134426) do
+ActiveRecord::Schema.define(version: 2020_04_02_234101) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -20,8 +20,14 @@ ActiveRecord::Schema.define(version: 2020_04_01_134426) do
     t.text "contents"
   end
 
-# Could not dump table "posts" because of following StandardError
-#   Unknown type 'refereces' for column 'user'
+  create_table "posts", force: :cascade do |t|
+    t.text "contents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "title"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
     def new
         @post = Post.new
+      
+       
     end
 
     def create
-        @post = Post.new(post_params)
-        if  @post.contents.present?
-            @post.save
+        @post = Post.create(post_params)
+        if  @post.save
             flash[:success] = "ボシュウ開始されました！"
             redirect_to root_path
           else
@@ -16,7 +17,7 @@ class PostsController < ApplicationController
     end
 
     def index
-        @posts = Posts.all
+        @posts = Post.all
         
     end
 
@@ -31,6 +32,6 @@ class PostsController < ApplicationController
 
     private
     def post_params
-        params.require(:post).permit(:contents,:title)    
+        params.require(:post).permit(:contents,:title).merge(user_id: current_user.id)
     end
 end
