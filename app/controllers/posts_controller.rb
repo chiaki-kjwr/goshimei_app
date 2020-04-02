@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-        if  @post.present?
+        if  @post.contents.present?
             @post.save
             flash[:success] = "ボシュウ開始されました！"
             redirect_to root_path
@@ -16,8 +16,8 @@ class PostsController < ApplicationController
     end
 
     def index
-        @q = user.posts.ransack(params[:q])
-        @posts = @q.result(distinct: true).recent
+        @posts = Posts.all
+        
     end
 
     def edit

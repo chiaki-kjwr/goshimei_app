@@ -29,15 +29,7 @@
     background-size: 36px !important;
   }
   
-  .comment {
-    margin-left: 8px;
-    background-image: image-url("parts6");
-    background-repeat: no-repeat;
-    height: 36px;
-    width: 36px;
-    background-size: 40px !important;
-  }
-  
+
   .post-time {
     margin:0;
     color:#999;
@@ -47,4 +39,8 @@
   .post-sub-text {
     text-decoration: none;
     color: #262626;
+  }
+
+  .card-body{
+    height:300px
   }
