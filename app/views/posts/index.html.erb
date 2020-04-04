@@ -2,14 +2,14 @@
 <% @posts.each do |post| %>
   <p><%= post.title %></p>
 
-<%= search_form_for @q,class:"mb-5" do |f| %>
+<%#= search_form_for @q,class:"mb-5" do |f| %>
 <div class="form-group">
 <div class="row">
-<%= f.label :name, "Keyword" %>
-    <%= f.search_field :name_cont,class="form-control"%>
+<%#= f.label :name, "Keyword" %>
+    <%#= f.search_field :name, class="form-control"%>
 
    <div class="form-group">
-   <%= f.submit "検索" ,class="btn btn-outline-primary"%>
+   <%#= f.submit "検索" ,class="btn btn-outline-primary"%>
    </div>
 </div>
 </div>
@@ -23,7 +23,7 @@
             <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
           
           <%#= link_to user_path, class: "black-color no-text-decoration" %>
-            <strong><%= post.copany.name %></strong>
+            <strong><%= post.user.name %></strong>
           
         </div>
 
@@ -35,7 +35,7 @@
           </div>
           <div><strong>「いいね！」10件</strong></div>
           <div>
-            <span><strong><%= post.company.name %></strong></span>
+            <span><strong><%= post.user.name %></strong></span>
             <span><%= post.contents %></span>
             <%= link_to time_ago_in_words(post.created_at).upcase + "前", "#", class: "post-time no-text-decoration" %>
             <hr>
@@ -50,5 +50,6 @@
         </div>
       </div>
     </div>
-<% end %>
+ <%end%>
+
 

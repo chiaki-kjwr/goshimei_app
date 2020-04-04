@@ -17,14 +17,15 @@
       <div class="alert alert-info">
         <%= flash[:notice] %>
       </div>
-    <% end %>
-    <% if flash[:alert] %>
+<% end %>
+<% if flash[:alert] %>
       <div class="alert alert-danger">
         <%= flash[:alert] %>
       </div>
-    <% end %>
-   
-  </body>
+<% end %>
    <%= yield %>
+  </body>
+  
+  
 </html>
 <%= render 'partial/footer'%>
