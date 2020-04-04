@@ -1,14 +1,14 @@
 require 'rails_helper'
-
 RSpec.describe User, type: :model do
     it "is valid with a name,email,password" do
       user = User.new(
-      name: "Aaron",
-      email: "test@example.com",
-      password: "dottle-nouveau-pavilion-tights-furze",
+      name:"Aaron",
+      email: "tester@example.com",
+      password: "dottle-nouveau-pavilion-tights-furze"
     )
      expect(user).to be_valid
     end
+
     it "is invalid without a name" do
       user = User.new(name: nil)
       user.valid?

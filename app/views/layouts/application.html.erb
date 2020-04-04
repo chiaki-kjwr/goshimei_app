@@ -23,9 +23,11 @@
         <%= flash[:alert] %>
       </div>
 <% end %>
-   <%= yield %>
+   
+    <div class="container"> 
+       <%= yield %>
+      </div>
+  <%= render 'partial/footer'%>
+  </div>
   </body>
-  
-  
 </html>
-<%= render 'partial/footer'%>

@@ -1,10 +1,12 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
-
+  has_many :chat_messages
+  has_many :chat_room_users
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-   validates :name, presence: true, length: { maximum: 30 }   
-   validates :email, presence: true, length: { maximum: 50 }   
+  validates :name, presence: true, length: { maximum: 20 }   
+  validates :email, presence: true, length: { maximum: 50 }          
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)

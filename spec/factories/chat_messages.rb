@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user do
+  factory :chat_message do
     
   end
 end

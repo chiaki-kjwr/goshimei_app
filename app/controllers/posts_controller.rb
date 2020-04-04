@@ -8,11 +8,11 @@ class PostsController < ApplicationController
     def create
         @post = Post.create(post_params)
         if  @post.save
-            flash[:success] = "ボシュウ開始されました！"
-            redirect_to root_path
+            redirect_to posts_path
+            flash[:alert] = "ボシュウ開始されました！"
           else
-            flash[:danger] = "投稿に失敗しました"
-            redirect_to root_path
+            redirect_to new_post_path
+            flash[:alert] = "投稿に失敗しました"
         end
     end
 
