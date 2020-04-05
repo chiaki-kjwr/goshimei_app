@@ -18,6 +18,7 @@
   
   body {
     font-family: 'Hiragino Kaku Gothic ProN W3', sans-serif;
+    padding-top: 60px; 
   }
   
   li {
@@ -32,10 +33,6 @@
     padding: 180px 0 100px 0;
     
   }
-
-  .top-image{ 
-  }
-  
   .container {
     width: 1170px;
     margin: 0 auto;
@@ -59,15 +56,6 @@
   
   .fa {
     margin-right: 5px;
-  }
-  
-  header {
-    height: 65px;
-    width: 100%;
-    background-color: rgba(34, 49, 52, 0.9);
-    position :fixed;
-    top: 0;
-    z-index: 10;
   }
   
   .logo {

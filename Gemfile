@@ -72,3 +72,5 @@ gem "mini_magick"
 gem 'rails-i18n'
 gem 'pry-rails'
 gem 'ransack'
+gem 'rubocop', require: false
+gem 'rubocop-rails'

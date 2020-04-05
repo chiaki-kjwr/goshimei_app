@@ -9,9 +9,13 @@
     
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./footerFixed.js"></script>
   </head>
 
   <body>
+  <main class="mb-5">
    <%= render 'partial/navbar'%>
 
 <% if flash[:notice] %>
@@ -28,6 +32,7 @@
     <div class="container"> 
        <%= yield %>
       </div>
+  </main>
   <%= render 'partial/footer'%>
   </div>
   </body>

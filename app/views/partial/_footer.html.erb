@@ -1,16 +1,16 @@
-<footer>
+<%# ↓これでfooterを固定できる%>
+<div class="footer fixed-bottom">
 <div class="container">
   <div class="text-center">
    <ul class="list-inline">
    <% if user_signed_in? %>
     <li class="list-inline-item">
-        <%= link_to "サービス退会", "" %>
+        <%#= link_to "サービス退会", user_destroy_path, method: :delete %>
       </li>
     <li class="list-inline-item">
         <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
     <% end %> 
 
-      
       </li>
     </ul>
     <p>
@@ -18,4 +18,4 @@
     </p>
   </div>
 </div>
-</footer>
+</div>

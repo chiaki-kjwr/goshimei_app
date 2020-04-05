@@ -1,44 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #000">
 
-<div class="container">
-    
+<%#nav% class="container p-2">
+   
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      
-    </div>
-  </div>
-</nav>
-        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <nav class="collapse navbar-collapse" id="navbarSupportedContent">
+    </nav>
+  </%#nav%>
+  <div class='fixed-top'>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
       <h5 class="my-0 mr-md-auto font-weight-normal">ゴシメイ！</h5>
       <nav class="my-2 my-md-0 mr-md-3">
-        <div class="p-2 text-dark">
-        <%=link_to "お問い合わせ",new_contact_path%>
-        </div></br>
-        <%#a% class="p-2 text-dark" z>お問い合わせ</%#a%>
-        <div class="p-2 text-dark">
-        <%=link_to "チャット",""%>
-        </div></br>
+        <a class="btn btn-dark" href="new_contact_path">チャット</a>
+      <a class="btn btn-dark" href="new_contact_path">お問い合わせ</a>
+
+      <a class="btn btn-dark" href="#">マイページ</a>
+      
+      <a class="btn btn-dark" href="#">新規登録</a>
 
       </nav>
-     
-      <a class="btn btn-outline-primary" href="#">マイページ</a>
-      
-      <a class="btn btn-outline-primary" href="#">新規登録</a>
-      
     </div>
-
-  </div> 
-      
-
-
-
-
-
-
-
-
-
-
-
+  </div>   
+  </div>
