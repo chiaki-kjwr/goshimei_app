@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show',as: 'user'
   delete 'users/:id', to: 'users#destroy',as:'user_destroy'
-
+  get '/users', to: 'users#index'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :contacts

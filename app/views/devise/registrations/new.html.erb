@@ -1,6 +1,6 @@
 <% provide(:title, "新規登録") %>
 <div class="form-group text-center"> 
-  <h2>新規登録してエージェントをゴシメイしてみる</h2>
+  <h2>新規登録してエージェントに相談してみる</h2>
  
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -40,8 +40,8 @@
      <%= link_to "ユーザー利用規約",pages_terms_path %>
   </div>
   
-    <div class="actions">
-      <%= f.submit "登録する", class: "btn btn-primary w-100" %>
+    <div class="actions text-center">
+      <%= f.submit "登録する", class: "btn btn-dark" %>
     </div>
   <% end %>
 </div>

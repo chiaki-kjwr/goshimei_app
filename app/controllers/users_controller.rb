@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
 def index
-  @q = current_user.posts.ransack(params[:q])
-  @users = @q.result(distinct: true).recent
+  @users = User.all
 end
 
 
