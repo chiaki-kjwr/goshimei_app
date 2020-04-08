@@ -17,10 +17,7 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :contacts
   resources :posts, only: %i(index new create show edit) 
-  get '/chat',to:'chat#new'
-  resources :chat, only: %i(create show)
-  
-  
+  resources :chat, only: %i(index show create)
 
 end
 

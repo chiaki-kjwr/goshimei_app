@@ -74,3 +74,5 @@ gem 'pry-rails'
 gem 'ransack'
 gem 'rubocop', require: false
 gem 'rubocop-rails'
+gem 'devise-i18n'
+gem 'devise-i18n-views'

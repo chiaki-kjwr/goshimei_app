@@ -1,0 +1,9 @@
+<h1>Index</h1>
+
+<% @chat_rooms.each do |chat_room| %>
+  <div>
+    <%= link_to "Room#{chat_room.id}", chat_path(chat_room) %>
+  </div>
+<% end %>
+
+<%= link_to "create new Room", '/chat',method: :post, class: "btn btn-primary" %>
