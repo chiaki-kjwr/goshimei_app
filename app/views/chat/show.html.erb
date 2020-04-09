@@ -2,7 +2,9 @@
   <header class="header">
     <div class="chatPartner">
       <%#div class="chatPartner_img"><%= image_tag @chat_room_user.img_name.url%>
-      <div class="chatPartner_name"><%= @chat_room_user.name %></div>
+      <div class="chatPartner_name">
+      <%= @chat_room_user.name %>
+      </div>
     </div>
   </header>
   <div class="container">
