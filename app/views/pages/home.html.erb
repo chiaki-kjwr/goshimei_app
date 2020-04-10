@@ -81,7 +81,7 @@
         <h2>転職のパートナーを探してみませんか？</h2>
         
       </div>
-      <%if user_signed_in?%>
+      <% if user_signed_in? %>
       <%= link_to "マイページ",user_path(current_user) if current_user%>
       <%else%>
       <%= link_to "無料で新規登録する", new_user_registration_path, class: "btn btn-dark btn-lg" %>
@@ -92,9 +92,15 @@
       
     </div>
   </div>
-  
-     <!--  render 'shared/feed' %>-->
-  
+  <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
+    <%# if @user_ids.include?(user.id) %>
+      <br>
+      <%#= link_to "チャットへ", chat_path(current_user.find_by(user_id: user.id)) %><br>
+    
+      <%#= form_for chat_room.new do |f| %>
+        <%#= f.hidden_field :user_id, :value => user.id %>
+        <%#= f.submit %>
+      
   
 </body>
 </html>

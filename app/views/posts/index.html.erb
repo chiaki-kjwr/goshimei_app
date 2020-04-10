@@ -1,46 +1,64 @@
-<% provide(:title, "ユーザー一覧") %>
- <% @posts.each do |post| %>
-<div class="card-deck">
-  <div class="card">
-    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-    <title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">
-    <%#= image_tag avatar_url(@user), class: "round-img" %>
-    </text></svg>
-    <div class="card-body">
-      <h5 class="card-title">
-      <%=post.title%>
-      </h5>
-      <p class="card-text">
-      <%=post.contents%>
-      </p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">
-      <%= link_to time_ago_in_words(post.created_at).upcase + "ago", post_path(post),
-              class: "light-color post-time no-text-decoration" %>
-      </small>
-    </div>
-  </div>
-  <div class="card">
-    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-  <div class="card">
-    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-</div>
+<% provide(:title, "エージェントをゴシメイする") %>
 
-<%end%>
+<div class="row">
+<% @posts.each do |post| %>
+
+  <div class="col-md-4 mx-auto">
+    <div class="card-wrap">
+      <div class="card">
+        <div class="card-header align-items-center d-flex">
+          <%= link_to user_path(post.user), class: "no-text-decoration" do %>
+            <%#= image_tag avatar_url(post.user), class: "post-profile-icon" %>
+          <% end %>
+          <%= link_to user_path(post.user), class: "black-color no-text-decoration",
+            title: post.user.name do %>
+           
+          <% end %>
+
+          <% if post.user== current_user %>
+            <%= link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do %>
+              <div class="delete-post-icon">
+              </div>
+            <% end %>
+          <% end %>
+
+        </div>
+
+        <%= link_to(post_path(post)) do %>
+          
+        <% end %>
+
+        <div class="card-body">
+          <div class="row parts">
+            
+          <div id="like-icon-post-<%= post.id.to_s %>">
+              
+            </div>
+
+           <%= link_to "", "#", class: "comment" %>
+          </div>
+          
+          <div>
+            <span><strong><%= post.user.name %></strong></span>
+            <span><%= post.contents %></span>
+            <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-text-decoration" %>
+            <hr>
+            
+            
+            <div id="comment-post-<%= post.id.to_s %>">
+              
+            </div>
+            <%= link_to "ゴシメイする","/chat" ,method: :post%>
+           
+            
+            <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
+             
+            </div>
+            
+            
+           
+          </div>
+        </div>
+      </div>
+    </div>
+ <%end%> 
