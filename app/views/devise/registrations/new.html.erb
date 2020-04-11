@@ -36,8 +36,9 @@
   <%#/div>
 <%#チェックボックスをつける%>
   <div class="terms">
-    <p><a href="#" class="navbar-link">ユーザー利用規約</a>に同意します。</p>
-     <%= link_to "ユーザー利用規約",pages_terms_path %>
+  <%= check_box_tag :test1 %>
+<%= label_tag %> <a href="/pages/terms" target="_blank">ユーザー利用規約</a>に同意します<a>
+    
   </div>
   
     <div class="actions text-center">

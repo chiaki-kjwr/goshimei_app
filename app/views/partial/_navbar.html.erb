@@ -13,15 +13,16 @@
       <nav class="my-2 my-md-0 mr-md-3">
 
         <a class="btn btn-dark" href= "/posts/new">ボシュウする</a>
-      <a class="btn btn-dark" href="contacts/new">お問い合わせ</a>
-
-      <a class="btn btn-dark" href="">マイページ</a>
-      
+      <a class="btn btn-dark" href="/contacts/new">お問い合わせ</a>
+    <% if user_signed_in? %>
+       <%#= link_to "マイページ",user_path(current_user)%>
+       <% end %>
       <a class="btn btn-dark" href="/users/sign_up">新規登録</a>
+      
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-md-auto align-items-center">
           <% if user_signed_in? %>
-            <%= link_to "", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
+            <%#= link_to "", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
             <%= link_to "トップページ", root_path, class: "btn btn-primary"%>
            <% end %>
       </ul>

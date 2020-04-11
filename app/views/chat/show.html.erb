@@ -2,19 +2,19 @@
 <% if user_signed_in? %>
   <h3>チャットルーム</h3>
   <div class="chat-field">
-    <% if @messages.present?  %>
+    <%# if @message.present?  %>
+
       <!-- メッセージがUserによるものだったら -->
       
         <!-- メッセージを右に寄せる -->
-        <div class="right-message">
-          <%= m.content %>
+        <!--render @messageではメッセージのデータが表示されなかった-->
+          <%= render @messages%>
         </div>
       <!-- メッセージがShopによるものだったら -->
-      <%#% else %>
+      <%else %>
         <!-- メッセージを左に寄せる -->
         <%#iv class="left-message">
           <%= m.content %>
-    <% end %>
   </div>
 <% end %>
 

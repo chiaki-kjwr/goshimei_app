@@ -22,11 +22,6 @@
   </div>
 
   <div class="form-group">
-  <%= f.label :address %><br />
-  <%= f.text_field :address, autofocus: true, autocomplete: "住所" %>
-  </div>
-
-  <div class="form-group">
   <%= f.label :sex %><br />
   <%= f.text_field :sex, autofocus: true, autocomplete: "sex" %>
   </div>
@@ -67,10 +62,16 @@
     <%= f.text_area :profile, autofocus: true, autocomplete: "profile" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :profile_photo %>
+    <%= f.file_field :profile_photo %>
+    <%= f.hidden_field :profile_photo_cache %>
+  </div>
+
   <div class="actions">
     <%= f.submit "変更する",class:"btn btn-dark btn-lg"%>
   </div>
 <% end %>
 
-  <%= link_to "戻る", :back %>
 
+  <%= link_to "戻る", :back %>

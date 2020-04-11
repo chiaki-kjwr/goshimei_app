@@ -6,24 +6,26 @@ class ChatController < ApplicationController
   end
 
   def show
-    @user == user(current_user)
+   
+    #@user == user(current_user)
     @chat_room = ChatRoom.find_by(params[:id])
-    @chat_messages = ChatMessage.new 
+    @message = ChatMessage.new
+    @messages = ChatMessage.all
   end
   
 
   def create
-        @chat_room = ChatRoom.new(room_user_params)
+        @chat_room = ChatRoom.new
       if @chat_room.save
+ 
         redirect_to :action => "show", :id => @chat_rodom.id
       end
   end
   
-    private
+    #private
     
-    def room_user_params
-      params.permit(:user_id,:message)
-    end
-
+    #def room_user_params
+      #params.permit(:user_id,:message)
+    #end
 end
 
