@@ -6,6 +6,7 @@ class ChatController < ApplicationController
   end
 
   def show
+    @user == user(current_user)
     @chat_room = ChatRoom.find_by(params[:id])
     @chat_messages = ChatMessage.new 
   end
@@ -14,7 +15,7 @@ class ChatController < ApplicationController
   def create
         @chat_room = ChatRoom.new(room_user_params)
       if @chat_room.save
-        redirect_to :action => "show", :id => @chat_room.id
+        redirect_to :action => "show", :id => @chat_rodom.id
       end
   end
   
