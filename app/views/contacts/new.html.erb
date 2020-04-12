@@ -14,7 +14,7 @@
   <%= f.label :name, "お名前" %>
   </div>
   <div class="col-sm-8 text-center">
-  <%= f.text_field :name,placeholder: "お名前", class: "form-control"%>
+  <%= f.text_field :name,placeholder: "山田太郎", class: "form-control"%>
   </div>
 </div>
 
@@ -22,7 +22,7 @@
   <%= f.label :email, "メールアドレス"%>
   </div>
   <div class="col-sm-8 text-center">
-  <%= f.email_field :email ,placeholder: "メールアドレス", class: "form-control" %>
+  <%= f.email_field :email ,placeholder: "abe@example.com", class: "form-control" %>
 </div>
 
 <div class = "form-group col-sm-5">
@@ -30,13 +30,13 @@
   </div>
   
   <div class="col-sm-8 text-center">
-  <%= f.text_area :contents,placeholder: "お問い合わせ内容", class: "form-control"%>
+  <%= f.text_area :contents,placeholder: "登録後、ログインができません。", class: "form-control"%>
 </div>
 
  <div class = "form-group text-center">
  <%=simple_format(@contacts)%>
 
-  <%= f.submit "送信", class: "btn btn-dark btn-lg" %>
+  <%= f.submit "送信", method: :post,class: "btn btn-dark btn-lg" %>
  </div>
   <% end %>
    </div>
