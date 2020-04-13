@@ -9,16 +9,20 @@ class ChatController < ApplicationController
    
     #@user == user(current_user)
     @chat_room = ChatRoom.find_by(params[:id])
-    @message = ChatMessage.new
-    @messages = ChatMessage.all
+    
+    @chat_message = ChatMessage.new
+    @chat_messages = ChatMessage.all
+    #@chat_room.user == current_user
+    #@messages = @chat_messages.message
   end
   
 
   def create
-        @chat_room = ChatRoom.new
+      @chat_room = ChatRoom.new
       if @chat_room.save
- 
-        redirect_to :action => "show", :id => @chat_rodom.id
+      redirect_to chat_index_path
+     else
+      redirect_to root_path
       end
   end
   

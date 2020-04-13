@@ -7,7 +7,7 @@
     <%if @user.profile_photo.nil?%>
       <%= image_tag avatar_url(@user), class: "round-img" %>
       <%else%>
-      <%= image_tag @user.profile_photo.url(:thumb),class: "round-img"%>
+      <%#= image_tag @user.profile_photo.url(:thumb),class:"round-img"%>
     <%end%>
     </div>
     <div class="col-md-8">
@@ -20,7 +20,7 @@
             <p>メールアドレス : <%= @user.email %></p>
               <p>プロフィール : <%= @user.profile %></p>
 
-              <%= link_to "退会する", "/users/#{@user.id}", method: :delete,class: "btn btn-outline-dark common-btn edit-profile-btn" %>
+              <%= link_to "退会する", "/users/#{@user.id}", method: :delete,data:{confirm: "本当に退会しますか？"},class: "btn btn-outline-dark common-btn edit-profile-btn" %>
                <%= link_to "戻る", root_path, class: "btn btn-outline-dark common-btn edit-profile-btn"%>
               </div>
             </div>

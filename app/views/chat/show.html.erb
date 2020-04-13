@@ -3,20 +3,30 @@
   <h3>チャットルーム</h3>
   <div class="chat-field">
     <%# if @message.present?  %>
-
-      <!-- メッセージがUserによるものだったら -->
-      
-        <!-- メッセージを右に寄せる -->
-        <!--render @messageではメッセージのデータが表示されなかった-->
-          <%= render @messages%>
+          <%= render @chat_messages%>
         </div>
-      <!-- メッセージがShopによるものだったら -->
+
       <%else %>
-        <!-- メッセージを左に寄せる -->
-        <%#iv class="left-message">
-          <%= m.content %>
   </div>
 <% end %>
+
+<div class="container">
+  <%= link_to "<<back index", chat_index_path %>
+  <h1><%= "Chat Room #{@chat_room.id}" %></h1>
+  <h4 class="border"><%= "Your Mail Address: #{current_user&.email}" %></h4>
+  <div id="messages", data-room_id="<%= @chat_room.id %>">
+    <%= render @chat_messages %>
+  </div>
+  <div class="input">
+    <form>
+      <label>post</label>
+      <input type="text" data-behavior="room_speaker">
+    </form>
+  </div>
+</div>
+
+
+
 
 <%= form_with model: @chat do |f| %>
   <%= f.text_field :messeage %>

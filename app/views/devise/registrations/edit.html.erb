@@ -11,6 +11,11 @@
 
     <h1>アカウント編集 <%#= resource_name.to_s.humanize %></h1>
 
+<%if @user.profile_photo.nil?%>
+      <%= image_tag avatar_url(@user), class: "round-img" %>
+      <%else%>
+      <%= image_tag @user.profile_photo.url(:thumb),class: "round-img"%>
+    <%end%>
   <div class="form-group">
   <%= f.label :name %><br />
   <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
@@ -43,6 +48,7 @@
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
+
 
   <div class="form-group">
     <%= f.label :password_confirmation %><br />
