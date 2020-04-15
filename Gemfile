@@ -54,7 +54,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
   gem 'spring-commands-rspec'
-  gem 'sqlite3','~>1.4.2',require: false
+  gem 'sqlite3','~> 1.4.2',require: false
 end
 
 group :test do
