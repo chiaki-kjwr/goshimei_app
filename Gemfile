@@ -41,7 +41,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails', '~> 4.11'
-  gem 'sqlite3','1.3.13',require: false
+  gem 'sqlite3','1.4.2',require: false
+  #gem 'sqlite3','1.3.13',require: false
+
 end
 
 group :development do
