@@ -3,32 +3,32 @@
   <h3>チャットルーム</h3>
   <div class="chat-field">
     <%# if @message.present?  %>
-          <%= render @chat_messages%>
+        
         </div>
 
       <%else %>
   </div>
 <% end %>
 
-<div class="container">
-  <%= link_to "<<back index", chat_index_path %>
+<!-div class="container">
+  
   <h1><%= "Chat Room #{@chat_room.id}" %></h1>
   <h4 class="border"><%= "Your Mail Address: #{current_user&.email}" %></h4>
   <div id="messages", data-room_id="<%= @chat_room.id %>">
     <%= render @chat_messages %>
   </div>
-  <div class="input">
-    <form>
+  <!--div class="input">
+    <--form>
       <label>post</label>
       <input type="text" data-behavior="room_speaker">
-    </form>
-  </div>
-</div>
-
-
+    </--form>
+  </!--div>
+</div-->
 
 
 <%= form_with model: @chat do |f| %>
   <%= f.text_field :messeage %>
-  <%= f.submit "メッセージを送る"%>
+  <%= f.submit "送信",method: :post%>
 <% end %>
+
+ <%= link_to "<<back index", chat_index_path %>

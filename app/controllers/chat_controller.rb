@@ -19,12 +19,20 @@ class ChatController < ApplicationController
 
   def create
       @chat_room = ChatRoom.new
-      if @chat_room.save
+      if @chat_message.present?
+        @chat_message.create!
       redirect_to chat_index_path
      else
       redirect_to root_path
       end
   end
+
+  #if Conversation.between(params[:sender_id], params[:recipient_id]).present?
+   # @conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first
+  #else
+   #@conversation = Conversation.create!(conversation_params)
+  #end
+  #redirect_to conversation_messages_path(@conversation)
   
     #private
     
