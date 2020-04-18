@@ -18,15 +18,31 @@ class ChatController < ApplicationController
   
 
   def create
-      @chat_room = ChatRoom.new
-      if @chat_message.present?
-        @chat_message.create!
-      redirect_to chat_index_path
-     else
-      redirect_to root_path
-      end
+    if ChatRoom.between(params[:sender_id], params[:recipient_id]).present?
+      @chat_room = ChatRoom.between(params[:sender_id], params[:recipient_id]).first
+    else
+      @chat_room = ChatRoom.create!(conversation_params)
+    end
+    redirect_to root_path
   end
 
+  private
+
+  def chat_room_params
+    params.permit(:sender_id, :recipient_id)
+  end
+end
+
+
+
+      #@chat_room = ChatRoom.new
+      #if @chat_message.present?
+        #@chat_message.create!
+      #redirect_to chat_index_path
+     #else
+      #redirect_to root_path
+      #end
+  
   #if Conversation.between(params[:sender_id], params[:recipient_id]).present?
    # @conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first
   #else
@@ -39,5 +55,5 @@ class ChatController < ApplicationController
     #def room_user_params
       #params.permit(:user_id,:message)
     #end
-end
+
 

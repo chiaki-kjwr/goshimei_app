@@ -6,11 +6,10 @@ class PagesController < ApplicationController
          chat_rooms = current_user.chat_rooms
             #自分が入ってるroomの相手のidを格納する
             @user_ids = []
-            chat_rooms.each do |c|
-            @user_ids << c.user_id
+            #chat_rooms.each do |c|
+            #@user_ids << c.user_id
             end
         end
-    end
 
     def terms
     end

@@ -1,5 +1,5 @@
 class RemoveUserIdFromChatRooms < ActiveRecord::Migration[5.2]
   def change
-    remove_column :chat_rooms, :user_id, :integer
+    remove_reference :chat_rooms, :user, index: true,foreign_key: true
   end
 end
