@@ -6,7 +6,6 @@ class ChatController < ApplicationController
   end
 
   def show
-   
     #@user == user(current_user)
     @chat_room = ChatRoom.find_by(params[:id])
     
@@ -14,22 +13,35 @@ class ChatController < ApplicationController
     @chat_messages = ChatMessage.all
     #@chat_room.user == current_user
     #@messages = @chat_messages.message
+    
+
+    if params[:m]
+      @over_ten = false
+      @messages = @conversation.messages
+    end
+
+    
+
+    #@chat_message = @chat_message.order(:created_at)
+    #@chat_message = @chat_room.message.build
   end
+
+  
   
 
   def create
-    if ChatRoom.between(params[:sender_id], params[:recipient_id]).present?
-      @chat_room = ChatRoom.between(params[:sender_id], params[:recipient_id]).first
+    @message = @conversation.messages.build(message_params)
+    if @message.save
+      redirect_to conversation_messages_path(@conversation)
     else
-      @chat_room = ChatRoom.create!(conversation_params)
+      render 'index'
     end
-    redirect_to root_path
   end
 
   private
 
   def chat_room_params
-    params.permit(:sender_id, :recipient_id)
+    params.require(:message).permit(:sender_id, :recipient_id)
   end
 end
 

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :contacts
   resources :posts, only: %i(index new create show edit) 
   resources :chat, only: %i(index show create)do
-    resources :messages, only: %i(create)
+    resources :chat_messages #only: %i( create)
   end
 end
   

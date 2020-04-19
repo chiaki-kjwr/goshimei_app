@@ -27,6 +27,9 @@ class MessagesController < ApplicationController
   def create
     @message = @chat_room.messages.build(message_params)
     if @message.save
+      
+      
+      
       redirect_to chat_room_messages_path(@chat_room)
     else
       render 'index'
@@ -37,7 +40,7 @@ class MessagesController < ApplicationController
   
   
   #%def createchat_room = ChatRoom.find(params[:chat_room_id])
-    <#%@chat_message = ChatMessage.new(message_params)
+    #%@chat_message = ChatMessage.new(message_params)
     #if user_signed_in?
       #@message.is_user = true
     #end
