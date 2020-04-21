@@ -1,9 +1,11 @@
 <% provide(:title, "新規登録") %>
+<%= devise_error_messages %>
+
 <div class="form-group text-center"> 
-  <h2>新規登録してエージェントに相談してみる</h2>
+  <h2>新規登録してエージェントをゴシメイしてみる</h2>
  
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -11,14 +13,14 @@
   </div>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name,"お名前"%><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -30,13 +32,14 @@
 </div>
 
   <%# プロフィールフォトを編集できるようにする%>
-  <%#div class="field">
-    <%#= f.label :profile_photo %>
-    <%#= f.field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
-  <%#/div>
+  <div class="field">
+    <%= f.label :profile_photo,"プロフィール写真" %><br />
+    <%= f.file_field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
+  </div>
+
 <%#チェックボックスをつける%>
   <div class="terms">
-  <%= check_box_tag :test1 %>
+  <%= check_box_tag :test1%>
 <%= label_tag %> <a href="/pages/terms" target="_blank">ユーザー利用規約</a>に同意します<a>
     
   </div>
@@ -47,5 +50,6 @@
   <% end %>
 </div>
 
-
+<%if signed_in?%>
 <%= render "devise/shared/links" %>
+<%end%>

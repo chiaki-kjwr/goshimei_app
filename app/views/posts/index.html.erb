@@ -1,64 +1,20 @@
 <% provide(:title, "エージェントをゴシメイする") %>
 
-<div class="row">
-<% @posts.each do |post| %>
 
-  <div class="col-md-4 mx-auto">
-    <div class="card-wrap">
-      <div class="card">
-        <div class="card-header align-items-center d-flex">
-          <%= link_to user_path(post.user), class: "no-text-decoration" do %>
-            <%#= image_tag avatar_url(post.user), class: "post-profile-icon" %>
-          <% end %>
-          <%= link_to user_path(post.user), class: "black-color no-text-decoration",
-            title: post.user.name do %>
-           
-          <% end %>
 
-          <% if post.user== current_user %>
-            <%= link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do %>
-              <div class="delete-post-icon">
-              </div>
-            <% end %>
-          <% end %>
-
-        </div>
-
-        <%= link_to(post_path(post)) do %>
-          
-        <% end %>
-
-        <div class="card-body">
-          <div class="row parts">
-            
-          <div id="like-icon-post-<%= post.id.to_s %>">
-              
-            </div>
-
-           <%= link_to "", "#", class: "comment" %>
-          </div>
-          
-          <div>
-            <span><strong><%= post.user.name %></strong></span>
-            <span><%= post.contents %></span>
-            <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-text-decoration" %>
-            <hr>
-            
-            
-            <div id="comment-post-<%= post.id.to_s %>">
-              
-            </div>
-            <%= link_to "ゴシメイする","/chat" ,method: :post%>
-           
-            
-            <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
-             
-            </div>
-            
-            
-           
+ <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-mb-3">
+      
+        <div class="card">
+          <%#img class="card-img-top" src="images/notepc-wp.jpeg" alt="ライトコースのイメージ画像"%>
+          <div class="card-body text-center">
+            <h4 class="card-title"><%=post.title %></h4>
+            <p class="card-text"><%=post.contents %></p>
+            <a href="#" class="btn btn-primary">詳細を見る</a>
           </div>
         </div>
       </div>
-    </div>
- <%end%> 
+    <%end%>
+      
+

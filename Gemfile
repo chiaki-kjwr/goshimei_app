@@ -80,4 +80,5 @@ gem 'rubocop-rails'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 #gem 'pg', group: :production
+gem 'faker'
 

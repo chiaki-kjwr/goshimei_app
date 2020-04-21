@@ -1,6 +1,6 @@
 
 <div class="form-group text-center">
-<h1>ログインする</h1>
+<h1>ログイン</h1>
  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -20,10 +20,12 @@
   <% end %>
 
       <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログインする" ,class: "btn btn-dark"%>
      
    <% end %>
    </div>
 </div>
 
+<% if signed_in?%>
 <%= render "devise/shared/links" %>
+<%end%>

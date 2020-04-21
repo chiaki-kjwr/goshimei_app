@@ -3,32 +3,33 @@
 <head>
 </head>
 <body>
+
 <header>
-    <div class="container">
-      <div class="header-left">
+    <%#div class="container">
+      <%#div class="header-left">
    <%#<img src="/assets/toppage.jpeg" alt="" >%>
     <%#= image_tag 'toppage.jpeg', size: "1000x550" %>
-      </div>
+     
         <%#div% class="header-right">
         <a href="#" class="login">ログイン</a>
       </%#div%>
-    </div>
 </header>
+
   <div class="top-wrapper">
     <div class="container">
     <div class = "top-image">
-
-    </div>
-    <div class="text-center">
+<div class="text-center">
       <h1 class="font-weight-bold mb-4"><br>ゴシメイ！</h1>
 
       <h2>最良のパートナーを、見つけよう</h2>
       <%#= link_to "新規登録はこちら", new_user_registration_path %>
       </div>
-      
-
+    </div>
+   
     </div>
   </div>
+
+  <!--ゴシメイでできることの説明-->
   <div class="service-wrapper">
     <div class="container">
       <div class="heading">
@@ -81,12 +82,13 @@
         <h2>転職のパートナーを探してみませんか？</h2>
         
       </div>
-      <% if user_signed_in? %>
+      <% if signed_in? %>
       <%= link_to "マイページ",user_path(current_user) if current_user%>
+      <%= link_to "ユーザー編集",edit_user_registration_path%>
       <%else%>
       <%= link_to "無料で新規登録する", new_user_registration_path, class: "btn btn-dark btn-lg" %>
       <%end%>
-      <%= link_to "ユーザー編集",edit_user_registration_path%>
+      
       
       <%#= link_to "チャット",chat_path,class: "btn btn-dark btn-lg"%>
       
@@ -99,8 +101,7 @@
     
       <%#= form_for chat_room.new do |f| %>
         <%#= f.hidden_field :user_id, :value => user.id %>
-        <%#= f.submit %>
-      
+        <%#= f.submit %
   
 </body>
 </html>

@@ -1,9 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
     def after_sign_up_path_for(resource)
      if @user.save  
-    user_path(current_user)
+     user_path(current_user)
       end
     end
+    
+    
+
 
     protected
   
@@ -12,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def after_update_path_for(resource)
-      root_path
+      user_path(current_user)
     end
 
   end

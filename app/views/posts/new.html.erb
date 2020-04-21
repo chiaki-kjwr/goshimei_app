@@ -13,16 +13,17 @@
               <%#= image_tag avatar_url(current_user), class: "post-profile-icon" %>
             <%#div%>
             
-            <div class="col-auto "> 
+            <div class="col-auto r"> 
             <%= f.label :title,"ボシュウのタイトル"%>
             <%= f.text_field :title, class: "form-control border-0", placeholder: "ボシュウ内容" %>
               </div>
-            <div class="col">
+            <div class="col-auto ">
             <%= f.label :contents,"詳細"%>
             <%= f.text_area :contents, class: "form-control border-0", placeholder: "詳細" %>
             </div>
-            
+            <div class="form text-center">
             <%= f.submit "ボシュウする", class: "btn btn-dark" %>
+             </div>
         <% end %>
       </div>
     </div>

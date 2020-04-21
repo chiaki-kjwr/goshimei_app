@@ -8,7 +8,9 @@
         <%#= link_to "サービス退会", user_destroy_path, method: :delete %>
       </li>
     <li class="list-inline-item">
+        <%if signed_in?%>
         <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+       <%end%>
     <%# end %> 
 
       </li>
