@@ -1,6 +1,14 @@
 <% provide(:title, "エージェントをゴシメイする") %>
 
+<%= search_form_for @search, url: posts_path do |f| %>
+<div class="form-group">
+  <%= f.label :title_cont, '名前' %>
+  <%= f.search_field :title_cont,class:"form-control"%>
+  <div class="actions"><%= f.submit '検索' %></div>
+<% end %>
 
+
+　
 
  <div class="row">
     <% @posts.each do |post| %>
