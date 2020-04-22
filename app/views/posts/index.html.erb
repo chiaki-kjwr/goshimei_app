@@ -8,25 +8,26 @@
   <div class="actions"><%= f.submit '検索' %></div>
 <% end %>
 
-
-　
-
- 
    <div class="row">
    <% @posts.each do |post| %>
       <div class="col-md-4">
   
-        <%#div class="card md-3"%>
          <div class="card"%>
-          <%#img class="card-img-top" src="images/notepc-wp.jpeg" alt="ライトコースのイメージ画像"%>
+         
           <div class="card-body text-center">
             <h4 class="card-title"><%=post.title %></h4>
             <p class="card-text"><%=post.contents %></p>
-            <a href="#" class="btn btn-primary">詳細を見る</a>
+
+    <%#= image_tag post.user.profile_photo %>
+    <p><%= image_tag post.user.profile_photo unless post.user.profile_photo..nil? %></p>
+ 
+            <strong><%= post.user.name %></strong>
+            
+            <a href="#" class="btn btn-primary">ゴシメイする</a>
           </div>
-        
+       
       </div>
     </div> 
+  <%end%>
 
-    <%end%>
-
+    

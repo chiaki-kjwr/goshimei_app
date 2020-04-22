@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
     def new
         @post = Post.new
+        #@post.user.profile_photo
     end
 
     def create
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
     def index
         @search = Post.ransack(params[:q])
         @posts = @search.result
+        #user = @post.user
        # @posts = Post.all.order('created_at DESC')
         #@user.profile_photo = User.profile_photo
         
