@@ -1,48 +1,43 @@
  <% provide(:title, "お問い合わせ") %>
- <div class="card devise-card">
-    <div class="form-wrap">
-      <div class="form-group text-center">
-      
-        <h1 class="text-secondary">こちらからお問い合わせができます</h1>
+<div class="d-flex flex-column align-items-center mt-3">
+
+  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
+    <div class="card">
+      <div class="card-header">
+    　　こちらからお問い合わせが出来ます。
       </div>
-    
-　　<div class="profile-form-wrap">
-  <%= form_with model:@contact,local: true, method: :post do |f| %>
-
-
-<div class="form-group col-sm-3">
-  <%= f.label :name, "お名前" %>
-  </div>
-  <div class="col-sm-8 text-center">
-  <%= f.text_field :name,placeholder: "山田太郎", class: "form-control"%>
-  </div>
-</div>
-
-<div class="form-group  col-sm-5">
-  <%= f.label :email, "メールアドレス"%>
-  </div>
-  <div class="col-sm-8 text-center">
-  <%= f.email_field :email ,placeholder: "abe@example.com", class: "form-control" %>
-</div>
-
-<div class = "form-group col-sm-5">
-  <%= f.label :contents, "お問い合わせ内容" %>
-  </div>
+ <!--body-->
+ <div class="card-body">
+        <%= form_with model: @contact do |f| %>
   
-  <div class="col-sm-8 text-center">
-  <%= f.text_area :contents,placeholder: "登録後、ログインができません。", class: "form-control"%>
-</div>
+
+      <div class="col-auto">    
+    <%= f.label :name, "お名前"%>
+      <%= f.text_field :name ,placeholder: "山田太郎", class: "form-control" %>
+    </div>
+
+    <div class="col-auto">   
+    <%= f.label :email, "メールアドレス"%>
+      <%= f.email_field :email ,placeholder: "abe@example.com", class: "form-control" %>
+    </div>
+
+        <div class="col-auto">
+        <%= f.label :contents, "お問い合わせ内容" %>
+          <%= f.text_area :contents,placeholder: "登録後、ログインができません。", class: "form-control"%>
+          </div>
 
  <div class = "form-group text-center">
  <%=simple_format(@contacts)%>
-
   <%= f.submit "送信", method: :post,class: "btn btn-dark btn-lg" %>
  </div>
+ <!--body-->
+
   <% end %>
+  </div>
    </div>
  </div>
  </div>
 </div>
-
+</div>
 
 

@@ -6,7 +6,6 @@
       <div class="card-header">
     　　ボシュウする
       </div>
-
       <div class="card-body">
         <%= form_with model: @post do |f| %>
           <div class="form-group">
@@ -25,7 +24,7 @@
             <%= f.text_area :contents, class: "form-control border-0", placeholder: "前職はサーバーサイドのエンジニアとして
             サービス開発を行っており、豊富な業界知識と企業へのコネクションがございます" %>
             </div>
-            <div class="form text-center">
+            <div class="col-auto center">
             <%= f.submit "ボシュウする", class: "btn btn-dark" %>
              </div>
         <% end %>
