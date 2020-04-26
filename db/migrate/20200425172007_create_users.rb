@@ -11,9 +11,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :age
       t.string :sex
       t.text :profile
-      t.integer :role、default:  0
     end
-   　　add_index :users, :email,                unique: true
-    　add_index :users, :reset_password_token, unique: true
   end
 end

@@ -10,6 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_054028) do
+ActiveRecord::Schema.define(version: 2020_04_25_172007) do
+
+  create_table "chat_messages", force: :cascade do |t|
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.string "messeage"
+    t.integer "user_id"
+    t.integer "chat_room_id"
+    t.index ["chat_room_id"], name: "index_chat_rooms_on_chat_room_id"
+    t.index ["user_id"], name: "index_chat_rooms_on_user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "contents"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name", null: false
+    t.string "profile_photo", null: false
+    t.integer "age"
+    t.string "sex"
+    t.text "profile"
+  end
 
 end

@@ -19,6 +19,7 @@
             <p class="card-text"><%=post.contents %></p>
 
     <%#= image_tag post.user.profile_photo %>
+    <%= image_tag(@user.profile_photo_url) if @user.profile_photo? %>
     <p><%= image_tag post.user.profile_photo unless post.user.profile_photo..nil? %></p>
  
             <strong><%= post.user.name %></strong>
