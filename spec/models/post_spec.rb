@@ -26,6 +26,8 @@ RSpec.describe Post, type: :model do
         expect(post.errors.added?(:title, :blank)).to be_truthy
     end
     
+
+    #検索結果についてのテスト
  
 
 
