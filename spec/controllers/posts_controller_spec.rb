@@ -11,9 +11,7 @@ RSpec.describe PostsController, type: :controller do
         password: "dottle-nouveau-pavilion-tights-furze",
         id:1
         )
-      end
-
-
+    end
 
    #正常にレスポンスを返すこと
     example "レスポンスが成功する" do
@@ -26,13 +24,9 @@ RSpec.describe PostsController, type: :controller do
       get :index
       expect(response).to have_http_status "200"
     end
+ end
 
-
-
-   
-   
-
-  end
+ 
 
 
 

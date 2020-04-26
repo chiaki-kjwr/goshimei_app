@@ -10,7 +10,7 @@ RSpec.describe Post, type: :model do
       )
   end
 
-    it "is valid with a user" do
+    example "ログインしているユーザーは新規投稿ができる" do
         post = Post.new(
         title: "project",
         contents: "projectproject",
@@ -19,7 +19,7 @@ RSpec.describe Post, type: :model do
         expect(post).to be_valid
     end
 
-    it "is invalid without a title,contents" do
+    example "titleとcontentsどちらも入力していないとエラーとなる" do
         post = Post.new(title: nil,contents:nil)
         post.valid?
         #expect(post.errors[:title]).to include("can't be blank")
