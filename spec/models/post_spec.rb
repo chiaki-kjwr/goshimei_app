@@ -1,5 +1,6 @@
 require 'rails_helper'
-RSpec.describe Post, type: :model do
+
+describe Post, type: :model do
 
   before do
     @user = User.create(
@@ -28,10 +29,14 @@ RSpec.describe Post, type: :model do
     
 
     #検索結果についてのテスト
- 
-
-
-
-
 
 end
+
+
+
+
+
+
+
+
+
