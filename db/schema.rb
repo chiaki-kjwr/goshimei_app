@@ -13,17 +13,26 @@
 ActiveRecord::Schema.define(version: 2020_04_25_172007) do
 
   create_table "chat_messages", force: :cascade do |t|
+    t.string "message"
+    t.integer "user_id"
+    t.integer "chat_room_id"
+    t.index ["chat_room_id"], name: "index_chat_messages_on_chat_room_id"
+    t.index ["user_id"], name: "index_chat_messages_on_user_id"
   end
 
   create_table "chat_rooms", force: :cascade do |t|
-    t.string "messeage"
-    t.integer "user_id"
-    t.integer "chat_room_id"
-    t.index ["chat_room_id"], name: "index_chat_rooms_on_chat_room_id"
-    t.index ["user_id"], name: "index_chat_rooms_on_user_id"
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.index ["recipient_id"], name: "index_chat_rooms_on_recipient_id"
+    t.index ["sender_id"], name: "index_chat_rooms_on_sender_id"
   end
 
   create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "contents"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
