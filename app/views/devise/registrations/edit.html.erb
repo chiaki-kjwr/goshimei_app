@@ -37,8 +37,13 @@
 
         <div class="col-auto">
         <%= f.label :age,"年齢" %><br />
-     <%= f.text_field :age, autofocus: true, autocomplete: "age" ,placeholder:"例）36"%>
+     <%= f.text_field :age, autofocus: true, autocomplete: "age" ,placeholder:"例）36",class: "form-control"%>
     </div>
+
+    <div class="col-auto">
+    <%= f.label :profile,"経歴" %> <br />
+    <%= f.text_area :profile, autofocus: true, autocomplete: "profile",class: "form-control"%>
+  </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -47,30 +52,22 @@
 
   <div class="col-auto">
     <%= f.label :password,"新しいパスワード" %> <i></i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password",class: "form-control"%>
     <% if @minimum_password_length %>
       <br />
-      <!--<em><%= @minimum_password_length %> 文字以上</em>-->
     <% end %>
   </div>
+  
 
 
   <div class="col-auto">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation,"新しいパスワード(確認)"%><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control"%>
   </div>
 
   <div class="col-auto">
     <%= f.label :current_password %> <i></i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-  <%# プロフィールフォトを編集できるようにする%>
-  
-    <%#= f.label :profile_photo %><br />
-    <%#= f.field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
-  <div class="col-auto">
-    <%= f.label :profile,"経歴" %> <br />
-    <%= f.text_area :profile, autofocus: true, autocomplete: "profile" %>
+    <%= f.password_field :current_password, autocomplete: "current-password",class: "form-control" %>
   </div>
 
   <div class="col-auto">
@@ -79,14 +76,11 @@
     <%= f.hidden_field :profile_photo_cache %>
   </div>
 
-  <div class="actions">
+  <div class="actions text-center">
     <%= f.submit "変更する",class:"btn btn-dark btn-lg",method: :post%>
   </div>
  <% end %>
     
-
-  
- 
    </div>
  </div>
 </div>
@@ -94,4 +88,4 @@
 
 </div>
 
- <%= link_to "戻る",user_path(@user)%>
+ <%= link_to "戻る",user_path(resource)%>
