@@ -1,4 +1,4 @@
-class CreateChatRooms < ActiveRecord::Migration[5.2]
+class CreateChatRoom < ActiveRecord::Migration[5.2]
   def change
     create_table :chat_rooms do |t|
       t.integer :sender_id, index: true
@@ -6,4 +6,3 @@ class CreateChatRooms < ActiveRecord::Migration[5.2]
     end
   end
 end
-

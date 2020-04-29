@@ -9,7 +9,7 @@
       </li>
     <li class="list-inline-item">
         <%if signed_in?%>
-        <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "サインアウト", destroy_user_session_path, method: :delete,:style=>"color:black;" %>
        <%end%>
     <%# end %> 
 
