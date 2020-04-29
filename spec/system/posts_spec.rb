@@ -11,18 +11,13 @@ end
  visit login_path
  fill_in "メールアドレス",with "joetester@example.com"
  fill_in"パスワード",with"password"
-click_button"ログインする"
+ click_button"ログインする"
 
- example"userが作成したタスクが表示される" do
-
-
-   
+ example"userが作成した投稿が表示される" do
+  expevt(page).to have_content "投稿"
  end
- 
-
 end
-
-  
+end
 
 
 

@@ -151,15 +151,20 @@
   }
   
   .message-wrapper {
-    padding-bottom: 80px;
     text-align: center;
+    
   }
   
   .message {
     padding: 15px 40px;
-
+   
     cursor: pointer;
    
+  }
+
+  .registration{
+    margin-top: 500px;
+    color: #5f5d60;
   }
   
   .message:active {

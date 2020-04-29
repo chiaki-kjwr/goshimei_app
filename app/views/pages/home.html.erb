@@ -1,12 +1,8 @@
-<% provide(:title, "TopPage") %>
+<% provide(:title, "Home") %>
 <html>
 <head>
 </head>
 <body>
-
-<header>
-</header>
-
   <div class="top-wrapper">
     <div class="container">
     <div class = "top-image">
@@ -33,7 +29,7 @@
           
             <div class="detail col-3" >
               
-                <%= image_tag 'consultation.png'%>
+                <%= image_tag("consultation.png",:class =>"rounded-circle") %>
                 
               
               <p class="text-contents"><span class="font-weight-bold">専門性の高い転職エージェントにいつでも相談できます</span></p>
@@ -59,18 +55,33 @@
     </div>
   </div>
 
-  <div class="contacts">
+ <!--ゴシメイの使い方-->
+  <div class="Features py-5">
+  <div class="heading text-center">
+        <h2>ゴシメイの使い方</h2>
+      </div>
+   <%#h2 class="text-center">ゴシメイの使い方</$h2%>
     <div class="container">
-      <div class="row">
-      <h2 class="text-center">ゴシメイの使い方</h2>
-      </div>   
+    <div class="mb-5 row">
+    <div class="col-sm-8">
+    <h3>検索ができます</h3>
+    </div>
+     <div class="col-sm-4">
+     <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
+     </div>
+      <%#div class="row"%>
+      <%#h2 class="text-center">ゴシメイの使い方</%h2%>
+
+      </div>
+      <div>
+      </div>
     </div>
   </div>
 
-
+   <!--ゴシメイへの登録-->
   <div class="message-wrapper">
     <div class="container">
-      <div class="heading">
+      <div class="registration">
         <h2>転職のパートナーを探してみませんか？</h2>
         
       </div>
