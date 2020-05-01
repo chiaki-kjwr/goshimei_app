@@ -1,6 +1,8 @@
 <div class="form-group text-center">
 <h1>ログイン</h1>
- <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ <%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ <%=form_with scope: :session,local: :true do |f|%>
+  <div class="field">
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -11,12 +13,8 @@
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+  
+
 
       <div class="actions">
     <%= f.submit "ログインする" ,class: "btn btn-dark"%>
@@ -25,6 +23,6 @@
    </div>
 </div>
 
-<% if signed_in?%>
-<%= render "devise/shared/links" %>
-<%end%>
+<%# if current_company?%>
+<%#= render "devise/shared/links" %>
+<%#end%>

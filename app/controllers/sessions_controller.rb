@@ -6,17 +6,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    company = Company.find_by(email: params[:session][:email].downcase)
-    #if company && company.authenticate(params[:session])
-    if @company
-      session[:user_id] = @user.id
-      log_in company
-      redirect_to root_path
+    company = Company.find_by(email: session_params[:email])
+    if company && company.authenticate(session_params[:password])
+      session[:company_id] = company.id
+      redirect_to root_path,notice: 'ログインに成功しました'
     else
-      flash.now[:danger] = 'Invalid email/password combination'
-      redirect_to root_path
+      #redirect_to root_pat,hnotice: 'ログインに成功しました'
+      render :new
     end
   end
+  
 
   def destroy
     log_out
