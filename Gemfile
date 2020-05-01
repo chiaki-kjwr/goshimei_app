@@ -41,8 +41,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails', '~> 4.11'
-  #gem 'sqlite3','1.3.13',require: false
-
 end
 
 group :development do
@@ -79,6 +77,6 @@ gem 'rubocop', require: false
 gem 'rubocop-rails'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-gem 'pg', group: :production
+#gem 'pg', group: :production
 gem 'faker'
 
