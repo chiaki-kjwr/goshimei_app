@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  
-  devise_for :companies
   devise_for :users,
     controllers: { registrations: 'registrations' }
   
@@ -16,6 +14,7 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show',as:'user'
   delete '/users/:id',to: 'users#destroy'
+  resources :companies
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :contacts

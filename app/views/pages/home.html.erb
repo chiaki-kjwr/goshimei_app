@@ -85,7 +85,7 @@
         <h2>転職のパートナーを探してみませんか？</h2>
         
       </div>
-      <% if signed_in? %>
+      <% if user_signed_in? %>
       <%= link_to "マイページ",user_path(current_user) if current_user%>
       <%= link_to "ユーザー編集",edit_user_registration_path%>
       <%else%>

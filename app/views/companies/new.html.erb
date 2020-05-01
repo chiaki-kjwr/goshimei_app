@@ -1,0 +1,34 @@
+<% provide(:title, "新規登録") %>
+
+<div class="form-group text-center"> 
+  <h2>新規登録(企業）</h2>
+
+  <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
+  <%= form_with(model: @company, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name,"お名前"%><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+
+  <%# プロフィールフォトを編集できるようにする%>
+  <div class="field">
+    <%= f.label :profile_photo,"プロフィール写真" %><br />
+    <%= f.file_field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
+  </div>
+
+    <div class="actions text-center">
+      <%= f.submit "登録する", class: "btn btn-dark" %>
+    </div>
+  <% end %>
+</div>
+
+<%if user_signed_in?%>
+<%= render "devise/shared/links" %>
+<%end%>
