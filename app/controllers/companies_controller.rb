@@ -16,10 +16,20 @@ class CompaniesController < ApplicationController
     redirect_to root_path,notice: 'ユーザー登録が完了しました'
   end
 
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    company = Company.find(params[:id])
+    company.update(company_params)
+    redirect_to company_path,notice: 'ユーザー情報を更新しました'
+  end
+
   private
 
   def company_params
-    params.require(:company).permit(:name,:email,:profile_photo)
+    params.require(:company).permit(:name,:email,:profile_photo,:profile)
   end
 
 end
