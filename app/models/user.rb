@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_many :posts, dependent: :destroy
   has_many :chat_messages,dependent: :destroy
   has_many :chat_rooms
   

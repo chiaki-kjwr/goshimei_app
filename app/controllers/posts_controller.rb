@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
+    before_action :current_company
     def new
+
         @post = Post.new
-        #@post.user.profile_photo
     end
 
     def create
         @post = Post.new(post_params)
-        if  @post.save
+        if  @post.save!
             redirect_to posts_path
             flash[:alert] = "ボシュウ開始されました！"
           else
@@ -36,5 +37,9 @@ class PostsController < ApplicationController
     private
     def post_params
         params.require(:post).permit(:contents,:title).merge(user_id: current_user.id)
+    end
+
+    def current_company
+        @current_company ||= Company.find_by(id: session[:company_id])
     end
 end
