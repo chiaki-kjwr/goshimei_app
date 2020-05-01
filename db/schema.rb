@@ -10,14 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_091507) do
+ActiveRecord::Schema.define(version: 2020_05_01_112128) do
+
+  create_table "chat_messages", force: :cascade do |t|
+    t.text "message"
+    t.integer "user_id"
+    t.integer "chat_room_id"
+    t.integer "company_id"
+    t.index ["chat_room_id"], name: "index_chat_messages_on_chat_room_id"
+    t.index ["company_id"], name: "index_chat_messages_on_company_id"
+    t.index ["user_id"], name: "index_chat_messages_on_user_id"
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "company_id"
+    t.index ["company_id"], name: "index_chat_rooms_on_company_id"
+    t.index ["user_id"], name: "index_chat_rooms_on_user_id"
+  end
 
   create_table "companies", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.string "email", null: false
     t.string "name", null: false
     t.string "profile_photo", null: false
     t.text "profile"
@@ -38,27 +51,24 @@ ActiveRecord::Schema.define(version: 2020_05_01_091507) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text "message"
-    t.integer "user_id"
-    t.integer "room_id"
-    t.integer "company_id"
-    t.index ["company_id"], name: "index_messages_on_company_id"
-    t.index ["room_id"], name: "index_messages_on_room_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "posts", force: :cascade do |t|
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "company_id"
-    t.index ["company_id"], name: "index_rooms_on_company_id"
-    t.index ["user_id"], name: "index_rooms_on_user_id"
+    t.text "title"
+    t.text "contents"
+    t.index ["company_id"], name: "index_posts_on_company_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name", null: false
+    t.string "profile_photo", null: false
+    t.integer "age"
+    t.string "sex"
+    t.text "profile"
   end
 
 end
