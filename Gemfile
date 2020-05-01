@@ -79,4 +79,5 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 #gem 'pg', group: :production
 gem 'faker'
+gem 'bcrypt', '~> 3.1.7'
 

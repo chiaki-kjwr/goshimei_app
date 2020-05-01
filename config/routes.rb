@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show',as:'user'
   delete '/users/:id',to: 'users#destroy'
   resources :companies,only: %i(index new show create edit update)
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete 'logout',  to: 'sessions#destroy'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :contacts

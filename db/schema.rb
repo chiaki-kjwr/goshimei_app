@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_112128) do
+ActiveRecord::Schema.define(version: 2020_05_01_171141) do
 
   create_table "chat_messages", force: :cascade do |t|
     t.text "message"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_05_01_112128) do
     t.string "name", null: false
     t.string "profile_photo", null: false
     t.text "profile"
+    t.string "password_digest"
   end
 
   create_table "contacts", force: :cascade do |t|
