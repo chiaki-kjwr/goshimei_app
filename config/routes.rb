@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get  'pages/about'
   get  'pages/help'
   get  'pages/terms'
+  get  'pages/company_home', to: 'pages#company_home',as:'companies_home'
   
 
   #get '/users/:id', to: 'users#show',as: 'user'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   resources :companies,only: %i(index new show create edit update)
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
-  delete 'logout',  to: 'sessions#destroy'
+  delete '/logout',  to: 'sessions#destroy'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :contacts
