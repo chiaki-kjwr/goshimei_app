@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     company = Company.find_by(email: session_params[:email])
     if company && company.authenticate(session_params[:password])
       session[:company_id] = company.id
+      binding.pry
       redirect_to root_path,notice: 'ログインに成功しました'
     else
       #redirect_to root_pat,hnotice: 'ログインに成功しました'
@@ -25,7 +26,7 @@ class SessionsController < ApplicationController
 
   private 
   def session_params
-      params.require(:session).permit(:name,:email)
+      params.require(:session).permit(:name,:email,:password)
   end
 
 end

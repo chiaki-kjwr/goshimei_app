@@ -13,12 +13,13 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
- @import "pages/home";
- @import "layouts/navbar";
- @import "users/show";
- @import "users/edit";
- @import "chat";
- @import "users/new";
- @import "custom";
- @import "device/error_messages";
+@import "bootstrap";
+@import "pages/home";
+@import "layouts/navbar";
+@import "users/show";
+@import "users/edit";
+@import "chat";
+@import "users/new";
+@import "custom";
+@import "device/error_messages";
+@import "companies/new";
