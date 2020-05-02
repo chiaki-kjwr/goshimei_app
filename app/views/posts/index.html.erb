@@ -8,27 +8,20 @@
   <div class="actions"><%= f.submit '検索' %></div>
 <% end %>
 
-   <div class="row">
-   <% @posts.each do |post| %>
-      <div class="col-md-4">
-  
-         <div class="card"%>
-         
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-md-6">
+        <div class="card"%>
           <div class="card-body text-center">
             <h4 class="card-title"><%=post.title %></h4>
             <p class="card-text"><%=post.contents %></p>
-
-    <%= image_tag post.company.profile_photo_url %>
-    <%#= image_tag(current_company.profile_photo_url) if @company.profile_photo? %>
-    <p><%= image_tag post.company.profile_photo unless post.company.profile_photo..nil? %></p>
- 
-            <strong><%= post.company.name %></strong>
-            
-            <a href="#" class="btn btn-primary">ゴシメイする</a>
+            <%= image_tag post.company.profile_photo_url(:thumb),class: "round-img" %>
+<%#= image_tag post.company.profile_photo unless post.company.profile_photo..nil? %></p>
+            <strong><%= post.company.name %></strong></br>
+            <a href="#" class="btn btn-dark">ゴシメイする</a>
           </div>
-       
-      </div>
+        </div>
     </div> 
   <%end%>
+</div>
 
-    

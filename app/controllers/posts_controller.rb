@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     def index
         @search = Post.ransack(params[:q])
         @posts = @search.result
-        @posts = current_company.posts
+        #@posts = current_company.posts
         
     end
 
