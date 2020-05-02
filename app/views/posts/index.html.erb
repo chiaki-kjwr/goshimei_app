@@ -18,11 +18,11 @@
             <h4 class="card-title"><%=post.title %></h4>
             <p class="card-text"><%=post.contents %></p>
 
-    <%#= image_tag post.user.profile_photo %>
-    <%= image_tag(@user.profile_photo_url) if @user.profile_photo? %>
-    <p><%= image_tag post.user.profile_photo unless post.user.profile_photo..nil? %></p>
+    <%= image_tag post.company.profile_photo_url %>
+    <%#= image_tag(current_company.profile_photo_url) if @company.profile_photo? %>
+    <p><%= image_tag post.company.profile_photo unless post.company.profile_photo..nil? %></p>
  
-            <strong><%= post.user.name %></strong>
+            <strong><%= post.company.name %></strong>
             
             <a href="#" class="btn btn-primary">ゴシメイする</a>
           </div>

@@ -23,6 +23,11 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
     end
 
+    private
+    def login_required
+      redirect_to new_company_path unless current_company
+    end
+
 
 end
   

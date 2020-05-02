@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
     before_action :current_company
     def new
-
         @post = Post.new
     end
 
@@ -19,9 +18,7 @@ class PostsController < ApplicationController
     def index
         @search = Post.ransack(params[:q])
         @posts = @search.result
-        #user = @post.user
-       # @posts = Post.all.order('created_at DESC')
-        #@user.profile_photo = User.profile_photo
+        @posts = current_company.posts
         
     end
 
@@ -32,11 +29,9 @@ class PostsController < ApplicationController
         @post = Post.find_by(id: params[:id])
     end
 
-
-
     private
     def post_params
-        params.require(:post).permit(:contents,:title).merge(user_id: current_user.id)
+        params.require(:post).permit(:contents,:title).merge(company_id: current_company.id)
     end
 
     def current_company
