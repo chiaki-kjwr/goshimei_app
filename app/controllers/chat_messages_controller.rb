@@ -25,31 +25,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = @chat_room.messages.build(message_params)
-    if @message.save
-      
-      
-      
-      redirect_to chat_room_messages_path(@chat_room)
-    else
-      render 'index'
-    end
+    @chat_room = ChatRoom.find(params[:chat_room_id])
+    @chat_message = ChatMessage.new(message_params)
+    #メッセージがuserによるものだったらis_user=true, shopによるものだったらis_user=false
+    
   end
-
-  
-  
-  
-  #%def createchat_room = ChatRoom.find(params[:chat_room_id])
-    #%@chat_message = ChatMessage.new(message_params)
-    #if user_signed_in?
-      #@message.is_user = true
-    #end
-
-    #@message.chat_room_id = @chat_room_id
-    #if @message.save
-      #redirect_to chat_path(@chat)
-    #end
-  #end%>
 
   private
   def message_params

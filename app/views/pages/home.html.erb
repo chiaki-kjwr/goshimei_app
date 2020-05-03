@@ -94,14 +94,39 @@
       
       
       <%#= link_to "チャット",chat_path,class: "btn btn-dark btn-lg"%>
-       <%=link_to"企業の方はこちら",companies_home_path%>
+       <%= link_to"企業の方はこちら",companies_home_path %>
     </div>
   </div>
-  <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
-    <%# if @user_ids.include?(user.id) %>
-      <br>
-      <%#= link_to "チャットへ", chat_path(current_user.find_by(user_id: user.id)) %><br>
-    <!--Userでログインしてたら-->
+  <!-- チャット機能 userでログイン-->
+    <% if user_signed_in? %>
+  <br>
+  <h2>エージェント一覧</h2>
+  <br>
+
+  <%= link_to "チャットへ","/chat_rooms",method: :post %>
+
+  <% @companies.each do |company| %>
+    <%= company.name %>
+  <% end %>
+
+  <!--companyでログインしてたら-->
+<% elsif shop_signed_in? %>
+  <br>
+  <h2>ユーザー一覧</h2>
+  <br>
+  <% @users.each do |user| %>
+    <%= user.name %>
+  <% end %>
+<% end %>
+
+
+
+
+
+  
+  
+
+<!--Shopでログインしてたら-->
 
     
     </body>
