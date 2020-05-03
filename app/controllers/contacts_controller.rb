@@ -1,13 +1,6 @@
 class ContactsController < ApplicationController
 before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @contacts = Contact.all
-  end
-
-  def show
-  end
-
   def new
     @contact = Contact.new
   end
@@ -21,9 +14,6 @@ before_action :set_contact, only: [:show, :edit, :update, :destroy]
       redirect_to new_contact_path
       flash[:alert] = "送信に失敗しました"
     end
-  end
-
-  def edit
   end
 
   def update

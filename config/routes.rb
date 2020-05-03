@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chat_rooms/show'
   devise_for :users,
     controllers: { registrations: 'registrations' }
   
@@ -21,10 +22,13 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
-  resources :contacts
-  resources :posts, only: %i(index new create show edit) 
-  resources :chat_eoom, only: %i(index show create)do
-    resources :chat_messages #only: %i( create)
+  resources :contacts,only: %i(new create) 
+  resources :posts, only: %i(index new create show) do
+    resources :likes, only: %i(create destroy)
+  end
+
+  resources :chat_rooms, only: %i(index show create)do
+    resources :chat_messages,only: %i( create)
   end
 end
   

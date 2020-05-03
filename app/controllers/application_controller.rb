@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     def current_company
       @current_company ||= Company.find_by(id: session[:company_id]) if session[:company_id]
     end
+
   
     #def require_sign_in
       #redirect_to companies_login_path unless current_company

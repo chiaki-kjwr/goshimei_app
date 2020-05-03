@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     end
 
     def index
+        @user = User.find_by(id: params[:id])
         @search = Post.ransack(params[:q])
         @posts = @search.result
         #@posts = current_company.posts
@@ -27,6 +28,10 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find_by(id: params[:id])
+    end
+
+    def liked_by(user)
+        Like.find_by(user_id: user.id, post_id: post.id)
     end
 
     private

@@ -4,21 +4,32 @@
 <div class="form-group">
   <%= f.label :title_or_contents_cont, 'エージェントを検索しよう' %>
   <%= f.search_field :title_or_contents_cont,class:"form-control"%>
-  </div>
+</div>
   <div class="actions"><%= f.submit '検索' %></div>
 <% end %>
 
-  <div class="row">
-    <% @posts.each do |post| %>
-      <div class="col-md-6">
-        <div class="card"%>
-          <div class="card-body text-center">
-            <h4 class="card-title"><%=post.title %></h4>
-            <p class="card-text"><%=post.contents %></p>
-            <%= image_tag post.company.profile_photo_url(:thumb),class: "round-img" %>
-<%#= image_tag post.company.profile_photo unless post.company.profile_photo..nil? %></p>
-            <strong><%= post.company.name %></strong></br>
-            <a href="#" class="btn btn-dark">ゴシメイする</a>
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-6">
+      <div class="card"%>
+        <div class="card-body text-center">
+          <h4 class="card-title"><%=post.title %></h4>
+          <p class="card-text"><%=post.contents %></p>
+          <%= image_tag post.company.profile_photo_url(:thumb),class: "round-img" %>
+          <strong><%= post.company.name %></strong></br>
+<!--お気に入り機能-->
+          <div id="like-icon-post-<%= post.id.to_s %>">
+            <% if @posts.liked_byd? %>
+            <%= link_to "いいねを取り消す", post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+            <% else %>
+            <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text" %>
+            <% end %>
+
+            <div id="like-text-post-<%= post.id.to_s %>">
+            <%= render "like_text", { likes: post.likes } %>
+          </div>
+
+          <a href="#" class="btn btn-dark">ゴシメイする</a>
           </div>
         </div>
     </div> 
