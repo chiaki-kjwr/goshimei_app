@@ -17,6 +17,11 @@ class PagesController < ApplicationController
         chat_rooms.each do |c|
         @user_ids << r.user_id
         end
+
+logger.debug("[debug] pages#home")
+logger.info("[info] pages#home")
+logger.warn("[warn] pages#home")
+
     end
     end
     

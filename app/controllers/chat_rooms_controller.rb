@@ -5,7 +5,9 @@ class ChatRoomsController < ApplicationController
     @messages = @chat_message.message #このルームのメッセージを全て取得
     if user_signed_in?
       if @chat_room.user_id == current_user.id
-        @companhy = @chat_room.company
+        #@company = @chat_room.company
+        @company_id = @chat_room.company_id
+        
       else
         redirect_to "/"
       end
@@ -41,11 +43,11 @@ class ChatRoomsController < ApplicationController
 
   private
   def room_company_params
-    params.require(:chat_rooms).permit(:company_id)
+    params.require(:chat_room).permit(:company_id)
   end
 
   def room_user_params
-    params.require(:chat_rooms).permit(:user_id)
+    params.require(:chat_room).permit(:user_id)
   end
 
 end
