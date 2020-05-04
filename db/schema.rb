@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_131056) do
+ActiveRecord::Schema.define(version: 2020_05_04_131428) do
 
   create_table "chat_messages", force: :cascade do |t|
     t.text "message"
     t.integer "chat_room_id"
+    t.boolean "is_user", default: true, null: false
     t.index ["chat_room_id"], name: "index_chat_messages_on_chat_room_id"
   end
 
