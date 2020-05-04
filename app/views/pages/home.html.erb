@@ -1,84 +1,99 @@
 <% provide(:title, "Home") %>
-<html>
-<head>
-</head>
-<body>
-  <div class="top-wrapper",id="wrapper">
-    <div class="container">
-    <div class = "top-image">
-<div class="text-center">
-      <h1 class="font-weight-bold mb-4"><br>ゴシメイ！</h1>
-
-      <h2>信頼できる転職エージェントを、自分で見つけよう</h2>
-      <%#= link_to "新規登録はこちら", new_user_registration_path %>
+<div class="top-wrapper" ,id="wrapper">
+      <div class="container">
+        <div class="top-image">
+          <div class="text-center">
+            <h1 class="font-weight-bold mb-4 topTitle"><br />ゴシメイ！</h1>
+            <h3 class="subTitle">
+              <p>信頼できる転職エージェントを、</p>
+              <p>自分で見つけよう</p>
+            </h3>
+            <%#= link_to "新規登録はこちら", new_user_registration_path,class:"signIn btn btn-warning" %>
+          </div>
+        </div>
       </div>
     </div>
-   
-    </div>
-  </div>
 
-  <!--ゴシメイでできることの説明-->
-  <div class="service-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>ゴシメイ！でできること</h2>
-      </div>
-      <div class="row">
-        
-         
-          
-            <div class="detail col-3" >
-              
-                <%= image_tag("consultation.png",:class =>"rounded-circle") %>
-                
-              
-              <p class="text-contents"><span class="font-weight-bold">専門性の高い転職エージェントにいつでも相談できます</span></p>
-            </div>
+    <!--ゴシメイでできることの説明-->
+    <div class="service-wrapper">
+      <div class="container">
+        <div class="heading">
+          <h2>ゴシメイ！でできること</h2>
+        </div>
+        <div class="row">
+          <div class="detail col-3 consultation">
+            <%= image_tag("consultation.png",:class =>"rounded-circle") %>
 
-            <div class="detail col-3 ">
-              
-                <%= image_tag 'nominate.png'%>
+            <p class="text-contents">
+              <span class="font-weight-bold"
+                >専門性の高い転職エージェントにいつでも相談できます</span
+              >
+            </p>
+          </div>
+
+          <div class="detail col-3 nominate ">
+            <%= image_tag 'nominate.png'%>
             
-              <p class="text-contents"><span class="font-weight-bold">自分にぴったりの転職エージェントを指名できます</span></p>
-            </div>
 
-            <div class="detail col-3">
-              
-                <%= image_tag 'free.png' %>
-              
-              <p class="text-contents"><span class="font-weight-bold">無料でサービス利用できます</span></p>
-            </div>
+            <p class="text-contents">
+              <span class="font-weight-bold">自分にぴったりの転職エージェントを指名できます</span>
+            </p>
+          </div>
 
-      </div>   
-        
-      
+          <div class="detail col-3 free">
+            <%= image_tag 'free.png' %>
+             <p class="text-contents">
+              <span class="font-weight-bold">無料でサービス利用できます</span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
- <!--ゴシメイの使い方-->
-  <div class="Features py-5">
-  <div class="heading text-center">
+    <!--ゴシメイの使い方-->
+    <div class="Features py-5">
+      <div class="heading text-center">
         <h2>ゴシメイの使い方</h2>
       </div>
-   <%#h2 class="text-center">ゴシメイの使い方</$h2%>
-    <div class="container">
-    <div class="mb-5 row">
-    <div class="col-sm-8">
-    <h3>検索ができます</h3>
-    </div>
-     <div class="col-sm-4">
-     <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
-     </div>
-      <%#div class="row"%>
-      <%#h2 class="text-center">ゴシメイの使い方</%h2%>
-
-      </div>
-      <div>
+      <div class="container">
+        <div class="mb-5 row bgBlue">
+          <div class="col-sm-8">
+            <h3 class="text-center mt10">検索ができます</h3>
+          </div>
+          <div class="col-sm-4">
+            <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-   <!--ゴシメイへの登録-->
+    <div class="heading text-center"></div>
+    <div class="container mt10 ">
+      <div class="mb-5 row bgSkyblue">
+        <div class="col-sm-4">
+          <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
+        </div>
+        <div class="col-sm-8">
+          <h3 class="text-center mt10">お気に入りができます</h3>
+        </div>
+      </div>
+    </div>
+      <div class="Features py-5">
+      <div class="container mt20">
+        <div class="mb-5 row bgBlue">
+          <div class="col-sm-8">
+            <h3 class="text-center mt10">チャットができます</h3>
+          </div>
+          <div class="col-sm-4">
+            <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<!--ゴシメイへの登録-->
   <div class="message-wrapper">
     <div class="container">
       <div class="registration">
@@ -94,7 +109,7 @@
       
       
       <%#= link_to "チャット",chat_path,class: "btn btn-dark btn-lg"%>
-       <%= link_to"企業の方はこちら",companies_home_path %>
+      <%= link_to"企業の方はこちら",companies_home_path %>
     </div>
   </div>
   <!-- チャット機能 userでログイン-->

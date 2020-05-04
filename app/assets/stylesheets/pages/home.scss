@@ -188,6 +188,78 @@
     //padding: 40vh;
    // margin-top: 5vh;
 }
+container {
+  margin-right: 100px !important;
+  margin-left: 100px !important;
+}
+
+.imageSize {
+  width: 350px !important;
+  height: 246px !important;
+}
+
+.mt10 {
+  margin-top: 10%;
+}
+
+.mt20 {
+  margin-top: 20%;
+}
+
+.topTitle {
+  position: absolute;
+  top: 30%;
+}
+
+.subTitle {
+  position: absolute;
+  top: 55%;
+}
+
+.signIn {
+  position: absolute;
+  top: 80%;
+  left: 20%;
+}
+
+.bgBlue {
+  background-color: blue;
+}
+
+.bgSkyblue {
+  background-color: skyblue;
+}
+
+@media screen and (max-width: 900px) {
+  .consultation {
+    flex: none !important;
+    max-width: none !important;
+  }
+  .nominate {
+    margin-top: 70px;
+    flex: none !important;
+    max-width: none !important;
+  }
+  .free {
+    margin-top: 70px;
+    flex: none !important;
+    max-width: none !important;
+  }
+
+  .service-wrapper {
+    height: 1200px;
+    background-color: #f7f7f7;
+    text-align: center;
+  }
+
+  .detail {
+    position: relative;
+    float: left;
+    width: 25%;
+    margin-left: 0 !important;
+  }
+}
+
 
 
 

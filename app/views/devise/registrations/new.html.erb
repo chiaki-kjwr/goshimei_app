@@ -48,9 +48,10 @@
     </div>
   <% end %>
 </div>
-<%= link_to 'Signin with Google', user_google_omniauth_authorize_path %>
+<%#= link_to 'google 古い', user_google_oauth2_omniauth_authorize_path(:google_oauth2) %>
+<%#= link_to 'Google',user_google_omniauth_callback_path %>
 <%= render "devise/shared/links" %>
-
+<%#= link_to '/auth/google_oauth2' %>
 
 <%if user_signed_in?%>
 <%= render "devise/shared/links" %>
