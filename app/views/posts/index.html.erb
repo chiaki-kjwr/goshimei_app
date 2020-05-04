@@ -25,9 +25,10 @@
             <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text" %>
             <% end %>
 
-            <div id="like-text-post-<%= post.id.to_s %>">
-            <%= render "like_text", { likes: post.likes } %>
+          <div id="likes_buttons_<%= post.id %>">
+            <%= render partial: 'posts/like_text', locals: { post: post} %>
           </div>
+
 
           <a href="#" class="btn btn-dark">ゴシメイする</a>
           </div>
