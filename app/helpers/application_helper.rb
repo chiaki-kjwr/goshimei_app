@@ -11,6 +11,11 @@ module ApplicationHelper
     end
   end
 
+  def current_company
+      @current_company ||= Company.find_by(id: session[:company_id])
+    end
+  end
+
   def devise_error_messages
     return "" if resource.errors.empty?
     html = ""

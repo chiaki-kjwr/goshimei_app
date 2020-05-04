@@ -1,4 +1,6 @@
 class ChatRoomsController < ApplicationController
+  include ApplicationHelper
+  
   def show
     @chat_room = ChatRoom.find(params[:id]) #ルーム情報の取得
     @chat_message = ChatMessage.new #新規メッセージ投稿

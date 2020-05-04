@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  include ApplicationHelper
   before_action do
     @chat_room = ChatRoom.find(params[:chat_room_id])
   end
