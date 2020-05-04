@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    include ApplicationHelper
     before_action :current_company
     def new
         @post = Post.new

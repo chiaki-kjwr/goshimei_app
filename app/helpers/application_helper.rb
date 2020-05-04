@@ -13,7 +13,10 @@ module ApplicationHelper
 
   def current_company
       @current_company ||= Company.find_by(id: session[:company_id])
-    end
+  end
+
+  def company_signed_in?
+    @current_company.present?
   end
 
   def devise_error_messages

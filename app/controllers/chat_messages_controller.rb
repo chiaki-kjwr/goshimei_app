@@ -1,39 +1,24 @@
 class MessagesController < ApplicationController
   include ApplicationHelper
-  before_action do
-    @chat_room = ChatRoom.find(params[:chat_room_id])
-  end
-
-  def index
-    @messages = @chat_room.messages
-
-    if @messages.length > 10
-      @over_ten = true１
-      @messages = ChatMessage.where(id: @messages[-10..-1].pluck(:id))
-    end
-
-    if params[:m]
-      @over_ten = false
-      @messages = @chat_room.messages
-    end
-
-    if @messages.last
-      @messages.where.not(user_id: current_user.id).update_all(read: true)
-    end
-
-    @messages = @messages.order(:created_at)
-    @message = @chat_room.messages.build
-  end
 
   def create
     @chat_room = ChatRoom.find(params[:chat_room_id])
     @chat_message = ChatMessage.new(message_params)
     #メッセージがuserによるものだったらis_user=true, shopによるものだったらis_user=false
-    
+    if user_signed_in?
+      @chat_message.is_user = true
+    elsif company_signed_in?
+      @chat_message.is_user = false
+    end
+    @chat_message.chat_room_id = @chat_room.id
+    if @chat_message.save
+      redirect_to chat_room_url(@chat_room)
+    else
+      redirect_to chat_room_url(@chat_room)
+    end
   end
 
-  private
   def message_params
-    params.require(:message).permit(:message)
+    params.require(:chat_message).permit(:message)
   end
 end
