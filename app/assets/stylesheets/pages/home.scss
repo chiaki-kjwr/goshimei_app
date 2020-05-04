@@ -42,6 +42,7 @@
     width:auto;
     margin: 0 auto;
   }
+
   
   .top-wrapper h1 {
     opacity: 0.7;
@@ -52,7 +53,6 @@
   .top-wrapper p {
     opacity: 0.7;
     margin-bottom: 15px;
-    
   }
   
   
@@ -153,7 +153,6 @@
   
   .message-wrapper {
     text-align: center;
-    
   }
   
   .message {
@@ -164,8 +163,9 @@
   }
 
   .registration{
-    margin-top: 500px;
+    margin-top: 250px;
     color: #5f5d60;
+    text-align: center;
   }
   
   .message:active {

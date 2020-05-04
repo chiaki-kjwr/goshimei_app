@@ -53,7 +53,7 @@
     <!--ゴシメイの使い方-->
     <div class="Features py-5">
       <div class="heading text-center">
-        <h2>ゴシメイの使い方</h2>
+        <h2>ゴシメイ！の使い方</h2>
       </div>
       <div class="container">
         <div class="mb-5 row bgBlue">
@@ -71,7 +71,7 @@
     <div class="container mt10 ">
       <div class="mb-5 row bgSkyblue">
         <div class="col-sm-4">
-          <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
+          <%= image_tag('like.png',:class =>"w-100 rounded-circle") %>
         </div>
         <div class="col-sm-8">
           <h3 class="text-center mt10">お気に入りができます</h3>
@@ -90,26 +90,19 @@
         </div>
       </div>
     </div>
-
-
-
 <!--ゴシメイへの登録-->
   <div class="message-wrapper">
     <div class="container">
-      <div class="registration">
+      <div class="registration text-center">
         <h2>転職のパートナーを探してみませんか？</h2>
-        
+        <% if user_signed_in? %>
+          <%= link_to "マイページ",user_path(current_user) if current_user%>
+          <%= link_to "ユーザー編集",edit_user_registration_path%>
+        <%else%>
+          <%= link_to "新規登録する", new_user_registration_path, class: "btn btn-dark btn-lg text-center" %><br>
+          <%= link_to "ユーザーの方はこちら", new_user_session_path, class: "btn btn-dark btn-lg text-center" %>
+        <%end%>
       </div>
-      <% if user_signed_in? %>
-      <%= link_to "マイページ",user_path(current_user) if current_user%>
-      <%= link_to "ユーザー編集",edit_user_registration_path%>
-      <%else%>
-      <%= link_to "無料で新規登録する", new_user_registration_path, class: "btn btn-dark btn-lg" %>
-      <%end%>
-      
-      
-      <%#= link_to "チャット",chat_path,class: "btn btn-dark btn-lg"%>
-      <%= link_to"企業の方はこちら",companies_home_path %>
     </div>
   </div>
   <!-- チャット機能 userでログイン-->
@@ -134,19 +127,3 @@
   <% end %>
 <% end %>
 
-
-
-
-  
-  
-
-<!--Shopでログインしてたら-->
-
-    
-    </body>
-  
-
-</html>
-      <%#= form_for chat_room.new do |f| %>
-        <%#= f.hidden_field :user_id, :value => user.id %>
-  
