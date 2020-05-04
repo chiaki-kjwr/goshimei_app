@@ -1,0 +1,296 @@
+.h1 {
+  font-size: 80px;
+  font-family: "serif";
+  color: #ddd;
+}
+
+.h2 {
+  font-family: "serif";
+  color: #ddd;
+}
+
+html,
+body,
+ul,
+ol,
+li,
+h1,
+h2,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN W3", sans-serif;
+  padding-top: 60px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.top-wrapper {
+  position: relative;
+  padding: 180px 0 100px 0;
+  background-image: url("phone.jpg");
+  background-size: cover;
+  margin: 0;
+  height: 550px;
+}
+.container {
+  /* //width: 1170px; */
+  width: auto;
+  margin: 0 auto;
+}
+
+.top-wrapper h1 {
+  opacity: 0.7;
+  font-size: 45px;
+  letter-spacing: 5px;
+}
+
+.top-wrapper p {
+  opacity: 0.7;
+  margin-bottom: 15px;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+.logo {
+  width: 124px;
+  margin-top: 20px;
+}
+
+.header-left {
+  float: left;
+}
+
+.header-right {
+  float: right;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.5s;
+}
+
+.header-right:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.header-right a {
+  line-height: 65px;
+  padding: 0 25px;
+  color: white;
+  display: block;
+}
+
+.service-wrapper {
+  height: 580px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.container {
+  margin-right: 100px !important;
+  margin-left: 100px !important;
+}
+
+.heading {
+  padding-top: 80px;
+  padding-bottom: 10px;
+  color: #5f5d60;
+}
+
+.heading h2 {
+  font-weight: normal;
+}
+
+.row {
+  position: absolute !important;
+}
+
+.detail {
+  position: relative;
+  float: left;
+  width: 25%;
+  margin-left: 40px !important;
+  img {
+    width: 350px !important;
+    height: 246px !important;
+  }
+}
+
+.icon {
+  position: relative;
+}
+
+.icon p {
+  position: absolute;
+  top: 44%;
+  width: 100%;
+  color: white;
+}
+
+.text-contents {
+  width: 80%;
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #b3aeb5;
+}
+
+.heading h3 {
+  font-weight: normal;
+}
+
+.message-wrapper {
+  text-align: center;
+}
+
+.message {
+  padding: 15px 40px;
+
+  cursor: pointer;
+}
+
+.registration {
+  margin-top: 500px;
+  color: #5f5d60;
+}
+
+.message:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+
+.mb-5 {
+  margin: auto 0 auto 0;
+}
+
+.top-image {
+  /* background-image: image-url('toppage.jpeg'); */
+  /* background-size: cover; */
+  /* width: 60vw; */
+  /* padding-top:0; */
+  /* height: 40vh; */
+  /* height: 100vh; */
+  /* padding: 40vh; */
+  /* margin-top: 5vh; */
+}
+
+/* 以下付け足し */
+
+.container {
+  margin-right: 100px !important;
+  margin-left: 100px !important;
+}
+
+.imageSize {
+  width: 350px !important;
+  height: 246px !important;
+}
+
+.mt10 {
+  margin-top: 10%;
+}
+
+.mt20 {
+  margin-top: 20%;
+}
+
+.topTitle {
+  position: absolute;
+  top: 30%;
+}
+
+.subTitle {
+  position: absolute;
+  top: 55%;
+}
+
+.signIn {
+  position: absolute;
+  top: 80%;
+  left: 15%;
+  color: white !important;
+}
+
+.logIn {
+  position: absolute;
+  top: 80%;
+  left: 23%;
+  color: white !important;
+}
+
+.canSearch {
+  margin-left: 20%;
+  margin-top: 3%;
+  padding-top: 5%;
+}
+
+.bgBlue {
+  background: blue;
+}
+
+.searchImage {
+  margin-left: 55%;
+}
+
+.companyImage {
+  width: 400px !important;
+  height: 300px !important;
+}
+@media screen and (max-width: 900px) {
+  .consultation {
+    flex: none !important;
+    max-width: none !important;
+  }
+  .nominate {
+    margin-top: 70px;
+    flex: none !important;
+    max-width: none !important;
+  }
+  .free {
+    margin-top: 70px;
+    flex: none !important;
+    max-width: none !important;
+  }
+
+  .service-wrapper {
+    height: 1200px;
+    background-color: #f7f7f7;
+    text-align: center;
+  }
+
+  .detail {
+    position: relative;
+    float: left;
+    width: 25%;
+    margin-left: 0 !important;
+  }
+
+  .signIn {
+    position: absolute;
+    top: 80%;
+    left: 25%;
+    color: white !important;
+  }
+
+  .logIn {
+    position: absolute;
+    top: 90%;
+    left: 25%;
+    color: white !important;
+  }
+}

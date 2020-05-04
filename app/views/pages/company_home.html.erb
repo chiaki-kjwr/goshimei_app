@@ -1,5 +1,35 @@
 <h1>企業側のページ</h1>
+<body>
+    <div class="top-wrapper" ,id="wrapper">
+      <div class="container">
+        <div class="top-image">
+          <div class="text-center">
+            <h1 class="font-weight-bold mb-4 topTitle"><br />ゴシメイ！</h1>
+            <h3 class="subTitle">
+              <p>信頼できる転職エージェントを、</p>
+              <p>自分で見つけよう</p>
+            </h3>
+            <%#= link_to "新規登録はこちら", new_user_registration_path, class:'signIn btn btn-dark' %>
+            <%#= link_to "ログイン", ログイン先のリンク, class:'logIn btn btn-dark' %>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="heading text-center">
+      <h2>ゴシメイの使い方</h2>
+    </div>
+
+    <div class="mb-5 bgBlue">
+      <div class="canSearch">
+        <h3>検索ができます</h3>
+      </div>
+      <div class="searchImage">
+        <%= image_tag('search.png',:class =>"companyImage rounded-circle") %>
+      </div>
+    </div>
+  </body>
+</html>
 
 
 <%=link_to "新規登録",new_company_path%>
