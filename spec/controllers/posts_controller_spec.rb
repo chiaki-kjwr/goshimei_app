@@ -5,7 +5,7 @@ RSpec.describe PostsController, type: :controller do
   #ログイン済みユーザーであること
   context "as an authenticated user" do
     before do
-       @user = User.create(
+        @user = User.create(
         name: "Joe",
         email: "joetester@example.com",
         password: "dottle-nouveau-pavilion-tights-furze",
@@ -13,13 +13,11 @@ RSpec.describe PostsController, type: :controller do
         )
     end
 
-   #正常にレスポンスを返すこと
     example "レスポンスが成功する" do
       get :index
       expect(response).to be_success
     end
 
-    #200レスポンスを返すこと
     example "200レスポンスを返す" do
       get :index
       expect(response).to have_http_status "200"

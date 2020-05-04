@@ -4,7 +4,8 @@ class User < ApplicationRecord
   has_many :likes
   
   devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :validatable
+          :recoverable, :rememberable, :validatable,
+          :omniauthable, omniauth_providers: %i(google)
   validates :name, presence: true, length: { maximum: 20 }   
   validates :email, presence: true, length: { maximum: 50 }      
   validates :profile_photo, presence: true
@@ -36,6 +37,13 @@ class User < ApplicationRecord
     result = update_attributes(params, *options)
     clean_up_passwords
     result
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
   end
 
 end

@@ -110,7 +110,7 @@
   <% end %>
 
   <!--companyでログインしてたら-->
-<% elsif shop_signed_in? %>
+<%# elsif company_signed_in? %>
   <br>
   <h2>ユーザー一覧</h2>
   <br>
@@ -118,7 +118,6 @@
     <%= user.name %>
   <% end %>
 <% end %>
-
 
 
 

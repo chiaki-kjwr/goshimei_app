@@ -80,4 +80,6 @@ gem 'devise-i18n-views'
 #gem 'pg', group: :production
 gem 'faker'
 gem 'bcrypt', '~> 3.1.7'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 

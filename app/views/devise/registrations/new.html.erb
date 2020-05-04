@@ -48,7 +48,11 @@
     </div>
   <% end %>
 </div>
+<%= link_to 'Signin with Google', user_google_omniauth_authorize_path %>
+<%= render "devise/shared/links" %>
+
 
 <%if user_signed_in?%>
 <%= render "devise/shared/links" %>
+
 <%end%>

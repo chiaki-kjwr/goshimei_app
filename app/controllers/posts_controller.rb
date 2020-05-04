@@ -20,17 +20,13 @@ class PostsController < ApplicationController
         @search = Post.ransack(params[:q])
         @posts = @search.result
         #@posts = current_company.posts
-        
-    end
-
-    def edit
     end
 
     def show
         @post = Post.find_by(id: params[:id])
     end
 
-    def liked_by(user)
+    def liked_by(current_user)
         Like.find_by(user_id: user.id, post_id: post.id)
     end
 
