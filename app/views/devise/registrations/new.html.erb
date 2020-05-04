@@ -7,16 +7,19 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
   <div class="field">
+  <span class="must">必須</span>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
+  <span class="must">必須</span>
     <%= f.label :name,"お名前"%><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
   <div class="field">
+  <span class="must">必須</span>
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
@@ -25,6 +28,7 @@
   </div>
 
   <div class="field">
+  <span class="must">必須</span>
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
@@ -32,6 +36,7 @@
 
   <%# プロフィールフォトを編集できるようにする%>
   <div class="field">
+  <span class="must">必須</span>
     <%= f.label :profile_photo,"プロフィール写真" %><br />
     <%= f.file_field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
   </div>
