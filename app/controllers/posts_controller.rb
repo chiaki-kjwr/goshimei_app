@@ -28,7 +28,7 @@ class PostsController < ApplicationController
             @companies = Company.all
             chat_rooms = current_user.chat_rooms
             
-           
+        
             
             @company_ids = []
             chat_rooms.each do |c|

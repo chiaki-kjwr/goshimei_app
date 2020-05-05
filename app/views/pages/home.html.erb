@@ -92,18 +92,19 @@
     </div>
 <!--ゴシメイへの登録-->
   <div class="message-wrapper">
-    <div class="container">
+    <%#div class="container"%>
       <div class="registration text-center">
         <h2>転職のパートナーを探してみませんか？</h2>
         <% if user_signed_in? %>
-          <%= link_to "マイページ",user_path(current_user) if current_user%>
-          <%= link_to "ユーザー編集",edit_user_registration_path%>
+          <%= link_to "マイページ",user_path(current_user) if current_user %>
+          <%= link_to "ユーザー編集",edit_user_registration_path、、class: "btn-circle"%>
         <%else%>
-          <%= link_to "新規登録する", new_user_registration_path, class: "btn-circle" %><br>
-          <%= link_to "ユーザーの方", new_user_session_path, class: "btn-circle" %>
+          <%= link_to "新規登録する", new_user_registration_path, class: "btn-circle" %></br>
+          </br>
+          <%= link_to "ユーザーの方はこちら", new_user_session_path, class: "btn-circle" %>
         <%end%>
       </div>
-    </div>
+    <%#/div%>
   </div>
   <!-- チャット機能 userでログイン-->
     

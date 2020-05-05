@@ -153,13 +153,13 @@
   
   .message-wrapper {
     text-align: center;
+    margin-top:0;
+    padding-top:0;
   }
   
   .message {
     padding: 15px 40px;
-   
     cursor: pointer;
-   
   }
 
   .registration{
@@ -250,9 +250,9 @@
   text-decoration: none;
   background: #ff8181;
   color: #FFF;
-  width: 120px;
-  height: 120px;
-  line-height: 120px;
+  width: 180px;
+  height: 180px;
+  line-height: 180px;
   border-radius: 50%;
   text-align: center;
   font-weight: bold;
@@ -267,6 +267,7 @@
   transform: translateY(2px);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
   border-bottom: none;
+  text-decoration: none;
 }
 
 
