@@ -1,5 +1,5 @@
 <% provide(:title, "Home") %>
-<div class="top-wrapper" ,id="wrapper">
+<div class="welcome-wrapper" ,id="wrapper">
       <div class="container">
         <div class="top-image">
           <div class="text-center">
@@ -99,8 +99,8 @@
           <%= link_to "マイページ",user_path(current_user) if current_user%>
           <%= link_to "ユーザー編集",edit_user_registration_path%>
         <%else%>
-          <%= link_to "新規登録する", new_user_registration_path, class: "btn btn-dark btn-lg text-center" %><br>
-          <%= link_to "ユーザーの方はこちら", new_user_session_path, class: "btn btn-dark btn-lg text-center" %>
+          <%= link_to "新規登録する", new_user_registration_path, class: "btn-circle" %><br>
+          <%= link_to "ユーザーの方", new_user_session_path, class: "btn-circle" %>
         <%end%>
       </div>
     </div>
