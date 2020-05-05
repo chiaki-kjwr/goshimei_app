@@ -1,10 +1,10 @@
 class ChatRoomsController < ApplicationController
   include ApplicationHelper
-  
+
   def show
     @chat_room = ChatRoom.find(params[:id]) #ルーム情報の取得
     @chat_message = ChatMessage.new #新規メッセージ投稿
-    @messages = @chat_message.message #このルームのメッセージを全て取得
+    @chat_messages = @chat_room.chat_messages #このルームのメッセージを全て取得
     if user_signed_in?
       if @chat_room.user_id == current_user.id
         #@company = @chat_room.company
@@ -45,7 +45,7 @@ class ChatRoomsController < ApplicationController
 
   private
   def room_company_params
-    params.require(:chat_room).permit(:company_id)
+    params.permit(:user_id)
   end
 
   def room_user_params

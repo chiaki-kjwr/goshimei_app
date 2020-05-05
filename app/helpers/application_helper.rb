@@ -5,11 +5,11 @@ module ApplicationHelper
         "https://www.gravatar.com/avatar/#{gravatar_id}.jpg"
   end
 
-  def current_user
-    if session[:user_id]
-      @current_user ||= User.find_by(id: session[:user_id])
-    end
-  end
+  #def current_user
+    #if session[:user_id]
+      #@current_user ||= User.find_by(id: session[:user_id])
+    #end
+  #end
 
   def current_company
       @current_company ||= Company.find_by(id: session[:company_id])

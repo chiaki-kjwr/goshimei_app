@@ -2,7 +2,7 @@
 <% if user_signed_in? %>
   
   <div class="chat-field">
-    <% @messages.each do |m| %>
+    <% @chat_messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->
       <% if m.is_user %>
         <!-- メッセージを右に寄せる -->
@@ -21,7 +21,7 @@
 <% elsif company_signed_in?%>
   <h3><% @user.name %>とのチャットルーム</h3>
   <div class="chat-field">
-    <% @messages.each do |m| %>
+    <% @chat_messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->
       <% if m.is_user %>
         <!-- メッセージを左に寄せる -->
@@ -39,7 +39,7 @@
   </div>
 <% end %>
 
-<%= form_for [chat_@room, @chat_message] do |f| %>
+<%= form_for(chat_@room, @chat_message) do |f| %>
   <%= f.text_field :message %>
   <%= f.submit "メッセージを送る"%>
 <% end %>

@@ -3,7 +3,10 @@ class PagesController < ApplicationController
 
     def home
         if user_signed_in?
-        #@user.name = current_user.name
+            #user = User.find(params[:id])
+        
+            
+            
             @companies = Company.all
             chat_rooms = current_user.chat_rooms
             @company_ids = []

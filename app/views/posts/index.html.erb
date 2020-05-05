@@ -29,8 +29,8 @@
             <%= render partial: 'posts/like_text', locals: { post: post} %>
           </div>
 
-
-          <a href="#" class="btn btn-dark">ゴシメイする</a>
+            <%= link_to "御指名する", chat_room_path(current_user) %>
+          <a href="/chat_rooms" class="btn btn-dark">ゴシメイする</a>
           </div>
         </div>
     </div> 
@@ -40,7 +40,7 @@
 <h1>チャットサンプル</h1>
 <!--Userでログインしてたら-->
 <% if user_signed_in? %>
-  ~<%= current_user.name %>がログインしてます~
+  <p>~<%= current_user.name %>がログインしてます~</p>
   
   <br>
   <h2>ショップ一覧</h2>
@@ -51,7 +51,7 @@
     <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
     <% if @company_ids.include?(company.id) %>
       <br>
-      <%= link_to "チャットへ", room_path(current_user.rooms.find_by(shop_id: shop.id)) %><br>
+      <%#= link_to "チャットへ", chat_room_path(current_user.rooms.find_by(shop_id: shop.id)) %><br>
     <% else %>
       <%= form_for ChatRoom.new do |f| %>
         <%= f.hidden_field :company_id, :value => company.id %>

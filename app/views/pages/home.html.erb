@@ -106,7 +106,8 @@
     </div>
   </div>
   <!-- チャット機能 userでログイン-->
-    <% if user_signed_in? %>
+    
+  <% if user_signed_in? %>
   <br>
   <h2>エージェント一覧</h2>
   <br>
@@ -116,25 +117,14 @@
   <% @companies.each do |company| %>
     <%= company.name %>
   <% end %>
-
-  <!--companyでログインしてたら-->
-<%# elsif company_signed_in? %>
-  <br>
-  <h2>ユーザー一覧</h2>
-  <br>
-  <% @users.each do |user| %>
-    <%= user.name %>
-  <% end %>
 <% end %>
+  <!--companyでログインしてたら-->
 
 <h1>チャットサンプル</h1>
 <!--Userでログインしてたら-->
-<% if user_signed_in? %>
-  ~<%= current_user.name %>がログインしてます~
+<%if user_signed_in? %>
+  <p>~<%#= current_user.name %>がログインしてます~</p>
   
-  <br>
-  <h2>ショップ一覧</h2>
-  <br>
 
   <% @companies.each do |company| %>
     <%= company.name %>
@@ -142,7 +132,7 @@
     <%# if @company_ids.include?(company.id) %>
     <%# if user_signed_in? %>
       <br>
-      <%= link_to "チャットへ", room_path(current_user.rooms.find_by(company_id: company.id)) %><br>
+      <%#= link_to "チャットへ", chat_room_path(current_user.rooms.find_by(company_id: company.id)) %><br>
     <%# else %>
       <%= form_for ChatRoom.new do |f| %>
         <%= f.hidden_field :company_id, :value => company.id %>
@@ -150,9 +140,6 @@
       <% end %>
     <%# end %>
   <% end %>
-
-    <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
-  
-  <% end %>
+<%end%>
 
 

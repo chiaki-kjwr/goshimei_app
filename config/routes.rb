@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     resources :likes, only: %i(create destroy)
   end
 
-  resources :chat_rooms, only: %i(index show create)do
-    resources :chat_messages,only: %i( create)
+  resources :chat_rooms, only: %i(index show new create)do
+    resources :chat_messages,only: %i(new create)
   end
 end
   
