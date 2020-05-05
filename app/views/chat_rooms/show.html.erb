@@ -39,7 +39,7 @@
   </div>
 <% end %>
 
-<%= form_for(chat_@room, @chat_message) do |f| %>
-  <%= f.text_field :message %>
-  <%= f.submit "メッセージを送る"%>
+<%= form_with model:[@chat_room ,@chat_message] do |f|  %>
+  <%= f.text_field :chat_messages %>
+  <%= f.submit "メッセージを送る" %>
 <% end %>
