@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'chat_rooms/show'
   devise_for :users,
     controllers: { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'pages#home'
