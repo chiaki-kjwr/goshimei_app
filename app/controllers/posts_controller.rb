@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     include ApplicationHelper
-    before_action :current_company
+    #before_action :current_company
     def new
         @post = Post.new
     end
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
         if  @post.save!
             redirect_to posts_path
             flash[:alert] = "ボシュウ開始されました！"
-          else
+        else
             redirect_to new_post_path
             flash[:alert] = "投稿に失敗しました"
         end
@@ -20,28 +20,23 @@ class PostsController < ApplicationController
         @user = User.find_by(id: params[:id])
         @search = Post.ransack(params[:q])
         @posts = @search.result
-        if user_signed_in?
-            #user = User.find(params[:id])
-        
-            
-            
-            @companies = Company.all
-            chat_rooms = current_user.chat_rooms
-            
-        
-            
-            @company_ids = []
-            chat_rooms.each do |c|
+
+        #チャット機能
+        if  user_signed_in?
+                @companies = Company.all
+                chat_rooms = current_user.chat_rooms
+                @company_ids = []
+                chat_rooms.each do |c|
                 @company_ids << c.company_id
-            end
+                end
         elsif company_signed_in?
-            @users = User.all
-            chat_rooms = current_company.chat_rooms
-        #自分が入ってるroomの相手のidを格納する
-            @user_ids = []
-            chat_rooms.each do |c|
-                @user_ids << c.user_id
-            end
+                @users = User.all
+                chat_rooms = current_company.chat_rooms
+                #自分が入ってるroomの相手のidを格納する
+                @user_ids = []
+                chat_rooms.each do |c|
+                    @user_ids << c.user_id
+                end
         end
     end
     
@@ -59,7 +54,7 @@ class PostsController < ApplicationController
         params.require(:post).permit(:contents,:title).merge(company_id: current_company.id)
     end
 
-    def current_company
-        @current_company ||= Company.find_by(id: session[:company_id])
-    end
+    #def current_company
+        #@current_company ||= Company.find_by(id: session[:company_id])
+    #end
 end

@@ -1,15 +1,15 @@
 require 'rails_helper'
 RSpec.describe PostsController, type: :controller do
   
-  describe "index" do
+  describe "投稿一覧" do
   #ログイン済みユーザーであること
-  context "as an authenticated user" do
+  context "ログイン済みのcompanyである" do
     before do
-        @user = User.create(
+        @company = Company.create(
         name: "Joe",
         email: "joetester@example.com",
-        password: "dottle-nouveau-pavilion-tights-furze",
-        id:1
+        password_digest: "password",
+        profile_photo:"aaa.jpg"
         )
     end
 
@@ -22,9 +22,6 @@ RSpec.describe PostsController, type: :controller do
       get :index
       expect(response).to have_http_status "200"
     end
-  
-    #example "インスタンス変数" do
-
   
   end
 end

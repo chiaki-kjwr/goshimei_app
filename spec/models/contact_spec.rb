@@ -7,22 +7,18 @@ RSpec.describe Contact, type: :model do
     email: "tester@example.com",
     contents: "testtesttest"
   )
-   expect(contact).to be_valid
+    expect(contact).to be_valid
   end
 
   example "contentsが無いと有効ではない" do
-    contact = Contact.new(contents:nil)
+    contact = Contact.new(contents: nil)
     contact.valid?
-    expect(contact.errors[:contents]).to include("can't be blank")
+    expect(contact.errors[:contents]).to_not include("can't be blank")
   end
 
   example "nameが無いと有効ではない" do
-    contact = Contact.new(name:nil)
+    contact = Contact.new(name: nil)
     contact.valid?
-    expect(contact.errors[:name]).to include("can't be blank")
-  
+    expect(contact.errors[:name]).to_not include("can't be blank")
   end
-
-
-
 end

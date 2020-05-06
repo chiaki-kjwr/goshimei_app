@@ -1,7 +1,6 @@
 require 'rails_helper'
 RSpec.describe PagesController, type: :controller do
   describe "GET /" do
-
     example "ルートページへのGETリクエストでhomeのビューが表示される" do
       expect(response).to be_successful
     end

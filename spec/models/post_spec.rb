@@ -1,21 +1,20 @@
 require 'rails_helper'
-
 describe Post, type: :model do
 
   before do
-    @user = User.create(
+    @company = Company.create(
       name: "Joe",
       email: "joetester@example.com",
-      password: "dottle-nouveau-pavilion-tights-furze",
+      password_digest: "password",
       id:1
       )
   end
 
-    example "ログインしているユーザーは新規投稿ができる" do
+    example "ログインしているcompanyは新規投稿ができる" do
         post = Post.new(
         title: "project",
         contents: "projectproject",
-        user_id:1
+        company_id:1
       )
         expect(post).to be_valid
     end

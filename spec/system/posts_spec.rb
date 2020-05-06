@@ -7,10 +7,11 @@ describe "投稿機能", type: :system do
     end
   end
 
-  context "companyがログインしている場合"do
+  context "companyがログインしている場合" do
     before do
     visit login_path
-    fill_in "メールアドレス",with: "joetester@example.com"
+    #fill_in "メールアドレス",with: "joetester@example.com"
+    fill_in "email" , with: "session[email]"
     fill_in "パスワード",with:"password"
     lick_button  "ログインする"
     end
