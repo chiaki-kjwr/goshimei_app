@@ -3,7 +3,6 @@
 
 <div class="form-group text-center"> 
   <h2>新規登録してエージェントをゴシメイしてみる</h2>
- 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
   <div class="field">
@@ -56,9 +55,4 @@
 <%#= link_to 'google 古い', user_google_oauth2_omniauth_authorize_path(:google_oauth2) %>
 <%#= link_to 'Google',user_google_omniauth_callback_path %>
 <%= render "devise/shared/links" %>
-<%#= link_to '/auth/google_oauth2' %>
 
-<%if user_signed_in?%>
-<%= render "devise/shared/links" %>
-
-<%end%>

@@ -1,4 +1,4 @@
-class MessagesController < ApplicationController
+class ChatMessagesController < ApplicationController
   include ApplicationHelper
 
   def create

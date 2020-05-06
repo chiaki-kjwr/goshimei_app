@@ -1,6 +1,6 @@
 <h1>チャットサンプル</h1>
 <% if user_signed_in? %>
-  
+  <h3><%= @company_id %>とのチャットルーム</h3>
   <div class="chat-field">
     <% @chat_messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->
@@ -39,7 +39,9 @@
   </div>
 <% end %>
 
-<%= form_with model:[@chat_room ,@chat_message] do |f|  %>
-  <%= f.text_field :chat_messages %>
+<%#= form_with model:[@chat_room ,@chat_message] do |f|  %>
+<%= form_for [@chat_room, @chat_message] do |f| %>
+  <%= f.text_field :message %>
   <%= f.submit "メッセージを送る" %>
+
 <% end %>

@@ -28,41 +28,29 @@
           <div id="likes_buttons_<%= post.id %>">
             <%= render partial: 'posts/like_text', locals: { post: post} %>
           </div>
-
-            <%= link_to "御指名する", chat_room_path(current_user) %>
-          <a href="/chat_rooms" class="btn btn-dark">ゴシメイする</a>
+            <% if user_signed_in? %>
+            <%= link_to "御指名する", "/chat_rooms",method: :post,class:"btn btn-dark"%>
+    
+          <% end %>
           </div>
         </div>
     </div> 
   <%end%>
 </div>
 
-<h1>チャットサンプル</h1>
+
 <!--Userでログインしてたら-->
-<% if user_signed_in? %>
-  <p>~<%= current_user.name %>がログインしてます~</p>
-  
-  <br>
-  <h2>ショップ一覧</h2>
-  <br>
+<%# if user_signed_in? %>
+<%#= current_user.name %>
 
-  <% @companies.each do |company| %>
-    <%= company.name %>
+  <%# @companies.each do |company| %>
+    <%#= company.name %>
     <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
-    <% if @company_ids.include?(company.id) %>
-      <br>
+    <%# if @company_ids.include?(company.id) %>
+
       <%#= link_to "チャットへ", chat_room_path(current_user.rooms.find_by(shop_id: shop.id)) %><br>
-    <% else %>
-      <%= form_for ChatRoom.new do |f| %>
-        <%= f.hidden_field :company_id, :value => company.id %>
-        <%= f.submit %>
-      <% end %>
-    <% end %>
-  <% end %>
-
-    <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
-  
-  <% end %>
-
-
-
+    <%# else %>
+      <%#= form_for ChatRoom.new do |f| %>
+<%#= form_for @chat_room(@user), url: {action: "create"} do |f| %>
+        <%#= f.hidden_field :company_id, :value => company.id %>
+        <%#= f.submit %>

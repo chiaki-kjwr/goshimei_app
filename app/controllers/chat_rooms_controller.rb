@@ -3,11 +3,17 @@ class ChatRoomsController < ApplicationController
 
   def show
     @chat_room = ChatRoom.find(params[:id]) #ルーム情報の取得
-    @chat_message = ChatMessage.new #新規メッセージ投稿
+    @chat_message = ChatMessage.create! #新規メッセージ投稿
+    
+    
+    binding.pry
+    
+    
     @chat_messages = @chat_room.chat_messages #このルームのメッセージを全て取得
     if user_signed_in?
       if @chat_room.user_id == current_user.id
-        #@company = @chat_room.company
+        @company = @chat_room.company_id
+        #@company.name = @company.name
         @company_id = @chat_room.company_id
         
       else
@@ -30,7 +36,7 @@ class ChatRoomsController < ApplicationController
     @chat_room = ChatRoom.new(room_company_params)
     @chat_room.user_id = current_user.id
     elsif company_signed_in?
-      @chat_room = Room.new(room_user_params)
+      @chat_room = ChatRoom.new(room_user_params)
       @chat_room.shop_id = current_shop.id
     else
       redirect_to "/"
