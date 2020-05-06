@@ -96,8 +96,8 @@
       <div class="registration text-center">
         <h2>転職のパートナーを探してみませんか？</h2>
         <% if user_signed_in? %>
-          <%= link_to "マイページ",user_path(current_user) if current_user %>
-          <%= link_to "ユーザー編集",edit_user_registration_path、、class: "btn-circle"%>
+          <%= link_to "マイページ",user_path(current_user),class: "btn-circle" %>
+          <%= link_to "ユーザー編集",edit_user_registration_path,class: "btn-circle" %>
         <%else%>
           <%= link_to "新規登録する", new_user_registration_path, class: "btn-circle" %></br>
           </br>
@@ -106,41 +106,9 @@
       </div>
     <%#/div%>
   </div>
-  <!-- チャット機能 userでログイン-->
-    
-  <% if user_signed_in? %>
-  <br>
-  <h2>エージェント一覧</h2>
-  <br>
+  
 
   <%= link_to "チャットへ","/chat_rooms",method: :post %>
 
-  <% @companies.each do |company| %>
-    <%= company.name %>
-  <% end %>
-<% end %>
-  <!--companyでログインしてたら-->
-
-<h1>チャットサンプル</h1>
-<!--Userでログインしてたら-->
-<%if user_signed_in? %>
-  <p>~<%#= current_user.name %>がログインしてます~</p>
-  
-
-  <% @companies.each do |company| %>
-    <%= company.name %>
-    <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
-    <%# if @company_ids.include?(company.id) %>
-    <%# if user_signed_in? %>
-      <br>
-      <%#= link_to "チャットへ", chat_room_path(current_user.rooms.find_by(company_id: company.id)) %><br>
-    <%# else %>
-      <%= form_for ChatRoom.new do |f| %>
-        <%= f.hidden_field :company_id, :value => company.id %>
-        <%= f.submit %>
-      <% end %>
-    <%# end %>
-  <% end %>
-<%end%>
 
 

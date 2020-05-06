@@ -40,7 +40,7 @@ class PostsController < ApplicationController
         #自分が入ってるroomの相手のidを格納する
             @user_ids = []
             chat_rooms.each do |c|
-                @user_ids << r.user_id
+                @user_ids << c.user_id
             end
         end
     end

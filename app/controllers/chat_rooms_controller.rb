@@ -3,11 +3,10 @@ class ChatRoomsController < ApplicationController
 
   def show
     @chat_room = ChatRoom.find(params[:id]) #ルーム情報の取得
-    @chat_message = ChatMessage.create! #新規メッセージ投稿
-    
-    
-    binding.pry
-    
+    #@chat_message = ChatMessage.create! #新規メッセージ投稿
+    @chat_message = ChatMessage.new(message_params)
+    #@texts = Text.new(text.params[:message])
+    @chat_message.save
     
     @chat_messages = @chat_room.chat_messages #このルームのメッセージを全て取得
     if user_signed_in?
@@ -42,7 +41,7 @@ class ChatRoomsController < ApplicationController
       redirect_to "/"
     end
     if @chat_room.save
-      redirect_to :action => "show", :id => @chat_room.id
+      redirect_to :action => "show", :id => @chat_room_id
     else
       redirect_to "/"
     end
@@ -56,6 +55,10 @@ class ChatRoomsController < ApplicationController
 
   def room_user_params
     params.require(:chat_room).permit(:user_id)
+  end
+
+  def message_params
+    params.permit(:message,:chat_room_id)
   end
 
 end

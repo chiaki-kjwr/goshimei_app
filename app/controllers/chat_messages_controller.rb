@@ -4,7 +4,8 @@ class ChatMessagesController < ApplicationController
   def create
     @chat_room = ChatRoom.find(params[:chat_room_id])
     @chat_message = ChatMessage.new(message_params)
-    #メッセージがuserによるものだったらis_user=true, shopによるものだったらis_user=false
+
+    
     if user_signed_in?
       @chat_message.is_user = true
     elsif company_signed_in?
