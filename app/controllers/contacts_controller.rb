@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to root_path,notice: 'お問い合わせありがとうございます。３営業日以内に返信させて頂きます。'
+      redirect_to root_path,notice: 'お問い合わせありがとうございます。3営業日以内に返信させて頂きます。'
     else
       redirect_to new_contact_path
       flash[:alert] = "送信に失敗しました"
