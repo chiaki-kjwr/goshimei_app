@@ -19,6 +19,8 @@
       <div class="container">
         <div class="heading">
           <h2>ゴシメイ！でできること</h2>
+          <p>ゴシメイは〇〇できるサービスです。</p>
+          <p>自分自身で探す</p>
         </div>
         <div class="row">
           <div class="detail col-3 consultation">
@@ -58,7 +60,7 @@
       <div class="container">
         <div class="mb-5 row bgBlue">
           <div class="col-sm-8">
-            <h3 class="text-center mt10">検索ができます</h3>
+            <h3 class="text-center mt10">①検索する。</h3>
           </div>
           <div class="col-sm-4">
             <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
@@ -68,13 +70,13 @@
     </div>
 
     <div class="heading text-center"></div>
-    <div class="container mt10 ">
+    <div class="container mt10" >
       <div class="mb-5 row bgSkyblue">
         <div class="col-sm-4">
           <%= image_tag('like.png',:class =>"w-100 rounded-circle") %>
         </div>
-        <div class="col-sm-8">
-          <h3 class="text-center mt10">お気に入りができます</h3>
+        <div class="col-sm-8"> 
+          <h3 class="text-center mt10">②お気に入りができます</h3>
         </div>
       </div>
     </div>
@@ -82,7 +84,7 @@
       <div class="container mt20">
         <div class="mb-5 row bgBlue">
           <div class="col-sm-8">
-            <h3 class="text-center mt10">チャットができます</h3>
+            <h3 class="text-center mt10">③チャットができます</h3>
           </div>
           <div class="col-sm-4">
             <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
@@ -91,24 +93,22 @@
       </div>
     </div>
 <!--ゴシメイへの登録-->
-  <div class="message-wrapper">
-    <%#div class="container"%>
-      <div class="registration text-center">
-        <h2>転職のパートナーを探してみませんか？</h2>
-        <% if user_signed_in? %>
-          <%= link_to "マイページ",user_path(current_user),class: "btn-circle" %>
-          <%= link_to "ユーザー編集",edit_user_registration_path,class: "btn-circle" %>
-        <%else%>
-          <%= link_to "新規登録する", new_user_registration_path, class: "btn-circle" %></br>
-          </br>
-          <%= link_to "ユーザーの方はこちら", new_user_session_path, class: "btn-circle" %>
-        <%end%>
-      </div>
-    <%#/div%>
-  </div>
-  
+<div class="message-wrapper">
+  <div class="registration text-center">
+    <h2>転職のパートナーを探してみませんか？</h2>
+      <% if user_signed_in? %>
+        <%= link_to "マイページ",user_path(current_user),class: "btn-circle" %>
+        <%= link_to "ユーザー編集",edit_user_registration_path,class: "btn-circle" %>
+      <%else%>
+        <%= link_to "新規登録する", new_user_registration_path, class: "btn-circle" %></br>
+        </br>
+        <%= link_to "ユーザーの方はこちら", new_user_session_path, class: "btn-circle" %>
+      <%end%>
+    </div>
+</div>
 
-  <%= link_to "チャットへ","/chat_rooms",method: :post %>
+
+<%= link_to "チャットへ","/chat_rooms",method: :post %>
 
 
 

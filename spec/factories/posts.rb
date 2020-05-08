@@ -1,5 +1,8 @@
 FactoryBot.define do
   factory :post do
-    
-  end
+    title {"test"}
+    contents  {"testtesttest"}
+    company 
+    end
 end
+
