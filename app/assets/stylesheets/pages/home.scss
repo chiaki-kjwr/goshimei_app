@@ -213,6 +213,26 @@ p {
   left: 20%;
 }
 
+
+.googleLogo {
+  position: absolute;
+  left: 10%;
+  top: 700%;
+}
+
+.google {
+  position: absolute;
+  left: 10%;
+  top: 700%;
+  background-color: skyblue;
+  color: #5f5d60;
+  text-decoration: none;
+}
+.google:hover {
+  text-decoration: none;
+  color: #000000;
+}
+
 .bgBlue {
   background-color: blue;
 }
@@ -275,6 +295,12 @@ p {
   border-bottom: none;
   text-decoration: none;
   }
+
+  .btn-circle:hover {
+  text-decoration: none;
+  color: #5f5d60;
+  }
+
 
 
 

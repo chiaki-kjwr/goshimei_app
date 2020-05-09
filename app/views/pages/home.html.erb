@@ -7,7 +7,17 @@
             <h3 class="subTitle">
               <p>信頼できる転職エージェントを、</p>
               <p>自分で見つけよう</p>
+              
             </h3>
+            <div class="googleLogo">
+            <%#= link_to (image_tag "google-logo.png",:size =>"50x50",class:"googleLogo"), user_google_oauth2_omniauth_authorize_path %>
+            <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"google" do %>
+            <%= image_tag "google-logo.png",:size =>"50x50" %>
+              Googleアカウントで新規登録
+                  <% end %>
+            
+            </div>
+            
             <%#= link_to "新規登録はこちら", new_user_registration_path,class:"signIn btn btn-warning" %>
           </div>
         </div>
@@ -44,7 +54,7 @@
 
           <div class="detail col-3 free">
             <%= image_tag 'free.png' %>
-             <p class="text-contents">
+            <p class="text-contents">
               <span class="font-weight-bold">無料でサービス利用できます</span>
             </p>
           </div>
@@ -100,15 +110,14 @@
         <%= link_to "マイページ",user_path(current_user),class: "btn-circle" %>
         <%= link_to "ユーザー編集",edit_user_registration_path,class: "btn-circle" %>
       <%else%>
-        <%= link_to "新規登録する", new_user_registration_path, class: "btn-circle" %></br>
-        </br>
+        <%= link_to "新規登録する", new_user_registration_path, class: "btn-circle" %>
         <%= link_to "ユーザーの方はこちら", new_user_session_path, class: "btn-circle" %>
       <%end%>
     </div>
 </div>
 
 
-<%= link_to "チャットへ","/chat_rooms",method: :post %>
+<%#= link_to "チャットへ",chat_room_path,method: :post %>
 
 
 

@@ -10,8 +10,8 @@ class ChatRoomsController < ApplicationController
     
     @chat_messages = @chat_room.chat_messages #このルームのメッセージを全て取得
     if user_signed_in?
-      if @chat_room.user_id == current_user.id
-        @company = @chat_room.company_id
+      if @chat_room.user.id == current_user.id
+        @company = @chat_room.company
         #@company.name = @company.name
         @company_id = @chat_room.company_id
         
@@ -36,12 +36,15 @@ class ChatRoomsController < ApplicationController
     @chat_room.user_id = current_user.id
     elsif company_signed_in?
       @chat_room = ChatRoom.new(room_user_params)
-      @chat_room.shop_id = current_shop.id
+      @chat_room.company_id = current_company.id
     else
       redirect_to "/"
     end
+
     if @chat_room.save
-      redirect_to :action => "show", :id => @chat_room_id
+      #ここが機能してない
+      redirect_to :action => "show", :id => @chat_room.id
+      
     else
       redirect_to "/"
     end
@@ -54,7 +57,7 @@ class ChatRoomsController < ApplicationController
   end
 
   def room_user_params
-    params.require(:chat_room).permit(:user_id)
+    params.require(:chat_room).permit(:company_id)
   end
 
   def message_params
