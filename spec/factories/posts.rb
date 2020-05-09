@@ -3,6 +3,6 @@ FactoryBot.define do
     title {"test"}
     contents  {"testtesttest"}
     company 
-    end
+  end
 end
 
