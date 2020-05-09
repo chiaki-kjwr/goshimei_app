@@ -1,21 +1,6 @@
 class PostsController < ApplicationController
     include ApplicationHelper
     #before_action :current_company
-    def new
-        @post = Post.new
-    end
-
-    def create
-        @post = Post.new(post_params)
-        if  @post.save!
-            redirect_to posts_path
-            flash[:alert] = "ボシュウ開始されました！"
-        else
-            redirect_to new_post_path
-            flash[:alert] = "投稿に失敗しました"
-        end
-    end
-
     def index
         @user = User.find_by(id: params[:id])
         @search = Post.ransack(params[:q])
@@ -39,12 +24,26 @@ class PostsController < ApplicationController
                 end
         end
     end
-    
 
     def show
         @post = Post.find_by(id: params[:id])
     end
 
+    def new
+        @post = Post.new
+    end
+
+    def create
+        @post = Post.new(post_params)
+        if  @post.save!
+            redirect_to posts_path
+            flash[:alert] = "ボシュウ開始されました！"
+        else
+            redirect_to new_post_path
+            flash[:alert] = "投稿に失敗しました"
+        end
+    end
+    
     def liked_by(current_user)
         Like.find_by(user_id: user.id, post_id: post.id)
     end

@@ -1,6 +1,6 @@
 <h1>チャットサンプル</h1>
 <% if user_signed_in? %>
-  <h3><%= @company_id %>とのチャットルーム</h3>
+  <h3><%= @chat_room.company.name %>とのチャットルーム</h3>
   <div class="chat-field">
     <% @chat_messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->
