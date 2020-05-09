@@ -10,8 +10,8 @@ class ChatRoomsController < ApplicationController
     
     @chat_messages = @chat_room.chat_messages #このルームのメッセージを全て取得
     if user_signed_in?
-      if @chat_room.user.id == current_user.id
-        @company = @chat_room.company
+      if @chat_room.user_id == current_user.id
+        #@company = chat_room.company
         #@company.name = @company.name
         @company_id = @chat_room.company_id
         

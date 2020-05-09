@@ -1,91 +1,78 @@
 <% provide(:title, "アカウント編集") %>
-
 <div class="d-flex flex-column align-items-center mt-3">
-
   <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
     <div class="card">
       <div class="card-header">
-    　　 <%= "#{@user.name}のアカウント編集 "%>
+        <%= "#{@user.name}のアカウント編集 "%>
+      </div>
+        <%= image_tag @user.profile_photo.url(:thumb),class: "round-img"%>
+<!--body-->
+      <div class="card-body">
+        <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name),local: true, method: :patch do |f| %>
+  
+      <div class="col-auto">    
+        <%= f.label :name, "お名前"%>
+        <%= f.text_field :name ,placeholder: "例）山田太郎", class: "form-control" %>
       </div>
 
-      <%if @user.profile_photo.nil?%>
-  <%= image_tag avatar_url(@user), class: "round-img" %>
-  <%else%>
-  <%= image_tag @user.profile_photo.url(:thumb),class: "round-img"%>
-<%end %>
- <!--body-->
- <div class="card-body">
-         <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name),
-         local: true, method: :patch do |f| %>
-  
-
-      <div class="col-auto">    
-    <%= f.label :name, "お名前"%>
-      <%= f.text_field :name ,placeholder: "例）山田太郎", class: "form-control" %>
-    </div>
-
-    <div class="col-auto">   
-    <%= f.label :email, "メールアドレス"%>
-      <%= f.email_field :email ,placeholder: "例）abe@example.com", class: "form-control" %>
-    </div>
-
+      <div class="col-auto">   
+        <%= f.label :email, "メールアドレス"%>
+        <%= f.email_field :email ,placeholder: "例）abc@example.com", class: "form-control" %>
+      </div>
 
       <div class="col-auto">
-      <%= f.label :sex,"性別" %><br />
-      <%= f.text_field :sex, autofocus: true, autocomplete: "sex",placeholder:"例）男",class: "form-control"%>
+        <%= f.label :sex,"性別" %><br />
+        <%= f.text_field :sex, autofocus: true, autocomplete: "sex",placeholder:"例）男",class: "form-control"%>
       </div>
 
-        <div class="col-auto">
+      <div class="col-auto">
         <%= f.label :age,"年齢" %><br />
-     <%= f.text_field :age, autofocus: true, autocomplete: "age" ,placeholder:"例）36",class: "form-control"%>
-    </div>
+        <%= f.text_field :age, autofocus: true, autocomplete: "age" ,placeholder:"例）36",class: "form-control"%>
+      </div>
 
-    <div class="col-auto">
-    <%= f.label :profile,"経歴" %> <br />
-    <%= f.text_area :profile, autofocus: true, autocomplete: "profile",class: "form-control"%>
-  </div>
+      <div class="col-auto">
+        <%= f.label :profile,"経歴" %> <br />
+        <%= f.text_area :profile, autofocus: true, autocomplete: "profile",placeholder:"例)新卒で大手金融機関に就業し、
+        一貫して法人営業を行なって参りました。",class: "form-control"%>
+      </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-
-  <div class="col-auto">
-    <%= f.label :password,"新しいパスワード" %> <i></i><br />
-    <%= f.password_field :password, autocomplete: "new-password",class: "form-control"%>
-    <% if @minimum_password_length %>
+      <div class="col-auto">
+        <%= f.label :password,"新しいパスワード" %> <i></i><br />
+        <%= f.password_field :password, autocomplete: "new-password",class: "form-control"%>
+        <% if @minimum_password_length %>
       <br />
-    <% end %>
-  </div>
-  
+        <% end %>
+      </div>
 
+      <div class="col-auto">
+        <%= f.label :password_confirmation,"新しいパスワード(確認)"%><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control"%>
+      </div>
 
-  <div class="col-auto">
-    <%= f.label :password_confirmation,"新しいパスワード(確認)"%><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control"%>
-  </div>
+      <div class="col-auto">
+        <%= f.label :current_password %> <i></i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password",class: "form-control" %>
+      </div>
 
-  <div class="col-auto">
-    <%= f.label :current_password %> <i></i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password",class: "form-control" %>
-  </div>
+      <div class="col-auto">
+        <%= f.label :profile_photo %>
+        <%= f.file_field :profile_photo %>
+        <%= f.hidden_field :profile_photo_cache %>
+      </div>
 
-  <div class="col-auto">
-    <%= f.label :profile_photo %>
-    <%= f.file_field :profile_photo %>
-    <%= f.hidden_field :profile_photo_cache %>
-  </div>
+      <div class="actions text-center">
+        <%= f.submit "変更する",class:"btn btn-dark ",method: :post%>
+        <%= link_to "プロフィールページへ戻る",user_path(resource),class:"btn btn-dark"%>
 
-  <div class="actions text-center">
-    <%= f.submit "変更する",class:"btn btn-dark btn-lg",method: :post%>
+      </div>
+      <% end %>
+    </div>
   </div>
- <% end %>
-    
-   </div>
- </div>
 </div>
 </div>
 
 </div>
-
- <%= link_to "戻る",user_path(resource)%>
