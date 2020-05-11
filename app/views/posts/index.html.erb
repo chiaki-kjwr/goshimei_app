@@ -12,7 +12,7 @@
 <div class="row">
   <% @posts.each do |post| %>
     <div class="col-md-4">
-      <div class="card"%>
+      <div class="post-index-card"%>
         <div class="card-body text-center">
           <h4 class="card-title"><%=post.title %></h4>
           <p class="card-text"><%=post.contents %></p>
@@ -35,8 +35,8 @@
           <% end %>
           </div>
         </div>
-    </div> 
-  
+    </div>
+
 </div>
 <%end%>
 </div>

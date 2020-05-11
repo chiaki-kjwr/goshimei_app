@@ -5,11 +5,14 @@ module ApplicationHelper
         "https://www.gravatar.com/avatar/#{gravatar_id}.jpg"
   end
 
-  #def current_user
-    #if session[:user_id]
-      #@current_user ||= User.find_by(id: session[:user_id])
-    #end
-  #end
+  def full_title(page_title)
+      base_title = "ゴシメイ！"
+      if page_title.blank?
+        base_title
+      else
+        "#{page_title} - #{base_title}"
+      end
+  end
 
   def current_company
       @current_company ||= Company.find_by(id: session[:company_id])
@@ -22,7 +25,7 @@ module ApplicationHelper
   def devise_error_messages
     return "" if resource.errors.empty?
     html = ""
-    
+
     messages = resource.errors.full_messages.each do |msg|
       html += <<-EOF
         <div class="error_field alert alert-danger" role="alert">
@@ -32,5 +35,5 @@ module ApplicationHelper
     end
     html.html_safe
   end
-  
+
 end
