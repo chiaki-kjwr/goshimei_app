@@ -6,18 +6,15 @@ class ChatRoomsController < ApplicationController
     #@chat_message = ChatMessage.create! #新規メッセージ投稿
     @chat_message = ChatMessage.new(message_params)
     @chat_messages = @chat_room.chat_messages
+    #@chat_message = ChatMessage.all
     #このルームのメッセージを全て取得
-    
+
     @chat_message.save
-    
+
     if user_signed_in?
       if @chat_room.user.id == current_user.id
         @company = @chat_room.company
-      
-      
-      binding.pry
-      
-        
+
       else
         redirect_to "/"
       end
@@ -37,17 +34,23 @@ class ChatRoomsController < ApplicationController
     #userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
     @chat_room = ChatRoom.new(room_company_params)
     @chat_room.user_id = current_user.id
+    @chat_room.save
+    #redirect_to :action => "show", :id => @chat_room.id
+    render :show
+
     elsif company_signed_in?
       @chat_room = ChatRoom.new(room_user_params)
       @chat_room.company_id = current_company.id
+      @chat_room.save
+
     #else
       #redirect_to "/"
-    end
+   #end
 
-    if @chat_room.save
+    #if @chat_room.save
       #ここが機能してない
-      redirect_to :action => "show", :id => @chat_room.id
-      
+      #redirect_to :action => "show", :id => @chat_room.id
+
     #else
       #redirect_to "/"
     end

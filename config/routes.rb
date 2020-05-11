@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get  'pages/help'
   get  'pages/terms'
   get  'pages/company_home', to: 'pages#company_home',as:'companies_home'
-  
+
 
   #get '/users/:id', to: 'users#show',as: 'user'
   #delete 'users/:id', to: 'users#destroy',as:'user_destroy'
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
-  resources :contacts,only: %i(new create) 
+  resources :contacts,only: %i(new create)
   resources :posts, only: %i(index new create show) do
     resources :likes, only: %i(create destroy)
   end
@@ -29,4 +29,3 @@ Rails.application.routes.draw do
     resources :chat_messages,only: %i(new create)
   end
 end
-  

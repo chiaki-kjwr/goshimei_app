@@ -27,6 +27,8 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find_by(id: params[:id])
+        @company = @post.company
+        @company_id = @post.company_id
     end
 
     def new
@@ -43,7 +45,7 @@ class PostsController < ApplicationController
             flash[:alert] = "投稿に失敗しました"
         end
     end
-    
+
     def liked_by(current_user)
         Like.find_by(user_id: user.id, post_id: post.id)
     end
