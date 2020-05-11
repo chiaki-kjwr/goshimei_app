@@ -5,16 +5,20 @@
       <div class="card-header">こちらからお問い合わせが出来ます。</div>
       <div class="card-body">
         <%= form_with model: @contact do |f| %>
-      <div class="col-auto">    
+      <div class="col-auto">
+      
         <%= f.label :name, "お名前"%>
+        <span class="must">必須</span>
         <%= f.text_field :name ,placeholder: "例）山田太郎", class: "form-control" %>
       </div>
       <div class="col-auto">   
         <%= f.label :email, "メールアドレス"%>
-        <%= f.email_field :email ,placeholder: "例）abe@example.com", class: "form-control" %>
+        <span class="must">必須</span>
+        <%= f.email_field :email ,placeholder: "例）abc@example.com", class: "form-control" %>
       </div>
       <div class="col-auto">
         <%= f.label :contents, "お問い合わせ内容" %>
+        <span class="must">必須</span>
         <%= f.text_area :contents,placeholder: "例）登録後、ログインができません。", class: "form-control"%>
       </div>
       <div class = "form-group text-center">
