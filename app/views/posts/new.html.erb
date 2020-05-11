@@ -1,32 +1,24 @@
 <% provide(:title, "ボシュウ作成") %>
 <div class="d-flex flex-column align-items-center mt-3">
-
   <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
     <div class="card">
-      <div class="card-header">
-    　　ボシュウする
-      </div>
-      <div class="card-body">
-        <%= form_with model: @post do |f| %>
-          <div class="form-group">
-            <div class="col-auto">
-            <%#= image_tag avatar_url(post.user), class: "post-profile-icon" %>
-            
-              <%#= image_tag avatar_url(current_user), class: "post-profile-icon" %>
-            </div>
-            
+      <div class="card-header text-center">ボシュウしてみよう</div>
+        <div class="card-body">
+          <%= form_with model: @post do |f| %>
+            <%#div class="form-group"%>
             <div class="col-auto"> 
             <%= f.label :title,"ボシュウのタイトル"%>
-            <%= f.text_field :title, class: "form-control border-0", placeholder: "エンジニアの転職支援にて、豊富な実績があります" %>
-              </div>
+            <span class="must">必須</span>
+            <%= f.text_field :title, class: "form-control", placeholder: "例）エンジニアの転職支援にて、豊富な実績があります" %>
+            </div>
             <div class="col-auto">
             <%= f.label :contents,"得意なこと"%>
-            <%= f.text_area :contents, class: "form-control border-0", placeholder: "前職はサーバーサイドのエンジニアとして
-            サービス開発を行っており、豊富な業界知識と企業へのコネクションがございます" %>
+            <span class="must">必須</span>
+            <%= f.text_area :contents, class: "form-control", size: "10x10",placeholder: "例）前職はサーバーサイドのエンジニアとしてサービス開発を行っており、豊富な業界知識と企業へのコネクションがございます。" %>
             </div>
-            <div class="col-auto center">
-            <%= f.submit "ボシュウする", class: "btn btn-dark" %>
-             </div>
+            <div class="col-auto text-center">
+            <%= f.submit "ボシュウする", class: "btn btn-dark  btn-lg" %>
+            </div>
         <% end %>
       </div>
     </div>
