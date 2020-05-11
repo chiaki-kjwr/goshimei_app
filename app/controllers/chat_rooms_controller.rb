@@ -40,23 +40,24 @@ class ChatRoomsController < ApplicationController
     elsif company_signed_in?
       @chat_room = ChatRoom.new(room_user_params)
       @chat_room.company_id = current_company.id
-    else
-      redirect_to "/"
+    #else
+      #redirect_to "/"
     end
 
     if @chat_room.save
       #ここが機能してない
       redirect_to :action => "show", :id => @chat_room.id
       
-    else
-      redirect_to "/"
+    #else
+      #redirect_to "/"
     end
   end
 
 
+
   private
   def room_company_params
-    params.require(:chat_room).permit(:user_id)
+    params.permit(:user_id)
   end
 
   def room_user_params
