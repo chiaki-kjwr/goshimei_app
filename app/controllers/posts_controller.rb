@@ -51,9 +51,7 @@ class PostsController < ApplicationController
     end
 
     def likes
-        @posts = current_user.like_posts#includes(:user)
-        #@user = current_user
-        #@likes = Like.where(user_id: @user.id).all
+        @posts = current_user.like_posts
     end
 
     private
