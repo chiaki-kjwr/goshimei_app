@@ -1,0 +1,8 @@
+
+<% @posts.each  do |post| %>
+  <%= post.title %>
+  <%= post.contents%>
+   <%= post.company.name %>
+        <%= image_tag post.company.profile_photo.url(:thumb),class: "round-img"%>
+
+<% end  %>

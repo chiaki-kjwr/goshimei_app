@@ -21,8 +21,9 @@ Rails.application.routes.draw do
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :contacts,only: %i(new create)
-  resources :posts, only: %i(index new create show) do
-    resources :likes, only: %i(create destroy)
+  resources :posts, only: %i(index new create show),shallow: true do
+    resource :likes, only: %i(create destroy)
+    get :likes, on: :collection
   end
 
   resources :chat_rooms, only: %i(index show new create)do

@@ -50,6 +50,12 @@ class PostsController < ApplicationController
         Like.find_by(user_id: user.id, post_id: post.id)
     end
 
+    def likes
+        @posts = current_user.like_posts#includes(:user)
+        #@user = current_user
+        #@likes = Like.where(user_id: @user.id).all
+    end
+
     private
     def post_params
         params.require(:post).permit(:contents,:title).merge(company_id: current_company.id)
