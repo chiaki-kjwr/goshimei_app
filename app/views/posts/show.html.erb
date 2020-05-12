@@ -16,6 +16,21 @@
       </div>
 
       <div class="col-auto">
+        <%= f.label :corporation_name, "在籍企業名"%>
+        <%= f.text_field :name ,placeholder: "例）ゴシメイ株式会社", class: "form-control" %>
+      </div>
+
+      <div class="col-auto">
+        <%= f.label :industory, "担当業界"%>
+        <%= f.text_field :name ,placeholder: "例）製薬メーカー", class: "form-control" %>
+      </div>
+
+      <div class="col-auto">
+        <%= f.label :occupation, "担当職種"%>
+        <%= f.text_field :name ,placeholder: "例）MR", class: "form-control" %>
+      </div>
+
+      <div class="col-auto">
         <%= f.label :profile,"経歴" %> <br />
         <%= f.text_area :profile, autofocus: true, autocomplete: "profile",placeholder:"例)●●●●",class: "form-control"%>
       </div>
@@ -24,17 +39,17 @@
         <%= link_to "戻る", posts_path,class:"btn btn-dark" %>
         <%#= f.submit "戻る",class:"btn btn-dark ",method: :post%>
         <%= link_to "ゴシメイしてメッセージを開始する", "/chat_rooms",class:"btn btn-dark",method: :post %>
- <%= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>
+ <%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>
 
-      <% if @company_ids.include?(company.id) %>
+      <%# if @company_ids.include?(company.id) %>
       <br>
-<%= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>
-    <% else %>
+<%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>
+    <%# else %>
       <%= form_for ChatRoom.new do |f| %>
-        <%= f.hidden_field :company_id, :value => company.id %>
+        <%#= f.hidden_field :company_id, :value => company.id %>
         <%= f.submit %>
       <% end %>
-    <% end %>
+    <%# end %>
 
       </div>
       <% end %>
