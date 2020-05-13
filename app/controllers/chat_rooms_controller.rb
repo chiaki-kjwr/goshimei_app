@@ -8,26 +8,34 @@ class ChatRoomsController < ApplicationController
     @chat_messages = @chat_room.chat_messages
     #@chat_message = ChatMessage.all
     #このルームのメッセージを全て取得
-
+    #@company.name = @chat_room.company.name
     @chat_message.save
 
     if user_signed_in?
-      if @chat_room.user.id == current_user.id
+      @chat_room = ChatRoom.new(room_company_params)
+      @chat_room.user_id = current_user.id
+      #redirect_to :action => "show", :id => @chat_room.id
+      #if @chat_room.user.id == current_user.id
+
+#binding.pry
+
         @company = @chat_room.company
+
 
       else
         redirect_to "/"
       end
-    elsif company_signed_in?
-      if @chat_room.company.id == current_company.id
-        @user = @chat_room.user
-      else
-        redirect_to "/"
-      end
-    else
-      redirect_to "/"
     end
-  end
+    #elsif company_signed_in?
+      #if @chat_room.company.id == current_company.id
+        #@user = @chat_room.user
+      #else
+        #redirect_to "/"
+      #end
+    #else
+      #redirect_to "/"
+    #end
+  #end
 
   def create
     if user_signed_in?
@@ -35,8 +43,8 @@ class ChatRoomsController < ApplicationController
     @chat_room = ChatRoom.new(room_company_params)
     @chat_room.user_id = current_user.id
     @chat_room.save
-    #redirect_to :action => "show", :id => @chat_room.id
-    render :show
+    redirect_to :action => "show", :id => @chat_room.id
+    #render :show
 
     elsif company_signed_in?
       @chat_room = ChatRoom.new(room_user_params)
@@ -60,7 +68,7 @@ class ChatRoomsController < ApplicationController
 
   private
   def room_company_params
-    params.permit(:user_id)
+    params.permit(:user_id,:company_id)
   end
 
   def room_user_params

@@ -1,9 +1,30 @@
 <h1>チャットサンプル</h1>
 <% if user_signed_in? %>
-  <h3><%= @chat_room.company_id %>とのチャットルーム</h3>
+  <h3><%#= @company.name %>とのチャットルーム</h3>
+
   <div class="chat-field">
 
   </div>
+
+   <div class="chatPage">
+  <header class="header">
+
+    <div class="chatPartner">
+      <div class="chatPartner_img"><%= image_tag @chat_room.user.profile_photo.url(:thumb) %></div>
+      <div class="chatPartner_name"><%= @chat_room.user.name %></div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="messagesArea messages">
+      <%= render @chat_messages %>
+    </div>
+  </div>
+  <form class="messageInputForm">
+    <div class='container'>
+      <input type="text" data-behavior="room_speaker" class="messageInputForm_input" placeholder="メッセージを入力...">
+    </div>
+  </form>
+</div>
 <% elsif company_signed_in?%>
   <h3><% @user.name %>とのチャットルーム</h3>
 
@@ -12,5 +33,25 @@
 <%#= form_for [@chat_room,@chat_message] do |f| %>
   <%#= f.text_field :message %>
   <%#= f.submit "メッセージを送る" %>
+
+  <div class="chatPage">
+  <header class="header">
+  <%= link_to "", matching_index_path, class: "linkToMatching" %>
+    <div class="chatPartner">
+      <div class="chatPartner_img"><%= image_tag @chat_room_user.img_name.url(:thumb) %></div>
+      <div class="chatPartner_name"><%= @chat_room_user.name %></div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="messagesArea messages">
+      <%= render @chat_messages %>
+    </div>
+  </div>
+  <form class="messageInputForm">
+    <div class='container'>
+      <input type="text" data-behavior="room_speaker" class="messageInputForm_input" placeholder="メッセージを入力...">
+    </div>
+  </form>
+</div>
 
 <% end %>
