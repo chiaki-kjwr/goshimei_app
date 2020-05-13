@@ -19,16 +19,16 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:email]).to_not include("can't be blank")
     end
-  
-  
-  
+
+
+
   describe "update_without_current_password" do
   context "user編集時にパスワードを入力しない場合" do
   example "userはプロフィール情報を編集できる" do
     user =User.new(password:nil)
-    user.update
+    user.update(user)
     user.valid?
-
+    expect(user).to be_valid
 
 
 
@@ -41,10 +41,10 @@ end
 describe "postとのアソシエーション" do
   context "userが破棄される場合" do
     example "postも破棄される" do
-    
+
   end
 end
-end 
+end
 
 
 
@@ -60,7 +60,7 @@ end
           expect(Post.where(id: post.id)).to be_empty
           end
         end
-      end   
+      end
     end
 
 

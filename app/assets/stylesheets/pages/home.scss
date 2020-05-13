@@ -220,8 +220,11 @@ p {
 
 .googleLogo {
   position: absolute;
-  left: 10%;
+  left: 0.01%;
   top: 700%;
+  display: flex;
+  width: 300px;
+  margin-top: 120px;
 }
 
 .google {
@@ -231,11 +234,13 @@ p {
   background-color: skyblue;
   color: #5f5d60;
   text-decoration: none;
+  display: flex;
 }
 .google:hover {
   text-decoration: none;
   color: #000000;
 }
+
 
 .bgBlue {
   background-color: blue;

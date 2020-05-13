@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
     include ApplicationHelper
-    #before_action :current_company
+    before_action :login_required
     def index
         @user = User.find_by(id: params[:id])
         @search = Post.ransack(params[:q])
         @posts = @search.result
+
+        q = params[:q]
+        @posts = Post.search(name_cont: q).result
+        @companies = Company.search(name_cont: q).result
 
         #チャット機能
         if  user_signed_in?

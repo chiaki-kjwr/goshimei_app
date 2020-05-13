@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  #skip_before_action :login_required,only: [:new, :create],raise: false
+  skip_before_action :login_required,only: [:new, :create],raise: false
   #before_action :login_required
 
   def new
@@ -10,13 +10,15 @@ class SessionsController < ApplicationController
     if company &.authenticate(session_params[:password])
       session[:company_id] = company.id
       redirect_to new_post_path,notice: 'ログインに成功しました'
+
+
     else
       #redirect_to root_pat,hnotice: 'ログインに成功しました'
       #render :new
       render "sessions/new"
     end
   end
-  
+
 
   def destroy
     reset_session
@@ -24,7 +26,7 @@ class SessionsController < ApplicationController
   end
 
 
-  private 
+  private
   def session_params
       params.require(:session).permit(:email, :password)
   end
