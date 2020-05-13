@@ -1,24 +1,26 @@
 <body>
   <div class="top-wrapper" ,id="wrapper">
       <div class="container ">
-        <div class="top-image">
+        <di class="top-image">
           <div class="text-center">
             <h1 class="font-weight-bold mb-4 topTitle"><br />ゴシメイ！</h1>
             <h3 class="subTitle">
               <p>信頼できる転職エージェントを、</p>
               <p>自分で見つけよう</p>
             </h3>
-            <%= link_to "新規登録はこちら", "", class:'signIn btn btn-dark' %>
-            </br>
-            
-            <br><%= link_to "ログイン", "", class:'logIn btn btn-dark' %>
-          </div>
+            </div>
+
+            <div class="companyNew">
+            <%= link_to "新規登録はこちら", new_company_path, class:'companyNewForm btn btn-dark' %>
+            </div>
+
+
         </div>
       </div>
     </div>
 
     <div class="heading text-center">
-      <h2>ゴシメイの使い方</h2>
+      <h2>ゴシメイ！の使い方</h2>
     </div>
 
     <div class="mb-5 bgBlue">
@@ -28,12 +30,27 @@
       <div class="searchImage">
         <%= image_tag('post.png',:class =>"companyImage rounded-circle") %>
       </div>
+      <div class="canChat">
+        <h3>チャット形式でメッセージのやりとりができます</h3>
+      </div>
+      <div class="searchImage">
+        <%= image_tag('chatting.png',:class =>"companyImage rounded-circle") %>
+      </div>
     </div>
   </body>
-</html>
+
+    <div class="company-message-wrapper">
+      <div class="company-registration text-center">
+        <h2>ゴシメイ！への登録はこちら</h2>
+        <%=link_to "新規登録",new_company_path, class: "btn-gradient" %>
+        <%= link_to "アカウントをお持ちの方はこちら", login_path, class: "btn-gradient" %>
+        </div>
+      </div>
 
 
-<%=link_to "新規登録",new_company_path%>
+
+
+
 <%=link_to "ログインする",login_path%>
 
 <%=link_to "ログアウト",logout_path,method: :delete%>

@@ -105,14 +105,17 @@
 <!--ゴシメイへの登録-->
 <div class="message-wrapper">
   <div class="registration text-center">
-    <h2>転職のパートナーを探してみませんか？</h2>
+    <h2>ゴシメイ！で転職のパートナーを探してみませんか？</h2>
       <% if user_signed_in? %>
-        <%= link_to "マイページ",user_path(current_user),class: "btn-circle" %>
-        <%= link_to "ユーザー編集",edit_user_registration_path,class: "btn-circle" %>
+        <%= link_to "マイページ",user_path(current_user),class: "btn-gradient" %>
+        <%= link_to "ユーザー編集",edit_user_registration_path,class: "btn-gradient" %>
       <%else%>
-        <%= link_to "新規登録する", new_user_registration_path, class: "btn-circle" %>
-        <%= link_to "ユーザーの方はこちら", new_user_session_path, class: "btn-circle" %>
+        <%= link_to "新規登録する", new_user_registration_path, class: "btn-gradient" %>
+        <%= link_to "アカウントをお持ちの方はこちら", new_user_session_path, class: "btn-gradient" %>
       <%end%>
+      <br/>
+      <%= link_to "採用ご担当者様はこちら",companies_home_path %>
+
     </div>
 </div>
 
