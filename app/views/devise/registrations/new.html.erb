@@ -1,7 +1,7 @@
 <% provide(:title, "新規登録") %>
 <%= devise_error_messages %>
 
-<div class="form-group text-center"> 
+<div class="form-group text-center">
   <h2>新規登録してエージェントをゴシメイしてみる</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
@@ -42,15 +42,21 @@
   <div class="terms">
   <%= check_box_tag :test1%>
 <%= label_tag %> <a href="/pages/terms" target="_blank">ユーザー利用規約</a>に同意します<a>
-    
+
   </div>
-  
+
   <div class="actions text-center">
     <%= f.submit "登録する", class: "btn btn-dark" %>
   </div>
   <% end %>
 </div>
+<div class="GoogleLogo">
+            <%#= link_to (image_tag "google-logo.png",:size =>"50x50",class:"googleLogo"), user_google_oauth2_omniauth_authorize_path %>
+            <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"google" do %>
+            <%= image_tag "google-logo.png",:size =>"50x50" %>
+              <p>Googleアカウントで新規登録</p>
+            <% end %>
 
-<%#= link_to "google",user_google_oauth2_omniauth_authorize_path %>
-<%= link_to (image_tag "google-logo.png",:size =>"40x40"), user_google_oauth2_omniauth_authorize_path %>
+            </div>
+<%#= link_to (image_tag "google-logo.png",:size =>"40x40"), user_google_oauth2_omniauth_authorize_path %>
 

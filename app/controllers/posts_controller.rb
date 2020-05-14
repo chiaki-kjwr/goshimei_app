@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     include ApplicationHelper
-    before_action :login_required
+    #before_action :login_required
     def index
         @user = User.find_by(id: params[:id])
         @search = Post.ransack(params[:q])
