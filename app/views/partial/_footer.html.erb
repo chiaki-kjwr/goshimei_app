@@ -1,20 +1,10 @@
 <%# ↓これでfooterを固定できる%>
-<div class="footer">
+<div id="footer">
   <div class="container">
     <div class="text-center">
-      <ul class="list-inline">
-        <%#if user_signed_in? %>
-        <li class="list-inline-item">
-          <%#= link_to "サービス退会", user_destroy_path, method: :delete %>
-        </li>
-        <li class="list-inline-item">
           <%if user_signed_in?%>
             <%= link_to "サインアウト", destroy_user_session_path, method: :delete,:style=>"color:black;" %>
           <%end%>
-          <%#unless log_in(company)?%>
-          
-        </li>
-      </ul>
       <p>©goshimei Co.Ltd.</p>
     </div>
   </div>
