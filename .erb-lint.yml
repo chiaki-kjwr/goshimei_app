@@ -1,0 +1,8 @@
+exclude:
+  - db/schema.rb
+  - 'vendor/**/*'
+  - 'vendor/*'
+  - '.rbenv/*'
+linters:
+  Rubocop:
+    enabled: false

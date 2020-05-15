@@ -42,7 +42,13 @@ class ChatRoomsController < ApplicationController
     #userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
     @chat_room = ChatRoom.new(room_company_params)
     @chat_room.user_id = current_user.id
+    @chat_room.company
+    #↓追記したがエラー変わらず
+    #@chat_room.company = post.company
     @chat_room.save
+
+    binding.pry
+
     redirect_to :action => "show", :id => @chat_room.id
     #render :show
 

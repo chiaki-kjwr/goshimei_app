@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails', '~> 4.11'
   gem 'rails-controller-testing'
+
 end
 
 group :development do
@@ -54,6 +55,9 @@ group :development do
   gem 'letter_opener_web'
   gem 'spring-commands-rspec'
   gem 'sqlite3','~>1.3.6'
+  gem 'erb_lint', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :test do
@@ -74,8 +78,6 @@ gem "mini_magick"
 gem 'rails-i18n'
 gem 'pry-rails'
 gem 'ransack'
-gem 'rubocop', require: false
-gem 'rubocop-rails'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 #gem 'pg', group: :production
@@ -84,4 +86,3 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
-
