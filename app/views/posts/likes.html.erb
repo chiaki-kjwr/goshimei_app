@@ -1,8 +1,36 @@
 
-<% @posts.each  do |post| %>
-  <%= post.title %>
-  <%= post.contents%>
-   <%= post.company.name %>
-        <%= image_tag post.company.profile_photo.url(:thumb),class: "round-img"%>
+<%# @posts.each  do |post| %>
+  <%#= post.title %>
+  <%#= post.contents%>
+   <%#= post.company.name %>
+        <%#= image_tag post.company.profile_photo.url(:thumb),class: "round-img"%>
 
-<% end  %>
+<%#end  %>
+
+<div class="container">
+<%# @posts.each  do |post| %>
+<h1 class="my-4">Page Heading
+        <small>Secondary Text</small>
+      </h1>
+
+      <div class="row">
+      <% @posts.each  do |post| %>
+      <hr>
+        <div class="col-md-4">
+          <%= image_tag post.company.profile_photo.url(:thumb),class: "round-img"%>
+          <p> <%= post.company.name %></p>
+
+        </div>
+        <div class="col-md-8">
+          <h3><%= post.title %></h3>
+          <p><%= post.contents%></p>
+        </div>
+          <hr>
+        <% end  %>
+         <hr>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+</div>
