@@ -1,5 +1,5 @@
 <% provide(:title, "Home") %>
-<div class="welcome-wrapper" ,id="wrapper">
+<div class="welcome-wrapper",id="wrapper">
       <div class="container">
         <div class="top-image">
           <div class="text-center">
@@ -12,13 +12,10 @@
             <div class="googleLogo">
             <%#= link_to (image_tag "google-logo.png",:size =>"50x50",class:"googleLogo"), user_google_oauth2_omniauth_authorize_path %>
             <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"google" do %>
-            <%= image_tag "google-logo.png",:size =>"50x50" %>
-              <p>Googleアカウントで新規登録</p>
-                  <% end %>
-
+            <%= image_tag"google-logo.png",:size =>"50x50" %>
+            <p>Googleアカウントで新規登録</p>
+            <% end %>
             </div>
-
-            <%#= link_to "新規登録はこちら", new_user_registration_path,class:"signIn btn btn-warning" %>
           </div>
         </div>
       </div>
@@ -37,21 +34,15 @@
             <%= image_tag"consultation.png" %>
 
             <p class="text-contents">
-              <span class="font-weight-bold"
-                >専門性の高い転職エージェントにいつでも相談できます</span
-              >
+              <span class="font-weight-bold">専門性の高い転職エージェントにいつでも相談できます</span>
             </p>
           </div>
-
-          <div class="detail col-3 nominate ">
-            <%= image_tag 'nominate.png'%>
-
-
+          <div class="detail col-3 nominate">
+          <%= image_tag 'nominate.png'%>
             <p class="text-contents">
               <span class="font-weight-bold">自分にぴったりの転職エージェントを指名できます</span>
             </p>
           </div>
-
           <div class="detail col-3 free">
             <%= image_tag 'free.png' %>
             <p class="text-contents">
@@ -61,7 +52,6 @@
         </div>
       </div>
     </div>
-
     <!--ゴシメイの使い方-->
     <div class="Features py-5">
       <div class="heading text-center">
@@ -90,7 +80,7 @@
         </div>
       </div>
     </div>
-      <div class="Features py-5">
+    <div class="Features py-5">
       <div class="container mt20">
         <div class="mb-5 row bgBlue">
           <div class="col-sm-8">
@@ -113,14 +103,7 @@
         <%= link_to "新規登録する", new_user_registration_path, class: "btn-gradient" %>
         <%= link_to "アカウントをお持ちの方はこちら", new_user_session_path, class: "btn-gradient" %>
       <%end%>
-      <br/>
+      <br>
       <%= link_to "採用ご担当者様はこちら",companies_home_path %>
-
     </div>
 </div>
-
-
-<%#= link_to "チャットへ",chat_room_path,method: :post %>
-
-
-

@@ -6,7 +6,7 @@
         <%= @post.title %>
       </div>
       <div class="image text-center">
-        <%= image_tag @post.company.profile_photo.url(:thumb),class: "round-img"%>
+        <%= image_tag @post.company.profile_photo.url(:thumb),class: "round-img" %>
         </div>
 
       <div class="card-body">
@@ -41,7 +41,6 @@
 
       <div class="actions text-center">
         <%= link_to "戻る", posts_path,class:"btn btn-dark" %>
-        <%#= f.submit "戻る",class:"btn btn-dark ",method: :post%>
       <%= link_to "追加ゴシメイしてメッセージを開始する", chat_room_path(@company_id),class:"btn btn-dark" %>
 
         <%= link_to "ゴシメイしてメッセージを開始する", "/chat_rooms",class:"btn btn-dark",method: :post %>
