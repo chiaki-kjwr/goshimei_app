@@ -11,7 +11,7 @@ class PostsController < ApplicationController
         @posts = @search.result
 
         q = params[:q]
-        @posts = Post.search(name_cont: q).result.page(params[:page]).per(8)
+        @posts = Post.search(name_cont: q).result.page(params[:page]).per(9).order(id: "DESC")
         @companies = Company.search(name_cont: q).result
 
 
