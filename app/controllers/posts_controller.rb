@@ -3,9 +3,6 @@ class PostsController < ApplicationController
 
     #before_action :login_required
     def index
-        #kaminari
-
-        @posts = Post.page(params[:page]).per(8)
         @user = User.find_by(id: params[:id])
         @search = Post.ransack(params[:q])
         @posts = @search.result
@@ -13,7 +10,6 @@ class PostsController < ApplicationController
         q = params[:q]
         @posts = Post.search(name_cont: q).result.page(params[:page]).per(9).order(id: "DESC")
         @companies = Company.search(name_cont: q).result
-
 
 
         #チャット機能

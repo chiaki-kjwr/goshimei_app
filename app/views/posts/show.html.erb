@@ -41,7 +41,9 @@
 
       <div class="actions text-center">
         <%= link_to "戻る", posts_path,class:"btn btn-dark" %>
-      <%= link_to "追加ゴシメイしてメッセージを開始する", chat_room_path(@company_id),class:"btn btn-dark" %>
+      <%#= link_to "追加ゴシメイしてメッセージを開始する", chat_room_path(@company_id),class:"btn btn-dark" %>
+ <%= link_to "0516ゴシメイしてメッセージを開始する", "/chat_rooms",class:"btn btn-dark",method: :post%>
+ <% binding.pry %>
 
         <%= link_to "ゴシメイしてメッセージを開始する", "/chat_rooms",class:"btn btn-dark",method: :post %>
  <%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>

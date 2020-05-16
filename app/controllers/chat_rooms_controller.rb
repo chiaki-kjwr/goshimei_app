@@ -13,12 +13,11 @@ class ChatRoomsController < ApplicationController
 
     if user_signed_in?
       @chat_room = ChatRoom.new(room_company_params)
+
+
       @chat_room.user_id = current_user.id
       #redirect_to :action => "show", :id => @chat_room.id
       #if @chat_room.user.id == current_user.id
-
-#binding.pry
-
         @company = @chat_room.company
 
 
@@ -41,13 +40,16 @@ class ChatRoomsController < ApplicationController
     if user_signed_in?
     #userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
     @chat_room = ChatRoom.new(room_company_params)
+
+
+    binding.pry
+
     @chat_room.user_id = current_user.id
     @chat_room.company
-    #↓追記したがエラー変わらず
+    #↓追記したがエラー変わらずosts
     #@chat_room.company = post.company
     @chat_room.save
 
-    binding.pry
 
     redirect_to :action => "show", :id => @chat_room.id
     #render :show

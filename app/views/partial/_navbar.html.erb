@@ -4,12 +4,11 @@
       <a class="logo my-0 mr-md-auto font-weight-normal" href="/"><font color="#000000"><i class="far fa-id-card"></i>ゴシメイ！</a>
 
       <nav class="my-2 my-md-0 mr-md-3">
+      <% if user_signed_in? %>
       <a class="btn btn-dark" href= "/users/edit">マイページ</a>
+        <% end %>
       <a class="btn btn-dark" href="/contacts/new">お問い合わせ</a>
-    <% if user_signed_in? %>
-       <%#= link_to "マイページ",user_path(current_user)%>
-       <% end %>
-      <a class="btn btn-dark" href="/posts/index">エージェントを探してみる</a>
+      <a class="btn btn-dark" href="/posts">エージェントを探してみる</a>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-md-auto align-items-center">
           <% if user_signed_in? %>
