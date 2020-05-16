@@ -13,6 +13,7 @@ describe "投稿機能", type: :system do
     #fill_in "メールアドレス",with: "joetester@example.com"
     fill_in "email" , with: "session[email]"
     fill_in "パスワード",with:"password"
+
     lick_button  "ログインする"
     end
 
@@ -21,4 +22,3 @@ describe "投稿機能", type: :system do
     end
   end
 end
-

@@ -1,14 +1,20 @@
 class PostsController < ApplicationController
     include ApplicationHelper
+
     #before_action :login_required
     def index
+        #kaminari
+
+        @posts = Post.page(params[:page]).per(8)
         @user = User.find_by(id: params[:id])
         @search = Post.ransack(params[:q])
         @posts = @search.result
 
         q = params[:q]
-        @posts = Post.search(name_cont: q).result
+        @posts = Post.search(name_cont: q).result.page(params[:page]).per(8)
         @companies = Company.search(name_cont: q).result
+
+
 
         #チャット機能
         if  user_signed_in?
@@ -33,6 +39,7 @@ class PostsController < ApplicationController
         @post = Post.find_by(id: params[:id])
         @company = @post.company
         @company_id = @post.company_id
+
     end
 
     def new
