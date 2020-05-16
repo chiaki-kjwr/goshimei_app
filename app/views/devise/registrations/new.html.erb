@@ -7,13 +7,13 @@
 
   <div class="field">
   <span class="must">必須</span>
-    <%= f.label :email %><br />
+    <%= f.label :email %><br>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
   <span class="must">必須</span>
-    <%= f.label :name,"お名前"%><br />
+    <%= f.label :name,"お名前"%><br>
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
@@ -28,14 +28,14 @@
 
   <div class="field">
   <span class="must">必須</span>
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 </div>
 
   <div class="field">
   <span class="must">必須</span>
-    <%= f.label :profile_photo,"プロフィール写真" %><br />
+    <%= f.label :profile_photo,"プロフィール写真" %><br>
     <%= f.file_field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
   </div>
 
@@ -50,13 +50,11 @@
   </div>
   <% end %>
 </div>
-<div class="GoogleLogo">
-            <%#= link_to (image_tag "google-logo.png",:size =>"50x50",class:"googleLogo"), user_google_oauth2_omniauth_authorize_path %>
-            <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"google" do %>
-            <%= image_tag "google-logo.png",:size =>"50x50" %>
-              <p>Googleアカウントで新規登録</p>
-            <% end %>
-
-            </div>
+  <div class="GoogleLogo">
+  <%#= link_to (image_tag "google-logo.png",:size =>"50x50",class:"googleLogo"), user_google_oauth2_omniauth_authorize_path %>
+  <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"google" do %>
+  <%= image_tag "google-logo.png",:size =>"50x50" %>
+  <p>Googleアカウントで新規登録</p>
+  <% end %>
+  </div>
 <%#= link_to (image_tag "google-logo.png",:size =>"40x40"), user_google_oauth2_omniauth_authorize_path %>
-

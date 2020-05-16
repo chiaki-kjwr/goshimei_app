@@ -1,37 +1,20 @@
-
-<%# @posts.each  do |post| %>
-  <%#= post.title %>
-  <%#= post.contents%>
-   <%#= post.company.name %>
-        <%#= image_tag post.company.profile_photo.url(:thumb),class: "round-img"%>
-
-<%#end  %>
-
 <div class="container">
-<%# @posts.each  do |post| %>
 <h1 class="my-4">お気に入りエージェント一覧
-        <small>お気に入り一覧</small>
-      </h1>
-
-      <div class="row">
-      <% @posts.each  do |post| %>
-      <hr>
-        <div class="col-md-4">
-          <%= image_tag post.company.profile_photo.url(:thumb),class: "round-img"%>
-
-
-        </div>
-        <div class="col-md-8">
-          <h3><%= post.title %></h3>
-          <h3> <%= post.company.name %></h3>
-          <p><%= post.contents%></p>
-        </div>
-          <hr>
-        <% end  %>
-         <hr>
+  <small>お気に入り一覧</small></h1>
+  <div class="row">
+    <% @posts.each  do |post| %>
+    <hr>
+      <div class="col-md-4">
+        <%= image_tag post.company.profile_photo.url(:thumb),class: "round-img" %>
       </div>
-      <!-- /.row -->
-
-      <hr>
-
+      <div class="col-md-8">
+        <h3><%= post.title %></h3>
+        <h3> <%= post.company.name %></h3>
+        <p><%= post.contents %></p>
+        </div>
+    <hr>
+    <% end %>
+    <hr>
+  </div>
+  <hr>
 </div>

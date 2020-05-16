@@ -3,20 +3,20 @@
 <%= search_form_for @search, url: posts_path do |f| %>
 <div class="form-group">
   <%= f.label :title_or_contents_cont, 'エージェントを検索しよう' %>
-  <%= f.search_field :title_or_contents_cont,class:"form-control"%>
+  <%= f.search_field :title_or_contents_cont,class:"form-control" %>
 </div>
   <div class="actions"><%= f.submit '検索' %></div>
 <% end %>
 
-<div class="row border border-dark ">
+<div class="row border border-dark">
   <% @posts.each do |post| %>
     <div class="col-md-4">
-      <div class="post-index-card"%>
+      <div class="post-index-card">
         <div class="card-body text-center">
-          <h4 class="card-title"><%=post.title %></h4>
-          <p class="card-text"><%=post.contents %></p>
+          <h4 class="card-title"><%= post.title %></h4>
+          <p class="card-text"><%= post.contents %></p>
           <%= image_tag post.company.profile_photo_url(:thumb),class: "round-img" %>
-          <strong><%= post.company.name %></strong></br>
+          <strong><%= post.company.name %></strong><br>
 <!--お気に入り機能-->
           <div id="like-icon-post-<%= post.id.to_s %>">
             <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text" %>
@@ -33,24 +33,6 @@
         </div>
     </div>
 </div>
-<%end%>
+<% end %>
 <%= paginate @posts %>
 </div>
-
-
-
-
-<!--Userでログインしてたら-->
-<%# if user_signed_in? %>
-    <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
-    <%# if @company_ids.include?(company.id) %>
-
-      <%#= link_to "チャットへ", chat_room_path(current_user.rooms.find_by(company_id: company.id)) %>
-    <%# else %>
-      <%#= form_for ChatRoom.new do |f| %>
-<%#= form_for @chat_room(current_user), url: {action: "create"} do |f| %>
-        <%#= f.hidden_field :company_id, :value => company.id %>
-        <%#= f.submit %>
-<%# end %>
-<%# end %>
-<%# end %>
