@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: 0bcb5976a616c67943f3608aa97ae9f26218265c
+  branch: master
+  specs:
+    faker (2.11.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -122,8 +130,6 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (2.11.0)
-      i18n (>= 1.6, < 2)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
@@ -367,7 +373,7 @@ DEPENDENCIES
   dotenv-rails
   erb_lint
   factory_bot_rails (~> 4.11)
-  faker
+  faker!
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener_web

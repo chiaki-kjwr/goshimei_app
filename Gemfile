@@ -58,6 +58,7 @@ group :development do
   gem 'erb_lint', require: false
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :test do
@@ -81,7 +82,6 @@ gem 'ransack'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 #gem 'pg', group: :production
-gem 'faker'
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
