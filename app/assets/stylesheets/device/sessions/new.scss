@@ -7,6 +7,7 @@
   border: 0;
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  height:150px;
 }
 
 .card-signin .card-title {
@@ -98,7 +99,6 @@
   background-color: #ea4335;
 }
 
-.btn-facebook {
-  color: white;
-  background-color: #3b5998;
+#userSignin{
+height:auto;
 }

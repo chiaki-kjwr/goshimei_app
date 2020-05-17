@@ -38,10 +38,10 @@
 
       </div>
 
-      <div class="actions text-center">
+      <%#div class="actions text-center">
 
         <%= link_to "ゴシメイしてチャットを送る", "/chat_rooms",class:"btn btn-dark",method: :post %>
-      </div>
+
 
     </div>
   </div>
@@ -54,7 +54,7 @@
       <%#= link_to "追加ゴシメイしてメッセージを開始する", chat_room_path(@company_id),class:"btn btn-dark" %>
 <%= link_to "0516ゴシメイしてメッセージを開始する", "/chat_rooms",class:"btn btn-dark",method: :post %>
 <%= button_to '0517メッセージ', {controller: 'chat_rooms', action: 'create'}, {method: :post }%>
-
+<% link_to "0517後のチャット", create_chat_path(company: {company_id: post.company_id}), :method => :ppst %>
 
     <%= link_to "ゴシメイしてメッセージを開始する", "/chat_rooms",class:"btn btn-dark",method: :post %>
  <%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>

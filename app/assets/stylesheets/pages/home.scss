@@ -219,19 +219,19 @@ p {
 }
 
 
-.googleLogo {
+.homeGoogleLogo {
   position: absolute;
-  left: 0.01%;
-  top: 700%;
+  left: 1%;
+  top: 55%;
   display: flex;
   width: 300px;
   margin-top: 120px;
 }
 
-.google {
+.homeGoogle {
   position: absolute;
   left: 1%;
-  top: 700%;
+  //top: 300%;
   background-color: #ff8181;
   color: #000000;
   text-decoration: none;
@@ -239,7 +239,8 @@ p {
   margin-top: 20px;
   border-radius: 16px;
 }
-.google:hover {
+
+.homeGoogle:hover {
   text-decoration: none;
   color: #5f5d60;
 }

@@ -34,11 +34,24 @@ class ChatRoomsController < ApplicationController
     #else
       #redirect_to "/"
     #end
-  #end
+  #endx
   def create
     if user_signed_in?
     #userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
-    @chat_room = ChatRoom.new(room_company_params)
+    #company = Company.find(params[:id])
+   #@chat_room = ChatRoom.create!(user_id:current_user.id,company_id:current_company.id)
+
+#params使用しないチャット------------------------------------------------
+    #current_user_chat_rooms = ChatRoom.where(user_id: current_user.id).map(&:chat_room)
+    #@chat_room = ChatRoom.where(chat_room: current_user_chat_rooms, user_id: params[:user_id]).map(&:chat_room).first
+
+        #if @chat_room.blank?
+          @chat_room = ChatRoom.new
+          #@chat_room.save!(user_id: current_user.id,company_id: current_post.company_id)
+#params使用しないチャット-----------------------------------------------
+
+          #redirect_to action: :show, id: chat_room.id
+        end
 
     @chat_room.user_id = current_user.id
     @chat_room.save
@@ -47,17 +60,9 @@ class ChatRoomsController < ApplicationController
     #@chat_room.company = post.company
 
 
-    redirect_to :action => "show", :id => @chat_room.id
+    #redirect_to :action => "show", :id => @chat_room.id
     #render :show
 
-    elsif company_signed_in?
-      @chat_room = ChatRoom.new(room_user_params)
-      @chat_room.company_id = current_company.id
-      @chat_room.save
-
-    #else
-      #redirect_to "/"
-   #end
 
     #if @chat_room.save
       #ここが機能してない
@@ -65,14 +70,16 @@ class ChatRoomsController < ApplicationController
 
     #else
       #redirect_to "/"
-    end
+
   end
 
 
 
   private
   def room_company_params
-    params.require(:chat_room).permit(:user_id)
+    #@chat_room = ChatRoom.new
+    #@chat_room.save
+    params.require(:chat_room).permit(:company_id)
   end
 
   def room_user_params
@@ -81,6 +88,10 @@ class ChatRoomsController < ApplicationController
 
   def message_params
     params.permit(:message,:chat_room_id)
+  end
+
+  def current_post
+    　current_post = Post.find(id: params[:id])
   end
 
 end
