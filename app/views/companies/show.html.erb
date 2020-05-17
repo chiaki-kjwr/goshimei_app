@@ -1,54 +1,70 @@
-<% provide(:title, "マイページ") %>
+<% provide(:title, "企業様マイページ") %>
 <div class="d-flex flex-column align-items-center mt-3">
   <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
     <div class="card">
       <div class="card-header">
-        <%= "#{@company.name}の詳細" %>
+        <%= "#{@company_name}の詳細" %>
       </div>
         <div class="image text-center">
         <%= image_tag @company.profile_photo.url(:thumb),class: "round-img" %>
-        </div>
 
-      <div class="card-body">
-        <%= form_with model: @post do |f| %>
+  <div class="card-body">
+        <%#= form_with scope: resource, as: resource_name, url: registration_path(resource_name),local: true, method: :patch do |f| %>
+      <%#= form_with model: @post do |f| %>
       <div class="col-auto">
-        <%= f.label :name, "お名前" %>
-        <%= f.text_field :name ,placeholder: "例）山田太郎", class: "form-control" %>
+        <p>お名前</p>
+      <%= @company.name %>
       </div>
 
       <div class="col-auto">
-        <%= f.label :email, "メールアドレス" %>
-        <%= f.email_field :email ,placeholder: "例）abc@example.com", class: "form-control" %>
+  <p>在籍企業</p>
+      <%= @company.corporation_name %>
       </div>
 
       <div class="col-auto">
-        <%= f.label :sex,"性別" %><br>
-        <%= f.text_field :sex, autofocus: true, autocomplete: "sex",placeholder:"例）男",class: "form-control" %>
+      <p>担当業界</p>
+      <%= @company.industry %>
       </div>
 
       <div class="col-auto">
-        <%= f.label :age,"年齢" %><br>
-        <%= f.text_field :age, autofocus: true, autocomplete: "age" ,placeholder:"例）36",class: "form-control" %>
+      <p>担当職種</p>
+      <%= @company.occupation %>
+
       </div>
 
       <div class="col-auto">
-        <%= f.label :profile,"経歴" %> <br>
-        <%= f.text_area :profile, autofocus: true, autocomplete: "profile",placeholder:"例)新卒で大手金融機関に就業し、一貫して法人営業を行なって参りました。",class: "form-control" %>
-      </div>
+      <p>経歴</p>
+      <%= @company.profile %>
 
-      <div class="col-auto">
-        <%= f.label :profile_photo %>
-        <%= f.file_field :profile_photo %>
-        <%= f.hidden_field :profile_photo_cache %>
       </div>
 
       <div class="actions text-center">
-        <%= f.submit "変更する",class:"btn btn-dark ",method: :post %>
+
         <%= link_to "ゴシメイしてチャットを送る", "/chat_rooms",class:"btn btn-dark",method: :post %>
       </div>
-      <% end %>
+
     </div>
   </div>
 </div>
 </div>
 </div>
+
+  <div class="actions text-center">
+        <%= link_to "戻る", posts_path,class:"btn btn-dark" %>
+      <%#= link_to "追加ゴシメイしてメッセージを開始する", chat_room_path(@company_id),class:"btn btn-dark" %>
+<%= link_to "0516ゴシメイしてメッセージを開始する", "/chat_rooms",class:"btn btn-dark",method: :post %>
+<%= button_to '0517メッセージ', {controller: 'chat_rooms', action: 'create'}, {method: :post }%>
+
+
+    <%= link_to "ゴシメイしてメッセージを開始する", "/chat_rooms",class:"btn btn-dark",method: :post %>
+ <%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>
+
+      <%# if @company_ids.include?(company.id) %>
+      <br>
+<%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>
+    <%# else %>
+      <%= form_for ChatRoom.new do |f| %>
+        <%#= f.hidden_field :company_id, :value => company.id %>
+        <%= f.submit %>
+      <% end %>
+    <%# end %>

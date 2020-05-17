@@ -7,7 +7,8 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find_by(params[:id])
+    @company = Company.find(params[:id])
+    @company_name = @company.name
   end
 
   def create

@@ -25,7 +25,8 @@
             <%= render partial: 'posts/like_text', locals: { post: post} %>
           </div>
             <% if user_signed_in? %>
-            <%= link_to "詳細を確認", post_path(post),class:"btn btn-dark" %>
+            <%#= link_to "詳細を確認", post_path(post),class:"btn btn-dark" %>
+ <%= link_to "0517詳細を確認", company_path(post.company),class:"btn btn-dark" %>
             <%#= link_to "チャットへ", "/chat_rooms",method: :post,class:"btn btn-dark"  %>
 
           <% end %>

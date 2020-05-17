@@ -11,6 +11,7 @@ class PostsController < ApplicationController
         @posts = Post.search(name_cont: q).result.page(params[:page]).per(9).order(id: "DESC")
         @companies = Company.search(name_cont: q).result
 
+        #post.company = @post.cpmpany
 
         #チャット機能
         if  user_signed_in?

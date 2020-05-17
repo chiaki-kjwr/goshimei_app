@@ -5,52 +5,52 @@
   <%= form_with model: @company do |f| %>
   <div class="col-auto">
   <span class="must">必須</span>
-    <%= f.label :email,"メールアドレス  "%><br />
+    <%= f.label :email,"メールアドレス" %><br>
     <%= f.email_field :email, placeholder: "例）abc@example.com", class: "form-control",autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="col-auto">
   <span class="must">必須</span>
-    <%= f.label :name,"お名前      "%><br />
+    <%= f.label :name,"お名前" %><br>
     <%= f.text_field :name, placeholder: "例）山田太郎", class: "form-control",autofocus: true, autocomplete: "name" %>
   </div>
 
   <div class="col-auto">
   <span class="must">必須</span>
-    <%= f.label :password,"パスワード"%><br />
-    <%= f.password_field :password ,class: "form-control"%>
+    <%= f.label :password,"パスワード"%><br>
+    <%= f.password_field :password ,class: "form-control" %>
   </div>
 
   <div class="col-auto">
   <span class="must">必須</span>
-    <%= f.label :password_confirmation, "パスワード（確認）" %><br />
-    <%= f.password_field :password_confirmation, class: "form-control"%>
+    <%= f.label :password_confirmation, "パスワード（確認）" %><br>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
 </div>
 
 
   <div class="col-auto">
-        <%= f.label :corporation_name, "在籍企業名"%>
+        <%= f.label :corporation_name, "在籍企業名" %>
         <%= f.text_field :name ,placeholder: "例）ゴシメイ株式会社", class: "form-control" %>
       </div>
       <div class="col-auto">
-        <%= f.label :industory, "担当業界"%>
+        <%= f.label :industory, "担当業界" %>
         <%= f.text_field :name ,placeholder: "例）製薬メーカー", class: "form-control" %>
       </div>
 
       <div class="col-auto">
-        <%= f.label :occupation, "担当職種"%>
+        <%= f.label :occupation, "担当職種" %>
         <%= f.text_field :name ,placeholder: "例）MR", class: "form-control" %>
       </div>
 
       <div class="col-auto">
-        <%= f.label :profile,"経歴" %> <br />
-        <%= f.text_area :profile, autofocus: true, autocomplete: "profile",placeholder:"例)●●●●",class: "form-control"%>
+        <%= f.label :profile,"経歴" %> <br>
+        <%= f.text_area :profile, autofocus: true, autocomplete: "profile",placeholder:"例)●●●●",class: "form-control" %>
       </div>
 
       <div class="col-auto">
   <span class="must">必須</span>
-    <%= f.label :profile_photo,"プロフィール写真" %><br />
+    <%= f.label :profile_photo,"プロフィール写真" %><br>
     <%= f.file_field :profile_photo, autofocus: true, autocomplete: "profile_photo" %>
   </div>
 
@@ -62,6 +62,6 @@
   <% end %>
 </div>
 
-<%if user_signed_in?%>
+<% if user_signed_in? %>
 <%= render "devise/shared/links" %>
-<%end%>
+<% end %>

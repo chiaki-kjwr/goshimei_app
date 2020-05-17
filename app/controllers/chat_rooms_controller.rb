@@ -35,20 +35,16 @@ class ChatRoomsController < ApplicationController
       #redirect_to "/"
     #end
   #end
-
   def create
     if user_signed_in?
     #userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
     @chat_room = ChatRoom.new(room_company_params)
 
-
-    binding.pry
-
     @chat_room.user_id = current_user.id
+    @chat_room.save
     @chat_room.company
     #↓追記したがエラー変わらずosts
     #@chat_room.company = post.company
-    @chat_room.save
 
 
     redirect_to :action => "show", :id => @chat_room.id
@@ -76,7 +72,7 @@ class ChatRoomsController < ApplicationController
 
   private
   def room_company_params
-    params.permit(:user_id,:company_id)
+    params.require(:chat_room).permit(:user_id)
   end
 
   def room_user_params
