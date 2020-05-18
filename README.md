@@ -21,4 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* 学び
+・paramsでのデバッグ
+・chat_room 多対多のモデル設計作りが苦労した
+
