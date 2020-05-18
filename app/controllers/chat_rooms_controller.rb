@@ -38,15 +38,23 @@ class ChatRoomsController < ApplicationController
   def create
     if user_signed_in?
     #userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
-    #company = Company.find(params[:id])
-   #@chat_room = ChatRoom.create!(user_id:current_user.id,company_id:current_company.id)
+    #@company = Company.find(params[:id])
+    #@chat_room = ChatRoom.create!(user_id:current_user.id,company_id:current_company.id)
+    @chat_room = ChatRoom.create(room_company_params)
+    @chat_room.save!(room_company_params)
+    render :show
+
+
+
+
+
 
 #params使用しないチャット------------------------------------------------
     #current_user_chat_rooms = ChatRoom.where(user_id: current_user.id).map(&:chat_room)
     #@chat_room = ChatRoom.where(chat_room: current_user_chat_rooms, user_id: params[:user_id]).map(&:chat_room).first
 
         #if @chat_room.blank?
-          @chat_room = ChatRoom.new
+          #@chat_room = ChatRoom.new
           #@chat_room.save!(user_id: current_user.id,company_id: current_post.company_id)
 #params使用しないチャット-----------------------------------------------
 
@@ -79,7 +87,7 @@ class ChatRoomsController < ApplicationController
   def room_company_params
     #@chat_room = ChatRoom.new
     #@chat_room.save
-    params.require(:chat_room).permit(:company_id)
+    params.permit(:company_id,:user_id)
   end
 
   def room_user_params
@@ -91,7 +99,7 @@ class ChatRoomsController < ApplicationController
   end
 
   def current_post
-    　current_post = Post.find(id: params[:id])
+    current_post = Post.find(id: params[:id])
   end
 
 end

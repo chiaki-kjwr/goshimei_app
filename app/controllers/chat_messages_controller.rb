@@ -5,7 +5,6 @@ class ChatMessagesController < ApplicationController
     @chat_room = ChatRoom.find(params[:chat_room_id])
     @chat_message = ChatMessage.new(message_params)
 
-    
     if user_signed_in?
       @chat_message.is_user = true
     elsif company_signed_in?

@@ -2,9 +2,11 @@
   <span class="message__name"><%#= chat_message.user.name %></span>
   <%# if chat_message.user.id == current_user.id %>
     <div class="message__text message_current_user">
+    <% if @chat_message.present? %>
       <div><%= @chat_message.message %></div>
     </div>
     <div class="message__text">
       <div><%= @chat_message.message %></div>
     </div>
+    <% end %>
 </div>

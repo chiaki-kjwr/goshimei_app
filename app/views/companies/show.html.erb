@@ -38,11 +38,6 @@
 
       </div>
 
-      <%#div class="actions text-center">
-
-        <%= link_to "ゴシメイしてチャットを送る", "/chat_rooms",class:"btn btn-dark",method: :post %>
-
-
     </div>
   </div>
 </div>
@@ -52,15 +47,18 @@
   <div class="actions text-center">
         <%= link_to "戻る", posts_path,class:"btn btn-dark" %>
       <%#= link_to "追加ゴシメイしてメッセージを開始する", chat_room_path(@company_id),class:"btn btn-dark" %>
-<%= link_to "0516ゴシメイしてメッセージを開始する", "/chat_rooms",class:"btn btn-dark",method: :post %>
-<%= button_to '0517メッセージ', {controller: 'chat_rooms', action: 'create'}, {method: :post }%>
-<% link_to "0517後のチャット", create_chat_path(company: {company_id: post.company_id}), :method => :ppst %>
 
-    <%= link_to "ゴシメイしてメッセージを開始する", "/chat_rooms",class:"btn btn-dark",method: :post %>
+<!--↓でチャットルーム新規作成できた-->
+<%= button_to 'チャット', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@company_id}, {method: :post } %>
+
+
+<%#= button_to '0518', create_chat_path(chat_room:{user_id:current_user.id,company_id:@post.company_id}),method: :post %>
+
  <%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>
 
+<%#= link_to "チャット", create_chat_path(chat_room: {company_id: @company_id}), :method => :post %>
       <%# if @company_ids.include?(company.id) %>
-      <br>
+
 <%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>
     <%# else %>
       <%= form_for ChatRoom.new do |f| %>
