@@ -40,9 +40,18 @@ class ChatRoomsController < ApplicationController
     #userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
     #@company = Company.find(params[:id])
     #@chat_room = ChatRoom.create!(user_id:current_user.id,company_id:current_company.id)
-    @chat_room = ChatRoom.create(room_company_params)
-    @chat_room.save!(room_company_params)
-    render :show
+      if @chat_room.present?
+        #@chat_room = ChatRoom.create(room_company_params)
+        #@chat_room.save!(room_company_params)
+        #flash[:notice] = 'チャットが開始されました'
+        render :show
+
+      else
+        @chat_room = ChatRoom.create(room_company_params)
+        @chat_room.save!(room_company_params)
+        flash[:notice] = 'チャットが開始されました'
+        render :show
+      end
 
 
 
@@ -58,14 +67,10 @@ class ChatRoomsController < ApplicationController
           #@chat_room.save!(user_id: current_user.id,company_id: current_post.company_id)
 #params使用しないチャット-----------------------------------------------
 
-          #redirect_to action: :show, id: chat_room.id
         end
 
     @chat_room.user_id = current_user.id
-    @chat_room.save
-    @chat_room.company
-    #↓追記したがエラー変わらずosts
-    #@chat_room.company = post.company
+
 
 
     #redirect_to :action => "show", :id => @chat_room.id
@@ -73,8 +78,7 @@ class ChatRoomsController < ApplicationController
 
 
     #if @chat_room.save
-      #ここが機能してない
-      #redirect_to :action => "show", :id => @chat_room.id
+
 
     #else
       #redirect_to "/"
