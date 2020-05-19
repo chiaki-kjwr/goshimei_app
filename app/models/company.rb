@@ -5,4 +5,6 @@ has_secure_password
 validates :profile_photo, presence: true
 has_many :chat_rooms
 has_many :chat_messages,through: :chat_rooms,dependent: :destroy
+
+
 end

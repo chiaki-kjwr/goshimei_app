@@ -69,4 +69,4 @@
         <%#= f.hidden_field :company_id, :value => company.id %>
         <%= f.submit %>
       <% end %>
-    <%# end %>
+  <%= link_to "エクスポート",company_path(format: :csv),class: "btn btn-dark"%>

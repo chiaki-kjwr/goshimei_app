@@ -12,6 +12,8 @@ class CompaniesController < ApplicationController
     @post = Post.find(params[:id])
     #@company = @post.company
     #@company_id = @post.company_id
+
+
   end
 
   def create

@@ -37,10 +37,12 @@
 
 
           <% end %>
+
           </div>
         </div>
     </div>
 </div>
 <% end %>
+<%= link_to "エクスポート",posts_path(format: :csv),class: "btn btn-dark"%>
 <%= paginate @posts %>
 </div>

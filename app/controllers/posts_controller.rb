@@ -35,6 +35,12 @@ class PostsController < ApplicationController
                     @user_ids << c.user_id
                 end
         end
+
+        respond_to do |format|
+            format.html
+            format.csv { send_data @posts.generate_csv,filename: "posts-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"}
+        end
+
     end
 
     def show
