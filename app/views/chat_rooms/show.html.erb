@@ -1,10 +1,36 @@
+<div class="chat-title text-center">
 <h1>チャットサンプル</h1>
 <% if user_signed_in? %>
   <h3><%= @chat_room.company.name %>とのチャットルーム</h3>
-
-  <div class="chat-field">
-
+</div>
+<div class="chat-field">
+  <% if @chat_messages.present? %>
+    <% @chat_messages.each do |m| %>
+      <!-- メッセージがUserによるものだったら -->
+      <% if m.is_user %>
+        <!-- メッセージを右に寄せる -->
+        <div class="right-message">
+          <%= m.message %>
+        </div>
+      <!-- メッセージがShopによるものだったら -->
+      <% else %>
+        <!-- メッセージを左に寄せる -->
+        <div class="left-message">
+          <%= m.message %>
+        </div>
+      <% end %>
+    <% end %>
+    <% end %>
   </div>
+<%#= form_with [@chat_message] do |f|  %>
+<%#= form_for ChatMessage.new do |f| %>
+<%#= form_with model: [@chat_room, @chat_message] do |form| %>
+<%#= form_for(@chat_message) do  |form| %>
+  <%#= form.text_field :message %>
+  <%#= form.submit"メッセージを送る" %>
+<%# end %>
+  <%#= form_for [@chat_room, @chat_message] do |f| %>
+
 
   <div class="chatPage">
   <header class="header">
@@ -28,12 +54,6 @@
 </div>
 <% elsif company_signed_in?%>
   <h3><% @user.name %>とのチャットルーム</h3>
-
-
-<%#= form_with model:[@chat_room ,@chat_message] do |f|  %>
-<%#= form_for [@chat_room,@chat_message] do |f| %>
-  <%#= f.text_field :message %>
-  <%#= f.submit "メッセージを送る" %>
 
   <div class="chatPage">
   <header class="header">
