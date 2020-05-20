@@ -1,15 +1,21 @@
 class PostsController < ApplicationController
     include ApplicationHelper
-
     #before_action :login_required
     def index
-        @user = User.find_by(id: params[:id])
+        #@user = User.find_by(id: params[:id])
         @search = Post.ransack(params[:q])
         @posts = @search.result
 
-        q = params[:q]
-        @posts = Post.search(name_cont: q).result.page(params[:page]).per(9).order(id: "DESC")
-        @companies = Company.search(name_cont: q).result
+        #q = params[:q]
+        #@posts = Post.search(name_cont: q).result.page(params[:page]).per(9).order(id: "DESC")
+        #これでいける？
+        @posts = @posts.page(params[:page]).per(9).order(id: "DESC")
+        #@search = Post.ransack(params[:q])
+        #@posts = @search.result
+        #@q = posts.ransack(params[:q])
+        #@posts =  @q.result(distinct: true).recent
+
+        #@companies = Company.search(name_cont: q).result
 
         @post = Post.find_by(id: params[:id])
         #@company = post.company

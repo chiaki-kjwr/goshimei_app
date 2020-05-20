@@ -2,7 +2,7 @@
 
 <%= search_form_for @search, url: posts_path do |f| %>
 <div class="form-group">
-  <%= f.label :title_or_contents_cont, 'エージェントを検索しよう' %>
+  <%= f.label :title_or_contents_cont, '投稿から検索しよう' %>
   <%= f.search_field :title_or_contents_cont,class:"form-control" %>
 </div>
   <div class="actions"><%= f.submit '検索' %></div>
@@ -43,6 +43,8 @@
     </div>
 </div>
 <% end %>
-<%= link_to "エクスポート",posts_path(format: :csv),class: "btn btn-dark"%>
 <%= paginate @posts %>
+<div class="col-md-8">
+<%= link_to "エクスポート",posts_path(format: :csv),class: "btn btn-dark"%>
+</div>
 </div>
