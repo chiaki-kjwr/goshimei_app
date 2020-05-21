@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     get :likes, on: :collection
   end
 
-  resources :chat_rooms, only: %i(show create) do
+  resources :chat_rooms, only: %i(index show create) do
     resources :chat_messages,only: %i(new create)
   end
   post '/chat_rooms', to: 'chat_rooms#create',as:'create_chat'

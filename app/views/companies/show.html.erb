@@ -1,4 +1,4 @@
-<% provide(:title, "企業様マイページ") %>
+<% provide(:fulltitle, "企業様マイページ") %>
 <div class="d-flex flex-column align-items-center mt-3">
   <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
     <div class="card">
@@ -52,21 +52,27 @@
 <%#= button_to 'チャット', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@company_id}, {method: :post } %>
 <!---->
 <% if @chat_room.present? %>
-<%= button_to 'チャット詳細', {controller: 'chat_rooms', action: 'show',user_id:current_user.id,company_id:@post.company_id} %>
-<% else %>
-<%= button_to '2つめチャット', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company_id}, {method: :post } %>
+<%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),method: :get %>
+<%#= button_to 'チャット詳細', {controller: 'chat_rooms', action: 'show',user_id:current_user.id,company_id:@post.company_id} %>
+<% else @chat_room.blank?%>
+<%= button_to 'チャットを始める（2つめチャット）', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company_id}, {method: :post } %>
 <% end %>
 <%#= button_to '0518', create_chat_path(chat_room:{user_id:current_user.id,company_id:@post.company_id}),method: :post %>
 
-<%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>
+<%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %>
 
 <%#= link_to "チャット", create_chat_path(chat_room: {company_id: @company_id}), :method => :post %>
       <%# if @company_ids.include?(company.id) %>
 
-<%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %><br>
+<%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %>
     <%# else %>
-      <%= form_for ChatRoom.new do |f| %>
-        <%#= f.hidden_field :company_id, :value => company.id %>
-        <%= f.submit %>
-      <% end %>
-  <%= link_to "エクスポート",company_path(format: :csv),class: "btn btn-dark"%>
+    <%# @companies.each do |company| %>
+
+    <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
+    <% if @company_ids.include?(@company.id) %>
+    <!--既存は機能してない-->
+<%#= button_to '既存のチャットルーム', {controller: 'chat_rooms', action: 'show',company_id:company_id,chat_room_id: @chat_room_id},{method: :get} %>
+  <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),method: :get %>
+
+    <% end %>
+      <%#end %>

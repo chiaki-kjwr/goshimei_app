@@ -1,32 +1,46 @@
 class ChatRoomsController < ApplicationController
   include ApplicationHelper
 
+  def index
+    @chat_rooms = current_user.chat_rooms.all
+    #@chat_room = current_user.chat_rooms.find(user_id:current_user.id)
+    #@companis = @chat_rooms.company.name
+  end
+
   def show
     @chat_room = ChatRoom.find(params[:id]) #ルーム情報の取得
 
-    @chat_message = ChatMessage.new(message_params)
+    @company = @chat_room.company
+
+    @company_name = @company.name
+
+     #@chat_room_id = current_user.chat_rooms.find_by(company_id: @post.company_id,chat_room_id: @chat_room_id)
+
+  end
+    #@chat_message = ChatMessage.new(message_params)
 
 
-    @chat_message.save!
-    @chat_messages = @chat_room.chat_messages
+    #@chat_message.save!(message_params)
+    #@chat_messages = @chat_room.messages
     #@chat_message = ChatMessage.all
     #このルームのメッセージを全て取得
     #@company.name = @chat_room.company.name
-    @chat_message.save
+    #if @chat_message present?
+        #@chat_message.save
+   # end
+ #5/20に削除------------------------
+    #if user_signed_in?
+      #@chat_room = ChatRoom.new(room_company_params)
 
-    if user_signed_in?
-      @chat_room = ChatRoom.new(room_company_params)
 
-
-      @chat_room.user_id = current_user.id
+      #@chat_room.user_id = current_user.id
       #redirect_to :action => "show", :id => @chat_room.id
       #if @chat_room.user.id == current_user.id
-        @company = @chat_room.company
+        #@company = @chat_room.company
 
-      else
-        redirect_to "/"
-      end
-    end
+      #else
+        #redirect_to "/"
+    #------------------------------------------------
     #elsif company_signed_in?
       #if @chat_room.company.id == current_company.id
         #@user = @chat_room.user
@@ -37,6 +51,7 @@ class ChatRoomsController < ApplicationController
       #redirect_to "/"
     #end
   #endx
+
   def create
     if user_signed_in?
     #userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
@@ -54,10 +69,8 @@ class ChatRoomsController < ApplicationController
         flash[:notice] = 'チャットが開始されました'
         render :show
       end
-
-
-
-
+    end
+  end
 
 
 #params使用しないチャット------------------------------------------------
@@ -69,9 +82,7 @@ class ChatRoomsController < ApplicationController
           #@chat_room.save!(user_id: current_user.id,company_id: current_post.company_id)
 #params使用しないチャット-----------------------------------------------
 
-        end
 
-    @chat_room.user_id = current_user.id
 
 
 
@@ -85,7 +96,7 @@ class ChatRoomsController < ApplicationController
     #else
       #redirect_to "/"
 
-  end
+end
 
 
 
@@ -100,12 +111,10 @@ class ChatRoomsController < ApplicationController
     params.require(:chat_room).permit(:company_id)
   end
 
-  def message_params
-    params.permit(:message,:chat_room.id)
-  end
+  #def message_params
+    #params.require(:chat_message).permit(:message)
+  #end
 
   def current_post
     current_post = Post.find(id: params[:id])
   end
-
-end
