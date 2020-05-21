@@ -5,6 +5,7 @@
 <hr>
 <% @chat_rooms.each do |c| %>
   <a href="/chat_rooms/<%= c.id %>"><%= c.id %><%= c.user.name %></a>
+  <%= c.company.name %>
   <hr>
 <% end %>
 <p><a href="/users/<%= current_user.id %>" class="btn btn-primary"><%= current_user.name %> さんの情報に戻る</a></p>
