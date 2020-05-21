@@ -3,8 +3,6 @@ class ChatRoomsController < ApplicationController
 
   def index
     @chat_rooms = current_user.chat_rooms.all
-    #@chat_room = current_user.chat_rooms.find(user_id:current_user.id)
-    #@companis = @chat_rooms.company.name
   end
 
   def show
@@ -14,7 +12,8 @@ class ChatRoomsController < ApplicationController
 
     @company_name = @company.name
 
-     #@chat_room_id = current_user.chat_rooms.find_by(company_id: @post.company_id,chat_room_id: @chat_room_id)
+    @chat_messages = @chat_room.chat_messages #unless @chat_room.message nil?
+
 
   end
     #@chat_message = ChatMessage.new(message_params)
