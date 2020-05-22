@@ -1,78 +1,76 @@
-<div class="chat-title text-center">
-<h1>チャットサンプル</h1>
+<% provide(:full_title, "チャット詳細") %>
+<%#div class="row"%>
+
+<div class="col-xs-10 chatPage">
+  <header class="header text-center">
 <% if user_signed_in? %>
   <h3><%= @chat_room.company.name %>とのチャットルーム</h3>
-</div>
-<div class="chat-field">
-  <% if @chat_messages.present? %>
-    <% @chat_messages.each do |m| %>
-      <!-- メッセージがUserによるものだったら -->
-      <% if m.is_user %>
-        <!-- メッセージを右に寄せる -->
-        <div class="right-message">
-          <%= m.message %>
-        </div>
-      <!-- メッセージがShopによるものだったら -->
-      <% else %>
-        <!-- メッセージを左に寄せる -->
-        <div class="left-message">
-          <%= m.message %>
-        </div>
-      <% end %>
-    <% end %>
-    <% end %>
-  </div>
-<%#= form_with [@chat_message] do |f|  %>
-<%#= form_for ChatMessage.new do |f| %>
-<%#= form_with model: [@chat_room, @chat_message] do |form| %>
-<%#= form_for(@chat_message) do  |form| %>
-  <%#= form.text_field :message %>
-  <%#= form.submit"メッセージを送る" %>
-<%# end %>
-  <%#= form_for [@chat_room, @chat_message] do |f| %>
-
-
-  <div class="chatPage">
-  <header class="header">
-
-    <div class="chatPartner">
-      <div class="chatPartner_img"><%= image_tag @chat_room.user.profile_photo.url(:thumb) %></div>
-      <div class="chatPartner_name"><%= @chat_room.user.name %></div>
+  <div class="chatPartner">
+    <%= @chat_room.user.name %>
     </div>
   </header>
-  <div class="container">
-    <div class="messagesArea messages">
+
+  <%#div class="container"%>
+ <div class="row">
+  <div class="col-xs-12 messagesArea messages">
       <%#= render @chat_messages %>
-      <%= render "chat_messages/chat_message" %>
+<% if @chat_messages.present? %>
+    <% @chat_messages.each do |m| %>
+
+          <div class="col-xs-7 text-right alert alert-success">
+
+
+          <%#p class="alert alert-success"%>
+          <%= m.message %>
+          <br><br>
+
+           <div class="col-xs-4">
+          <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small>
+         <%= image_tag @chat_room.user.profile_photo.url(:thumb),class:"round-img" %>
+
+ </div>
+ </div>
+ </div>
+          </div>
+        <% else %>
+          <h4 class="text-left">
+          <p class="alert alert-info">
+          <%= m.message %>
+          <br><br>
+          <small><strong><a href=""<%= @chat_room.company_id %>"><%= @chat_room.company.name %>>さん</a></strong></small>
+          </p>
+          </h4>
+        <% end %>
+      <% end %>
+    <% else %>
+      <br>
+      <h3 class="text-center">メッセージはまだありません</h3>
+      <br>
+    <% end %>
+</div>
+
+
+      <%#= render "chat_messages/chat_message" %>
     </div>
   </div>
+
+  </div>
+
+
   <form class="messageInputForm">
     <div class='container'>
-      <input type="text" data-behavior="room_speaker" class="messageInputForm_input" placeholder="メッセージを入力...">
+     <%#= form_for @chat_message do |f| %>
+     <%= form_with(model: @chat_message ,url:chat_room_path,local:true,method: :post) do |f| %>
+      <%= f.label :message %>
+     <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
+<%= f.hidden_field :chat_room_id, :value => "@chat_room_id" %>
+<br>
+      <div class="text-center">
+        <%= f.submit "チャットを送る", :class => "btn btn-primary",method: :post %>
+
+      </div>
+    <% end %>
+
     </div>
   </form>
 </div>
-<% elsif company_signed_in?%>
-  <h3><% @user.name %>とのチャットルーム</h3>
-
-  <div class="chatPage">
-  <header class="header">
-  <%= link_to "", matching_index_path, class: "linkToMatching" %>
-    <div class="chatPartner">
-      <div class="chatPartner_img"><%= image_tag @chat_room_user.img_name.url(:thumb) %></div>
-      <div class="chatPartner_name"><%= @chat_room_user.name %></div>
-    </div>
-  </header>
-  <div class="container">
-    <div class="messagesArea messages">
-      <%= render @chat_messages %>
-    </div>
-  </div>
-  <form class="messageInputForm">
-    <div class='container'>
-      <input type="text" data-behavior="room_speaker" class="messageInputForm_input" placeholder="メッセージを入力...">
-    </div>
-  </form>
-</div>
-
-<% end %>

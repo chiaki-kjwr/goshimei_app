@@ -11,12 +11,11 @@ class ChatRoomsController < ApplicationController
     @company = @chat_room.company
 
     @company_name = @company.name
-
+    @chat_message = ChatMessage.create!(message_params)
     @chat_messages = @chat_room.chat_messages #unless @chat_room.message nil?
 
 
   end
-    #@chat_message = ChatMessage.new(message_params)
 
 
     #@chat_message.save!(message_params)
@@ -65,26 +64,11 @@ class ChatRoomsController < ApplicationController
       else
         @chat_room = ChatRoom.create(room_company_params)
         @chat_room.save!(room_company_params)
-        flash[:notice] = 'チャットが開始されました'
+        flash.now[:notice] = 'チャットが開始されました'
         render :show
       end
     end
   end
-
-
-#params使用しないチャット------------------------------------------------
-    #current_user_chat_rooms = ChatRoom.where(user_id: current_user.id).map(&:chat_room)
-    #@chat_room = ChatRoom.where(chat_room: current_user_chat_rooms, user_id: params[:user_id]).map(&:chat_room).first
-
-        #if @chat_room.blank?
-          #@chat_room = ChatRoom.new
-          #@chat_room.save!(user_id: current_user.id,company_id: current_post.company_id)
-#params使用しないチャット-----------------------------------------------
-
-
-
-
-
     #redirect_to :action => "show", :id => @chat_room.id
     #render :show
 
@@ -93,9 +77,7 @@ class ChatRoomsController < ApplicationController
 
 
     #else
-      #redirect_to "/"
-
-end
+      #redirect_to "
 
 
 
@@ -117,3 +99,8 @@ end
   def current_post
     current_post = Post.find(id: params[:id])
   end
+
+  def message_params
+    params.require(:chat_message).permit(:message,:chat_room_id)
+  end
+end
