@@ -11,7 +11,7 @@ class ChatRoomsController < ApplicationController
     @company = @chat_room.company
 
     @company_name = @company.name
-    @chat_message = ChatMessage.create!(message_params)
+    @chat_message = ChatMessage.create!(chat_room_id: @chat_room.id)
     @chat_messages = @chat_room.chat_messages #unless @chat_room.message nil?
 
 

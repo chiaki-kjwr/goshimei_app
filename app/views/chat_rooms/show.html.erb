@@ -63,7 +63,7 @@
      <%= form_with(model: @chat_message ,url:chat_room_path,local:true,method: :post) do |f| %>
       <%= f.label :message %>
      <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
-<%= f.hidden_field :chat_room_id, :value => "@chat_room_id" %>
+<%= f.hidden_field :chat_room_id, :value => "@chat_room.id" %>
 <br>
       <div class="text-center">
         <%= f.submit "チャットを送る", :class => "btn btn-primary",method: :post %>
