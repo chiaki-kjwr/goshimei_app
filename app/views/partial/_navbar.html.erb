@@ -9,7 +9,7 @@
         <% end %>
       <a class="btn btn-dark" href="/contacts/new">お問い合わせ</a>
       <a class="btn btn-dark" href="/posts">エージェントを探してみる</a>
-<% unless current_page?(controller: 'pages', action: 'company_home') %>
+<% unless current_page?(companies_home_path) %>
 <a class="btn btn-dark" href="/pages/company_home">企業様はこちら</a>
 
 <% end %>

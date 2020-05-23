@@ -9,11 +9,20 @@ class ChatRoomsController < ApplicationController
     @chat_room = ChatRoom.find(params[:id]) #ルーム情報の取得
 
     @company = @chat_room.company
-
     @company_name = @company.name
-    @chat_message = ChatMessage.create!(chat_room_id: @chat_room.id)
-    @chat_messages = @chat_room.chat_messages #unless @chat_room.message nil?
 
+    @chat_message = ChatMessage.create!(chat_room_id: @chat_room.id,message: params[:chat_message][:message])
+
+    #@chat_message = ChatMessage.create!(chat_room_id: @chat_room.id)
+    #@chat_message.create!(message_params)
+    #↓下２行でメッセージ上手く格納できてる
+    #chat_message = params[:chat_message].permit(:message).merge(chat_room_id: @chat_room.id)
+  #@chat_message = ChatMessage.create!(chat_message)
+
+   #↓これでチャットルームID渡すのは成功する
+    #@chat_message = ChatMessage.create!(chat_room_id: @chat_room.id,message:@message)
+
+    @chat_messages = @chat_room.chat_messages #unless @chat_room.message nil?
 
   end
 
@@ -27,7 +36,6 @@ class ChatRoomsController < ApplicationController
         #@chat_message.save
    # end
  #5/20に削除------------------------
-    #if user_signed_in?
       #@chat_room = ChatRoom.new(room_company_params)
 
 
@@ -92,15 +100,15 @@ class ChatRoomsController < ApplicationController
     params.require(:chat_room).permit(:company_id)
   end
 
-  #def message_params
-    #params.require(:chat_message).permit(:message)
-  #end
-
   def current_post
     current_post = Post.find(id: params[:id])
   end
 
   def message_params
-    params.require(:chat_message).permit(:message,:chat_room_id)
+    params.require(:chat_message).permit(:chat_room_id,:message)
+  end
+
+  def chat_params
+    params.permit(:message).merge(chat_room_id: @chat_room.id)
   end
 end
