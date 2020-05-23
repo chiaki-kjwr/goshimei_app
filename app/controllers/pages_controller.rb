@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
-    include ApplicationHelper
+  include ApplicationHelper
 
-    def home
-    end
+  def home
+  end
 
-    def terms
-    end
+  def terms
+  end
 
-    def copmpany_home
-    end
+  def copmpany_home
+  end
 end
