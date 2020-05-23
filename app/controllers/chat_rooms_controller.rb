@@ -10,8 +10,8 @@ class ChatRoomsController < ApplicationController
 
     @company = @chat_room.company
     @company_name = @company.name
-
-    #@chat_message = ChatMessage.create!(chat_room_id: @chat_room.id,message: params[:chat_message][:message])
+    #@chat_message = ChatMessage.new
+    @chat_message = ChatMessage.create!(chat_room_id: @chat_room.id,message: params[:chat_message][:message])
 
     #@chat_message = ChatMessage.create!(chat_room_id: @chat_room.id)
     #@chat_message.create!(message_params)
@@ -22,7 +22,7 @@ class ChatRoomsController < ApplicationController
    #↓これでチャットルームID渡すのは成功する
     #@chat_message = ChatMessage.create!(chat_room_id: @chat_room.id,message:@message)
 
-    @chat_messages = @chat_room.chat_messages #unless @chat_room.message nil?
+    @chat_messages = @chat_room.chat_messages  #unless @chat_room.message nil?
 
   end
 

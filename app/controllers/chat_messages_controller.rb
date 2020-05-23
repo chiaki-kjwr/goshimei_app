@@ -5,7 +5,10 @@ class ChatMessagesController < ApplicationController
     @chat_room = ChatRoom.find(params[:chat_room_id])
     @chat_message = ChatMessage.create!(chat_room_id: @chat_room.id,message: params[:chat_message][:message])
 
-      if @chat_message.save
+
+      if @chat_message.create!
+
+
       flash.now[:notice] = "チャットを送りました"
       else
       redirect_to chat_room_path,notice:"チャット送信に失敗しました"
