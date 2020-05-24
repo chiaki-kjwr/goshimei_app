@@ -74,8 +74,8 @@
 </div>
   <div class="GoogleLogoSignup">
   <%#= link_to (image_tag "google-logo.png",:size =>"50x50",class:"googleLogo"), user_google_oauth2_omniauth_authorize_path %>
-  <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"google" do %>
-  <%= image_tag "google-logo.png",:size =>"50x50" %>
+  <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"google btn-google" do %>
+  <i class="fab fa-google mr-2"></i>
   <p>Googleアカウントで新規登録</p>
   <% end %>
   </div>
