@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users,
-             controllers: { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
+              controllers: { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
   root 'pages#home'
   get  'pages/about'
   get  'pages/help'
@@ -17,6 +20,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  post '/pages/guest_sign_in', to: 'pages#new_guest'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :contacts, only: %i(new create)
