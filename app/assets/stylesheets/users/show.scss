@@ -150,3 +150,19 @@
     color: white;
     background-color: #3b5998;
   }
+
+  .setting {
+    background-image: image-url("parts1.png");
+
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    margin: 18px 0 0 10px;
+    background-size: 22px!important;
+    border: none;
+    display: inline-block;
+    &:hover {
+      cursor: pointer;
+    }
+  }

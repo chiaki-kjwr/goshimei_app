@@ -36,8 +36,31 @@
               <br>
               <%#= link_to "戻る", root_path, class: "btn btn-outline-dark" %>
           </div>
+
           <div class="card-body">
+          <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
             <h5 class="card-title text-center"><%= @user.name %></h5>
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">設定</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="list-group text-center">
+                <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
+                <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
             <hr>
             <div class="profile">
               <div class="profile-group">
@@ -64,8 +87,11 @@
                 <%= button_to "お気に入りしているエージェントはこちら", likes_posts_path, class:"btn btn-lg btn-google btn-block",method: :get %>
 
         <%= button_to "チャット中のエージェントはこちら", chat_rooms_path, class:"btn btn-lg btn-facebook btn-block",method: :get %>
+
+
+
             </div>
-          </div>
+          </h5>
         </div>
       </div>
     </div>
