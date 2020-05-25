@@ -100,13 +100,28 @@
   <div class="registration text-center">
     <h2>ゴシメイ！で転職のパートナーを探してみませんか？</h2>
       <% if user_signed_in? %>
-        <%= link_to "マイページ",user_path(current_user),class: "btn-gradient" %>
-        <%= link_to "ユーザー編集",edit_user_registration_path,class: "btn-gradient" %>
+        <%= link_to user_path(current_user),class: "btn btn-facebook btn-lg" do %>
+        <i class="fas fa-user"></i>マイページ
+        <% end %>
+
+        <%= link_to edit_user_registration_path,class: "btn btn-facebook btn-lg"  do %>
+        <i class="fas fa-edit"></i>ユーザー編集
+        <% end %>
+
       <%else%>
-        <%= link_to "新規登録する", new_user_registration_path, class: "btn-gradient" %>
-        <%= link_to "アカウントをお持ちの方はこちら", new_user_session_path, class: "btn-gradient" %>
+        <%= link_to new_user_registration_path, class: "btn btn-facebook btn-lg"  do %>
+       <i class="fas fa-cog"></i>新規登録
+         <% end %>
+
+        <%= link_to new_user_session_path, class: "btn btn-facebook btn-lg" do %>
+       <i class="fas fa-smile"></i>アカウントをお持ちの方はこちら
+        <% end %>
+
       <%end%>
       <br>
-      <%= link_to "採用ご担当者様はこちら(ゲストログイン)", users_guest_sign_in_path, method: :post %>
+      <%= link_to users_guest_sign_in_path, class: "btn btn-google btn-lg",method: :post do %>
+      <i class="fas fa-user-check"></i>採用ご担当者様はこちら(ゲストログイン)
+      <%end%>
+
     </div>
 </div>
