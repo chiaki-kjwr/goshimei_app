@@ -8,7 +8,12 @@
   <%= f.label :title_or_contents_cont, '投稿から検索しよう' %>
   <%= f.search_field :title_or_contents_cont,class:"form-control" %>
 </div>
-  <div class="actions"><%= f.submit '検索' %></div>
+  <div class="actions">
+  <%= button_tag type: "submit", class: "btn btn-facebook btn-lg" do %>
+<i class="fas fa-search-plus"></i>検索
+  <%#= f.submit '検索' %>
+  <% end %>
+  </div>
 <% end %>
 
 <%= search_form_for(@c_search, as: :c)do |form| %>
@@ -16,7 +21,12 @@
   <%= form.label :name_cont, '企業から検索しよう' %>
   <%= form.search_field :name_cont,class:"form-control" %>
 </div>
-  <div class="actions"><%= form.submit '検索' %></div>
+  <div class="actions">
+  <%= button_tag type: "submit", class: "btn btn-facebook btn-lg" do %>
+<i class="fas fa-search-plus"></i>検索
+  <% end %>
+  <%#= form.submit '検索' %>
+  </div>
 <% end %>
 
 <%
