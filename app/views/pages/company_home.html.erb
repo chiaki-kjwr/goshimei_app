@@ -5,12 +5,13 @@
         <div class="text-center">
           <h1 class="font-weight-bold mb-4 topTitle"><br />ゴシメイ！</h1>
           <h3 class="subTitle">
-            <p>信頼できる転職エージェントを、</p>
-            <p>自分で見つけよう</p>
+            <p>ゴシメイはユーザーがマッチする転職エージェントを検索できるサービスです。</p>
+            <p></p>
+               <%= button_to "新規登録はこちら", new_company_path, class:'companyNewForm btn btn-facebook btn-lg' %>
           </h3>
         </div>
           <div class="companyNew">
-            <%= link_to "新規登録はこちら", new_company_path, class:'companyNewForm btn btn-facebook' %>
+            <%#= button_to "新規登録はこちら", new_company_path, class:'companyNewForm btn btn-facebook btn-lg' %>
           </div>
         </div>
       </div>
@@ -20,13 +21,17 @@
     </div>
     <div class="mb-5 bgBlue">
       <div class="canSearch">
-        <h3>ボシュウできます</h3>
+        <h3>ボシュウ画面から、投稿ができます</h3>
+        <p>自社の専門性や魅力など</p>
+        <p>ユーザーに伝えたいことを投稿することができます</p>
       </div>
       <div class="searchImage">
         <%= image_tag('post.png',:class =>"companyImage rounded-circle") %>
       </div>
       <div class="canChat">
-        <h3>チャット形式でメッセージのやりとりができます</h3>
+        <h3>メッセージのやりとりができます</h3>
+        <p>興味を持ったユーザーから、</p>
+        <p>メッセージがきます</p>
       </div>
       <div class="searchImage">
         <%= image_tag('chatting.png',:class =>"companyImage rounded-circle") %>

@@ -184,8 +184,6 @@ a {
   /* margin-top: 5vh; */
 }
 
-/* 以下付け足し */
-
 .container {
   margin-right: 100px !important;
   margin-left: 100px !important;
@@ -229,6 +227,11 @@ a {
 }
 
 .canSearch {
+  margin-left: 20%;
+  margin-top: 3%;
+  padding-top: 5%;
+}
+.canChat {
   margin-left: 20%;
   margin-top: 3%;
   padding-top: 5%;
@@ -277,16 +280,16 @@ a {
 
   .companyNewForm {
     position: absolute;
-    top: 1800%;
     left: 1%;
     color: white !important;
     //margin-left: 10px;
   }
 
-  //.companyNew {
-    //top: 2500%;
+  .companyNew {
+    top: 4000%;
+    position: relative;
     //left: 1%;
-  //}
+  }
 
 
   .logIn {

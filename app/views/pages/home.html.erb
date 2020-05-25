@@ -1,4 +1,4 @@
-<% provide(:title, "ホーム") %>
+<% provide(:full_title, "Top") %>
 <div class="welcome-wrapper",id="wrapper">
       <div class="container">
         <div class="top-image">
@@ -6,7 +6,7 @@
             <h1 class="font-weight-bold mb-4 topTitle"><br />ゴシメイ！</h1>
             <h3 class="subTitle">
               <p>信頼できる転職エージェントを、</p>
-              <p>自分で見つけよう</p>
+              <p>自分で見つけよう。</p>
 
             </h3>
             <div class="homeGoogleLogo">
@@ -26,19 +26,19 @@
       <div class="container">
         <div class="heading text-center">
           <h2>ゴシメイ！でできること</h2>
-          <p>ゴシメイは〇〇できるサービスです。</p>
-          <p>自分自身で探す</p>
+          <p>ゴシメイ！はご自身でマッチする転職エージェントを検索できるサービスです。</p>
         </div>
         <div class="row">
           <div class="detail col-3 consultation">
             <%= image_tag"consultation.png" %>
 
             <p class="text-contents">
-              <span class="font-weight-bold">専門性の高い転職エージェントにいつでも相談できます</span>
+              <span class="font-weight-bold">専門性の高い転職エージェントに</span><br>
+              <span class="font-weight-bold">いつでも相談できます</span>
             </p>
           </div>
           <div class="detail col-3 nominate">
-          <%= image_tag 'nominate.png'%>
+          <%= image_tag 'nominate.png' %>
             <p class="text-contents">
               <span class="font-weight-bold">自分にぴったりの転職エージェントを指名できます</span>
             </p>
@@ -58,9 +58,10 @@
         <h2>ゴシメイ！の使い方</h2>
       </div>
       <div class="container">
-        <div class="mb-5 row bgBlue">
+        <div class="mb-5 row bgBlue text-center">
           <div class="col-sm-8">
-            <h3 class="text-center mt10">①検索する。</h3>
+            <h3 class="text-center mt10">①検索する</h3>
+            <span class="text-center font-weight-bold">業界、職種など自分にマッチしたエージェントを検索してみよう</span>
           </div>
           <div class="col-sm-4">
             <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
@@ -71,20 +72,22 @@
 
     <div class="heading text-center"></div>
     <div class="container mt10" >
-      <div class="mb-5 row bgSkyblue">
+      <div class="mb-5 row bgSkyblue  text-center">
         <div class="col-sm-4">
           <%= image_tag('like.png',:class =>"w-100 rounded-circle") %>
         </div>
         <div class="col-sm-8">
           <h3 class="text-center mt10">②お気に入りができます</h3>
+          <span class="text-center font-weight-bold">気になったエージェントはお気に入り登録ができます</span>
         </div>
       </div>
     </div>
     <div class="Features py-5">
       <div class="container mt20">
-        <div class="mb-5 row bgBlue">
+        <div class="mb-5 row bgBlue text-center">
           <div class="col-sm-8">
             <h3 class="text-center mt10">③チャットができます</h3>
+            <span class="text-center font-weight-bold">エージェントとの直接のやり取りも可能です</span>
           </div>
           <div class="col-sm-4">
             <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
