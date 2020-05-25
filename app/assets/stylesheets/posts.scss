@@ -14,7 +14,14 @@
   white-space: nowrap;
 }
 .post-index-card {
-  height: 450px;
+  height: 300px;
+  border: solid;
+  border-color:  #5f5d60;;
+  margin-bottom:20px;
+  background-color: #5f5d60;
+}
+.card-body {
+  background-color:#eee
 }
 
 .col-auto {
@@ -39,12 +46,6 @@ h2 {
   border-color: #108d6f;
   box-shadow: none;
   outline: none;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #007b5e;
-  border-color: #007b5e;
 }
 
 section {
@@ -82,14 +83,14 @@ section .section-title {
 }
 
 .mainflip {
-  -webkit-transition: 1s;
+  -webkit-transition: 5s;
   -webkit-transform-style: preserve-3d;
-  -ms-transition: 1s;
-  -moz-transition: 1s;
+  -ms-transition: 5s;
+  -moz-transition: 5s;
   -moz-transform: perspective(1000px);
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
-  transition: 1s;
+  transition: 5s;
   transform-style: preserve-3d;
   position: relative;
 }
@@ -100,6 +101,7 @@ section .section-title {
   -ms-transform: rotateY(0deg);
   z-index: 2;
   margin-bottom: 30px;
+  background-color: rgb(158, 158, 158);
 }
 
 .backside {
