@@ -11,8 +11,8 @@ class ChatRoomsController < ApplicationController
     @company = @chat_room.company
     @company_name = @company.name
     #@chat_message = ChatMessage.new
-    @chat_room = ChatRoom.find(params[:id]) # ルーム情報の取得
-    @chat_message = ChatMessage.create!(chat_room_id: @chat_room.id, message: params[:chat_message][:message])
+    #@chat_room = ChatRoom.find(params[:id]) # ルーム情報の取得
+    #@chat_message = ChatMessage.create!(chat_room_id: @chat_room.id, message: params[:chat_message][:message])
 
 
 

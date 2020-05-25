@@ -52,12 +52,15 @@
 
 <form class="messageInputForm">
 <hr>
-  <%= form_with(model:@chat_message ,url:chat_room_path,local:true,method: :post)do |f| %>
-    <%#= form_with model:@chat_message ,url:chat_room_chat_message_path,local:true do |f| %>
-  <%#= form_with(url:chat_room_chat_messages_path,local:true) do |f| %>
+  <%#= form_with(model:@chat_message ,url:chat_room_path,local:true,method: :post)do |f| %>
+    <%#= form_with(model:@chat_message,url:chat_room_chat_messages_path,local:true,method: :post) do |f| %>
+<%= form_with scope: :chat_message, url:chat_room_chat_messages_path do |f| %>
+<%#= form_with(url:chat_room_chat_messages_path,local:true) do |f| %>
     <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
+    <%#= hidden_field_tag :chat_room_id, params[:chat_room_id] %>
+     <%= f.hidden_field :chat_room_id, {value: @chat_room.id} %>
+
     <%#= f.hidden_field :chat_room_id, :value => "@chat_room.id" %>
-<br>
       <div class="text-center">
         <%= f.submit "チャットを送る", :class => "btn btn-primary",method: :post %>
       </div>
