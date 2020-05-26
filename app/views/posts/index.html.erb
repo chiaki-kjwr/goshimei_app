@@ -1,7 +1,5 @@
 <% provide(:full_title, "エージェントをゴシメイする") %>
 
-
-
 <%= search_form_for @search, url: posts_path do |f| %>
 <div class="form-group">
   <%= f.label :title_or_contents_cont, '投稿から検索しよう' %>
@@ -86,6 +84,7 @@
 						<%#img src="//placehold.it/250x150" alt="Movie" class="w-100" /%>
 					</div>
 					<p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
+
           <div id="like-icon-post-<%= post.id.to_s %>">
             <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text" %>
           </div>
