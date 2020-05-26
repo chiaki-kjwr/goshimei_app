@@ -59,6 +59,7 @@ group :development do
   # gem 'rubocop', require: false
   # gem 'rubocop-rails', require: false
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  gem "bullet"
 end
 
 group :test do

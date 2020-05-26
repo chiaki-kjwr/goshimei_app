@@ -1,23 +1,26 @@
 <% provide(:full_title, "チャット一覧") %>
 
-<section class="title-banner py-5 text-white" id="title-banner">
+<section class="title-banner col-lg-6 col-lg-offset-3 py-5 text-white" id="title-banner">
 <div class="container">
 	<div class="row">
+
   <h1><%= current_user.name %> 様のチャット一覧</h1>
 	</div>
 </div>
 <hr>
 </section>
 
-<div class="chatrooms-body">
+ <div class="col-md-6 offset-md-3">
+ <div class="chat-card col-lg-9 col-lg-offset-3">
 <% @chat_rooms.each do |c| %>
   <%= image_tag c.company.profile_photo.url(:thumb),class: "chat-image rounded-circle",size:"100x100" %>
   <a href="/chat_rooms/<%= c.id %>"><%= c.id %><%= c.company.name %>様とのチャットルーム</a>
-  <p><%= time_ago_in_words(c.created_at) %></p>
+
   <br/>
   <h5 class="name" ><%= c.company.name %>
 
   <hr>
 <% end %>
+</div>
 </div>
 <p><a href="/users/<%= current_user.id %>" class="btn btn-primary"><%= current_user.name %> さんの情報に戻る</a></p>
