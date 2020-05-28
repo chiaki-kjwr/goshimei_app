@@ -1,56 +1,103 @@
 <% provide(:full_title, "チャット詳細") %>
 <%#div class="row"%>
 
-  <header class="header text-center">
-<% if user_signed_in? %>
-  <h3><%= @chat_room.company.name %>とのチャットルーム</h3>
-  <div class="chatPartner">
-    <%= @chat_room.user.name %>
-     <% end %>
+<%
+=begin%>
+ <header class="header text-center">
+  <% if user_signed_in? %>
+    <h3><%= @chat_room.company.name %>とのチャットルーム</h3>
+    <div class="chatPartner">
+      <%= @chat_room.user.name %>
     </div>
-  </header>
+  <% end %>
+<%
+=end%>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <span class="glyphicon glyphicon-comment"></span> <%= @chat_room.company.name %>とのチャットルーム
+      <div class="btn-group pull-right">
+          <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-chevron-down"></span>
+          </button>
+          <ul class="dropdown-menu slidedown">
+              <li><a href="/companies/<%= @chat_room.company_id %>"><span class="glyphicon glyphicon-ok-sign">
+              </span></a><%= @chat_room.company.name %>とのチャットルーム</li>
 
-<%#div class="chatPage"%>
+              <li><a href="https://www.youtube.com/user/dimit28"><span class="glyphicon glyphicon-ok-sign">
+              </span>Youtube</a></li>
+          </ul>
+      </div>
+      <%= @chat_room.user.name %>
+  </div>
   <div class="container">
- <div class="row">
-  <%#div class="messagesArea messages"%>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+            <%#div class="panel panel-primary"%>
+        <div class="panel-body">
+        </div>
+      </div>
+    </div>
+  </div>
+      <div class="col-md-12">
+        <% if @chat_messages.present? %>
+          <% @chat_messages.each do |m| %>
 
- <div class="col-lg-12">
-  <% if @chat_messages.present? %>
-   <% @chat_messages.each do |m| %>
-      <% if m.is_user = true %>
+            <% if m.is_user = true %>
+              <div class="alert alert-success">
+                  <div class="chatImage">
+ <%= image_tag @chat_room.user.profile_photo.url(:thumb),class:"rounded-circle",size:"75x75"%>
+  <%= m.message %>
+  </div>
+   <div class="chatContent">
 
 
-         <h4 class="text-right">
-          <p class="alert alert-success">
- <%= m.message %>
-          <br>
-          <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
-         <%= image_tag @chat_room.user.profile_photo.url(:thumb),class:"round-img" %>
-          </p>
-          </h4>
-      <% else  m.is_user = false %>
-          <%#= m.message %>
-      <% end %>
-        <% end %>
-  <% elsif @chat_messages.nil? %>
-      <br>
-      <h3 class="text-center">メッセージはまだありません</h3>
-      <br>
 
+              <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
+
+              </div>
+              </div>
+
+
+
+            <% else  m.is_user = false %>
+            <%#= m.message %>
+            <% end %>
+          <% end %>
+        <% elsif @chat_messages.nil? %>
+          <h3 class="text-center">メッセージはまだありません</h3>
+        <% end %>　
+      </div>
+    </div>
+  </div>
+  <!------------------------------------>
+
+
+ <!------------------------------------>
+  <%#form class="messageInputForm"%>
+  <hr>
+<div class="panel footer">
+  <%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
+    <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
+    <%= hidden_field_tag :chat_room, params[:id] %>
+    <div class="text-center">
+      <%= f.submit "チャットを送る", :class => "btn btn-facebook",method: :post %>
+    </div>
   <% end %>
 </div>
 
-    </div>
 
 
-</div>
 
-<form class="messageInputForm">
-<hr>
+
+
+
+
+
   <%#= form_with(model:@chat_message ,url:chat_room_path,local:true,method: :post)do |f| %>
     <%#= form_with(model:@chat_message,url:chat_room_chat_messages_path,local:true,method: :post) do |f| %>
-<%= form_with scope: :chat_message, url:chat_room_chat_messages_path do |f| %>
+<%
+=begin%>
+ <%= form_with scope: :chat_message, url:chat_room_chat_messages_path do |f| %>
 <%#= form_with(url:chat_room_chat_messages_path,local:true) do |f| %>
     <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
     <%= hidden_field_tag :chat_room, params[:id] %>
@@ -59,5 +106,5 @@
         <%= f.submit "チャットを送る", :class => "btn btn-primary",method: :post %>
       </div>
     <% end %>
-    </div>
-</form>
+<%
+=end%>

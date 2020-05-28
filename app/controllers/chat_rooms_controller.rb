@@ -10,19 +10,10 @@ class ChatRoomsController < ApplicationController
 
     @company = @chat_room.company
     @company_name = @company.name
+    @chat_messages = @chat_room.chat_messages
     #@chat_message = ChatMessage.new
     #@chat_room = ChatRoom.find(params[:id]) # ルーム情報の取得
     #@chat_message = ChatMessage.create!(chat_room_id: @chat_room.id, message: params[:chat_message][:message])
-
-
-
-
-
-
-
-
-
-
     # @chat_message = ChatMessage.create!(chat_room_id: @chat_room.id)
     # @chat_message.create!(message_params)
     # ↓下２行でメッセージ上手く格納できてる
@@ -31,8 +22,6 @@ class ChatRoomsController < ApplicationController
 
     # ↓これでチャットルームID渡すのは成功する
     # @chat_message = ChatMessage.create!(chat_room_id: @chat_room.id,message:@message)
-
-    @chat_messages = @chat_room.chat_messages # unless @chat_room.message nil?
   end
 
   # @chat_message.save!(message_params)
@@ -67,20 +56,13 @@ class ChatRoomsController < ApplicationController
 
   def create
     if user_signed_in?
-      # userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
-      # @company = Company.find(params[:id])
-      # @chat_room = ChatRoom.create!(user_id:current_user.id,company_id:current_company.id)
+      @chat_room = ChatRoom.where(user_id: current_user.id, company_id: params[:company_id]).first
       if @chat_room.present?
-        # @chat_room = ChatRoom.create(room_company_params)
-        # @chat_room.save!(room_company_params)
-        # flash[:notice] = 'チャットが開始されました'
-        render :show
-
+        redirect_to chat_room_path(@chat_room.id) and return
       else
         @chat_room = ChatRoom.create(room_company_params)
         @chat_room.save!(room_company_params)
-        flash.now[:notice] = 'チャットが開始されました'
-        render :show
+        redirect_to chat_room_path(@chat_room.id)
       end
     end
   end
@@ -116,3 +98,23 @@ class ChatRoomsController < ApplicationController
     params.permit(:message).merge(chat_room_id: @chat_room.id)
   end
 end
+
+
+=begin def create
+  if user_signed_in?
+    # userがログインしてたらuser_idを, shopがログインしてたらshop_idを@roomにいれる
+    # @company = Company.find(params[:id])
+    # @chat_room = ChatRoom.create!(user_id:current_user.id,company_id:current_company.id)
+    if @chat_room.present?
+      # @chat_room = ChatRoom.create(room_company_params)
+      # @chat_room.save!(room_company_params)
+      # flash[:notice] = 'チャットが開始されました'
+      render :show
+
+    else
+      @chat_room = ChatRoom.create(room_company_params)
+      @chat_room.save!(room_company_params)
+      flash.now[:notice] = 'チャットが開始されました'
+      render :show
+    end
+=end
