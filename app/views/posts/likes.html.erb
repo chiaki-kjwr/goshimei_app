@@ -1,14 +1,15 @@
 <% provide(:full_title, "お気に入り") %>
 
 <div class="card-chat">
-  <div class="panel-heading">
-    <span class="glyphicon glyphicon-comment"></span> <%= current_user.name %> 様のお気に入り一覧
+  <div class="panel-heading text-center">
+  <h3><%= current_user.name %> 様のお気に入り一覧</h3>
   </div>
   <div class="card-body-chat bg-light p-2 col-md-12">
   <% @posts.each do |post| %>
    <div class="likes-image">
 
   <%= image_tag post.company.profile_photo.url(:thumb),class: "chat-image rounded-sm",size:"100x100" %>
+  <i class="fas fa-heart"></i>
  <%= post.company.name %>
   </div>
    <div class="likes-post">
