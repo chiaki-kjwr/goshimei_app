@@ -51,8 +51,21 @@
 .panel-body
 {
     overflow-y: scroll;
-    height: 500px;
+    //height: 500px;
 }
+/*
+.chat-card{
+  height:100%;
+} */
+
+.chat-footer {
+
+  bottom: 0;
+}
+.card-body-chat{
+  height:auto;
+}
+
 
 ::-webkit-scrollbar-track
 {
