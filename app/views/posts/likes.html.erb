@@ -1,6 +1,40 @@
 <% provide(:full_title, "お気に入り") %>
 
-<section class="title-banner col-lg-6 col-lg-offset-3 py-5 text-white" id="title-banner">
+<div class="card-chat">
+  <div class="panel-heading">
+    <span class="glyphicon glyphicon-comment"></span> <%= current_user.name %> 様のお気に入り一覧
+  </div>
+  <div class="card-body-chat bg-light p-2 col-md-12">
+  <% @posts.each do |post| %>
+   <div class="likes-image">
+
+  <%= image_tag post.company.profile_photo.url(:thumb),class: "chat-image rounded-sm",size:"100x100" %>
+ <%= post.company.name %>
+  </div>
+   <div class="likes-post">
+   <%= post.title %>
+<%= post.contents %>
+   </div>
+
+<hr>
+<% end %>
+</div>
+</div>
+<p><a href="/users/<%= current_user.id %>"><<<<<<%= current_user.name %>さんのマイーページに戻る</a></p>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<%
+=begin%>
+ <section class="title-banner col-lg-6 col-lg-offset-3 py-5 text-white" id="title-banner">
 <div class="container">
 	<div class="row">
 
@@ -13,13 +47,15 @@
  <div class="col-md-6 offset-md-3">
  <div class="chat-card col-lg-9 col-lg-offset-3">
  <% @posts.each do |post| %>
-  <%= image_tag post.company.profile_photo.url(:thumb),class: "chat-image rounded-circle",size:"100x100" %>
+  <%= image_tag post.company.profile_photo.url(:thumb),class: "chat-image rounded-sm",size:"100x100" %>
   <br/>
   <h5 class="name" ><%= post.company.name %>
 <% end %>
 </div>
 </div>
 <p><a href="/users/<%= current_user.id %>" class="btn btn-primary"><%= current_user.name %> さんの情報に戻る</a></p>
+<%
+=end%>
 
 <%
 =begin%>
@@ -44,4 +80,4 @@
 		</div>
     <% end %>
 <%
-=end%
+=end%>
