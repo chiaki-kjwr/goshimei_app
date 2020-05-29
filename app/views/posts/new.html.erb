@@ -3,7 +3,7 @@
   <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
     <div class="card">
       <div class="card-header text-center">ボシュウしてみよう</div>
-        <div class="card-body">
+        <div class="card-body-post">
           <%= form_with model: @post do |f| %>
             <div class="col-auto">
             <%= f.label :title,"ボシュウのタイトル" %>
@@ -16,7 +16,7 @@
             <%= f.text_area :contents, class: "form-control", size: "10x10",placeholder: "例）前職はサーバーサイドのエンジニアとしてサービス開発を行っており、豊富な業界知識と企業へのコネクションがございます," %>
             </div>
             <div class="col-auto text-center">
-            <%= f.submit "ボシュウする", class: "btn btn-dark  btn-lg" %>
+            <%= f.submit "ボシュウする", class: "btn btn-facebook btn-block" %>
             </div>
         <% end %>
       </div>
