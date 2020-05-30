@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     company = Company.find_by(email: session_params[:email])
     if company &.authenticate(session_params[:password])
       session[:company_id] = company.id
-      redirect_to new_post_path, notice: 'ログインに成功しました'
+      redirect_to company_path(company), notice: 'ログインに成功しました'
 
     else
       # redirect_to root_pat,hnotice: 'ログインに成功しました'
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_path, notice: 'ログアウトしました'
+    redirect_to companies_home_path, notice: 'ログアウトしました'
   end
 
   def new_guest

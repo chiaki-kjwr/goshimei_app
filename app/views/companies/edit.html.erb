@@ -1,10 +1,10 @@
-<% provide(full_title, "アカウント編集") %>
+<% provide(:full_title, "アカウント編集") %>
 <div class="d-flex flex-column align-items-center mt-3">
   <div class="card">
     <div class="card-header">
       <%= "#{@company.name}のアカウント編集" %>
     </div>
-    <%= image_tag @company.profile_photo.url(:thumb),class: "round-img" %>
+    <%= image_tag @company.profile_photo.url(:thumb),class: "rounded-circle",size:"100x100"%>
 <!--body-->
     <div class="card-body">
       <%= form_with(model: @company, local: true) do |f| %>
@@ -24,7 +24,7 @@
       </div>
 
       <div class="col-auto">
-        <%= f.label :profile_photo %>
+        <%= f.label :profile_photo,"プロフィール写真を変更する" %>
         <%= f.file_field :profile_photo %>
         <%= f.hidden_field :profile_photo_cache %>
       </div>
