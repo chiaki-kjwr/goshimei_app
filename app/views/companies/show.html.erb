@@ -99,9 +99,9 @@
               <div class="profile-group">
                <p>性別 : <%= @company.industry %></p>
               </div>
-
+              <%if current_company %>
               <%= link_to "ボシュウ作成する", new_post_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
-
+              <% end %>
               <hr class="my-4">
                 <%= button_to "お気に入りしているエージェントはこちら", likes_posts_path, class:"btn btn-lg btn-google btn-block",method: :get %>
 

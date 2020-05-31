@@ -1,4 +1,8 @@
 <% provide(:full_title, "エージェントをゴシメイする") %>
+<div class="card-chat">
+  <div class="panel-heading text-center">
+  <h2>ボシュウからエージェントを探してみる</h2>
+  </div>
 
 <%= search_form_for @search, url: posts_path do |f| %>
 <div class="form-group">
@@ -70,20 +74,21 @@
 <%
 =end%>
 
- <h2>ボシュウからエージェントを探してみる</h2>
+
 	<div class="row">
- <%= @posts.each do |post| %>
+<%= @posts.each do |post| %>
 	<div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
 			<div class="card" id="cardIndex">
 				<header class="title-header">
 					<h3><%= post.title %></h3>
 				</header>
-				<div class="card-block">
+				<div class="card-body">
 					<div class="img-card">
-          <%= post.contents %>
 						<%#img src="//placehold.it/250x150" alt="Movie" class="w-100" /%>
+            	<p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
+ <%= image_tag post.company.profile_photo.url(:thumb),class:"round-img",size:"50x50"%>
+  <%= post.contents %>
 					</div>
-					<p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
 
           <div id="like-icon-post-<%= post.id.to_s %>">
             <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text" %>
@@ -91,11 +96,13 @@
           <div id="likes_buttons_<%= post.id %>">
             <%= render partial: 'posts/like_text', locals: { post: post} %>
           </div>
-          <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
+
+				</div>
+         <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
             <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
             <% end %>
-				</div>
 			</div>
+
 		</div>
     <% end %>
     <%= paginate @posts %>
