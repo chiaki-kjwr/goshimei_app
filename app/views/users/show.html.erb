@@ -50,7 +50,9 @@
                 </button>
               </div>
               <div class="list-group text-center">
-                <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
+                <%#= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
+                  <%= link_to "プロフィールを編集する", edit_user_registration_path, class: "list-group-item list-group-item-action",method: :get %>
+                  <%= link_to "退会する", "/users/#{@user.id}", method: :delete,data:{confirm: "本当に退会しますか？"},class:"list-group-item list-group-item-action" %>
                 <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
               </div>
             </div>
@@ -75,8 +77,8 @@
                <p>性別 : <%= @user.sex %></p>
               </div>
 
-              <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
-               <%= link_to "退会する", "/users/#{@user.id}", method: :delete,data:{confirm: "本当に退会しますか？"},class:"d-block text-center mt-2 small" %>
+              <%#= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
+               <%#= link_to "退会する", "/users/#{@user.id}", method: :delete,data:{confirm: "本当に退会しますか？"},class:"d-block text-center mt-2 small" %>
 
               <hr class="my-4">
                 <%= link_to "お気に入りしているエージェントはこちら", likes_posts_path, class:"btn btn-lg btn-google btn-block",method: :get %>
