@@ -1,23 +1,37 @@
 <% provide(:full_title, "エージェントをゴシメイする") %>
+
 <div class="card-chat">
   <div class="panel-heading text-center">
   <h2>ボシュウからエージェントを探してみる</h2>
   </div>
 
 <%= search_form_for @search, url: posts_path do |f| %>
-<div class="form-group">
+
+<div class="col-lg-10">
   <%= f.label :title_or_contents_cont, '投稿から検索しよう' %>
   <%= f.search_field :title_or_contents_cont,class:"form-control" %>
-</div>
-  <div class="actions">
-  <%= button_tag type: "submit", class: "btn btn-google btn-lg" do %>
-<i class="fas fa-search-plus"></i>検索
-  <%#= f.submit '検索' %>
+<%= button_tag type: "submit", class: "btn btn-google btn-lg",id:"search-post" do %>
+    <i class="fas fa-search-plus"></i>検索
   <% end %>
-  </div>
+
+</div>
+<%#div class="search-group"%>
+
+ <% end %>
+
+
+
+
+<%#div class="col-md-2 col-md-offset-10"%>
+<%= link_to posts_path(format: :csv),class: "btn btn-google",id:"post-csv" do %>
+<i class="fas fa-cloud-download-alt"></i>ボシュウをCSV出力する
 <% end %>
 
-<%= search_form_for(@c_search, as: :c)do |form| %>
+
+
+<%
+=begin%>
+ <%= search_form_for(@c_search, as: :c)do |form| %>
 <div class="form-group">
   <%= form.label :name_cont, '企業から検索しよう' %>
   <%= form.search_field :name_cont,class:"form-control" %>
@@ -29,6 +43,8 @@
   <%#= form.submit '検索' %>
   </div>
 <% end %>
+<%
+=end%>
 
 <%
 =begin%>
@@ -76,7 +92,7 @@
 
 
 	<div class="row">
-<%= @posts.each do |post| %>
+    <%= @posts.each do |post| %>
 	<div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
 			<div class="card" id="cardIndex">
 				<header class="title-header">
@@ -84,9 +100,9 @@
 				</header>
 				<div class="card-body">
 					<div class="img-card">
-						<%#img src="//placehold.it/250x150" alt="Movie" class="w-100" /%>
+
             	<p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
- <%= image_tag post.company.profile_photo.url(:thumb),class:"round-img",size:"50x50"%>
+ <%= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
   <%= post.contents %>
 					</div>
 
@@ -105,10 +121,7 @@
 
 		</div>
     <% end %>
-    <%= paginate @posts %>
-<div class="col-md-8">
-<%= link_to posts_path(format: :csv),class: "btn btn-google" do %>
-<i class="fas fa-cloud-download-alt"></i>ボシュウをCSV出力する
-<% end %>
-</div>
+    <%#= paginate @posts %>
+
 	</div>
+  <%#= paginate @posts %>
