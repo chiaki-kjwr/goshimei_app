@@ -24,8 +24,7 @@
 <% end %>
 </div>
 </div>
-<p><a href="/users/<%= current_user.id %>"><<<<<<%= current_user.name %>さんのマイーページに戻る</a></p>
-
+<%= link_to "<<<#{current_user.name}さんのマイページに戻る", user_path(current_user),:style=>"color:black;"%>
       </div>
     </div>
   </div>

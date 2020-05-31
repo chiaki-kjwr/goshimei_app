@@ -70,6 +70,7 @@
           </div>
           <div class="list-group text-center">
             <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
+            <%= link_to "プロフィールを編集する", edit_company_path, class: "list-group-item list-group-item-action",method: :get %>
             <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
           </div>
         </div>
@@ -99,7 +100,7 @@
                <p>性別 : <%= @company.industry %></p>
               </div>
 
-              <%= button_to "プロフィールを編集", edit_company_path(), class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
+              <%= link_to "ボシュウ作成する", new_post_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
 
               <hr class="my-4">
                 <%= button_to "お気に入りしているエージェントはこちら", likes_posts_path, class:"btn btn-lg btn-google btn-block",method: :get %>
