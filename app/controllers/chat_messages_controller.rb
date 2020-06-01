@@ -4,7 +4,8 @@ class ChatMessagesController < ApplicationController
   def create
     #@chat_room = ChatRoom.find(params[:chat_room_id])
       #@chat_room = ChatRoom.find(params[:id]) # ルーム情報の取得
-      @chat_room = ChatRoom.find_by(params[:id])
+      #@chat_room = ChatRoom.find_by(params[:id])
+      @chat_room = ChatRoom.find(params[:chat_room_id])
 
       @chat_message = ChatMessage.create!(chat_room_id:@chat_room.id,message: params[:chat_message][:message])
       redirect_to chat_room_path(@chat_room.id)
