@@ -12,14 +12,10 @@
   <a href="/chat_rooms/<%= c.id %>"><%= c.id %><%= c.company.name %>様とのチャットルーム</a>
 
   <br/>
-
-  <h5 class="name" ><%= c.company.name %>
+  <%= link_to "#{c.company.name}", company_path(c.company),:style=>"color:black;"%>
 
 
   </div>
-   <div class="likes-post">
-   </div>
-
 <hr>
 <% end %>
 </div>

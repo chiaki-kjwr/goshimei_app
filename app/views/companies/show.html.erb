@@ -85,9 +85,7 @@
 
         <hr>
         <div class="profile">
-          <div class="profile-group">
-          <p>メールアドレス : <%= @company.email %></p>
-          </div>
+
 
           <div class="profile-group">
             <p>経歴 : <%= @company.profile %></p>
@@ -95,19 +93,34 @@
 
 
               <div class="profile-group">
-                  <p>年齢 : <%= @company.corporation_name %></p>
+                  <p>担当職種 : <%= @company.occupation %></p>
               </div>
 
               <div class="profile-group">
-               <p>性別 : <%= @company.industry %></p>
+               <p>担当業界 : <%= @company.industry %></p>
               </div>
+              <div class="profile-group">
+                  <p>在籍企業 : <%= @company.corporation_name %></p>
+              </div>
+
+
+
               <% unless @user == current_user %>
               <%= link_to "ボシュウ作成する", new_post_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
+              <%= button_to "チャット中のユーザーはこちら", chat_rooms_path, class:"btn btn-lg btn-facebook btn-block",method: :get %>
               <% end %>
               <hr class="my-4">
-                <%= button_to "お気に入りしているエージェントはこちら", likes_posts_path, class:"btn btn-lg btn-google btn-block",method: :get %>
 
-        <%= button_to "チャット中のユーザーはこちら", chat_rooms_path, class:"btn btn-lg btn-facebook btn-block",method: :get %>
+          <% if @user == current_user %>
+            <% if @chat_room.present? %>
+              <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
+              <%#= button_to 'チャット詳細', {controller: 'chat_rooms', action: 'show',user_id:current_user.id,company_id:@post.company_id} %>
+            <% else %>
+              <%= button_to 'チャットを始める（2つめチャット）', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company_id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
+            <% end %>
+          <% end %>
+
+
 
 
 
@@ -123,16 +136,8 @@
 <!--↓でチャットルーム新規作成できたfがcompanhy詳細ページからだとチャットできなくなる-->
 <%#= button_to 'チャット', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@company_id}, {method: :post } %>
 <!---->
-<%
-=begin%>
- <% if @chat_room.present? %>
-<%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),method: :get %>
-<%#= button_to 'チャット詳細', {controller: 'chat_rooms', action: 'show',user_id:current_user.id,company_id:@post.company_id} %>
-<% else @chat_room.blank?%>
-<%= button_to 'チャットを始める（2つめチャット）', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company_id}, {method: :post } %>
-<% end %>
-<%
-=end%>
+
+
 <%#= button_to '0518', create_chat_path(chat_room:{user_id:current_user.id,company_id:@post.company_id}),method: :post %>
 
 <%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %>
