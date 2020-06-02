@@ -8,7 +8,7 @@
   <% @posts.each do |post| %>
    <div class="likes-image">
 
-  <%= image_tag post.company.profile_photo.url(:thumb),class: "chat-image rounded-sm",size:"100x100" %>
+  <%= image_tag post.company.profile_photo.url(:thumb),class: "chat-image rounded-circle",size:"100x100" %>
   <i class="fas fa-heart"></i>
  <%= post.company.name %>
   </div>
@@ -17,68 +17,13 @@
 <%= post.contents %>
    </div>
 
+
 <hr>
 <% end %>
 </div>
 </div>
   <%= link_to "<<<#{current_user.name}さんのマイページに戻る", user_path(current_user),:style=>"color:black;"%>
 
-
-
       </div>
     </div>
   </div>
-
-
-
-
-
-<%
-=begin%>
- <section class="title-banner col-lg-6 col-lg-offset-3 py-5 text-white" id="title-banner">
-<div class="container">
-	<div class="row">
-
-  <h1><%= current_user.name %> 様のお気に入り一覧</h1>
-	</div>
-</div>
-<hr>
-</section>
-
- <div class="col-md-6 offset-md-3">
- <div class="chat-card col-lg-9 col-lg-offset-3">
- <% @posts.each do |post| %>
-  <%= image_tag post.company.profile_photo.url(:thumb),class: "chat-image rounded-sm",size:"100x100" %>
-  <br/>
-  <h5 class="name" ><%= post.company.name %>
-<% end %>
-</div>
-</div>
-<p><a href="/users/<%= current_user.id %>" class="btn btn-primary"><%= current_user.name %> さんの情報に戻る</a></p>
-<%
-=end%>
-
-<%
-=begin%>
-  <div class="row">
-    <% @posts.each do |post| %>
-    <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
-			<div class="card" id="cardIndex">
-				<header class="title-header">
-        <h3><%= post.title %></h3>
-      	</header>
-
-        <%= post.contents %>
-
-        	<p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
-          <%= image_tag post.company.profile_photo.url(:thumb),class: "rounded-circle",size:"100x100" %>
-
-          <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
-            <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
-            <% end %>
-
-			</div>
-		</div>
-    <% end %>
-<%
-=end%>

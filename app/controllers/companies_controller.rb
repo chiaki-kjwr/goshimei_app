@@ -10,8 +10,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @company_name = @company.name
     @post = Post.find(params[:id])
-    # @company = @post.company
-    @user = current_user
+    #@user = current_user
 
     if user_signed_in?
       @companies = Company.all

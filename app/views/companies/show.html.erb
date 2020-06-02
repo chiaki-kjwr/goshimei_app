@@ -105,13 +105,14 @@
 
 
 
-              <% unless @user == current_user %>
+              <%# unless @user == current_user %>
+              <% unless user_signed_in? %>
               <%= link_to "ボシュウ作成する", new_post_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
               <%= button_to "チャット中のユーザーはこちら", chat_rooms_path, class:"btn btn-lg btn-facebook btn-block",method: :get %>
               <% end %>
               <hr class="my-4">
 
-          <% if @user == current_user %>
+          <% if user_signed_in? %>
             <% if @chat_room.present? %>
               <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
               <%#= button_to 'チャット詳細', {controller: 'chat_rooms', action: 'show',user_id:current_user.id,company_id:@post.company_id} %>
