@@ -40,7 +40,7 @@
       <% @chat_messages.each do |m| %>
 
         <% if m.is_user = true %>
-          <div class="alert alert-primary">
+          <div class="message-box">
                         <div class="chatImage">
           <%= image_tag @chat_room.user.profile_photo.url(:thumb),class:"rounded-circle",size:"75x75"%>
           <%= m.message %>
