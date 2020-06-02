@@ -4,9 +4,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!,only: [:index]
   before_action :set_search, only: [:index]
   def index
-    # @user = User.find_by(id: params[:id])
     @search = Post.ransack(params[:q])
     @posts = @search.result
+
+
+
 
     # q = params[:q]
     # @posts = Post.search(name_cont: q).result.page(params[:page]).per(9).order(id: "DESC")
@@ -92,6 +94,7 @@ class PostsController < ApplicationController
       @posts = Post.search(params[:search], @company_or_post)
     end
   end
+
 
 
   private

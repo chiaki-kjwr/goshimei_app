@@ -5,7 +5,9 @@
     <h2>ボシュウからエージェントを探してみる</h2>
   </div>
 
-<%= search_form_for @search, url: posts_path do |f| %>
+<%
+=begin%>
+ <%= search_form_for @search, url: posts_path do |f| %>
   <div class="col-lg-10">
     <%= f.label :title_or_contents_cont, '投稿から検索しよう' %>
     <%= f.search_field :title_or_contents_cont,class:"form-control" %>
@@ -14,18 +16,11 @@
     <% end %>
 	</div>
 <% end %>
-
-<%#div class="col-md-2 col-md-offset-10"%>
-<%
-=begin%>
-   <%= link_to posts_path(format: :csv),class: "btn btn-google",id:"post-csv" do %>
-  <i class="fas fa-cloud-download-alt"></i>ボシュウをCSV出力する
-  <% end %>
 <%
 =end%>
+
+
 <%
-
-
 
 =begin%>
  <%= search_form_for(@c_search, as: :c)do |form| %>

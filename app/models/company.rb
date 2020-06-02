@@ -7,7 +7,7 @@ class Company < ApplicationRecord
   has_many :chat_rooms
   has_many :chat_messages, through: :chat_rooms, dependent: :destroy
 
-  def Company.search(search, company_or_post)
+def Company.search(search, company_or_post)
     if company_or_post == "1"
         Company.where(['name LIKE ?', "%#{search}%"])
     else

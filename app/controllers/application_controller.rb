@@ -16,6 +16,18 @@ class ApplicationController < ActionController::Base
   end
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+=begin   def search
+    @company_or_post = params[:option]
+    if @company_or_post == "1"
+      @companies = Company.search(params[:search], @company_or_post)
+    else
+      @posts = Post.search(params[:search], @company_or_post)
+    end
+  end
+=end
+
+
+
   protected
 
   def configure_permitted_parameters

@@ -10,13 +10,14 @@ class Post < ApplicationRecord
   end
 
 
-  def Post.search(search, company_or_post)
+def Post.search(search, company_or_post)
     if company_or_post == "2"
       Post.where(['title LIKE ?', "%#{search}%"])
     else
       Post.all
     end
   end
+
 
 
   def self.csv_attributes
