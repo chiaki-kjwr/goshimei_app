@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   post '/pages/guest_sign_in', to: 'pages#new_guest'
+  get 'search',to:'posts#search'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :contacts, only: %i(new create)

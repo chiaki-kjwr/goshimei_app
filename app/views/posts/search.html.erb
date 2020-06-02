@@ -1,0 +1,37 @@
+
+<div class="search">
+<%= form_tag(search_path, :method => 'get') do %>
+    <%= select_tag(:option, options_for_select([["company", "1"],["post","2"]]))%>
+    <%= text_field_tag :search %>
+    <%= submit_tag 'Search' %>
+<% end %>
+
+<% if @company_or_post == "1"%>
+    <h1>User</h1>
+    <table>
+        <% @companies.each do |company| %>
+        <thead>
+            <tr>
+                <th></th>
+                <th><%= company.name %> </th>
+            </tr>
+        </thead>
+        <% end %>
+    </table>
+
+<% elsif @company_or_post == "2" %>
+    <h2>Post</h2>
+    <table>
+    <% @posts.each do |post| %>
+        <thead>
+            <tr>
+                <th></th>
+                <th><%= post.title %></th>
+                <th><%= post.company.name %></th>
+            </tr>
+        </thead>
+    <% end %>
+    </table>
+<% else %>
+<% end %>
+</div>

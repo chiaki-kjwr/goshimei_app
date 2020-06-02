@@ -84,6 +84,16 @@ class PostsController < ApplicationController
     @search_companies = @c_search.result(distinct: true)
   end
 
+  def search
+    @company_or_post = params[:option]
+    if @company_or_post == "1"
+      @companies = Company.search(params[:search], @company_or_post)
+    else
+      @posts = Post.search(params[:search], @company_or_post)
+    end
+  end
+
+
   private
 
   def post_params

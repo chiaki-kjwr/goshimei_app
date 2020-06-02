@@ -9,6 +9,16 @@ class Post < ApplicationRecord
     Like.find_by(post_id: id)
   end
 
+
+  def Post.search(search, company_or_post)
+    if company_or_post == "2"
+      Post.where(['title LIKE ?', "%#{search}%"])
+    else
+      Post.all
+    end
+  end
+
+
   def self.csv_attributes
     ["title", "contents"]
   end
