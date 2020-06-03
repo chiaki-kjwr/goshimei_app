@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_05_12_111231) do
     t.text "contents"
     t.integer "user_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
-  end
+  ends
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"

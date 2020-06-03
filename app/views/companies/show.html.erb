@@ -1,125 +1,61 @@
 <% provide(:full_title, "企業様マイページ") %>
-<%
-=begin%>
- <div class="d-flex flex-column align-items-center mt-3">
-  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
-    <div class="card">
-      <div class="card-header">
-        <%= "#{@company_name}の詳細" %>
-      </div>
-        <div class="image text-center">
-        <%= image_tag @company.profile_photo.url(:thumb),class: "round-img" %>
 
-  <div class="card-body">
-        <p>お名前</p>
-      <%= @company.name %>
-      </div>
-
-      <div class="col-auto">
-  <p>在籍企業</p>
-      <%= @company.corporation_name %>
-      </div>
-
-      <div class="col-auto">
-      <p>担当業界</p>
-      <%= @company.industry %>
-      </div>
-
-      <div class="col-auto">
-      <p>担当職種</p>
-      <%= @company.occupation %>
-
-      </div>
-
-      <div class="col-auto">
-      <p>経歴</p>
-      <%= @company.profile %>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-</div>
-</div>
-<%
-=end%>
-
-
-<!----------------------------------------------->
 <div class="col-lg-12 col-xl-9 mx-2">
-    <div class="card user-edit flex-row my-5">
-      <div class="card-img-left d-none d-md-flex">
-        <%= image_tag @company.profile_photo.url(:thumb),class:"round-img",size:"300x300"%>
+  <div class="card user-edit flex-row my-5">
+    <div class="card-img-left d-none d-md-flex">
+      <%= image_tag @company.profile_photo.url(:thumb),class:"round-img",size:"300x300"%>
+    </div>
 
-          <br>
-          <%#= link_to "戻る", root_path, class: "btn btn-outline-dark" %>
-      </div>
-
-      <div class="card-body">
+    <div class="card-body">
       <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
         <h5 class="card-title text-center"><%= "#{@company_name}の詳細" %></h5>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">設定</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">設定</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="list-group text-center">
+                  <% unless user_signed_in? %>
+                    <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
+                    <%= link_to "プロフィールを編集する", edit_company_path, class: "list-group-item list-group-item-action",method: :get %>
+                  <% end %>
+                    <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="list-group text-center">
-          <% unless @user == current_user %>
-            <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
-            <%= link_to "プロフィールを編集する", edit_company_path, class: "list-group-item list-group-item-action",method: :get %>
-            <% end %>
-            <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
         <hr>
-        <div class="profile">
-
-
-          <div class="profile-group">
-            <p>経歴 : <%= @company.profile %></p>
-          </div>
-
-
-              <div class="profile-group">
-                  <p>担当職種 : <%= @company.occupation %></p>
-              </div>
-
-              <div class="profile-group">
-               <p>担当業界 : <%= @company.industry %></p>
-              </div>
-              <div class="profile-group">
-                  <p>在籍企業 : <%= @company.corporation_name %></p>
-              </div>
-
-
-
-              <%# unless @user == current_user %>
-              <% unless user_signed_in? %>
+          <div class="profile">
+            <div class="profile-group">
+              <p>経歴 : <%= @company.profile %></p>
+            </div>
+            <div class="profile-group">
+              <p>担当職種 : <%= @company.occupation %></p>
+            </div>
+            <div class="profile-group">
+              <p>担当業界 : <%= @company.industry %></p>
+            </div>
+            <div class="profile-group">
+              <p>在籍企業 : <%= @company.corporation_name %></p>
+            </div>
+            <% unless user_signed_in? %>
               <%= link_to "ボシュウ作成する", new_post_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
               <%= button_to "チャット中のユーザーはこちら", chat_rooms_path, class:"btn btn-lg btn-facebook btn-block",method: :get %>
-              <% end %>
-              <hr class="my-4">
-
-          <% if user_signed_in? %>
-            <% if @chat_room.present? %>
-              <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
-              <%#= button_to 'チャット詳細', {controller: 'chat_rooms', action: 'show',user_id:current_user.id,company_id:@post.company_id} %>
-            <% else %>
-              <%= button_to 'チャットを始める（2つめチャット）', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company_id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
             <% end %>
-          <% end %>
+
+              <hr class="my-4">
+                <%# if @chat_room.present? %>
+                <% if @company_ids.include?(@company.id) %>
+                  <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
+              　　　　<%#= button_to 'チャット詳細', {controller: 'chat_rooms', action: 'show',user_id:current_user.id,company_id:@post.company_id} %>
+                  <% else %>
+                  <%= button_to 'チャットを新しく始める（2つめチャット）', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company_id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
+                <% end %>
+
 
 
 
