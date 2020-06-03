@@ -51,50 +51,13 @@
                 <%# if @chat_room.present? %>
                 <% if @company_ids.include?(@company.id) %>
                   <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
-              　　　　<%#= button_to 'チャット詳細', {controller: 'chat_rooms', action: 'show',user_id:current_user.id,company_id:@post.company_id} %>
                   <% else %>
                   <%= button_to 'チャットを新しく始める（2つめチャット）', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company_id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
                 <% end %>
-
-
-
-
-
-
-            </div>
-          </h5>
+          </div>
         </div>
       </div>
     </div>
     <div class="actions text-center">
         <%= link_to "<<<トップページに戻る", companies_home_path,:style=>"color:black;"%>
-      <%#= link_to "追加ゴシメイしてメッセージを開始する", chat_room_path(@company_id),class:"btn btn-dark" %>
-
-<!--↓でチャットルーム新規作成できたfがcompanhy詳細ページからだとチャットできなくなる-->
-<%#= button_to 'チャット', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@company_id}, {method: :post } %>
-<!---->
-
-
-<%#= button_to '0518', create_chat_path(chat_room:{user_id:current_user.id,company_id:@post.company_id}),method: :post %>
-
-<%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %>
-
-<%#= link_to "チャット", create_chat_path(chat_room: {company_id: @company_id}), :method => :post %>
-      <%# if @company_ids.include?(company.id) %>
-
-<%#= link_to "チャットへ", chat_room_path(current_user.chat_rooms.find_by(company_id: company.id)) %>
-    <%# else %>
-    <%# @companies.each do |company| %>
-
-    <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
-  <%
-=begin%>
-   <% if @company_ids.include?(@company.id) %>
-    <!--既存は機能してない-->
-<%#= button_to '既存のチャットルーム', {controller: 'chat_rooms', action: 'show',company_id:company_id,chat_room_id: @chat_room_id},{method: :get} %>
-  <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),method: :get %>
-
-    <% end %>
-<%
-=end%>
-  </div>
+    </div>

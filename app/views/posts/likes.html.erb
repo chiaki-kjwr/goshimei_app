@@ -10,7 +10,7 @@
 
   <%= image_tag post.company.profile_photo.url(:thumb),class: "chat-image rounded-circle",size:"100x100" %>
   <i class="fas fa-heart"></i>
- <%= post.company.name %>
+ <%= link_to "#{post.company.name}", company_path(post.company),:style=>"color:black;"%>
   </div>
    <div class="likes-post">
    <%= post.title %>

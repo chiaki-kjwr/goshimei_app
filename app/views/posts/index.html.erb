@@ -5,78 +5,6 @@
     <h2>ボシュウからエージェントを探してみる</h2>
   </div>
 
-<%
-=begin%>
- <%= search_form_for @search, url: posts_path do |f| %>
-  <div class="col-lg-10">
-    <%= f.label :title_or_contents_cont, '投稿から検索しよう' %>
-    <%= f.search_field :title_or_contents_cont,class:"form-control" %>
-    <%= button_tag type: "submit", class: "btn btn-google btn-lg",id:"search-post" do %>
-      <i class="fas fa-search-plus"></i>検索
-    <% end %>
-	</div>
-<% end %>
-<%
-=end%>
-
-
-<%
-
-=begin%>
- <%= search_form_for(@c_search, as: :c)do |form| %>
-<div class="form-group">
-  <%= form.label :name_cont, '企業から検索しよう' %>
-  <%= form.search_field :name_cont,class:"form-control" %>
-</div>
-  <div class="actions">
-  <%= button_tag type: "submit", class: "btn btn-google btn-lg" do %>
-<i class="fas fa-search-plus"></i>検索
-  <% end %>
-  <%#= form.submit '検索' %>
-  </div>
-<% end %>
-<%
-=end%>
-
-<%
-=begin%>
- <div class="row border border-dark">
-  <% @posts.each do |post| %>
-    <div class="col-md-4">
-      <div class="post-index-card">
-        <div class="card-body text-center" >
-          <h4 class="card-title" ><%= post.title %></h4>
-          <%= image_tag post.company.profile_photo_url(:thumb),class: "round-img" %>
-          <strong><%= post.company.name %></strong><br>
-<!--お気に入り機能-->
-          <div id="like-icon-post-<%= post.id.to_s %>">
-            <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text" %>
-
-          <div id="likes_buttons_<%= post.id %>">
-            <%= render partial: 'posts/like_text', locals: { post: post} %>
-          </div>
-            <%#= link_to "詳細を確認", post_path(post),class:"btn btn-dark" %>
-<%#= link_to "0517詳細を確認", company_path(@post.company),class:"btn btn-dark" %>
-
-<%#= link_to "0518詳細を確認 ",{controller: 'companies', action: 'show',:company_id => post.company_id} %>
-<%= link_to "0518詳細を確認", company_path(post.company),class:"btn btn-dark" %>
-<%#= button_to 'チャットbutton', {controller: 'chat_rooms', action: 'create',:user_id => current_user.id,
-:company_id=> company_id}, {method: :post } %>
-
-<%#= link_to "チャット", create_chat_path(company: {company_id: post.company_id}), :method => :post %>
-
-          <% end %>
-
-          </div>
-        </div>
-    </div>
-</div>
-<% end %>
-</div>
-<%
-=end%>
-
-
 	<div class="row">
 
   <%= search_form_for @search, url: posts_path do |f| %>
@@ -87,7 +15,7 @@
       <i class="fas fa-search-plus"></i>検索
     <% end %>
   </div>
-  <%= link_to posts_path(format: :csv),class: "btn btn-google",id:"post-csv" do %>
+  <%= link_to posts_path(format: :csv),class: "btn btn-outline-dark ",id:"post-csv" do %>
   <i class="fas fa-cloud-download-alt"></i>ボシュウをCSV出力する
   <% end %>
 <% end %>
