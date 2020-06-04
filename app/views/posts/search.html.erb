@@ -1,42 +1,59 @@
-
-<div class="search">
+<% provide(:full_title, "検索結果") %>
 <%
 =begin%>
- <%= form_tag(search_path, :method => 'get') do %>
-    <%= select_tag(:option, options_for_select([["company", "1"],["post","2"]]))%>
-    <%= text_field_tag :search %>
-    <%= submit_tag 'Search' %>
-
-<% end %>
+ <div class="search">
 <%
 =end%>
 
-<% if @company_or_post == "1"%>
-    <h1>企業</h1>
-    <table>
-        <% @companies.each do |company| %>
-        <thead>
-            <tr>
-                <th></th>
-                <th><%= company.name %> </th>
-            </tr>
-        </thead>
-        <% end %>
-    </table>
-
-<% elsif @company_or_post == "2" %>
-    <h2>Post</h2>
-    <table>
-    <% @posts.each do |post| %>
-        <thead>
-            <tr>
-                <th></th>
-                <th><%= post.title %></th>
-                <th><%= post.company.name %></th>
-            </tr>
-        </thead>
+    <%= form_tag(search_path, :method => 'get') do %>
+        <%= select_tag(:option, options_for_select([["company", "1"],["post","2"]]))%>
+        <%= text_field_tag :search %>
+        <%= submit_tag 'Search' %>
     <% end %>
-    </table>
-<% else %>
+    <div class="col-md-4">
+
+
+
+            <% if @company_or_post == "1"%>
+    <h1>企業</h1>
+
+                <% @companies.each do |company| %>
+                  <div class="card">
+
+                    <div class="card-body-search">
+<%= company.name %>
+
+<% end %>
+  <div class="img-card">
+                            <p class="tagline card-text text-xs-center"> <strong></strong></p>
+                                <%#= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
+
+    </div>
+     </div>
+      </div>
+
+
+
+            <% elsif @company_or_post == "2" %>
+    <h2>Post</h2>
+
+            <% @posts.each do |post| %>
+
+
+                <div class="card">
+
+
+                    <div class="card-body-search">
+<%= post.title %>
+ <% end %>
+  <div class="img-card">
+                            <p class="tagline card-text text-xs-center"> <strong></strong></p>
+                                <%#= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
+
+
 <% end %>
 </div>
+</div>
+      </div>
+
+      </div>
