@@ -82,7 +82,7 @@ gem 'pry-rails'
 gem 'ransack'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-# gem 'pg', group: :production
+gem 'pg', group: :production
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'

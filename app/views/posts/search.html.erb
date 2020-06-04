@@ -4,28 +4,15 @@
  <div class="search">
 <%
 =end%>
+<section class="search">
+    <div class="panel-heading text-center">
+        <h2>検索結果</h2>
+    </div>
 
 
 <%
 =begin%>
- section class="py-5 bg-warning">
-    <div class="container">
-        <div class="row">
-<%
-=end%>
-
-<div class="panel-heading text-center">
-    <h2>ボシュウからエージェントを探してみる</h2>
-  </div>
-     <%
-=begin%>
-    </div>
-    </div>
-</section>
-<%
-=end%>
-
-<section class="py-5 bg-primary">
+ <section class="py-5 bg-primary">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -46,34 +33,36 @@
         </div>
     </div>
 </section>
+<%
+=end%>
 
 
-    <section class="py-5 bg-secondary">
-
-            <div class="row">
-
-
-
-                <%# @companies.each do |company| %>
-<%#div class="col-md-4"%>
-
-    <div class="col-md-12">
-        <% if @company_or_post == "1"%>
-            <h1>エージェント</h1>
-            <% @companies.each do |company| %>
+    <section class="py5 bg-secondary">
+        <div class="row">
+            <div class="col-md-12">
+                <% if @company_or_post == "1"%>
+                <h1>エージェントの検索結果</h1>
+                <% @companies.each do |company| %>
+             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
                     <%#div class="col-md-4"%>
                     <%# @companies.each do |company| %>
                         <div class="card-body">
+                           <%= image_tag company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
                             <h5> <%= company.name %></h5>
                         </div>
                     </div>
                 </div>
+                 </div>
+
             <%end %>
+
+
             <%elsif @company_or_post == "2" %>
-                    <h2>ボシュウ</h2>
-                        <% @posts.each do |post| %>
+                <h2>ボシュウの検索結果</h2>
+                <% @posts.each do |post| %>
+                <div class="row">
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
@@ -81,12 +70,13 @@
                             </div>
                         </div>
                     </div>
-                        <%end %>
-
+                <%end %>
+               </div>
         </div>
-
+</div>
 <% end %>
 
+</section>
 </section>
 
 
