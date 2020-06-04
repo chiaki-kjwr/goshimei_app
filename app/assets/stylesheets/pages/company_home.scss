@@ -103,6 +103,7 @@ a {
 .container {
   margin-right: 100px !important;
   margin-left: 100px !important;
+  height:auto;
 }
 
 .heading {
@@ -116,7 +117,7 @@ a {
 }
 
 .row {
-  position: absolute !important;
+  //position: absolute !important;
 }
 
 .detail {
@@ -182,11 +183,6 @@ a {
   /* height: 100vh; */
   /* padding: 40vh; */
   /* margin-top: 5vh; */
-}
-
-.container {
-  margin-right: 100px !important;
-  margin-left: 100px !important;
 }
 
 .imageSize {

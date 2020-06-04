@@ -5,12 +5,133 @@
 <%
 =end%>
 
-    <%= form_tag(search_path, :method => 'get') do %>
-        <%= select_tag(:option, options_for_select([["company", "1"],["post","2"]]))%>
+
+<%
+=begin%>
+ section class="py-5 bg-warning">
+    <div class="container">
+        <div class="row">
+<%
+=end%>
+
+<div class="panel-heading text-center">
+    <h2>ボシュウからエージェントを探してみる</h2>
+  </div>
+     <%
+=begin%>
+    </div>
+    </div>
+</section>
+<%
+=end%>
+
+<section class="py-5 bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <%= form_tag(search_path, :method => 'get') do %>
+        <%= select_tag(:option, options_for_select([["エージェントから探す", "1"],["投稿から探す","2"]]))%>
         <%= text_field_tag :search %>
         <%= submit_tag 'Search' %>
     <% end %>
-    <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section class="py-5 bg-secondary">
+
+            <div class="row">
+
+
+
+                <%# @companies.each do |company| %>
+<%#div class="col-md-4"%>
+
+    <div class="col-md-12">
+        <% if @company_or_post == "1"%>
+            <h1>エージェント</h1>
+            <% @companies.each do |company| %>
+                <div class="col-md-4">
+                    <div class="card">
+                    <%#div class="col-md-4"%>
+                    <%# @companies.each do |company| %>
+                        <div class="card-body">
+                            <h5> <%= company.name %></h5>
+                        </div>
+                    </div>
+                </div>
+            <%end %>
+            <%elsif @company_or_post == "2" %>
+                    <h2>ボシュウ</h2>
+                        <% @posts.each do |post| %>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5> <%= post.title %></h5>
+                            </div>
+                        </div>
+                    </div>
+                        <%end %>
+
+        </div>
+
+<% end %>
+
+</section>
+
+
+
+
+                <%
+=begin%>
+ <%# elsif @company_or_post == "2" %>
+                    <h2>Post</h2>
+                        <%# @posts.each do |post| %>
+                    <div class="col-md-4">
+
+                            <div class="card-body">
+                                <h5> <%#= post.title %></h5>
+                            </div>
+                      <%# end %>
+                    </div>
+
+<%
+=end%>
+
+
+<%# end %>
+ <%
+=begin%>
+  </div>
+   </div>
+<%
+=end%>
+
+
+
+
+
+
+<%
+=begin%>
+ <section class="search">
+
+    <%= form_tag(search_path, :method => 'get') do %>
+        <%= select_tag(:option, options_for_select([["エージェントから探す", "1"],["投稿から探す","2"]]))%>
+        <%= text_field_tag :search %>
+        <%= submit_tag 'Search' %>
+    <% end %>
+    <div class="col-xs-12 col-sm-10 col-md-4",id="search-body">
 
 
 
@@ -20,18 +141,15 @@
                 <% @companies.each do |company| %>
                   <div class="card">
 
-                    <div class="card-body-search">
+                    <%#div class="card-body-search",id="search"%>
 <%= company.name %>
-
+   <%= image_tag company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
 <% end %>
-  <div class="img-card">
-                            <p class="tagline card-text text-xs-center"> <strong></strong></p>
-                                <%#= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
 
-    </div>
-     </div>
+
       </div>
 
+  <div class="col-xs-12 col-sm-10 col-md-4">
 
 
             <% elsif @company_or_post == "2" %>
@@ -43,17 +161,27 @@
                 <div class="card">
 
 
-                    <div class="card-body-search">
+                    <div class="card-body-search",id="search">
+
 <%= post.title %>
+ <%= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
  <% end %>
   <div class="img-card">
                             <p class="tagline card-text text-xs-center"> <strong></strong></p>
                                 <%#= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
 
 
+
+
 <% end %>
 </div>
 </div>
       </div>
+       </div>
 
       </div>
+      </section>
+
+<%
+=end
+%>

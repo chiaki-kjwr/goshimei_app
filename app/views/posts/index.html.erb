@@ -21,9 +21,9 @@
 <% end %>
 
 
-<div class="row">
-    <%= @posts.each do |post| %>
-	    <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
 			  <div class="card" id="cardIndex">
 				  <header class="title-header">
 					  <h3><%= post.title %></h3>
@@ -41,7 +41,7 @@
           <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
             <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
           <% end %>
-			  </div>
+        </div>
 		  </div>
     <% end %>
     <%= paginate @posts %>
