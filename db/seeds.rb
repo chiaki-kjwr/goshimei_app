@@ -1,15 +1,4 @@
-require 'faker'
-#ChatMessage.create!(
-  #[
-    #{
-    #id: 1, user_id: 1, chat_room_id:1, message:"hello"
-    #},
-    #{
-    #id: 2, user_id: 2, chat_room_id:2, message:"world"
-    #}
-  #]
-#)
-
+#require 'faker'
 1.upto(10) do |n|
   Company.create!(
     email: "email#{n}@example.com",
@@ -22,8 +11,6 @@ require 'faker'
     corporation_name:"#{n}test"
   )
 end
-
-
 
 #20.times do
   #Post.create(
@@ -40,8 +27,7 @@ end
   #users.each { |user| user.posts.create!(contents: content) }
 #end
 
-if Rails.env == 'development'
+#if Rails.env == 'development'
   (1..20).each do |i|
       Post.create!(company_id:4, title: "タイトル#{i}", contents: "本文#{i}")
   end
-end

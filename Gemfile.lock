@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/stympy/faker.git
-  revision: 53341f87d454eca30c9fe6f8ed62310ecc9c0ab4
-  branch: master
-  specs:
-    faker (2.11.0)
-      i18n (>= 1.6, < 2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -218,6 +210,7 @@ GEM
     parallel (1.19.1)
     parser (2.7.1.2)
       ast (~> 2.4.0)
+    pg (1.2.3)
     polyamorous (2.3.2)
       activerecord (>= 5.2.1)
     popper_js (1.16.0)
@@ -396,7 +389,6 @@ DEPENDENCIES
   dotenv-rails
   erb_lint
   factory_bot_rails (~> 4.11)
-  faker!
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
@@ -405,6 +397,7 @@ DEPENDENCIES
   mini_magick
   omniauth
   omniauth-google-oauth2
+  pg
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.1)
