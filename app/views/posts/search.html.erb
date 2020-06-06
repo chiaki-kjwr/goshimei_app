@@ -37,6 +37,8 @@
 =end%>
 
 
+ <%
+=begin%>
     <section class="py5 bg-secondary">
         <div class="row">
             <div class="col-md-12">
@@ -77,37 +79,37 @@
 <% end %>
 
 </section>
+<%
+=end%>
+
 </section>
 
+  <section class="py5 bg-secondary">
+        <div class="row">
+         <% if @company_or_post == "1"%>
 
-
-
-                <%
-=begin%>
- <%# elsif @company_or_post == "2" %>
-                    <h2>Post</h2>
-                        <%# @posts.each do |post| %>
-                    <div class="col-md-4">
-
-                            <div class="card-body">
-                                <h5> <%#= post.title %></h5>
-                            </div>
-                      <%# end %>
-                    </div>
-
-<%
-=end%>
-
-
-<%# end %>
- <%
-=begin%>
-  </div>
-   </div>
-<%
-=end%>
-
-
+                <% @companies.each do |company| %>
+                 <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
+			  <div class="card" id="cardIndex">
+				  <header class="title-header">
+					  <h3><%= company.name %></h3>
+				  </header>
+                   <div class="card-body">
+					  <div class="img-card">
+              <p class="tagline card-text text-xs-center"> <strong><%= company.name %></strong></p>
+                <%= image_tag company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
+                <%#= company.post.title %>
+					  </div>
+				  </div>
+          <%= link_to company_path(company),class:"btn btn-facebook btn-block" do %>
+            <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
+          <% end %>
+        </div>
+		  </div>
+    <% end %>
+    <% end %>
+ 	</div>
+</section>
 
 
 
@@ -159,10 +161,6 @@
   <div class="img-card">
                             <p class="tagline card-text text-xs-center"> <strong></strong></p>
                                 <%#= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
-
-
-
-
 <% end %>
 </div>
 </div>
@@ -171,7 +169,6 @@
 
       </div>
       </section>
-
 <%
 =end
 %>
