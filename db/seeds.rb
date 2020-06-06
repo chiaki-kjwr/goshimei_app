@@ -13,11 +13,11 @@
 end
 
 if Rails.env == "production"
-　User.create!(
-  email: "guest@example.com",
-  user_id:5,
-  name: "guest-user",
-  profile_photo: open("#{Rails.root}/db/fixtures/guest.png")
+User.create!(
+email: "guest@example.com",
+user_id:5,
+name: "guest-user",
+profile_photo: open("#{Rails.root}/db/fixtures/guest.png")
 )
 end
 
