@@ -15,20 +15,44 @@
     <div class="row",id="searchRow">
         <% if @company_or_post == "1"%>
             <% @companies.each do |company| %>
+                <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
+			<div class="card" id="cardIndex">
+				<header class="title-header">
+
+				        <h3><%= company.name %></h3>
+
+				</header>
+                    <div class="card-body">
+				        <div class="img-card">
+                        <p class="tagline card-text text-xs-center"> <strong><%= company.name %></strong></p>
+
+                <%= image_tag company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
+
+					</div>
+				</div>
+        <%= link_to company_path(company),class:"btn btn-facebook btn-block" do %>
+            <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
+        <% end %>
+        </div>
+		</div>
+    <% end %>
+
+
+
+
+
         <% else @company_or_post == "2"%>
              <% @posts.each do |post| %>
                 <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
 			<div class="card" id="cardIndex">
 				<header class="title-header">
-                    <%# if @company_or_post == "1"%>
-				        <h3><%= company.name %></h3>
-                    <%# else @company_or_post == 2%>
+
                         <h3><%= post.name %></h3>
-                    <%# end %>
+
 				</header>
                     <div class="card-body">
 				        <div class="img-card">
-                        <p class="tagline card-text text-xs-center"> <strong><%= company.name %></strong></p>
+
                             <p class="tagline card-text text-xs-center"> <strong><%= post.name %></strong></p>
                 <%= image_tag company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
 
@@ -40,7 +64,7 @@
         </div>
 		</div>
     <% end %>
-     <% end %>
+
 
     <% end %>
     </div>
