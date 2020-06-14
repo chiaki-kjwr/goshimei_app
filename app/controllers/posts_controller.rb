@@ -81,10 +81,11 @@ class PostsController < ApplicationController
     @posts = current_user.like_posts
   end
 
-  def set_search
-    @c_search = Company.ransack(params[:c], search_key: :c)
-    @search_companies = @c_search.result(distinct: true)
-  end
+#6/14コメントアウト
+  #def set_search
+    #@c_search = Company.ransack(params[:c], search_key: :c)
+    #@search_companies = @c_search.result(distinct: true)
+  #end
 
   def search
     @company_or_post = params[:option]
@@ -95,15 +96,10 @@ class PostsController < ApplicationController
     end
   end
 
-
-
   private
 
   def post_params
     params.require(:post).permit(:contents, :title).merge(company_id: current_company.id)
   end
 
-  # def current_company
-  # @current_company ||= Company.find_by(id: session[:company_id])
-  # end
 end
