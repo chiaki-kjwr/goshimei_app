@@ -10,16 +10,18 @@ default: &default
   timeout: 5000
 
 development:
-  #<<: *default
-  #database: db/development.sqlite3
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: goshimei_app_development
-  pool: 5u
-  username: root
-  password:
-  host: localhost
+  <<: *default
+  database: db/development.sqlite3
+
+  #mysqlにデータベースを移行する際に設定
+  #adapter: mysql2
+  #encoding: utf8
+  #reconnect: false
+  #database: goshimei_app_development
+  #pool: 5u
+  #username: root
+  #password:
+  #host: localhost
 
 
 # Warning: The database defined as "test" will be erased and
