@@ -3,18 +3,19 @@
       <div class="container">
         <div class="top-image">
           <div class="text-center">
-            <h1 class="font-weight-bold mb-4 topTitle"><br />ゴシメイ！</h1>
+            <h1 class="font-weight-bold mb-4 topTitle"><br>ゴシメイ！</h1>
             <h3 class="subTitle">
               <p>信頼できる転職エージェントを、</p>
               <p>自分で見つけよう。</p>
 
             </h3>
             <div class="homeGoogleLogo">
-            <%#= link_to (image_tag "google-logo.png",:size =>"50x50",class:"googleLogo"), user_google_oauth2_omniauth_authorize_path %>
-            <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"homeGoogle" do %>
-            <%= image_tag"google-logo.png",:size =>"50x50" %>
-            <p>Googleアカウントで新規登録</p>
-            <% end %>
+            <%#= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"homeGoogle" do %>
+            <%#= image_tag"google-logo.png",:size =>"50x50" %>
+            <%# end %>
+            <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"btn btn-google btn-block" do %>
+            <i class="fab fa-google mr-2"></i><span>Googleで新規登録</span>
+          <% end %>
             </div>
           </div>
         </div>
@@ -69,24 +70,24 @@
         </div>
       </div>
     </div>
-
-
+    <hr>
     <div class="container mt10" >
       <div class="mb-5 row text-center">
         <div class="col-sm-4">
           <%= image_tag('like.png',:class =>"w-100 rounded-circle") %>
         </div>
         <div class="col-sm-8">
-          <h3 class="text-center mt10">②お気に入りができます</h3>
+          <h3 class="text-center mt10">②お気に入り登録をする</h3>
           <span class="text-center font-weight-bold">気になったエージェントはお気に入り登録ができます</span>
         </div>
       </div>
     </div>
+    <hr>
     <div class="Features py-0">
       <div class="container mt10">
         <div class="mb-5 row text-center">
           <div class="col-sm-8">
-            <h3 class="text-center mt10">③チャットができます</h3>
+            <h3 class="text-center mt10">③チャットでメッセージを送る</h3>
             <span class="text-center font-weight-bold">エージェントとの直接のやり取りも可能です</span>
           </div>
           <div class="col-sm-4">
@@ -95,21 +96,22 @@
         </div>
       </div>
     </div>
+    <hr>
 <!--ゴシメイへの登録-->
 <div class="message-wrapper">
   <div class="registration text-center">
-    <h2>ゴシメイ！で転職のパートナーを探してみませんか？</h2>
+    <h2>転職のパートナーを探してみませんか？</h2>
       <% if user_signed_in? %>
-        <%= link_to user_path(current_user),class: "btn btn-facebook btn-lg" do %>
+        <%= link_to user_path(current_user),class: "btn btn-facebook" do %>
         <i class="fas fa-user"></i>マイページ
         <% end %>
 
       <%else%>
-        <%= link_to new_user_registration_path, class: "btn btn-facebook btn-lg"  do %>
-       <i class="fas fa-cog"></i>新規登録
+        <%= link_to new_user_registration_path, class: "btn btn-facebook"  do %>
+       <i class="fas fa-cog"></i>新規登録画面へ
          <% end %>
 
-        <%= link_to new_user_session_path, class: "btn btn-facebook btn-lg" do %>
+        <%= link_to new_user_session_path, class: "btn btn-facebook" do %>
        <i class="fas fa-smile"></i>アカウントをお持ちの方はこちら
         <% end %>
          <br>
