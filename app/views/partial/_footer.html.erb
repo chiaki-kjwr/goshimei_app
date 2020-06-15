@@ -1,7 +1,7 @@
 <%# ↓これでfooterを固定できる%>
 <%#div id="footer"%>
   <div class="container">
-    <div class="text-center">
+    <div class="footer text-center">
           <% if user_signed_in? %>
             <%= link_to "サインアウト", destroy_user_session_path, method: :delete,data:{confirm: "サインアウトしますか？"},:style=>"color:black;" %>
           <% end %>

@@ -103,24 +103,21 @@
   }
 
   .heading {
-    padding-top: 80px;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
     color: #5f5d60;
-  }
-
-  .heading h2 {
-    font-weight: normal;
   }
 
   .detail{
     position: relative;
-    float: left;
-    width: 25%;
-    margin-left:40px!important;
+    //float: left;
+    width: 30%;
+    overflow: hidden;
+    //margin-left:40px!important;
     img{
       width:200px!important;
       height:246px!important;
-
+      margin:40px 0 40px 40px!important;
+      float: left;
     }
 
   }
@@ -149,7 +146,12 @@
   }
 
   .heading h2 {
-    margin: 0 auto;
+    //margin: 0 auto;
+    padding-top: 40px;
+    font-weight: normal;
+  }
+  .heading p {
+    padding-top: 40px;
   }
 
   .message-wrapper {
@@ -157,6 +159,7 @@
     margin-top: 0;
     padding-top: 0;
   }
+
 
   .message {
     padding: 15px 40px;
