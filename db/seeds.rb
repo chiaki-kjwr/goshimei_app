@@ -1,4 +1,3 @@
-#require 'faker'
 1.upto(10) do |n|
   Company.create!(
     email: "email#{n}@example.com",
