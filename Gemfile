@@ -54,7 +54,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
   gem 'spring-commands-rspec'
-  gem 'sqlite3', '~>1.3.6'
+
+  ###こちらのsqlite3は一旦使用しない
+  #gem 'sqlite3', '~>1.3.6'
   gem 'erb_lint', require: false
   # gem 'rubocop', require: false
   # gem 'rubocop-rails', require: false
