@@ -73,13 +73,18 @@ class PostsController < ApplicationController
     end
   end
 
-  def liked_by(current_user)
+#6/16コメントアウト
+=begin   def liked_by(current_user)
     Like.find_by(user_id: user.id, post_id: post.id)
   end
+=end
 
-  def likes
+
+=begin   def likes
     @posts = current_user.like_posts
   end
+=end
+
 
 #6/14コメントアウト
   #def set_search
