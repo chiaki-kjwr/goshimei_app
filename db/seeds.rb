@@ -18,7 +18,7 @@ email: "guest@example.com",
 id:5,
 name: "guest-user",
 profile_photo: open("#{Rails.root}/db/fixtures/guest.png"),
-password_digest:"guestuser",
+encrypted_password:"guestuser"
 )
 end
 
