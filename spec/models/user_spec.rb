@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
         end
       end
     end
-  end
+
 
 
   # userは複数のpostを持っている
@@ -62,4 +62,5 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
 end
