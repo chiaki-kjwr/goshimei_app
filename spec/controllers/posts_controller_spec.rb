@@ -2,32 +2,52 @@ require 'rails_helper'
 RSpec.describe PostsController, type: :controller do
   describe "GET #index" do
     # ログイン済みユーザーであること
-    context "ログイン済みのcompanyである" do
-      # before do
-      # @company = Company.create(
-      # name: "Joe",
-      # email: "joetester@example.com",
-      # password_digest: "password",
-      # profile_photo:"aaa.jpg"
+    before do
+      #@post = FactoryBot.create(:post)
 
-      # end
-      before do
-        @company = FactoryBot.build(:company)
-      end
+      @post = Post.new(
+        title:"test",
+        contents:"testtest"
+      )
+    end
+    example "@postが正しく取得できていること" do
 
-      example "レスポンスが成功する" do
-        # sign_in @company
-        get :index
-        expect(response).to be_success
-      end
+      get :index
+      expect(@post).to eq @post
+    end
 
-      example "200レスポンスを返す" do
-        get :index
-        expect(response).to have_http_status "200"
-      end
+    example "ログインしていないユーザーの場合、ログイン画面へ遷移する" do
+      get :index
+      expect(response).to redirect_to "/users/sign_in"
+    end
 
-      describe "GET #new" do
-      end
+    example "ログインしていないユーザーの場合、302レスポンスを返す" do
+      get :index
+      expect(response).to have_http_status "302"
     end
   end
+
+
+  describe "GET #create" do
+
+
+    it "redirects to the sign-in page" do
+      # Taskのインスタンスを生成するための情報を「task_params」に格納
+      #post_params = FactoryBot.attributes_for(:post)
+      #「task_params」をPOSTで送信する
+      #post :create, params: {post:post_params }
+
+
+      # サインインページに遷移することを確認
+      #expect(response).to redirect_to "/companies/new"
+      expect(response).to have_http_status "302"
+    end
+
+
+
+
+
+    end
+
+
 end

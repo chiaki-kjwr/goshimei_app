@@ -8,5 +8,6 @@ RSpec.describe PagesController, type: :controller do
     example "200レスポンスを返す" do
       expect(response).to have_http_status "200"
     end
+
   end
 end

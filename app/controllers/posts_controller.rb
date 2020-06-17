@@ -19,14 +19,8 @@ class PostsController < ApplicationController
     # @q = posts.ransack(params[:q])
     # @posts =  @q.result(distinct: true).recent
 
-    # @companies = Company.search(name_cont: q).result
 
     @post = Post.find_by(id: params[:id])
-    # @company = post.company
-
-    # post.company = @post.cpmpany
-    # @company = Company.find(params[:id])
-    # @company_id =@company.id
 
     # チャット機能
     if user_signed_in?

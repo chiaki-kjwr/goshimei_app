@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   post '/pages/guest_sign_in', to: 'pages#new_guest'
-  #get 'search',to:'posts#index'
   get 'search',to:'posts#search'
 
 
