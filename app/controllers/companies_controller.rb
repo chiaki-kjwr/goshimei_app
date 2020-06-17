@@ -27,8 +27,10 @@ class CompaniesController < ApplicationController
 
   def create
     company = Company.new(company_params)
-    company.save!
-    redirect_to posts_path, notice: 'ユーザー登録が完了しました'
+    if company.save!
+    redirect_to posts_path, notice: '登録が完了しました'
+    else
+      redirect_to posts_path, notice: '登録に失敗しました'
   end
 
   def edit
