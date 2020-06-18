@@ -6,7 +6,7 @@ ruby '2.5.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3','1.3.13',group: :development,require: false
+gem 'sqlite3','1.3.13',group: :development,require: false
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -84,7 +84,7 @@ gem 'pry-rails'
 gem 'ransack'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-gem 'pg', group: :production
+#gem 'pg', group: :production
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
