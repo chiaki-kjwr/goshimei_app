@@ -11,9 +11,7 @@ Rails.application.routes.draw do
   get  'pages/terms'
   get  'pages/company_home', to: 'pages#company_home', as: 'companies_home'
 
-  # get '/users/:id', to: 'users#show',as: 'user'
-  # delete 'users/:id', to: 'users#destroy',as:'user_destroy'
-  # delete '/user/:id',to: 'users#destroy'
+
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'
   delete '/users/:id', to: 'users#destroy'
@@ -21,7 +19,6 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  #post '/pages/guest_sign_in', to: 'pages#new_guest'
   get 'search',to:'posts#search'
 
 
