@@ -31,6 +31,7 @@ class CompaniesController < ApplicationController
     redirect_to posts_path, notice: '登録が完了しました'
     else
       redirect_to posts_path, notice: '登録に失敗しました'
+    end
   end
 
   def edit
