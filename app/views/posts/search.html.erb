@@ -4,7 +4,7 @@
     <div class="panel-heading text-center">
         <h2>検索結果</h2>
         <% if @company_or_post == "1"%>
-            <h5><%= @conpanies_cnts %>件のエージェントを表示</h5>
+            <h5><%= @posts_cnts %>件のボシュウを表示(<%= @companies_cnts %>件のエージェント)</h5>
         <% else @company_or_post == "2"%>
             <h5><%= @posts_cnts %>件のボシュウを表示</h5>
         <% end %>
@@ -15,11 +15,11 @@
     <div class="row",id="searchRow">
         <% if @company_or_post == "1"%>
             <% @companies.each do |company| %>
+            <% @posts.each do |post| %>
                 <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
 			<div class="card" id="cardIndex">
 				<header class="title-header">
-
-				        <h3><%= company.name %></h3>
+                    <h3><%= post.title %></h3>
 
 				</header>
                     <div class="card-body">
@@ -27,7 +27,7 @@
                         <p class="tagline card-text text-xs-center"> <strong><%= company.name %></strong></p>
 
                 <%= image_tag company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
-
+                <h5><%= post.contents %></h5>
 					</div>
 				</div>
         <%= link_to company_path(company),class:"btn btn-facebook btn-block" do %>
@@ -35,33 +35,31 @@
         <% end %>
         </div>
 		</div>
-    <% end %>
-
-
+        <% end %>
+        <%end %>
         <% else @company_or_post == "2"%>
+            <%# @companies.each do |company| %>
              <% @posts.each do |post| %>
                 <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
 			<div class="card" id="cardIndex">
 				<header class="title-header">
-
-
-
+                <h3><%=post.title %></h3>
 				</header>
                     <div class="card-body">
 				        <div class="img-card">
 
-                            <p class="tagline card-text text-xs-center"> <strong><%= post.title %></strong></p>
+                            <p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
                 <%= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
-
+                <h5><%=post.contents %></h5>
 					</div>
 				</div>
-        <%#= link_to company_path(company),class:"btn btn-facebook btn-block" do %>
+        <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
             <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
-        <%# end %>
+        <% end %>
         </div>
 		</div>
     <% end %>
-
+  <%# end %>
 
     <% end %>
     </div>

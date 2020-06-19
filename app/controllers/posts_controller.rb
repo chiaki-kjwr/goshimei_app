@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # before_action :login_required
   before_action :authenticate_user!,only: [:index]
   before_action :set_search, only: [:index]
-  
+
   def index
     @search = Post.ransack(params[:q])
     @posts = @search.result
@@ -15,12 +15,6 @@ class PostsController < ApplicationController
     # @posts = Post.search(name_cont: q).result.page(params[:page]).per(9).order(id: "DESC")
     # これでいける？
     @posts = @posts.page(params[:page]).per(9).order(id: "DESC")
-    # @search = Post.ransack(params[:q])
-    # @posts = @search.result
-    # @q = posts.ransack(params[:q])
-    # @posts =  @q.result(distinct: true).recent
-
-
     @post = Post.find_by(id: params[:id])
 
     # チャット機能
@@ -91,10 +85,14 @@ class PostsController < ApplicationController
     @company_or_post = params[:option]
     if @company_or_post == "1"
       @companies = Company.search(params[:search], @company_or_post)
-      @conpanies_cnts = @companies.count
+      @posts = Post.search(params[:search], @company_or_post)
+      @companies_cnts = @companies.count
+      @posts_cnts = @posts.count
     else @company_or_post == "2"
       @posts = Post.search(params[:search], @company_or_post)
+      @companies = Company.search(params[:search], @company_or_post)
       @posts_cnts = @posts.count
+
     end
   end
 
