@@ -69,12 +69,6 @@ class PostsController < ApplicationController
 =end
 
 
-=begin   def likes
-    @posts = current_user.like_posts
-  end
-=end
-
-
 #6/14コメントアウト
   #def set_search
     #@c_search = Company.ransack(params[:c], search_key: :c)
@@ -94,7 +88,11 @@ class PostsController < ApplicationController
       @posts_cnts = @posts.count
 
     end
-  end
+
+    def likes
+    @posts = current_user.like_posts
+    end
+
 
   private
 
