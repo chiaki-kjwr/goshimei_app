@@ -98,11 +98,11 @@ Rails.application.configure do
   # ActionMailerをproductionで使用
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
-    domain: "heroku.com",
-    address:              'smtp.sendgrid.net',
+    address:              'smtp.gmail.com',
     port:                  587,
+    domain:               'gmail.com',
+    password:             '@&goshimei1995',
+    user_name:            'goshimei2020@gmail.com',
     authentication:       'plain',
     enable_starttls_auto:  true
   }
