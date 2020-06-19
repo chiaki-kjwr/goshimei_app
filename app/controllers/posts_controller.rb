@@ -86,8 +86,8 @@ class PostsController < ApplicationController
       @posts = Post.search(params[:search], @company_or_post)
       @companies = Company.search(params[:search], @company_or_post)
       @posts_cnts = @posts.count
-
     end
+  end
 
     def likes
     @posts = current_user.like_posts
