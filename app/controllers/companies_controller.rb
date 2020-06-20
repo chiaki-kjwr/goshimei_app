@@ -22,8 +22,18 @@ class CompaniesController < ApplicationController
       chat_rooms.each do |c|
         @company_ids << c.company_id
       end
+    else
+      @users = User.all
+      chat_rooms = current_company.chat_rooms
+      # 自分が入ってるroomの相手のidを格納する
+      @user_ids = []
+      chat_rooms.each do |c|
+        @user_ids << c.user_id
+      end
     end
   end
+
+
 
   def create
     company = Company.new(company_params)

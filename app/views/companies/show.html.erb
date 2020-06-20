@@ -48,12 +48,12 @@
             <% end %>
 
               <hr class="my-4">
-                <%# if @chat_room.present? %>
-                <% if @company_ids.include?(@company.id) %>
-                  <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
-                  <% else %>
-                  <%= button_to 'チャットを新しく始める（2つめチャット）', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company_id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
-                <% end %>
+
+                <%# if @company_ids.include?(@company.id) %>
+                  <%#= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
+                  <%# else %>
+                  <%#= button_to 'チャットを新しく始める（2つめチャット）', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company_id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
+                <%# end %>
           </div>
         </div>
       </div>

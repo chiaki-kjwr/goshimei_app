@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
   include ApplicationHelper
-  # before_action :login_required
-  before_action :authenticate_user!,only: [:index]
   before_action :set_search, only: [:index]
 
   def index
