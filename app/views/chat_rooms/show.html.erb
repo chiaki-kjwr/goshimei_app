@@ -1,20 +1,4 @@
 <% provide(:full_title, "チャット詳細") %>
-<%#div class="row"%>
-
-<%
-=begin%>
- <header class="header text-center">
-  <% if user_signed_in? %>
-    <h3><%= @chat_room.company.name %>とのチャットルーム</h3>
-    <div class="chatPartner">
-      <%= @chat_room.user.name %>
-    </div>
-  <% end %>
-<%
-=end%>
-
-
-
 
 <div class="card-chat">
   <div class="panel-heading">
@@ -44,6 +28,7 @@
                         <div class="chatImage">
           <%= image_tag @chat_room.user.profile_photo.url(:thumb),class:"rounded-circle",size:"75x75"%>
           <%= m.message %>
+          <%= m.created_at %>
           </div>
         <div class="chatContent">
         <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>

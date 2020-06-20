@@ -32,7 +32,7 @@
               <p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
                 <%= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
                 <%= post.contents %>
-                 <%= post.created_at %>
+                <%= post.created_at %>
 					  </div>
             <div id="likes_buttons_<%= post.id %>">
               <%= render partial: 'posts/like_text', locals: { post: post} %>
