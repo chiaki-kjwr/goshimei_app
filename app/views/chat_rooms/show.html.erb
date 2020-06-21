@@ -1,39 +1,41 @@
 <% provide(:full_title, "チャット詳細") %>
 
 <div class="card-chat">
-  <div class="panel-heading">
-    <span class="glyphicon glyphicon-comment"></span> <%= @chat_room.company.name %>とのチャットルーム
+  <div class="panel-heading text-center">
+    <h3><%= @chat_room.company.name %>とのチャットルーム</h3>
       <div class="btn-group pull-right">
           <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-              <span class="glyphicon glyphicon-chevron-down"></span>
           </button>
           <ul class="dropdown-menu slidedown">
-              <li><a href="/companies/<%= @chat_room.company_id %>"><span class="glyphicon glyphicon-ok-sign">
-              </span></a><%= @chat_room.company.name %>とのチャットルーム</li>
-
-              <li><a href="https://www.youtube.com/user/dimit28"><span class="glyphicon glyphicon-ok-sign">
-              </span>#</a></li>
+              <li><a href="/companies/<%= @chat_room.company_id %>"></a><%= @chat_room.company.name %>とのチャットルーム</li>
+              <li><a href="#">#</a></li>
           </ul>
       </div>
       <%= @chat_room.user.name %>
   </div>
-
-
   <div class="card-body-chat bg-light p-2 col-md-12">
     <% if @chat_messages.present? %>
       <% @chat_messages.each do |m| %>
-
         <% if m.is_user = true %>
           <div class="message-box">
-                        <div class="chatImage">
-          <%= image_tag @chat_room.user.profile_photo.url(:thumb),class:"rounded-circle",size:"75x75"%>
-          <h4><%= m.message %></h4>
-          <p><%= m.created_at.to_s(:jptime) %></p>
-          </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-10 col-md-4">
+                  <%= image_tag @chat_room.user.profile_photo.url(:thumb),class:"rounded-circle",size:"75x75"%>
+                </div>
+                 <div class="col-xs-12 col-sm-10 col-md-4">
+                <h4><%= m.message %></h4>
+                <div class="chat-date">
+                  <small><strong><%= m.created_at.to_s(:jptime) %></strong></small>
+                </div>
+                </div>
+              </div>
+
+
         <div class="chatContent">
         <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
-
               </div>
+
+
               </div>
           <% end %>
         <%# elsif @chat_messages.nil? %>
