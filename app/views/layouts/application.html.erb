@@ -9,11 +9,10 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <%#script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <%#script type="text/javascript" src="./footerFixed.js"></script%>
 </head>
 <body>
-  <%#main class="mb-5"%>
   <main>
     <%= render 'partial/navbar' %>
     <% if flash[:notice] %>
@@ -33,5 +32,18 @@
     <%#div id="footer"%>
       <%= render 'partial/footer' %>
     <%#/div%>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-2.0.3.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#submit").click(function () {
+          if ($("#test1").prop("checked") == true) {
+            $("#output").html("チェック項目1がチェックされています。<br/>");
+          } else {
+            $("#output").html("チェック項目1がチェックされていません。<br/>");
+          }
+        })
+      })
+    </script>
 </body>
 </html>

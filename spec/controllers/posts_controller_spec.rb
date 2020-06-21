@@ -16,12 +16,12 @@ RSpec.describe PostsController, type: :controller do
       expect(@post).to eq @post
     end
 
-    example "ログインしていないユーザーの場合、ログイン画面へ遷移する" do
+    example "ログインしていないcompanyの場合、ログイン画面へ遷移する" do
       get :index
-      expect(response).to redirect_to "/users/sign_in"
+      expect(response).to redirect_to "/login"
     end
 
-    example "ログインしていないユーザーの場合、302レスポンスを返す" do
+    example "ログインしていないcompanyの場合、302レスポンスを返す" do
       get :index
       expect(response).to have_http_status "302"
     end
@@ -31,7 +31,10 @@ RSpec.describe PostsController, type: :controller do
   describe "GET #create" do
 
 
-    it "redirects to the sign-in page" do
+    example "投稿一覧ページにリダイレクトする" do
+      expect(current_path).to eq(posts_path)
+    end
+
       # Taskのインスタンスを生成するための情報を「task_params」に格納
       #post_params = FactoryBot.attributes_for(:post)
       #「task_params」をPOSTで送信する
@@ -40,7 +43,7 @@ RSpec.describe PostsController, type: :controller do
 
       # サインインページに遷移することを確認
       #expect(response).to redirect_to "/companies/new"
-      expect(response).to have_http_status "302"
+      #expect(response).to have_http_status "302"
     end
 
 
@@ -48,6 +51,3 @@ RSpec.describe PostsController, type: :controller do
 
 
     end
-
-
-end

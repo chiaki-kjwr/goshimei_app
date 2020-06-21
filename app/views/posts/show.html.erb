@@ -4,7 +4,7 @@
     <div class="card">
       <div class="card-header text-center">
         <%= @post.title %>
-        <p><%= @post.created_at.to_s(:jptime)%></p>
+
       </div>
       <div class="image text-center">
         <%= image_tag @post.company.profile_photo.url(:thumb),class: "round-img" %>

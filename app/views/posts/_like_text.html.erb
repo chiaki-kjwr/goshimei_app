@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <p><span>お気に入り登録: </span><%= link_to post.likes.count, post_likes_path(post.id), method: :post, remote: true %></p>
+    <p><span class="post-datails">お気に入り登録: </span><%= link_to post.likes.count, post_likes_path(post.id), method: :post, remote: true,class:"post-datails"%></p>
 <% else %>
     <p><span>お気に入り数: </span><%= post.likes.count %></p>
 <% end %>

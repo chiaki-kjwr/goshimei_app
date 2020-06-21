@@ -33,8 +33,6 @@ class CompaniesController < ApplicationController
     end
   end
 
-
-
   def create
     company = Company.new(company_params)
     if company.save!

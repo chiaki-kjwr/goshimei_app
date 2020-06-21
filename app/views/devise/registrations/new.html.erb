@@ -59,13 +59,14 @@
         </div>
 
         <div class="terms col-auto text-center">
-          <%= check_box_tag :test1%>
+          <%= check_box_tag :test1 %>
           <%= label_tag %> <a href="/pages/terms" target="_blank">ユーザー利用規約</a>に同意します<a>
         </div>
 
         <div class="actions text-center">
-          <%= f.submit "登録する", class: "btn btn-lg btn-facebook btn-block" %>
+          <%= f.submit "登録する", class: "btn btn-lg btn-facebook btn-block" ,id:"submit"%>
         </div>
+        <div id="output"></div>
       <% end %>
 
           <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"btn btn-google btn-block" do %>
