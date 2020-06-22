@@ -1,35 +1,15 @@
 .terms {
-    text-align:center
+    line-height: 2.5;
 }
 
-body{
-    padding-top:100px
-}
-
-
-h1{
-    text-align:center;
-    font-size: 25px;
+table{
+    border-collapse: collapse;
     }
-    
-    h2{
-     font-size: 18px;
+td{
+    border:1px solid #8fbac8;
+    padding:4px;
+    font-size: 12px;
     }
-    table{
-        border-collapse: collapse;
-    
-    }
-    
-    P{
-        font-size: 12px;
-    }
-    
-    td{
-        border:1px solid #8fbac8;
-        padding:4px;
-        font-size: 12px;
-    }
-    
-    li{
-        font-size: 12px;
+li{
+    font-size: 12px;
     }

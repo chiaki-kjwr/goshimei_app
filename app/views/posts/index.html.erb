@@ -22,12 +22,12 @@
   <div class="row">
     <% @posts.each do |post| %>
       <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
-			  <div class="card" id="cardIndex">
-				  <header class="title-header">
-					  <h2><%= post.title %></h2>
-				  </header>
-				  <div class="card-body">
-					  <div class="img-card">
+        <div class="card" id="cardIndex">
+          <header class="title-header">
+            <h2><%= post.title %></h2>
+          </header>
+          <div class="card-body">
+            <div class="img-card">
               <div class="row">
               <div class="col-xs-12 col-sm-10 col-md-4">
               <p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
@@ -42,13 +42,13 @@
                       <%= render partial: 'posts/like_text', locals: { post: post} %>
                     </div>
                 </div>
-					  </div>
-				  </div>
+            </div>
+          </div>
           <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
             <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
           <% end %>
         </div>
-		  </div>
+      </div>
     <% end %>
   </div>
 </section>

@@ -12,7 +12,45 @@
 </section>
 
 <section class="py5 bg-light">
-    <div class="row",id="searchRow">
+<!----><!---->
+<div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
+        <div class="card" id="cardIndex">
+          <header class="title-header">
+            <h2><%= post.title %></h2>
+          </header>
+          <div class="card-body">
+            <div class="img-card">
+              <div class="row">
+              <div class="col-xs-12 col-sm-10 col-md-4">
+              <p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
+                <%= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
+              </div>
+                <h6><%= post.contents %></h6>
+                </div>
+
+                <div class="post-datails">
+                  <%= post.created_at.to_s(:jptime)%>
+                    <div id="likes_buttons_<%= post.id %>">
+                      <%= render partial: 'posts/like_text', locals: { post: post} %>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
+            <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<!---->
+
+<%
+=begin%>
+     <div class="row",id="searchRow">
         <% if @company_or_post == "1"%>
             <% @companies.each do |company| %>
             <% @posts.each do |post| %>
@@ -63,4 +101,6 @@
 
     <% end %>
     </div>
+<%
+=end%>
 </section>
