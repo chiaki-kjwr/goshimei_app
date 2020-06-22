@@ -5,6 +5,11 @@
           <% if user_signed_in? %>
             <%= link_to "サインアウト", destroy_user_session_path, method: :delete,data:{confirm: "サインアウトしますか？"},:style=>"color:black;" %>
           <% end %>
+      <%=link_to  "お問い合わせ",new_contact_path,:style=>"color:black;"%>
+      <% unless current_page?(companies_home_path) %>
+<a class="btn btn-outline-secondary" href="/pages/company_home">企業様はこちら</a>
+
+<% end %>
       <p>©️goshimei Co.Ltd.</p>
     </div>
   </div>

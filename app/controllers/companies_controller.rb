@@ -9,18 +9,20 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @company_name = @company.name
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
     @user = current_user
 
     if user_signed_in?
       @companies = Company.all
-      chat_rooms = current_user.chat_rooms
-      @chat_room_id = current_user.chat_rooms.find_by(company_id: @post.company_id)
-      # 自分が入ってるroomの相手のidを格納する
+      if @chat_rooms.present?
+        @chat_rooms = current_user.chat_rooms
+        @chat_room_id = current_user.chat_rooms.find_by(company_id: @post.company_id)
+        # 自分が入ってるroomの相手のidを格納する
       @company_id = @post.company_id
       @company_ids = []
       chat_rooms.each do |c|
         @company_ids << c.company_id
+      end
       end
     else
       @users = User.all
