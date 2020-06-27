@@ -1,13 +1,12 @@
 class PostsController < ApplicationController
   include ApplicationHelper
   before_action :set_search, only: [:index]
+  before_action :logged_in_company, only: [:new,:create]
+
 
   def index
     @search = Post.ransack(params[:q])
     @posts = @search.result
-
-
-
 
     # q = params[:q]
     # @posts = Post.search(name_cont: q).result.page(params[:page]).per(9).order(id: "DESC")
@@ -56,7 +55,7 @@ class PostsController < ApplicationController
       flash[:alert] = "ボシュウ開始されました！"
     else
       redirect_to new_post_path
-      flash[:alert] = "投稿に失敗しました"
+      flash[:alert] = "ボシュウ投稿に失敗しました"
     end
   end
 
@@ -91,11 +90,18 @@ class PostsController < ApplicationController
     @posts = current_user.like_posts
     end
 
+    def logged_in_company
+      if @current_company == nil
+          redirect_to companies_home_path
+        flash[:alert] = "ログインしてください"
+        end
+    end
 
   private
 
   def post_params
     params.require(:post).permit(:contents, :title).merge(company_id: current_company.id)
   end
+
 
 end
