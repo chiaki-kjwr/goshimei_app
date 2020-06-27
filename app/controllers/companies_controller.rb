@@ -38,9 +38,9 @@ class CompaniesController < ApplicationController
   def create
     company = Company.new(company_params)
     if company.save!
-    redirect_to posts_path, notice: '登録が完了しました'
+    redirect_to company_path(company), notice: '登録が完了しました'
     else
-      redirect_to posts_path, notice: '登録に失敗しました'
+    redirect_to new_company_path, notice: '登録に失敗しました'
     end
   end
 
@@ -63,7 +63,7 @@ end
 private
 
 def company_params
-  params.require(:company).permit(:name, :email, :profile_photo, :profile, :password, :password_confirmation)
+  params.require(:company).permit(:name, :email, :profile_photo,:password, :password_confirmation)
 end
 
 def current_company
