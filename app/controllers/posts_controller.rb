@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   include ApplicationHelper
   before_action :set_search, only: [:index]
-  before_action :logged_in_company, only: [:new,:create]
+
 
 
   def index
@@ -92,9 +92,11 @@ class PostsController < ApplicationController
 
     def logged_in_company
       if @current_company == nil
-          redirect_to companies_home_path
+        redirect_to companies_home_path
         flash[:alert] = "ログインしてください"
-        end
+      else
+        redirect_to new_post_path
+      end
     end
 
   private

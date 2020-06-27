@@ -8,10 +8,7 @@
             ゴシメイはユーザーがマッチする転職エージェントを検索できるサービスです。
           </p>
         </div>
-          <div class="companyNew">
-            <%#= button_to "新規登録はこちら", new_company_path, class:'companyNewForm btn btn-facebook btn-lg' %>
-          </div>
-        </div>
+      </div>
       </div>
     </div>
     <div class="heading text-center">
@@ -39,21 +36,20 @@
     <div class="company-message-wrapper">
       <div class="company-registration text-center">
         <h2>ゴシメイ！への登録はこちら</h2>
-      <% if company = current_company %>
-        <%= link_to company_path(current_company),class: "btn btn-facebook btn-lg" do %>
-        <i class="fas fa-user"></i>マイページ
-        <% end %>
 
-      <%else%>
-
+      <% if @current_company == nil %>
         <%= link_to new_company_path, class: "btn btn-facebook" do %>
-       <i class="fas fa-cog"></i>新規登録
+          <i class="fas fa-cog"></i>新規登録
         <% end %>
-
         <%= link_to login_path, class: "btn btn-facebook" do %>
-        <i class="fas fa-check"></i>アカウントをお持ちの方はこちら
-          <% end %>
-      <%end%>
+          <i class="fas fa-check"></i>アカウントをお持ちの方はこちら
+        <% end %>
+      <%else%>
+        <%= link_to company_path(current_company),class: "btn btn-facebook btn-lg" do %>
+          <i class="fas fa-user"></i>マイページ
+        <% end %>
+      <% end %>
+
 
       </div>
     </div>

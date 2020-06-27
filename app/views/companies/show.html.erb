@@ -44,6 +44,7 @@
             </div>
             <% unless user_signed_in? %>
               <%= link_to "ボシュウ作成する", new_post_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
+                <%= link_to "ボシュウ一覧はこちら", posts_path, class: "btn btn-lg btn-outline-dark btn-block" %>
               <%= button_to "チャット中のユーザーはこちら", chat_rooms_path, class:"btn btn-lg btn-facebook btn-block",method: :get %>
             <% end %>
 

@@ -5,19 +5,10 @@
     <h2>ボシュウからエージェントを探してみる</h2>
   </div>
 
-	<div class="row">
-    <%= search_form_for @search, url: posts_path do |f| %>
-    <section class="col-xs-12 col-sm-10">
-      <%= f.label :title_or_contents_cont, '投稿から検索しよう' %>
-      <%= f.search_field :title_or_contents_cont,class:"form-control" %>
-      <%= button_tag type: "submit", class: "btn btn-google btn-lg",id:"search-post" do %>
-        <i class="fas fa-search-plus"></i>検索
-      <% end %>
-    </div>
-    <%= link_to posts_path(format: :csv),class: "btn btn-outline-dark ",id:"post-csv" do %>
+    <%= link_to posts_path(format: :csv),class: "btn btn-outline-dark btn-sm",id:"post-csv" do %>
     <i class="fas fa-cloud-download-alt"></i>ボシュウをCSV出力する
     <% end %>
-  <% end %>
+
 
   <div class="row">
     <% @posts.each do |post| %>
