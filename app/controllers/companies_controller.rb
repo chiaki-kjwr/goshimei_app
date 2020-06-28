@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @company_name = @company.name
-    #@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     @user = current_user
 
     if user_signed_in?

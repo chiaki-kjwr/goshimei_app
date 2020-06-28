@@ -45,16 +45,14 @@
             <% unless user_signed_in? %>
               <%= link_to "ボシュウ作成する", new_post_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
                 <%= link_to "ボシュウ一覧はこちら", posts_path, class: "btn btn-lg btn-outline-dark btn-block" %>
-              <%= button_to "チャット中のユーザーはこちら", chat_rooms_path, class:"btn btn-lg btn-facebook btn-block",method: :get %>
             <% end %>
-
               <hr class="my-4">
-
-                <%# if @company_ids.include?(@company.id) %>
-                  <%#= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
-                  <%# else %>
-                  <%#= button_to 'チャットを新しく始める（2つめチャット）', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company_id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
-                <%# end %>
+              <%# if @chat_roomcompany_ids.include?(@company.id) #%>
+                <% if @chat_rooms.present? %>
+                  <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
+                  <% else %>
+                <%= button_to 'チャットを新しく始める', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company.id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
+            <% end %>
           </div>
         </div>
       </div>

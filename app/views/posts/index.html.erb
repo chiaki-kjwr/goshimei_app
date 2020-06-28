@@ -28,10 +28,10 @@
                 </div>
 
                 <div class="post-datails">
-                  <%= post.created_at.to_s(:jptime)%>
-                    <div id="likes_buttons_<%= post.id %>">
-                      <%= render partial: 'posts/like_text', locals: { post: post} %>
-                    </div>
+                更新日：<%= post.created_at.to_s(:jptime)%>
+                <div id="likes_buttons_<%= post.id %>">
+                    <%= render partial: 'posts/like_text', locals: { post: post} %>
+                  </div>
                 </div>
             </div>
           </div>
