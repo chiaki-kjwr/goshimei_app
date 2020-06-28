@@ -10,7 +10,7 @@
       <%if current_company.present?%>
           <%= @chat_room.company.name %>
           <%= image_tag @chat_room.company.profile_photo.url(:thumb),class:"rounded-circle",size:"75x75"%>
-           <% if @chat_messages.present? %>
+          <% if @chat_messages.present? %>
 
         <% @chat_messages.each do |m| %>
         <%# if m.is_user = true %>
@@ -37,7 +37,8 @@
     <% if @chat_messages.present? %>
       <%if user_signed_in?%>
         <% @chat_messages.each do |m| %>
-        <%# if m.is_user = true %>
+        <% if m.is_user = true %>
+        <p>ユーザーのメッセージ</p>
           <div class="message-box">
             <div class="row">
               <div class="col-xs-12 col-sm-10 col-md-4">
@@ -54,7 +55,7 @@
               <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
             </div>
           </div>
-          <%# end %>
+          <% end %>
             <% end %>
 
 

@@ -53,17 +53,14 @@
     overflow-y: scroll;
     //height: 500px;
 }
-/*
-.chat-card{
-  height:100%;
-} */
 
   .message-box{
     position: relative;
     padding: 20px;
     background-color:#cde5ff;
     border: 2px solid#cde5ff;
-    border-radius: 10px;         /* 角丸を指定 */
+    border-radius: 10px;
+    margin-bottom: 5px;
   }
   .message-box::before{
     content: '';
