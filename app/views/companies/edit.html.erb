@@ -1,16 +1,23 @@
 <% provide(:full_title, "アカウント編集") %>
-<div class="d-flex flex-column align-items-center mt-3">
+<div class="col-xl-6 offset-3 col-lg-8 col-md-10 col-sm-11 ">
   <div class="card">
-    <div class="card-header">
+    <div class="card-header text-center">
       <%= "#{@company.name}のアカウント編集" %>
     </div>
-    <%= image_tag @company.profile_photo.url(:thumb),class: "rounded-circle",size:"100x100"%>
-<!--body-->
-    <div class="card-body">
+    <div class="image text-center">
+    <%= image_tag @company.profile_photo.url(:thumb),class: "rounded-circle",size:"150x150"%>
+    </div>
+    <div class="card-body-user-edit">
       <%= form_with(model: @company, local: true) do |f| %>
+
       <div class="col-auto">
         <%= f.label :name, "お名前" %>
         <%= f.text_field :name ,placeholder: "例）山田太郎", class: "form-control" %>
+      </div>
+
+      <div class="col-auto">
+        <%= f.label :corporation_name,"企業名" %> <br>
+        <%= f.text_field :corporation_name, autofocus: true, autocomplete: "corporation_name",class: "form-control" %>
       </div>
 
       <div class="col-auto">
@@ -24,17 +31,27 @@
       </div>
 
       <div class="col-auto">
+        <%= f.label :industry,"業界" %> <br>
+        <%= f.text_field :industry, autofocus: true, autocomplete: "industry",class: "form-control" %>
+      </div>
+
+      <div class="col-auto">
+        <%= f.label :occupation,"職種" %> <br>
+        <%= f.text_field :occupation, autofocus: true, autocomplete: "occupation",class: "form-control" %>
+      </div>
+
+      <div class="col-auto">
         <%= f.label :profile_photo,"プロフィール写真を変更する" %>
         <%= f.file_field :profile_photo %>
         <%= f.hidden_field :profile_photo_cache %>
       </div>
 
       <div class="actions text-center">
-        <%= f.submit "変更する",class:"btn btn-dark btn-lg",method: :post %>
+        <%= f.submit "変更する",class:"btn btn-facebook btn-block ",method: :post %>
       </div>
       <% end %>
     </div>
   </div>
 </div>
 </div>
-<%= link_to "<<戻る",company_path(@company),:style=>"color:black;" %>
+<%= link_to "<<プロフィールページへ戻る",company_path(@company),:style=>"color:black;" %>
