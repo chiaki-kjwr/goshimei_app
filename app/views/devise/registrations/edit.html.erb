@@ -1,5 +1,7 @@
 <% provide(:full_title, "アカウント編集") %>
-  <div class="col-sm-9 col-md-8 col-lg-8 mx-auto">
+
+
+  <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 mx-auto">
     <div class="card">
       <div class="card-header text-center">
         <%= "#{@user.name}のアカウント編集" %>
@@ -69,8 +71,12 @@
 
       <div class="col-auto">
         <i class="fas fa-image"></i>
-        <%= f.label :profile_photo %>
-        <%= f.file_field :profile_photo %>
+        <%= f.label :profile_photo%>
+        <br><%= f.file_field :profile_photo,id:"fileName"%>
+        <input id="dummy_file" type="text" >
+        <label for="fileName" >
+        <span class="browse_btn">ファイルを選択</span><input type="file"id="fileName">
+        </label>
         <%= f.hidden_field :profile_photo_cache %>
       </div>
 
