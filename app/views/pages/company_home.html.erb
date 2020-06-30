@@ -3,7 +3,7 @@
     <div class="container">
       <div class="top-image">
         <div class="text-center">
-          <h2 class="font-weight-bold mb-4 topTitle"><br />ゴシメイ！</h2>
+          <h2 class="font-weight-bold topTitle"><br />ゴシメイ！</h2>
           <p class="subTitle2">
             ゴシメイはユーザーがマッチする転職エージェントを検索できるサービスです。
           </p>
@@ -16,28 +16,27 @@
     </div>
     <hr>
 
-     <div class="row">
-      <div class="col-sm-4 col-xs-4">
-
+    <div class="row">
+      <div class="col-sm-4 col-xs-4 col-md-12 col-lg-12">
         <h3>ボシュウ画面から、投稿ができます</h3>
-        <p>自社の専門性や魅力など</p>
+        <p>-自社の専門性や魅力など</p>
         <p>ユーザーに伝えたいことを投稿することができます</p>
-        <div>
-        <div class="searchImage col-sm-4 col-xs-4">
+      <div>
+      <div class="searchImage col-sm-4 col-xs-4 col-md-2 col-lg-2">
         <%= image_tag('post.png',:class =>"companyImage rounded-circle") %>
-     </div>
       </div>
+    </div>
 
 
       <hr>
 
       <div class="row">
-      <div class="col-sm-4 col-xs-4">
+      <div class="col-sm-4 col-xs-4 col-md-12 col-lg-12">
         <h3>メッセージのやりとりができます</h3>
-        <p>興味を持ったユーザーから、</p>
-        <p>メッセージがきます</p>
+        <p>-あなたに興味を持った転職希望者から、</p>
+        <p>メッセージが届きます</p>
       </div>
-      <div class="searchImage col-sm-4 col-xs-4">
+      <div class="searchImage col-sm-4 col-xs-4 col-md-12 col-lg-12">
         <%= image_tag('chatting.png',:class =>"companyImage rounded-circle") %>
   </div>
     </div>
@@ -46,12 +45,10 @@
       <div class="company-registration text-center">
         <h2>ゴシメイ！への登録はこちら</h2>
 
-      <%#if @current_company == nil %>
-
      <% if company = current_company %>
         <%= link_to company_path(current_company),class: "btn btn-facebook btn-lg" do %>
           <i class="fas fa-user"></i>マイページ
-           <% end %>
+        <% end %>
       <% else %>
         <%= link_to new_company_path, class: "btn btn-facebook" do %>
           <i class="fas fa-cog"></i>新規登録
