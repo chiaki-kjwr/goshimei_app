@@ -1,14 +1,12 @@
 <% provide(:full_title, "エージェントをゴシメイする") %>
 
-<section class="card-chat">
-  <div class="panel-heading text-center">
-    <h2>ボシュウからエージェントを探してみる</h2>
-  </div>
-
-    <%= link_to posts_path(format: :csv),class: "btn btn-outline-dark btn-sm",id:"post-csv" do %>
+<section class="card-chat col-xs-12 col-sm-12 col-md-12">
+  <div class="panel-heading">
+    <h2 class="text-center">エージェントを探してみる</h2>
+    <%= link_to posts_path(format: :csv),:style=>"color:black;" do %>
     <i class="fas fa-cloud-download-alt"></i>ボシュウをCSV出力する
     <% end %>
-
+  </div>
 
   <div class="row">
     <% @posts.each do |post| %>
