@@ -1,32 +1,25 @@
 <% provide(:full_title, "Top") %>
-<div class="welcome-wrapper",id="wrapper">
-      <div class="container">
-        <div class="top-image">
-          <div class="text-center">
-            <h1 class="font-weight-bold mb-4 topTitle"><br>ゴシメイ！</h1>
-            <h3 class="subTitle">
-              <p>信頼できる転職エージェントを、</p>
-              <p>自分で見つけよう。</p>
-
-            </h3>
-            <div class="homeGoogleLogo">
-            <%#= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"homeGoogle" do %>
-            <%#= image_tag"google-logo.png",:size =>"50x50" %>
-            <%# end %>
+  <!--タイトル-->
+  <div class="welcome-wrapper",id="wrapper">
+      <div class="top-image">
+          <h1 class="font-weight-bold mb-4 topTitle"><br>ゴシメイ！</h1>
+          <h3 class="subTitle">
+            <p>信頼できる転職エージェントを、</p>
+            <p>自分で見つけよう。</p>
+          </h3>
+          <div class="homeGoogleLogo">
             <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"btn btn-google btn-block" do %>
             <i class="fab fa-google mr-2"></i><span>Googleで新規登録</span>
-          <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
-      </div>
     </div>
 
     <!--ゴシメイでできることの説明-->
     <div class="service-wrapper">
       <div class="container">
-        <div class="heading text-center">
-          <h2>ゴシメイ！でできること</h2>
+        <div class="col-lg-12 col-xl-9 col-sm-4 col-xs-4 heading text-center">
+          <h2 class="text-center">ゴシメイ！でできること</h2>
           <p>ゴシメイ！はご自身でマッチする転職エージェントを検索できるサービスです。</p>
         </div>
         <div class="row">
@@ -44,7 +37,7 @@
               <span class="font-weight-bold">自分にぴったりの転職エージェントを指名できます</span>
             </p>
           </div>
-          <div class="detail  free">
+          <div class="detail free">
             <%= image_tag 'free.png' %>
             <p class="text-contents">
               <span class="font-weight-bold">無料でサービス利用できます</span>
