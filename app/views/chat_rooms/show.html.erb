@@ -8,12 +8,13 @@
   </div>
   <div class="card-body-chat bg-light p-2 col-md-12">
       <%if current_company.present?%>
-          <%= @chat_room.company.name %>
-          <%= image_tag @chat_room.company.profile_photo.url(:thumb),class:"rounded-circle",size:"75x75"%>
-          <% if @chat_messages.present? %>
+        <%= @chat_room.company.name %>
+        <%= image_tag @chat_room.company.profile_photo.url(:thumb),class:"rounded-circle",size:"75x75"%>
+      <% end %>
 
+      <% if @chat_messages.present? %>
         <% @chat_messages.each do |m| %>
-        <%# if m.is_user = true %>
+          <% if m.is_user == false %>
           <div class="message-box">
             <div class="row">
               <div class="col-xs-12 col-sm-10 col-md-4">
@@ -26,13 +27,42 @@
                 </div>
               </div>
             </div>
-
+ <%# ユーザーの条件 %>
+            <% elsif m.is_user == true %>
+              <p>ユーザーのメッセージ</p>
+          <div class="message-box">
+            <div class="row">
+              <div class="col-xs-12 col-sm-10 col-md-4">
+                <%= image_tag @chat_room.user.profile_photo.url(:thumb),class:"rounded-circle",size:"75x75"%>
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-4">
+                <h4><%= m.message %></h4>
+                <div class="chat-date">
+                  <small><strong><%= m.created_at.to_s(:jptime) %></strong></small>
+                </div>
+              </div>
+            </div>
+            <div class="chatContent">
+              <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
+            </div>
           </div>
-          <%# end %>
-              <% end %>
+          <% end %>
             <% end %>
-        <% end %>　
-<!--------------->
+              <% end %>
+
+
+
+
+
+
+
+
+
+<!------------6_29一旦コメントアウト--->
+
+<%
+=begin%>
+
 
     <% if @chat_messages.present? %>
       <%if user_signed_in?%>
@@ -69,6 +99,8 @@
     </div>
   </div>
    </div>
+<%
+=end%>
 
   <!------------------------------------>
 
@@ -79,9 +111,11 @@
 
 
 <div class="card-footer">
-  <%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
+<%if user_signed_in? %>
+<%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
     <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
-    <%#= hidden_field_tag :chat_room, params[:id] %>
+    <%#= hidden_field_tag :is_user, false %>
+      <%= hidden_field :is_user, true %>
     <div class="text-center">
      <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
       <i class="fas fa-paper-plane"></i>チャットを送る
@@ -89,6 +123,28 @@
 
       <%#= f.submit "チャットを送る", :class => "btn btn-facebook",method: :post %>
     </div>
+
+  <% end %>
+  <!---falseかどうかを確認したい為だけの記述------>
+  <% if @chat_message.is_user == false %>
+<p>false</p>
+ <% end %>
+<!--------->
+
+<%else  %>
+
+  <%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
+    <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
+      <%= hidden_field_tag(:is_user,'false') %>
+    <div class="text-center">
+     <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
+      <i class="fas fa-paper-plane"></i>チャットを送る
+    <% end %>
+
+      <%#= f.submit "チャットを送る", :class => "btn btn-facebook",method: :post %>
+    </div>
+
+  <% end %>
 
   <% end %>
 </div>
