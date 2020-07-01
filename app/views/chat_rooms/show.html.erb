@@ -12,13 +12,10 @@
         <%= image_tag @chat_room.company.profile_photo.url,class:"rounded-circle",size:"75x75"%>
       <% end %>
 
-
-
-
-
       <% if @chat_messages.present? %>
         <% @chat_messages.each do |m| %>
-          <% if m.is_user = false %>
+          <%#if current_company.present?%>
+          <%# m.is_user = 'false'%>
           <div class="message-box">
             <div class="row">
               <div class="col-xs-12 col-sm-10 col-md-4">
@@ -31,8 +28,14 @@
                 </div>
               </div>
             </div>
+            <div class="chatContent">
+
+            </div>
+          </div>
+
  <%# ユーザーの条件 %>
-            <% elsif m.is_user = true %>
+          <%#elsif user_signed_in? %>
+            <%# m.is_user = true %>
               <p>ユーザーのメッセージ</p>
           <div class="message-box">
             <div class="row">
@@ -50,7 +53,7 @@
               <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
             </div>
           </div>
-          <% end %>
+          <%# end %>
             <% end %>
               <% end %>
 <!------------6_29一旦コメントアウト--->
@@ -112,7 +115,7 @@
     <%#= hidden_field_tag :is_user, false %>
       <%= f.hidden_field(:is_user,:value =>'true') %>
     <div class="text-center">
-     <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
+      <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
       <i class="fas fa-paper-plane"></i>チャットを送る
     <% end %>
 
@@ -122,7 +125,7 @@
   <% end %>
   <!---falseかどうかを確認したい為だけの記述------>
   <%# if m.is_user = false %>
-<p>false</p>
+
  <%# end %>
 <!--------->
 
