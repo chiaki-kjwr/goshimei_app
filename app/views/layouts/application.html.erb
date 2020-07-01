@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-
+<main>
     <%= render 'partial/navbar' %>
     <% if flash[:notice] %>
       <div class="alert alert-info">
@@ -54,5 +54,6 @@
     }
     });
     </script>
+  </main>
 </body>
 </html>

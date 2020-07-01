@@ -11,55 +11,47 @@
       </div>
     </div>
   </div>
-    <div class="heading text-center">
-      <h3>ゴシメイ！の使い方</h3>
-    </div>
-    <hr>
-
-    <div class="row">
-      <div class="col-sm-4 col-xs-4 col-md-12 col-lg-12">
-        <h3>ボシュウ画面から、投稿ができます</h3>
-        <p>-自社の専門性や魅力など</p>
-        <p>ユーザーに伝えたいことを投稿することができます</p>
-      <div>
-      <div class="searchImage col-sm-4 col-xs-4 col-md-2 col-lg-2">
-        <%= image_tag('post.png',:class =>"companyImage rounded-circle") %>
-      </div>
-    </div>
-
-
-      <hr>
-
-      <div class="row">
-      <div class="col-sm-4 col-xs-4 col-md-12 col-lg-12">
-        <h3>メッセージのやりとりができます</h3>
-        <p>-あなたに興味を持った転職希望者から、</p>
-        <p>メッセージが届きます</p>
-      </div>
-      <div class="searchImage col-sm-4 col-xs-4 col-md-12 col-lg-12">
-        <%= image_tag('chatting.png',:class =>"companyImage rounded-circle") %>
+  <div class="heading text-center">
+    <h3>ゴシメイ！の使い方</h3>
   </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-4 col-xs-4 col-md-12 col-lg-12">
+      <h3>ボシュウ画面から、投稿ができます</h3>
+      <p>-自社の専門性や魅力など</p>
+      <p>ユーザーに伝えたいことを投稿することができます</p>
+    <div>
+    <div class="searchImage col-sm-4 col-xs-4 col-md-2 col-lg-2">
+      <%= image_tag('post.png',:class =>"companyImage rounded-circle") %>
     </div>
-    <hr>
-    <div class="company-message-wrapper">
-      <div class="company-registration text-center">
-        <h2>ゴシメイ！への登録はこちら</h2>
-
-     <% if company = current_company %>
-        <%= link_to company_path(current_company),class: "btn btn-facebook btn-lg" do %>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-4 col-xs-4 col-md-12 col-lg-12">
+      <h3>メッセージのやりとりができます</h3>
+      <p>-あなたに興味を持った転職希望者から、</p>
+      <p>メッセージが届きます</p>
+    </div>
+    <div class="searchImage col-sm-4 col-xs-4 col-md-12 col-lg-12">
+      <%= image_tag('chatting.png',:class =>"companyImage rounded-circle") %>
+    </div>
+  </div>
+  <hr>
+  <div class="company-message-wrapper">
+    <div class="company-registration text-center">
+      <h2>ゴシメイ！への登録はこちら</h2>
+        <% if company = current_company %>
+          <%= link_to company_path(current_company),class: "btn btn-facebook btn-lg" do %>
           <i class="fas fa-user"></i>マイページ
-        <% end %>
-      <% else %>
-        <%= link_to new_company_path, class: "btn btn-facebook" do %>
+          <% end %>
+        <% else %>
+          <%= link_to new_company_path, class: "btn btn-facebook" do %>
           <i class="fas fa-cog"></i>新規登録
-        <% end %>
-        <%= link_to login_path, class: "btn btn-facebook" do %>
+          <% end %>
+          <%= link_to login_path, class: "btn btn-facebook" do %>
           <i class="fas fa-check"></i>アカウントをお持ちの方はこちら
+          <% end %>
         <% end %>
-
-
-      <% end %>
-
-
-      </div>
     </div>
+  </div>
+  <hr>
