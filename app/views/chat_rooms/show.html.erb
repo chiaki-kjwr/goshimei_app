@@ -110,7 +110,7 @@
 <%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
     <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
     <%#= hidden_field_tag :is_user, false %>
-      <%= f.hidden_field(:is_user,:value =>true) %>
+      <%= f.hidden_field(:is_user,:value =>'true') %>
     <div class="text-center">
      <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
       <i class="fas fa-paper-plane"></i>チャットを送る
