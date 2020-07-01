@@ -1,16 +1,10 @@
 <% provide(:full_title, "チャットルーム") %>
-
 <div class="card-chat">
   <div class="panel-heading text-center">
     <h3><%= @chat_room.company.name %>とのチャットルーム</h3>
-
       <%= @chat_room.user.name %>
   </div>
   <div class="card-body-chat bg-light p-2 col-md-12">
-      <%if current_company.present?%>
-        <%= @chat_room.company.name %>
-        <%= image_tag @chat_room.company.profile_photo.url,class:"rounded-circle",size:"75x75"%>
-      <% end %>
 
       <% if @chat_messages.present? %>
         <% @chat_messages.each do |m| %>
@@ -19,94 +13,33 @@
           <div class="message-box">
             <div class="row">
               <div class="col-xs-12 col-sm-10 col-md-4">
+                <%if  m.is_user  %>
+                  <%= image_tag @chat_room.user.profile_photo.url,class:"rounded-circle",size:"75x75"%>
+                <%else %>
                 <%= image_tag @chat_room.company.profile_photo.url,class:"rounded-circle",size:"75x75"%>
+                <%end%>
               </div>
               <div class="col-xs-12 col-sm-10 col-md-4">
                 <h4><%= m.message %></h4>
+
                 <div class="chat-date">
                   <small><strong><%= m.created_at.to_s(:jptime) %></strong></small>
                 </div>
               </div>
             </div>
             <div class="chatContent">
-
-            </div>
-          </div>
-
- <%# ユーザーの条件 %>
-          <%#elsif user_signed_in? %>
-            <%# m.is_user = true %>
-              <p>ユーザーのメッセージ</p>
-          <div class="message-box">
-            <div class="row">
-              <div class="col-xs-12 col-sm-10 col-md-4">
-                <%= image_tag @chat_room.user.profile_photo.url,class:"rounded-circle",size:"75x75"%>
-              </div>
-              <div class="col-xs-12 col-sm-10 col-md-4">
-                <h4><%= m.message %></h4>
-                <div class="chat-date">
-                  <small><strong><%= m.created_at.to_s(:jptime) %></strong></small>
-                </div>
-              </div>
-            </div>
-            <div class="chatContent">
+            <%if  m.is_user %>
               <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
-            </div>
-          </div>
-          <%# end %>
+            <%else %>
+              <small><strong><a href="/companies/<%= @chat_room.company_id %>"><%=  @chat_room.company.name %></a></strong></small><br>
             <% end %>
-              <% end %>
-<!------------6_29一旦コメントアウト--->
-
-<%
-=begin%>
-
-
-    <% if @chat_messages.present? %>
-      <%if user_signed_in?%>
-        <% @chat_messages.each do |m| %>
-        <% if m.is_user = true %>
-        <p>ユーザーのメッセージ</p>
-          <div class="message-box">
-            <div class="row">
-              <div class="col-xs-12 col-sm-10 col-md-4">
-                <%= image_tag @chat_room.user.profile_photo.url(:thumb),class:"rounded-circle",size:"75x75"%>
-              </div>
-              <div class="col-xs-12 col-sm-10 col-md-4">
-                <h4><%= m.message %></h4>
-                <div class="chat-date">
-                  <small><strong><%= m.created_at.to_s(:jptime) %></strong></small>
-                </div>
-              </div>
-            </div>
-            <div class="chatContent">
-              <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
             </div>
           </div>
+
           <% end %>
-            <% end %>
 
-
-
-        <%# elsif @chat_messages.nil? %>
-          <%#h3 class="text-center">メッセージはまだありません</%h3>
-        <% end %>　
-         <% end %>　
-          <% end %>　
-      </div>
-    </div>
-  </div>
-   </div>
-<%
-=end%>
-
-  <!------------------------------------>
-
-
- <!------------------------------------>
-  <%#form class="messageInputForm"%>
+          <% end %>
   <hr>
-
 
 <div class="card-footer">
 <%if user_signed_in? %>
@@ -118,17 +51,9 @@
       <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
       <i class="fas fa-paper-plane"></i>チャットを送る
     <% end %>
-
-      <%#= f.submit "チャットを送る", :class => "btn btn-facebook",method: :post %>
     </div>
 
   <% end %>
-  <!---falseかどうかを確認したい為だけの記述------>
-  <%# if m.is_user = false %>
-
- <%# end %>
-<!--------->
-
 <%elsif company_signed_in? %>
 
   <%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
@@ -138,8 +63,6 @@
      <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
       <i class="fas fa-paper-plane"></i>チャットを送る
     <% end %>
-
-      <%#= f.submit "チャットを送る", :class => "btn btn-facebook",method: :post %>
     </div>
 
   <% end %>
