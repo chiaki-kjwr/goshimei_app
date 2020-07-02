@@ -5,11 +5,8 @@
       <%= @chat_room.user.name %>
   </div>
   <div class="card-body-chat bg-light p-2 col-md-12">
-
       <% if @chat_messages.present? %>
         <% @chat_messages.each do |m| %>
-          <%#if current_company.present?%>
-          <%# m.is_user = 'false'%>
           <div class="message-box">
             <div class="row">
               <div class="col-xs-12 col-sm-10 col-md-4">
@@ -21,53 +18,43 @@
               </div>
               <div class="col-xs-12 col-sm-10 col-md-4">
                 <h4><%= m.message %></h4>
-
                 <div class="chat-date">
                   <small><strong><%= m.created_at.to_s(:jptime) %></strong></small>
                 </div>
               </div>
             </div>
             <div class="chatContent">
-            <%if  m.is_user %>
-              <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
-            <%else %>
-              <small><strong><a href="/companies/<%= @chat_room.company_id %>"><%=  @chat_room.company.name %></a></strong></small><br>
-            <% end %>
+              <%if  m.is_user %>
+                <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
+              <%else %>
+                <small><strong><a href="/companies/<%= @chat_room.company_id %>"><%=  @chat_room.company.name %></a></strong></small><br>
+              <% end %>
             </div>
           </div>
-
-          <% end %>
-
-          <% end %>
+        <% end %>
+      <% end %>
   <hr>
 
-<div class="card-footer">
-<%if user_signed_in? %>
-<%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
-    <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
-    <%#= hidden_field_tag :is_user, false %>
-      <%= f.hidden_field(:is_user,:value =>'true') %>
-    <div class="text-center">
-      <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
-      <i class="fas fa-paper-plane"></i>チャットを送る
+  <div class="card-footer">
+    <%if user_signed_in? %>
+      <%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
+        <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
+        <%= f.hidden_field(:is_user,:value =>'true') %>
+          <div class="text-center">
+            <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
+            <i class="fas fa-paper-plane"></i>チャットを送る
+            <% end %>
+          </div>
+      <% end %>
+    <%elsif company_signed_in? %>
+      <%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
+        <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
+        <%= f.hidden_field(:is_user,:value =>'false')%>
+          <div class="text-center">
+          <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
+            <i class="fas fa-paper-plane"></i>チャットを送る
+          <% end %>
+          </div>
+      <% end %>
     <% end %>
-    </div>
-
-  <% end %>
-<%elsif company_signed_in? %>
-
-  <%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
-    <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
-      <%= f.hidden_field(:is_user,:value =>'false')%>
-    <div class="text-center">
-     <%= button_tag type: "submit", class: "btn btn-facebook",method: :post do %>
-      <i class="fas fa-paper-plane"></i>チャットを送る
-    <% end %>
-    </div>
-
-  <% end %>
-
-  <% end %>
-
-
 </div>
