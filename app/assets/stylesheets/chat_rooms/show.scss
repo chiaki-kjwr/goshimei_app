@@ -86,8 +86,42 @@
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
   }
+  .message-box2 {
+    position: relative;
+    padding: 20px;
+    background-color:#FDCCCC;
+    border: 2px solid #FDCCCC;
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+  .message-box2::before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: -15px;
+    top: 20px;
+    border-right: 15px solid #FDCCCC;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
 
-  .message-box p {
+  .message-box2::after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: -12px;
+    top: 20px;
+    border-right: 15px solid #FDCCCC;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+
+
+  .message-box .message-box2 p {
     margin: 0;
     padding: 0;
   }

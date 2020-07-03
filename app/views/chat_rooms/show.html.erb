@@ -7,14 +7,28 @@
   <div class="card-body-chat bg-light p-2 col-md-12">
       <% if @chat_messages.present? %>
         <% @chat_messages.each do |m| %>
-          <div class="message-box">
+          <%if  m.is_user  %>
+            <div class="message-box">
+              <div class="row">
+                <div class="col-xs-12 col-sm-10 col-md-4">
+                  <%= image_tag @chat_room.user.profile_photo.url,class:"rounded-circle",size:"75x75"%>
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-4">
+                  <h4><%= m.message %></h4>
+                  <div class="chat-date">
+                    <small><strong><%= m.created_at.to_s(:jptime) %></strong></small>
+                  </div>
+                </div>
+              </div>
+              <div class="chatContent">
+                <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
+              </div>
+            </div>
+      <%else %>
+          <div class="message-box2">
             <div class="row">
               <div class="col-xs-12 col-sm-10 col-md-4">
-                <%if  m.is_user  %>
-                  <%= image_tag @chat_room.user.profile_photo.url,class:"rounded-circle",size:"75x75"%>
-                <%else %>
                 <%= image_tag @chat_room.company.profile_photo.url,class:"rounded-circle",size:"75x75"%>
-                <%end%>
               </div>
               <div class="col-xs-12 col-sm-10 col-md-4">
                 <h4><%= m.message %></h4>
@@ -24,13 +38,11 @@
               </div>
             </div>
             <div class="chatContent">
-              <%if  m.is_user %>
-                <small><strong><a href="/users/<%= @chat_room.user_id %>"><%=  @chat_room.user.name %></a></strong></small><br>
-              <%else %>
                 <small><strong><a href="/companies/<%= @chat_room.company_id %>"><%=  @chat_room.company.name %></a></strong></small><br>
-              <% end %>
             </div>
           </div>
+
+   <% end %>
         <% end %>
       <% end %>
   <hr>
@@ -46,7 +58,7 @@
             <% end %>
           </div>
       <% end %>
-    <%elsif company_signed_in? %>
+    <%elsif @company.present? %>
       <%= form_with scope: :chat_message, url:chat_room_chat_messages_path(chat_room_id: @chat_room.id) do |f| %>
         <%= f.text_field :message, :class => "form-control myform", :placeholder => "メッセージを入力して下さい" %>
         <%= f.hidden_field(:is_user,:value =>'false')%>

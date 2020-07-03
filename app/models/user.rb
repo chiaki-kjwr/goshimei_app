@@ -10,7 +10,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true, length: { maximum: 50 }
   validates :profile_photo, presence: true
-  #validates :test1, presence: true
   mount_uploader :profile_photo, ProfilePhotoUploader
   enum confirmation: { yes: true, no: false }
   validates :confirmation, inclusion: {in: ["yes", "no"]}
@@ -46,6 +45,4 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
     end
   end
-
-
 end

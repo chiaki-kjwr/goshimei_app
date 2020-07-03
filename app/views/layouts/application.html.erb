@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-<main>
+  <main>
     <%= render 'partial/navbar' %>
     <% if flash[:notice] %>
       <div class="alert alert-info">
@@ -23,13 +23,11 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
-      <div class="container">
-        <%= yield %>
-      </div>
-
-      <%= render 'partial/footer' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render 'partial/footer' %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
     <script type="text/javascript">
     $(document).ready(function(){
     $('#fileName').on("change", function() {
