@@ -29,18 +29,7 @@
 
       <%= render 'partial/footer' %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <%#script type="text/javascript" src="jquery-2.0.3.js"></script%>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $("#submit").click(function () {
-          if ($("#test1").prop("checked") == true) {
-            $("#output").html("チェック項目1がチェックされています。<br/>");
-          } else {
-            $("#output").html("チェック項目1がチェックされていません。<br/>");
-          }
-        })
-      })
-    </script>
+
     <script type="text/javascript">
     $(document).ready(function(){
     $('#fileName').on("change", function() {

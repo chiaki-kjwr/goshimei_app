@@ -5,13 +5,15 @@ class User < ApplicationRecord
   has_many :chat_rooms, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, :omniauth_providers => [:google_oauth2]
+          :recoverable, :rememberable, :validatable,
+          :omniauthable, :omniauth_providers => [:google_oauth2]
   validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true, length: { maximum: 50 }
   validates :profile_photo, presence: true
   #validates :test1, presence: true
   mount_uploader :profile_photo, ProfilePhotoUploader
+  enum confirmation: { yes: true, no: false }
+  validates :confirmation, inclusion: {in: ["yes", "no"]}
 
   def like(post)
     likes << post
