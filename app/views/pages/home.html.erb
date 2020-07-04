@@ -96,19 +96,17 @@
         <%= link_to user_path(current_user),class: "btn btn-facebook" do %>
         <i class="fas fa-user"></i>マイページ >>
         <% end %>
-
       <%else%>
         <%= link_to new_user_registration_path, class: "btn btn-facebook"  do %>
         <i class="fas fa-cog"></i>新規登録画面へ >>
-         <% end %>
-
-        <%= link_to new_user_session_path, class: "btn btn-facebook" do %>
-       <i class="fas fa-smile"></i>アカウントをお持ちの方はこちら >>
         <% end %>
-         <br>
+        <%= link_to new_user_session_path, class: "btn btn-facebook" do %>
+        <i class="fas fa-smile"></i>アカウントをお持ちの方はこちら >>
+        <% end %>
+        <br>
         <%= link_to users_guest_sign_in_path, class: "btn btn-google btn-lg",method: :post do %>
-      <i class="fas fa-user-check"></i>採用ご担当者様はこちら(ゲストログイン) >>
+        <i class="fas fa-user-check"></i>採用ご担当者様はこちら(ゲストログイン) >>
+        <%end%>
       <%end%>
-       <%end%>
     </div>
 </div>
