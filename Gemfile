@@ -72,6 +72,10 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :production, :staging do
+  gem 'unicorn'
+end
+
 # Windows does not include zoneinfo files, so bundle gthe tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.3.1'
@@ -84,11 +88,9 @@ gem 'pry-rails'
 gem 'ransack'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-#gem 'pg', group: :production
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'kaminari'
 gem 'mysql2', '~> 0.4.4'
-gem 'enum_help'

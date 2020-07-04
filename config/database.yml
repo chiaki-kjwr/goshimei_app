@@ -5,7 +5,6 @@
 #   gem 'sqlite3'
 #
 default: &default
-  #adapter: sqlite3
   adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
@@ -15,11 +14,10 @@ default: &default
 
 development:
   <<: *default
-  #database: db/development.sqlite3
   database: goshimei_app_development
-  #pool: 5u
-
-
+  username: root
+  password:
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,8 +25,13 @@ development:
 test:
   <<: *default
   database: goshimei_app_test
+  username: root
+  password:
+  host: localhost
 
 production:
   <<: *default
-  database: goshimei_app_production
-  #username: goshimei_app
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOSTNAME'] %>
