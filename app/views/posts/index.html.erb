@@ -1,23 +1,12 @@
 <% provide(:full_title, "エージェントをゴシメイする") %>
 
-<section class="card-chat">
-  <div class="panel-heading text-center">
-    <h2>ボシュウからエージェントを探してみる</h2>
-  </div>
-
-	<div class="row">
-    <%= search_form_for @search, url: posts_path do |f| %>
-    <section class="col-xs-12 col-sm-10">
-      <%= f.label :title_or_contents_cont, '投稿から検索しよう' %>
-      <%= f.search_field :title_or_contents_cont,class:"form-control" %>
-      <%= button_tag type: "submit", class: "btn btn-google btn-lg",id:"search-post" do %>
-        <i class="fas fa-search-plus"></i>検索
-      <% end %>
-    </div>
-    <%= link_to posts_path(format: :csv),class: "btn btn-outline-dark ",id:"post-csv" do %>
+<section class="card-chat col-xs-12 col-sm-12 col-md-12">
+  <div class="panel-heading">
+    <h2 class="text-center">エージェントを探してみる</h2>
+    <%= link_to posts_path(format: :csv),:style=>"color:black;" do %>
     <i class="fas fa-cloud-download-alt"></i>ボシュウをCSV出力する
     <% end %>
-  <% end %>
+  </div>
 
   <div class="row">
     <% @posts.each do |post| %>
@@ -37,10 +26,10 @@
                 </div>
 
                 <div class="post-datails">
-                  <%= post.created_at.to_s(:jptime)%>
-                    <div id="likes_buttons_<%= post.id %>">
-                      <%= render partial: 'posts/like_text', locals: { post: post} %>
-                    </div>
+                更新日：<%= post.created_at.to_s(:jptime)%>
+                <div id="likes_buttons_<%= post.id %>">
+                    <%= render partial: 'posts/like_text', locals: { post: post} %>
+                  </div>
                 </div>
             </div>
           </div>

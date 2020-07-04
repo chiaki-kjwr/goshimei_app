@@ -1,66 +1,54 @@
 <% provide(:full_title, "マイページ") %>
-<%#rowとcontainerを削除した %>
-  <div class="col-lg-12 col-xl-9 mx-2">
-    <div class="card user-edit flex-row my-5">
-      <div class="card-img-left d-none d-md-flex">
-        <%= image_tag current_user.profile_photo.url,size:"300x300",class:"rounded-circle" %>
-          <br>
-          <%#= link_to "戻る", root_path, class: "btn btn-outline-dark" %>
-      </div>
+  <div class="mypage col-lg-12 col-xl-9 col-sm-4 mx-auto">
+<!--モーダル -->
+            <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
+              <h5 class="card-title text-center"><%= @user.name %></h5>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">設定</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                      </div>
+                      <div class="list-group text-center">
+                        <%= link_to "プロフィールを編集する", edit_user_registration_path, class: "list-group-item list-group-item-action",method: :get %>
+                        <%= link_to "退会する", "/users/#{@user.id}", method: :delete,data:{confirm: "本当に退会しますか？"},class:"list-group-item list-group-item-action" %>
+                        <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-          <div class="card-body">
-          <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
-            <h5 class="card-title text-center"><%= @user.name %></h5>
- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">設定</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
+<!--モーダル終了 -->
+              <hr>
+              <div class="row"id="userEdit">
+              <div class="col-lg-4 col-xl-4 col-sm-4 col-xs-3">
+                <%= image_tag current_user.profile_photo.url,size:"100x100",class:"rounded-circle" %>
               </div>
-              <div class="list-group text-center">
-                <%#= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
-                  <%= link_to "プロフィールを編集する", edit_user_registration_path, class: "list-group-item list-group-item-action",method: :get %>
-                  <%= link_to "退会する", "/users/#{@user.id}", method: :delete,data:{confirm: "本当に退会しますか？"},class:"list-group-item list-group-item-action" %>
-                <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
+              <div class="col-lg-8 col-xl-8 col-sm-8 col-xs-9">
+                <div class="profile">
+                  <div class="profile-group">
+                    <p>ユーザーID : <%= @user.id %></p>
+                    <p>メールアドレス : <%= @user.email %></p>
+                  </div>
+                  <div class="profile-group">
+                    <p>経歴 : <%= @user.profile %></p>
+                  </div>
+                  <div class="profile-group">
+                    <p>年齢 : <%= @user.age %></p>
+                  </div>
+                  <div class="profile-group">
+                    <p>性別 : <%= @user.sex %></p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
             <hr>
-            <div class="profile">
-              <div class="profile-group">
-                <p>ユーザーID : <%= @user.id %></p>
-              <p>メールアドレス : <%= @user.email %></p>
-              </div>
-
-              <div class="profile-group">
-               <p>経歴 : <%= @user.profile %></p>
-              </div>
-
-
-              <div class="profile-group">
-                  <p>年齢 : <%= @user.age %></p>
-              </div>
-
-              <div class="profile-group">
-               <p>性別 : <%= @user.sex %></p>
-              </div>
-
-              <%#= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
-               <%#= link_to "退会する", "/users/#{@user.id}", method: :delete,data:{confirm: "本当に退会しますか？"},class:"d-block text-center mt-2 small" %>
-
-              <hr class="my-4">
-                <%= link_to "ボシュウを探す", posts_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
-                <%= link_to "お気に入りしているエージェントはこちら", likes_posts_path, class:"btn btn-lg btn-google btn-block",method: :get %>
-
-        <%= link_to "チャット中のエージェントはこちら", chat_rooms_path, class:"btn btn-lg btn-facebook btn-block",method: :get %>
-
-
-
+            <%= link_to "ボシュウを探す", posts_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
+            <%= link_to "お気に入りしている投稿はこちら", likes_posts_path, class:"btn btn-lg btn-google btn-block",method: :get %>
+            <%= link_to "チャット中のエージェントはこちら", chat_rooms_path, class:"btn btn-lg btn-facebook btn-block",method: :get %>
+            <div class="actions text-center">
+              <%= link_to "<<<トップページに戻る", root_path,:style=>"color:black;"%>
             </div>
-          </h5>
-        </div>
-      </div>

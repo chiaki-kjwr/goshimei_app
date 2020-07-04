@@ -10,11 +10,8 @@ class SessionsController < ApplicationController
     if company &.authenticate(session_params[:password])
       session[:company_id] = company.id
       redirect_to company_path(company), notice: 'ログインに成功しました'
-
     else
-      # redirect_to root_pat,hnotice: 'ログインに成功しました'
-      # render :new
-      render "sessions/new"
+      redirect_to login_path ,notice: 'ログインに失敗しました'
     end
   end
 

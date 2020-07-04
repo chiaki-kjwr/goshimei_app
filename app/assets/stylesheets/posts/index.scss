@@ -1,11 +1,20 @@
-#post-csv {
-  margin-left:1000px;
-  width:250px;
-  margin-bottom:50px;
-}
 
 #search-post{
   margin-left:110%;
   width:150px;
   margin-top:-8%;
+}
+
+
+@media screen and (min-width:300px){
+  .card-chat{
+  margin-top:50px;
+  }
+  .panel-heading{
+    height:100px;
+  }
+  }
+
+#cardPostIndex{
+  margin-top:100px;
 }

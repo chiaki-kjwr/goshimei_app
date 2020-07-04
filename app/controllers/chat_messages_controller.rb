@@ -1,27 +1,15 @@
 class ChatMessagesController < ApplicationController
   include ApplicationHelper
+  protect_from_forgery
 
   def create
-      #@chat_room = ChatRoom.find_by(params[:id])
       @chat_room = ChatRoom.find(params[:chat_room_id])
-      @chat_message = ChatMessage.create!(chat_room_id:@chat_room.id,message: params[:chat_message][:message])
+      @chat_message = ChatMessage.create!(chat_room_id:@chat_room.id,message: params[:chat_message][:message],is_user: params[:chat_message][:is_user])
+      if current_company.present?
+        @chat_message.is_user = 'false'
+      elsif user_signed_in?
+        @chat_message.is_user = 'true'
+      end
       redirect_to chat_room_path(@chat_room.id)
-
   end
 end
-
-
-=begin
-if @chat_message.create!
-
-      flash.now[:notice] = "チャットを送りました"
-    else
-      redirect_to chat_room_path, notice: "チャット送信に失敗しました"
-    end =end
-  endå
-
-  private
-
-  def message_params
-    params.require(:chat_message).permit(:message, :chat_room_id).merge(user_id: current_user.id)
-=end

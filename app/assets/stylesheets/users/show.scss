@@ -1,73 +1,8 @@
-/* .row{
-  font-size: 30px;
-}
-
-.profile-wrap{
-    margin:40px 0px;
-  }
-
-  .round-img{
-    border-radius:50%;
-    width: 120px;
-    height: 120px;
-  }
-
-  .edit-profile-btn {
-    margin: 15px 0 0 15px;
-    font-weight: bold;
-    height: 26px;
-    line-height: 40px;
-    padding: 0 26px;
-    border-color: #dbdbdb;
-    font-size: 14px;
-    width:200px;
-  }
-
-  .setting {
-    background-image: image-url("parts4.png");
-    background-repeat: no-repeat;
-    height: 24px;
-    width: 24px;
-    background-color: transparent;
-    margin: 18px 0 0 10px;
-    background-size: 22px!important;
-    border: none;
-    &:hover {
-      cursor: pointer;
-    }
-  } */
-
-  //マイページ
-
-  .user-edit {
-    border: 0;
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width:1000px;
-    height:600px!important;
-    margin:0 auto;
-  }
-
-  .user-edit .card-title {
-    margin-bottom: 2rem;
-    font-weight: 300;
-    font-size: 1.5rem;
-  }
-
-  .user-edit .card-img-left {
-    //width: 45%;
-    /* Link to your background image using in the property below! */
-    //background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
-    //background-size: cover;
-  }
-
-  .user-edit .card-body {
-    padding: 2rem;
-  }
-
   .profile {
     width: 100%;
+  }
+  #userEdit{
+    background-color:#eee;
   }
 
   .profile .btn {
@@ -84,63 +19,6 @@
     margin-bottom: 1rem;
   }
 
-  .form-label-group input {
-    height: auto;
-    border-radius: 2rem;
-  }
-
-  .form-label-group>input,
-  .form-label-group>label {
-    padding: var(--input-padding-y) var(--input-padding-x);
-  }
-
-  .form-label-group>label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    margin-bottom: 0;
-    /* Override default `<label>` margin */
-    line-height: 1.5;
-    color: #495057;
-    border: 1px solid transparent;
-    border-radius: .25rem;
-    transition: all .1s ease-in-out;
-  }
-
-  .form-label-group input::-webkit-input-placeholder {
-    color: transparent;
-  }
-
-  .form-label-group input:-ms-input-placeholder {
-    color: transparent;
-  }
-
-  .form-label-group input::-ms-input-placeholder {
-    color: transparent;
-  }
-
-  .form-label-group input::-moz-placeholder {
-    color: transparent;
-  }
-
-  .form-label-group input::placeholder {
-    color: transparent;
-  }
-
-  .form-label-group input:not(:placeholder-shown) {
-    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
-    padding-bottom: calc(var(--input-padding-y) / 3);
-  }
-
-  .form-label-group input:not(:placeholder-shown)~label {
-    padding-top: calc(var(--input-padding-y) / 3);
-    padding-bottom: calc(var(--input-padding-y) / 3);
-    font-size: 12px;
-    color: #777;
-  }
-
   .btn-google {
     color: white;
     background-color: #ea4335;
@@ -150,7 +28,6 @@
     color: white;
     background-color: #3b5998;
   }
-
   .setting {
     background-image: image-url("parts1.png");
 
@@ -164,5 +41,10 @@
     display: inline-block;
     &:hover {
       cursor: pointer;
+    }
+  }
+  @media screen and (min-width: 800px) {
+  .mypage {
+      margin-top: 30px;
     }
   }

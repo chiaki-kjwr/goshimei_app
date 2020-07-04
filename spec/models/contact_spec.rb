@@ -20,4 +20,6 @@ RSpec.describe Contact, type: :model do
     contact.valid?
     expect(contact.errors[:name]).not_to include("can't be blank")
   end
+
+  
 end

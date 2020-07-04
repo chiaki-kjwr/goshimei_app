@@ -53,19 +53,48 @@
     overflow-y: scroll;
     //height: 500px;
 }
-/*
-.chat-card{
-  height:100%;
-} */
 
   .message-box{
     position: relative;
     padding: 20px;
-    background-color:#cde5ff;
-    border: 2px solid#cde5ff;
-    border-radius: 10px;         /* 角丸を指定 */
+    background-color:#FDCCCC;
+    border: 2px solid #FDCCCC;
+    border-radius: 10px;
+    margin-bottom: 5px;
   }
   .message-box::before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: -15px;
+    top: 20px;
+    border-right: 15px solid #FDCCCC;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+  .message-box::after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: -12px;
+    top: 20px;
+    border-right: 15px solid  #FDCCCC;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+  .message-box2 {
+    position: relative;
+    padding: 20px;
+    background-color:#cde5ff;
+    border: 2px solid #cde5ff;
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+  .message-box2::before{
     content: '';
     position: absolute;
     display: block;
@@ -77,7 +106,8 @@
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
   }
-  .message-box::after{
+
+  .message-box2::after{
     content: '';
     position: absolute;
     display: block;
@@ -90,7 +120,8 @@
     border-bottom: 15px solid transparent;
   }
 
-  .message-box p {
+
+  .message-box .message-box2 p {
     margin: 0;
     padding: 0;
   }

@@ -1,59 +1,62 @@
 <% provide(:full_title, "Top") %>
+
   <div class="top-wrapper",id="wrapper">
-    <div class="container ">
+    <div class="container">
       <div class="top-image">
         <div class="text-center">
-          <h1 class="font-weight-bold mb-4 topTitle"><br />ゴシメイ！</h1>
+          <h2 class="font-weight-bold topTitle"><br />ゴシメイ！</h2>
           <p class="subTitle2">
             ゴシメイはユーザーがマッチする転職エージェントを検索できるサービスです。
           </p>
         </div>
-          <div class="companyNew">
-            <%#= button_to "新規登録はこちら", new_company_path, class:'companyNewForm btn btn-facebook btn-lg' %>
-          </div>
-        </div>
       </div>
     </div>
-    <div class="heading text-center">
-      <h2>ゴシメイ！の使い方</h2>
+  </div>
+
+  <div class="heading text-center">
+    <h3>ゴシメイ！の使い方</h3>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-4 col-xs-4 col-md-12 col-lg-12">
+      <h3>ボシュウ画面から、投稿ができます</h3>
+      <p>-自社の専門性や魅力など</p>
+      <p>ユーザーに伝えたいことを投稿することができます</p>
+    <div>
+    <div class="searchImage col-sm-4 col-xs-4 col-md-2 col-lg-2">
+      <%= image_tag('post.png',:class =>"companyImage rounded-circle") %>
     </div>
-    <div class="mb-5">
-      <div class="canSearch">
-        <h3>ボシュウ画面から、投稿ができます</h3>
-        <p>自社の専門性や魅力など</p>
-        <p>ユーザーに伝えたいことを投稿することができます</p>
-      </div>
-      <div class="searchImage">
-        <%= image_tag('post.png',:class =>"companyImage rounded-circle") %>
-      </div>
-      <div class="canChat">
-        <h3>メッセージのやりとりができます</h3>
-        <p>興味を持ったユーザーから、</p>
-        <p>メッセージがきます</p>
-      </div>
-      <div class="searchImage">
-        <%= image_tag('chatting.png',:class =>"companyImage rounded-circle") %>
-      </div>
+  </div>
+  <hr>
+
+
+  <div class="row">
+    <div class="col-sm-4 col-xs-4 col-md-12 col-lg-12">
+      <h3>メッセージのやりとりができます</h3>
+      <p>-あなたに興味を持った転職希望者から、</p>
+      <p>メッセージが届きます</p>
     </div>
-  </body>
-    <div class="company-message-wrapper">
-      <div class="company-registration text-center">
-        <h2>ゴシメイ！への登録はこちら</h2>
-      <% if company = current_company %>
-        <%= link_to company_path(current_company),class: "btn btn-facebook btn-lg" do %>
-        <i class="fas fa-user"></i>マイページ
-        <% end %>
+    <div class="searchImage col-sm-4 col-xs-4 col-md-12 col-lg-12">
+      <%= image_tag('chatting.png',:class =>"companyImage rounded-circle") %>
+    </div>
+  </div>
 
-      <%else%>
-
-        <%= link_to new_company_path, class: "btn btn-facebook" do %>
-       <i class="fas fa-cog"></i>新規登録
-        <% end %>
-
-        <%= link_to login_path, class: "btn btn-facebook" do %>
-        <i class="fas fa-check"></i>アカウントをお持ちの方はこちら
+  <hr>
+  <div class="company-message-wrapper">
+    <div class="company-registration text-center">
+      <h2>ゴシメイ！への登録はこちら</h2>
+        <% if company = current_company %>
+          <%= link_to company_path(current_company),class: "btn btn-facebook btn-lg" do %>
+          <i class="fas fa-user"></i>マイページ >>
           <% end %>
-      <%end%>
-
-      </div>
+        <% else %>
+          <%= link_to new_company_path, class: "btn btn-facebook" do %>
+          <i class="fas fa-cog"></i>新規登録 >>
+          <% end %>
+          <%= link_to login_path, class: "btn btn-facebook" do %>
+          <i class="fas fa-check"></i>アカウントをお持ちの方はこちら >>
+          <% end %>
+        <% end %>
     </div>
+  </div>
+  <hr>

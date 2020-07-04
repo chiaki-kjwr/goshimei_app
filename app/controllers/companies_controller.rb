@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @company_name = @company.name
-    #@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     @user = current_user
 
     if user_signed_in?
@@ -26,11 +26,13 @@ class CompaniesController < ApplicationController
       end
     else
       @users = User.all
-      chat_rooms = current_company.chat_rooms
-      # 自分が入ってるroomの相手のidを格納する
-      @user_ids = []
-      chat_rooms.each do |c|
-        @user_ids << c.user_id
+      if @chat_rooms.present?
+        chat_rooms = current_company.chat_rooms
+        # 自分が入ってるroomの相手のidを格納する
+        @user_ids = []
+        chat_rooms.each do |c|
+          @user_ids << c.user_id
+        end
       end
     end
   end
@@ -38,9 +40,9 @@ class CompaniesController < ApplicationController
   def create
     company = Company.new(company_params)
     if company.save!
-    redirect_to posts_path, notice: '登録が完了しました'
+    redirect_to company_path(company), notice: '登録が完了しました'
     else
-      redirect_to posts_path, notice: '登録に失敗しました'
+    redirect_to new_company_path, notice: '登録に失敗しました'
     end
   end
 
@@ -63,7 +65,7 @@ end
 private
 
 def company_params
-  params.require(:company).permit(:name, :email, :profile_photo, :profile, :password, :password_confirmation)
+  params.require(:company).permit(:name, :email, :profile_photo,:password, :password_confirmation)
 end
 
 def current_company

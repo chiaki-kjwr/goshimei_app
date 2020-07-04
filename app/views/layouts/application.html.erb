@@ -23,25 +23,26 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
-      <div class="container">
-        <%= yield %>
-      </div>
-  </main>
-    <%#div id="footer"%>
-      <%= render 'partial/footer' %>
-    <%#/div%>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <% unless current_page?(companies_home_path) %>
+    <%= render 'partial/footer' %>
+    <% end %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="jquery-2.0.3.js"></script>
     <script type="text/javascript">
-      $(document).ready(function () {
-        $("#submit").click(function () {
-          if ($("#test1").prop("checked") == true) {
-            $("#output").html("チェック項目1がチェックされています。<br/>");
-          } else {
-            $("#output").html("チェック項目1がチェックされていません。<br/>");
-          }
-        })
-      })
+    $(document).ready(function(){
+    $('#fileName').on("change", function() {
+    var file = this.files[0];
+    if(file != null) {
+    document.getElementById("dummy_file").value = file.name;
+    }
+    });
+    if (document.form1.fileName.value == "") {
+    document.getElementById("dummy_file").value = "";
+    }
+    });
     </script>
+  </main>
 </body>
 </html>

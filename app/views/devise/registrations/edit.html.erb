@@ -1,37 +1,42 @@
-<% provide(:title, "アカウント編集") %>
-<div class="d-flex flex-column align-items-center mt-3">
-  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11">
-    <div class="editCard">
-      <div class="card-header">
+<% provide(:full_title, "アカウント編集") %>
+  <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 mx-auto">
+    <div class="card">
+      <div class="card-header text-center">
         <%= "#{@user.name}のアカウント編集" %>
       </div>
       <div class="image text-center">
-        <%= image_tag @user.profile_photo.url(:thumb),size:"150x150",class: "rounded-circle" %>
+        <%= image_tag @user.profile_photo.url,size:"100x100",class: "rounded-circle" %>
       </div>
       <div class="card-body-user-edit">
         <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name),local: true, method: :patch do |f| %>
 
       <div class="col-auto">
+        <i class="fas fa-user"></i>
         <%= f.label :name, "お名前" %>
         <%= f.text_field :name ,placeholder: "例）山田太郎", class: "form-control" %>
       </div>
 
       <div class="col-auto">
+        <i class="far fa-envelope"></i>
         <%= f.label :email, "メールアドレス"  %>
         <%= f.email_field :email ,placeholder: "例）abc@example.com", class: "form-control" %>
       </div>
 
       <div class="col-auto">
+      <i class="fas fa-male"></i>
+      <i class="fas fa-female"></i>
         <%= f.label :sex,"性別" %><br>
         <%= f.text_field :sex, autofocus: true, autocomplete: "sex",placeholder:"例）男",class: "form-control" %>
       </div>
 
       <div class="col-auto">
+        <i class="fas fa-users"></i>
         <%= f.label :age,"年齢" %><br>
         <%= f.text_field :age, autofocus: true, autocomplete: "age" ,placeholder:"例）36",class: "form-control" %>
       </div>
 
       <div class="col-auto">
+        <i class="far fa-id-card"></i>
         <%= f.label :profile,"経歴" %> <br>
         <%= f.text_area :profile, autofocus: true, autocomplete: "profile",placeholder:"例)新卒で大手金融機関に就業し、
         一貫して法人営業を行なって参りました。",class: "form-control" %>
@@ -42,6 +47,7 @@
       <% end %>
 
       <div class="col-auto">
+        <i class="fas fa-key"></i>
         <%= f.label :password,"新しいパスワード" %> <i></i><br>
         <%= f.password_field :password, autocomplete: "new-password",class: "form-control" %>
         <% if @minimum_password_length %>
@@ -50,27 +56,33 @@
       </div>
 
       <div class="col-auto">
+        <i class="fas fa-key"></i>
         <%= f.label :password_confirmation,"新しいパスワード(確認)" %><br>
         <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
       </div>
 
       <div class="col-auto">
+        <i class="fas fa-key"></i>
         <%= f.label :current_password %> <i></i><br>
         <%= f.password_field :current_password, autocomplete: "current-password",class: "form-control" %>
       </div>
 
       <div class="col-auto">
-        <%= f.label :profile_photo %>
-        <%= f.file_field :profile_photo %>
+        <i class="fas fa-image"></i>
+        <%= f.label :profile_photo%>
+        <br><%= f.file_field :profile_photo,id:"fileName"%>
+        <input id="dummy_file" type="text" >
+        <label for="fileName" >
+        <span class="browse_btn">ファイルを選択</span><input type="file"id="fileName">
+        </label>
         <%= f.hidden_field :profile_photo_cache %>
       </div>
 
       <div class="actions text-center">
         <%= f.submit "変更する",class:"btn btn-facebook btn-block ",method: :post %>
-        <%= link_to "<<プロフィールページへ戻る",user_path(resource) %>
       </div>
       <% end %>
-      </div>
     </div>
   </div>
 </div>
+<%= link_to "<<プロフィールページへ戻る",user_path(resource),:style=>"color:black;"%>
