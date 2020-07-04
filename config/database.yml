@@ -8,24 +8,14 @@ default: &default
   adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-<<<<<<< HEAD
   password: 
   host: localhost
-=======
-  password:
-  host: localhost
-  #timeout: 5000
->>>>>>> 60617ac7c65d777a864db478d079365ed446ba4a
-
+ 
 development:
   <<: *default
   database: goshimei_app_development
   username: root
-<<<<<<< HEAD
-  password: 
-=======
   password:
->>>>>>> 60617ac7c65d777a864db478d079365ed446ba4a
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -35,11 +25,7 @@ test:
   <<: *default
   database: goshimei_app_test
   username: root
-<<<<<<< HEAD
-  password: 
-=======
   password:
->>>>>>> 60617ac7c65d777a864db478d079365ed446ba4a
   host: localhost
 
 production:
