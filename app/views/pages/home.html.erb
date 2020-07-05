@@ -1,5 +1,6 @@
 <% provide(:full_title, "Top") %>
   <!--タイトル-->
+
   <div class="welcome-wrapper",id="wrapper">
       <div class="top-image">
           <h1 class="font-weight-bold mb-4 topTitle1"><br>ゴシメイ！</h1>
@@ -11,7 +12,6 @@
             <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"btn btn-google btn-block" do %>
             <i class="fab fa-google mr-2"></i><span>Googleで新規登録</span>
             <% end %>
-
           </div>
         </div>
     </div>
@@ -97,14 +97,15 @@
         <%= link_to user_path(current_user),class: "btn btn-facebook" do %>
         <i class="fas fa-user"></i>マイページ >>
         <% end %>
+
       <%else%>
         <%= link_to new_user_registration_path, class: "btn btn-facebook"  do %>
         <i class="fas fa-cog"></i>新規登録画面へ >>
         <% end %>
         <%= link_to new_user_session_path, class: "btn btn-facebook" do %>
-        <i class="fas fa-smile"></i>アカウントをお持ちの方はこちら >>
+      　<i class="fas fa-smile"></i>アカウントをお持ちの方はこちら >>
         <% end %>
-        <br>
+         <br>
         <%= link_to users_guest_sign_in_path, class: "btn btn-google btn-lg",method: :post do %>
         <i class="fas fa-user-check"></i>採用ご担当者様はこちら(ゲストログイン) >>
         <%end%>
