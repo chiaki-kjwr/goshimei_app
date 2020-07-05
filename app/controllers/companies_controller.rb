@@ -8,9 +8,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @company_name = @company.name
     @post = Post.find(params[:id])
-    @user = current_user
 
     if user_signed_in?
       @companies = Company.all
@@ -42,7 +40,7 @@ class CompaniesController < ApplicationController
     if company.save!
     redirect_to company_path(company), notice: '登録が完了しました'
     else
-    redirect_to new_company_path, notice: '登録に失敗しました'
+    render new_company_path, notice: '登録に失敗しました'
     end
   end
 
