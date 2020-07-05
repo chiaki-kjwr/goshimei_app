@@ -73,7 +73,7 @@ group :test do
 end
 
 group :production, :staging do
-  gem 'unicorn'
+    gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle gthe tzinfo-data gem
@@ -93,4 +93,5 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'kaminari'
+gem 'mini_racer'
 gem 'mysql2', '~> 0.4.4'
