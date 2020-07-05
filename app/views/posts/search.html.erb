@@ -4,16 +4,38 @@
     <div class="panel-heading text-center">
         <h2>検索結果</h2>
         <% if @company_or_post == "1"%>
-            <h5><%= @posts_cnts %>件のボシュウを表示(<%= @companies_cnts %>件のエージェント)</h5>
+            <h5><%= @companies_cnts %>件のエージェントを表示(<%= @posts_cnts %>件のボシュウ)</h5>
         <% else @company_or_post == "2"%>
-            <h5><%= @posts_cnts %>件のボシュウを表示</h5>
+            <h5><%= @posts_cnts %>件のボシュウを表示(<%= @companies_cnts %>件のエージェント)</h5>
         <% end %>
     </div>
 </section>
 
+<!--検索フォームはNavbarのみに表示させる-->
+  <%
+=begin%>
+ <section class="btn">
+<%= form_tag(search_path, :method => 'get') do %>
+    <%= select_tag(:option, options_for_select([["エージェントから検索", "1"],["投稿から検索","2"]]))%>
+    <div class="input-group">
+    <%= text_field_tag :search,'' ,placeholder:"フリーワードを入力"%>
+    <span class="input-group-btn">
+    <button type="submit"><i class="fas fa-search"></i></button>
+
+</span>
+     <% end %>
+      </div>
+
+</section>
+<%
+=end%>
+<!--検索フォームはNavbarのみに表示させる-->
+
 <section class="py5 bg-light">
 <!----><!---->
 <div class="row">
+  <% if @company_or_post == "1" || @company_or_post == "2" %>
+    <% @companies.each do |company| %>
     <% @posts.each do |post| %>
       <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
         <div class="card" id="cardIndex">
@@ -22,85 +44,24 @@
           </header>
           <div class="card-body">
             <div class="img-card">
-              <div class="row">
-              <div class="col-xs-12 col-sm-10 col-md-4">
-              <p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
-                <%= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
-              </div>
-                <h6><%= post.contents %></h6>
-                </div>
-
-                <div class="post-datails">
-                  <%= post.created_at.to_s(:jptime)%>
-                    <div id="likes_buttons_<%= post.id %>">
-                      <%= render partial: 'posts/like_text', locals: { post: post} %>
-                    </div>
-                </div>
+              <p class="tagline card-text text-xs-center"> <strong><%= company.name %></strong></p>
+              <%= image_tag company.profile_photo.url,class:"rounded-circle",size:"50x50"%>
+              <h6><%= post.contents %></h6>
             </div>
-          </div>
-          <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
-            <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
-          <% end %>
-        </div>
+            <div class="post-datails">
+              <%= post.created_at.to_s(:jptime)%>
+              <div id="likes_buttons_<%= post.id %>">
+                <%= render partial: 'posts/like_text', locals: { post: post} %>
+              </div>
+            </div>
+				</div>
+            <%= link_to company_path(company),class:"btn btn-facebook btn-block" do %>
+                <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
+            <% end %>
+
       </div>
-    <% end %>
-  </div>
-
-<!---->
-
-<%
-=begin%>
-     <div class="row",id="searchRow">
-        <% if @company_or_post == "1"%>
-            <% @companies.each do |company| %>
-            <% @posts.each do |post| %>
-                <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
-			<div class="card" id="cardIndex">
-				<header class="title-header">
-                    <h3><%= post.title %></h3>
-
-				</header>
-                    <div class="card-body">
-				        <div class="img-card">
-                        <p class="tagline card-text text-xs-center"> <strong><%= company.name %></strong></p>
-
-                <%= image_tag company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
-                <h5><%= post.contents %></h5>
-					</div>
-				</div>
-        <%= link_to company_path(company),class:"btn btn-facebook btn-block" do %>
-            <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
-        <% end %>
-        </div>
-		</div>
-        <% end %>
-        <%end %>
-        <% else @company_or_post == "2"%>
-            <%# @companies.each do |company| %>
-             <% @posts.each do |post| %>
-                <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
-			<div class="card" id="cardIndex">
-				<header class="title-header">
-                <h3><%=post.title %></h3>
-				</header>
-                    <div class="card-body">
-				        <div class="img-card">
-
-                            <p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
-                <%= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
-                <h5><%=post.contents %></h5>
-					</div>
-				</div>
-        <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
-            <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
-        <% end %>
-        </div>
-		</div>
-    <% end %>
-  <%# end %>
-
-    <% end %>
     </div>
-<%
-=end%>
+      <% end %>
+        <%end %>
+      <%end %>
 </section>

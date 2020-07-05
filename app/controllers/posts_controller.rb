@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
   include ApplicationHelper
-  before_action :set_search, only: [:index]
-
-
-
+  #before_action :set_search, only: [:index]
   def index
     @search = Post.ransack(params[:q])
     @posts = @search.result
@@ -59,19 +56,6 @@ class PostsController < ApplicationController
     end
   end
 
-#6/16コメントアウト
-=begin   def liked_by(current_user)
-    Like.find_by(user_id: user.id, post_id: post.id)
-  end
-=end
-
-
-#6/14コメントアウト
-  #def set_search
-    #@c_search = Company.ransack(params[:c], search_key: :c)
-    #@search_companies = @c_search.result(distinct: true)
-  #end
-
   def search
     @company_or_post = params[:option]
     if @company_or_post == "1"
@@ -83,11 +67,12 @@ class PostsController < ApplicationController
       @posts = Post.search(params[:search], @company_or_post)
       @companies = Company.search(params[:search], @company_or_post)
       @posts_cnts = @posts.count
+      @companies_cnts = @companies.count
     end
   end
 
     def likes
-    @posts = current_user.like_posts
+      @posts = current_user.like_posts
     end
 
     def logged_in_company

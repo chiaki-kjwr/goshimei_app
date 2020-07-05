@@ -20,3 +20,19 @@ module GoshimeiApp
     config.time_zone = 'Tokyo'
   end
 end
+
+def Company.search(search, company_or_post)
+  if company_or_post == "1"
+      Company.where(['name LIKE ?', "%#{search}%"])
+  else
+      Company.all
+  end
+end
+
+def Post.search(search, company_or_post)
+  if company_or_post == "2"
+    Post.where(['title LIKE ?', "%#{search}%"])
+  else
+    Post.all
+  end
+end

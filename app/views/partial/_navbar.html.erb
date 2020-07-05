@@ -16,19 +16,65 @@
         <% end %>
         </li>
       </ul>
-      <form class="form-inline my-2 my-md-0">
+
       <div class="btn">
+<%= form_tag(search_path, :method => 'get') do %>
+    <%= select_tag(:option, options_for_select([["エージェントから検索", "1"],["投稿から検索","2"]]))%>
+    <div class="input-group">
+    <%= text_field_tag :search,'' ,placeholder:"フリーワードを入力"%>
+    <span class="input-group-btn">
+    <button type="submit"><i class="fas fa-search"></i></button>
+
+</span>
+     <% end %>
+      </div>
+
+
+    </div>
+  </nav>
+
+
+<%
+=begin%>
+       <div class="btn">
+
       <%= form_tag(search_path, :method => 'get') do %>
-      <%= select_tag(:option, options_for_select([["エージェントから検索", "1"],["投稿から検索","2"]]))%>
+      <%= select_tag(:option, options_for_select([["エージェントから検索", "1"],["投稿から検索","zphome2"]]))%>
         <div class="input-group">
           <%= text_field_tag :search,'' ,placeholder:"フリーワードで検索..."%>
           <span class="input-group-btn">
             <button type="submit"><i class="fas fa-search"></i></button>
           </span>
           <% end %>
+
         </div>
     </div>
+<%
+=end%>
+
+
+
+<%
+=begin%>
+ <div class="btn">
+<%= form_tag(search_path, :method => 'get') do %>
+    <%= select_tag(:option, options_for_select([["エージェントから検索", "1"],["投稿から検索","2"]]))%>
+    <div class="input-group">
+    <%= text_field_tag :search,'' ,placeholder:"フリーワードを入力"%>
+    <span class="input-group-btn">
+    <button type="submit"><i class="fas fa-search"></i></button>
+
+</span>
+     <% end %>
+      </div>
+
+</div>
+
+<%
+=end%>
+
+
+
       </form>
     </div>
   </nav>
-</div>
