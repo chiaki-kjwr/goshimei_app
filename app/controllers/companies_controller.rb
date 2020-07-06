@@ -8,10 +8,6 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-<<<<<<< HEAD
-=======
-    @post = Post.find(params[:id])
->>>>>>> 74de2d7868a535dba40d47e9533ad88854cb0333
 
     if user_signed_in? && @post.present?
       @post = Post.find(params[:id])
