@@ -5,21 +5,16 @@
   </div>
   <div class="card-body-chat bg-light p-2 col-md-12">
     <% @chat_rooms.each do |c| %>
-    <div class="likes-image">
+      <div class="likes-image">
       <%= image_tag c.company.profile_photo.url,class: "chat-image rounded-circle",size:"100x100" %>
       <i class="fas fa-comment-dots"></i>
   <a href="/chat_rooms/<%= c.id %>"><%= c.id %><%= c.company.name %>様とのチャットルーム</a>
 
   <br/>
   <%= link_to "#{c.company.name}", company_path(c.company),:style=>"color:black;"%>
-
-
   </div>
 <hr>
 <% end %>
 </div>
 </div>
 <%= link_to "<<<#{current_user.name}さんのマイページに戻る", user_path(current_user),:style=>"color:black;"%>
-      </div>
-    </div>
-  </div>

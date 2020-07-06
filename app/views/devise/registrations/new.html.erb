@@ -73,9 +73,13 @@
         <div id="output"></div>
       <% end %>
 
-          <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"btn btn-google btn-block" do %>
+<%
+=begin%>
+           <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"btn btn-google btn-block" do %>
             <i class="fab fa-google mr-2"></i><span>Googleで新規登録</span>
           <% end %>
+<%
+=end%>
       </form>
     </div>
   </div>
