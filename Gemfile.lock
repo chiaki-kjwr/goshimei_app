@@ -111,8 +111,6 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    enum_help (0.0.17)
-      activesupport (>= 3.0.0)
     erb_lint (0.0.30)
       activesupport
       better_html (~> 1.0.7)
@@ -393,7 +391,6 @@ DEPENDENCIES
   devise-i18n
   devise-i18n-views
   dotenv-rails
-  enum_help
   erb_lint
   factory_bot_rails (~> 4.11)
   jbuilder (~> 2.5)
