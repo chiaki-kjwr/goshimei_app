@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <main>
+
     <%= render 'partial/navbar' %>
     <% if flash[:notice] %>
       <div class="alert alert-info">
@@ -26,6 +26,7 @@
     <div class="container">
       <%= yield %>
     </div>
+
     <% unless current_page?(companies_home_path) %>
     <%= render 'partial/footer' %>
     <% end %>
@@ -43,6 +44,6 @@
     }
     });
     </script%>
-  </main>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </body>
 </html>

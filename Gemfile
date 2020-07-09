@@ -73,7 +73,7 @@ group :test do
 end
 
 group :production, :staging do
-    gem 'unicorn'
+  gem 'unicorn', '5.4.1'
 end
 
 # Windows does not include zoneinfo files, so bundle gthe tzinfo-data gem
