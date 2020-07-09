@@ -7,11 +7,17 @@
             <p>信頼できる転職エージェントを、</p>
             <p>自分で見つけよう。</p>
           </h3>
+
+ <%
+=begin%>
           <div class="homeGoogleLogo">
             <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"btn btn-google btn-block" do %>
             <i class="fab fa-google mr-2"></i><span>Googleで新規登録</span>
             <% end %>
           </div>
+<%
+=end%>
+
         </div>
     </div>
 

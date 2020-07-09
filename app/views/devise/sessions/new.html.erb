@@ -26,9 +26,14 @@
           </div>
       <% end %>
 
+ <%
+=begin%>
           <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"btn btn-lg btn-google btn-block text-center" do %>
             <i class="fab fa-google mr-2"></i><span>Googleでログイン</span>
           <% end %>
+<%
+=end%>
+
       </form>
     </div>
   </div>
