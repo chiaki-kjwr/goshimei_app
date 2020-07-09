@@ -79,6 +79,7 @@ class PostsController < ApplicationController
       @posts = Post.search(params[:search], @company_or_post)
       @companies_cnts = @companies.count
       @posts_cnts = @posts.count
+      @companies_cnts = @companies.count
     else @company_or_post == "2"
       @posts = Post.search(params[:search], @company_or_post)
       @companies = Company.search(params[:search], @company_or_post)
