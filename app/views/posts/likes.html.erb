@@ -6,7 +6,7 @@
   <div class="card-body-chat bg-light p-2 col-md-12">
     <% @posts.each do |post| %>
       <div class="likes-image">
-        <%= image_tag post.company.profile_photo.url(:thumb),class: "chat-image rounded-circle",size:"100x100" %>
+        <%= image_tag post.company.profile_photo.url,class: "chat-image rounded-circle",size:"100x100" %>
         <i class="fas fa-heart"></i>
         <%= link_to "#{post.company.name}", company_path(post.company),:style=>"color:black;"%>
       </div>
