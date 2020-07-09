@@ -72,6 +72,10 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :production, :staging do
+  gem 'unicorn', '5.4.1'
+end
+
 # Windows does not include zoneinfo files, so bundle gthe tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.3.1'
@@ -91,4 +95,5 @@ gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'kaminari'
 gem 'mysql2', '~> 0.4.4'
+gem 'mini_racer'
 gem 'enum_help'
