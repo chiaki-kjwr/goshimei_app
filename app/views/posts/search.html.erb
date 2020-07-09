@@ -25,7 +25,7 @@
           <div class="card-body">
             <div class="img-card">
               <p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
-              <%= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
+              <%= image_tag post.company.profile_photo.url,class:"rounded-circle",size:"50x50"%>
               <h6><%= post.contents %></h6>
             </div>
             <div class="post-datails">
@@ -35,14 +35,19 @@
                 </div>
             </div>
           </div>
-          </div>
+
           <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
             <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
           <% end %>
         </div>
       </div>
     <% end %>
-  </div>
+     <% end %>
+    <% end %>
+
+
+
+  </section>
 
 <!---->
 
@@ -62,7 +67,7 @@
 				        <div class="img-card">
                         <p class="tagline card-text text-xs-center"> <strong><%= company.name %></strong></p>
 
-                <%= image_tag company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
+                <%= image_tag company.profile_photo.url,class:"rounded-circle",size:"50x50"%>
                 <h5><%= post.contents %></h5>
 					</div>
 				</div>
@@ -85,7 +90,7 @@
 				        <div class="img-card">
 
                             <p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
-                <%= image_tag post.company.profile_photo.url(:thumb),class:"rounded-circle",size:"50x50"%>
+                <%= image_tag post.company.profile_photo.url,class:"rounded-circle",size:"50x50"%>
                 <h5><%=post.contents %></h5>
 					</div>
 				</div>
@@ -101,4 +106,3 @@
     </div>
 <%
 =end%>
-</section>
