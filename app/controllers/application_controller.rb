@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
     user_path(current_user)
@@ -10,22 +11,27 @@ class ApplicationController < ActionController::Base
     @current_company ||= Company.find_by(id: session[:company_id]) if session[:company_id]
   end
 
-  def set_search
+=begin   def set_search
     @c_search = Company.ransack
     @search_companies = @c_search.result(distinct: true)
   end
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
-=begin   def search
-    @company_or_post = params[:option]
-    if @company_or_post == "1"
-      @companies = Company.search(params[:search], @company_or_post)
-    else
-      @posts = Post.search(params[:search], @company_or_post)
-    end
-  end
 =end
 
+
+def search
+  @company_or_post = params[:option]
+  if @company_or_post == "1"
+    @posts = Post.search(params[:search], @company_or_post)
+    @companies_cnts = @companies.count
+    @posts_cnts = @posts.count
+    @companies = Company.search(params[:search], @company_or_post)
+  else
+    @posts = Post.search(params[:search], @company_or_post)
+    @companies = Company.search(params[:search], @company_or_post)
+    @posts_cnts = @posts.count
+    @companies_cnts = @companies.count
+  end
+end
 
 
   protected
