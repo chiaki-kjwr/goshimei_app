@@ -27,24 +27,6 @@ class ChatRoomsController < ApplicationController
   private
 
   def room_company_params
-    # @chat_room = ChatRoom.new
-    # @chat_room.save
     params.permit(:company_id, :user_id)
-  end
-
-  def room_user_params
-    params.require(:chat_room).permit(:company_id)
-  end
-
-  def current_post
-    current_post = Post.find(id: params[:id])
-  end
-
-  def message_params
-    params.require(:chat_message).permit(:chat_room_id, :message)
-  end
-
-  def chat_params
-    params.permit(:message).merge(chat_room_id: @chat_room.id)
   end
 end
