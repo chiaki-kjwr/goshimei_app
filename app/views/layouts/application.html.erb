@@ -30,7 +30,7 @@
     <% unless current_page?(companies_home_path) %>
     <%= render 'partial/footer' %>
     <% end %>
-    <%#script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
     $('#fileName').on("change", function() {
@@ -43,7 +43,6 @@
     document.getElementById("dummy_file").value = "";
     }
     });
-    </script%>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    </script>
 </body>
 </html>
