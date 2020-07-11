@@ -1,21 +1,49 @@
 <% provide(:full_title, "お気に入り") %>
-<div class="card-chat">
+<section class="search">
   <div class="panel-heading text-center">
     <h3><%= current_user.name %> さんのお気に入り一覧</h3>
   </div>
-  <div class="card-body-chat bg-light p-2 col-md-12">
+</section>
+<section class="py5 bg-light">
+  <div class="row">
     <% @posts.each do |post| %>
-      <div class="likes-image">
-        <%= image_tag post.company.profile_photo.url,class: "chat-image rounded-circle",size:"100x100" %>
-        <i class="fas fa-heart"></i>
-        <%= link_to "#{post.company.name}", company_path(post.company),:style=>"color:black;"%>
+      <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
+        <div class="card" id="cardIndex">
+          <header class="title-header">
+            <h2><%= post.title %></h2>
+          </header>
+          <div class="card-body">
+            <div class="row">
+
+            <div class="img-card">
+              <p class="tagline card-text text-xs-center"> <strong> <%= link_to "#{post.company.name}", company_path(post.company),:style=>"color:black;"%></strong></p>
+              <%= image_tag post.company.profile_photo.url,class: "chat-image rounded-circle",size:"100x100" %>
+              <h6><%= post.contents %></h6>
+            </div>
+            </div>
+
+
+
+
+
+            <div class="post-datails">
+              <%= post.created_at.to_s(:jptime)%>
+              <div id="likes_buttons_<%= post.id %>">
+                <%= render partial: 'posts/like_text', locals: { post: post} %>
+              </div>
+            </div>
+
+
+
+        </div>
+            <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
+                <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
+            <% end %>
       </div>
-      <div class="likes-post">
-        <%= post.title %>
-        <%= post.contents %>
-      </div>
-      <hr>
-    <% end %>
+    </div>
+    <%end %>
+</section>
+  <div class="mb-4 actions text-center">
+    <%= link_to "<<<ボシュウ一覧ページに戻る", posts_path,:style=>"color:black;"%>
+    <%= link_to "<<<#{current_user.name}さんのマイページに戻る", user_path(current_user),:style=>"color:black;"%>
   </div>
-</div>
-<%= link_to "<<<#{current_user.name}さんのマイページに戻る", user_path(current_user),:style=>"color:black;"%>
