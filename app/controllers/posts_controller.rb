@@ -1,14 +1,10 @@
 class PostsController < ApplicationController
   include ApplicationHelper
-  #before_action :set_search, only: [:index]
   def index
     @search = Post.ransack(params[:q])
     @posts = @search.result
 
-    # q = params[:q]
-    # @posts = Post.search(name_cont: q).result.page(params[:page]).per(9).order(id: "DESC")
-    # これでいける？
-    @posts = @posts.page(params[:page]).per(9).order(id: "DESC")
+    @posts = @posts.page.per(9).order(id: "DESC")
     @post = Post.find_by(id: params[:id])
 
     # チャット機能

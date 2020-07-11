@@ -3,6 +3,7 @@
 <section class="search">
     <div class="panel-heading text-center">
         <h2>検索結果</h2>
+
         <% if @company_or_post == "1"%>
             <h5><%= @companies_cnts %>件のエージェントを表示(<%= @posts_cnts %>件のボシュウ)</h5>
         <% else @company_or_post == "2"%>
@@ -65,3 +66,6 @@
         <%end %>
       <%end %>
 </section>
+<div class="mb-4 actions text-center">
+  <%= link_to "<<<投稿一覧ページに戻る", posts_path,:style=>"color:black;"%>
+</div>
