@@ -1,8 +1,5 @@
 class PostsController < ApplicationController
   include ApplicationHelper
-  before_action :set_search, only: [:index]
-
-
 
   def index
     @search = Post.ransack(params[:q])

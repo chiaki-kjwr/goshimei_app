@@ -13,10 +13,14 @@
                     </button>
                 </div>
                 <div class="list-group text-center">
-                  <% unless user_signed_in? %>
+                <%
+=begin%>
+   <% unless user_signed_in? %>
                     <%= link_to "サインアウト",  logout_path, method: :delete, class: "list-group-item list-group-item-action" %>
                     <%= link_to "プロフィールを編集する", edit_company_path, class: "list-group-item list-group-item-action",method: :get %>
                   <% end %>
+<%
+=end%>
                     <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
                 </div>
               </div>
@@ -57,5 +61,5 @@
       </div>
     </div>
     <div class="actions text-center">
-        <%= link_to "<<<トップページに戻る", companies_home_path,:style=>"color:black;"%>
+        <%= link_to "<<<投稿一覧ページに戻る", posts_path,:style=>"color:black;"%>
     </div>
