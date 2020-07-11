@@ -37,10 +37,10 @@ module ApplicationHelper
   end
 
   def error_messages
-    return "" if resource.errors.empty?
+    return "" if @company.errors.empty?
     html = ""
 
-    messages = resource.errors.full_messages.each do |msg|
+    messages = @company.errors.full_messages.each do |msg|
       html += <<-EOF
         <div class="error_field alert alert-danger" role="alert">
           <p class="error_msg">#{msg}</p>

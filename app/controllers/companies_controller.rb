@@ -4,6 +4,7 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
+
   end
 
   def show
@@ -36,8 +37,8 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    company = Company.new(company_params)
-    if company.save!
+    @company = Company.new(company_params)
+    if @company.save!
     redirect_to company_path(company), notice: '登録が完了しました'
     else
     render new_company_path
