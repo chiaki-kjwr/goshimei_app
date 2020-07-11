@@ -8,12 +8,12 @@
             <div class="col-auto">
             <%= f.label :title,"ボシュウのタイトル" %>
             <span class="must">必須</span>
-            <%= f.text_field :title, class: "form-control", placeholder: "例）エンジニアの転職支援にて、豊富な実績があります" %>
+            <%= f.text_field :title, class: "form-control", placeholder: "例）エンジニアの転職支援にて、豊富な実績があります。" %>
             </div>
             <div class="col-auto">
             <%= f.label :contents,"得意なこと" %>
             <span class="must">必須</span>
-            <%= f.text_area :contents, class: "form-control", size: "10x10",placeholder: "例）前職はサーバーサイドのエンジニアとしてサービス開発を行っており、豊富な業界知識と企業へのコネクションがございます," %>
+            <%= f.text_area :contents, class: "form-control", size: "10x10",placeholder: "例）前職はサーバーサイドのエンジニアとしてサービス開発を行っており、豊富な業界知識と企業へのコネクションがございます。" %>
             </div>
             <div class="col-auto text-center">
             <%= f.submit "ボシュウする", class: "btn btn-facebook btn-block" ,method: :post %>
