@@ -19,16 +19,16 @@
 @import "layouts/navbar";
 @import "users/show";
 @import "users/edit";
-@import "chat";
+@import "chat_rooms/show";
 @import "users/new";
 @import "device/error_messages";
 @import "companies/new";
-@import "posts";
+@import "posts/index";
 
 .pagenation{
   display: block;
   text-align:center;
 }
 .alert {
-  margin-top: 0px;
+  margin-top: 5px;
 }
