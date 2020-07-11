@@ -2,7 +2,7 @@
 <div class="mypage col-lg-12 col-xl-9 col-sm-4 mx-auto">
     <!--モーダル -->
       <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
-        <h5 class="card-title text-center"><%= "#{@company_name}の詳細" %></h5>
+        <h5 class="card-title text-center"><%= "#{@company.name}の詳細" %></h5>
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -30,7 +30,7 @@
         <hr>
         <div class="row"id="userEdit">
         <div class="col-lg-4 col-xl-4 col-sm-4 col-xs-3">
-          <%= image_tag @company.profile_photo.url,class:"round-img",size:"200x200"%>
+          <%= image_tag @company.profile_photo.url,class:"rounded-circle",size:"200x200"%>
         </div>
         <div class="col-lg-8 col-xl-8 col-sm-8 col-xs-9">
           <div class="profile">
