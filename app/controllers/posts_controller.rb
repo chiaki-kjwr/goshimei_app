@@ -89,6 +89,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:contents, :title).merge(company_id: current_company.id)
   end
-
-
 end
