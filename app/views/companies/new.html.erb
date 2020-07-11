@@ -1,10 +1,12 @@
 <% provide(:full_title, "エージェント登録画面") %>
+<%= error_messages %>
 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
   <div class="card card-signin my-5" id="userSignin">
     <div class="card-body-user">
       <h5 class="card-title text-center"><i class="far fa-id-card"></i>エージェント 新規登録画面</h5>
       <p>登録してボシュウしよう</p>
       <%= form_with model: @company do |f| %>
+      <%#= render 'layouts/error_messages', model: @company %>
         <div class="form-group">
           <div class="col-auto">
             <i class="far fa-envelope"></i>

@@ -40,7 +40,7 @@ class CompaniesController < ApplicationController
     if company.save!
     redirect_to company_path(company), notice: '登録が完了しました'
     else
-    render new_company_path, notice: '登録に失敗しました'
+    render new_company_path
     end
   end
 
