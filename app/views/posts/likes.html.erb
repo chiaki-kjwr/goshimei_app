@@ -21,20 +21,12 @@
               <h6><%= post.contents %></h6>
             </div>
             </div>
-
-
-
-
-
             <div class="post-datails">
               <%= post.created_at.to_s(:jptime)%>
               <div id="likes_buttons_<%= post.id %>">
                 <%= render partial: 'posts/like_text', locals: { post: post} %>
               </div>
             </div>
-
-
-
         </div>
             <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
                 <i class="fas fa-search-plus"></i>エージェントの詳細をチェック

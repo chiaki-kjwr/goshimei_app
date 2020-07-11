@@ -46,12 +46,13 @@
               <%= link_to "ボシュウ作成する", new_post_path, class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
                 <%= link_to "ボシュウ一覧はこちら", posts_path, class: "btn btn-lg btn-outline-dark btn-block" %>
             <% end %>
-              <%# if @chat_roomcompany_ids.include?(@company.id) #%>
+              <%# if @company_ids.include(@company.id) %>
                 <% if @chat_rooms.present? %>
-                  <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block",method: :get %>
+                  <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block" %>
                   <% else %>
-                <%#= button_to 'チャットを新しく始める', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company.id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
-            <% end %>
+                <%= button_to 'チャットを開始する', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company.id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
+                <% end %>
+            <%# end %>
           </div>
         </div>
       </div>

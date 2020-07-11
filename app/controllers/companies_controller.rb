@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-
+    @post = Post.find(params[:id])
     if user_signed_in? && @post.present?
       @post = Post.find(params[:id])
       @companies = Company.all
@@ -26,7 +26,7 @@ class CompaniesController < ApplicationController
     else
       @users = User.all
       if @chat_rooms.present?
-        chat_rooms = current_company.chat_rooms
+        @chat_rooms = current_company.chat_rooms
         # 自分が入ってるroomの相手のidを格納する
         @user_ids = []
         chat_rooms.each do |c|
