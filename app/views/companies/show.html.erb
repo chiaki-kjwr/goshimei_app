@@ -50,7 +50,9 @@
                 <% if @chat_rooms.present? %>
                   <%= link_to "すでにあるチャットルーム", chat_room_path(current_user.chat_rooms.find_by(company_id: @company_id)),class: "btn btn-lg btn-outline-dark btn-block" %>
                   <% else %>
-                <%= button_to 'チャットを開始する', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company.id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
+                  <!--@post.company.idでも動作する-->
+                <%#= button_to 'チャットを開始する', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@post.company.id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
+                <%= button_to 'チャットを開始する', {controller: 'chat_rooms', action: 'create',user_id:current_user.id,company_id:@company.id},{method: :post,class: 'btn btn-lg btn-facebook btn-block'} %>
                 <% end %>
             <%# end %>
           </div>

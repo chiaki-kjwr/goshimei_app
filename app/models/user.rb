@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 50 }
   validates :profile_photo, presence: true
   mount_uploader :profile_photo, ProfilePhotoUploader
-  validates :confirmation, inclusion: {in: ["yes", "no"]}
+  #validates :confirmation, inclusion: {in: ["yes", "no"]}
 
   def like(post)
     likes << post
