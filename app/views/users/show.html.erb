@@ -14,7 +14,7 @@
                       </div>
                       <div class="list-group text-center">
                       <% if @user == current_user %>
-                        <%= link_to "プロフィールを編集する", edit_user_registration_path, class: "list-group-item list-group-item-action",method: :get %>
+                        <%#= link_to "プロフィールを編集する", edit_user_registration_path, class: "list-group-item list-group-item-action",method: :get %>
                         <%= link_to "退会する", "/users/#{@user.id}", method: :delete,data:{confirm: "本当に退会しますか？"},class:"list-group-item list-group-item-action" %>
                         <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
                       <% end %>
