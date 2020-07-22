@@ -54,17 +54,20 @@ class PostsController < ApplicationController
 
   def search
     @company_or_post = params[:option]
-    if @company_or_post == "1"
+    #if @company_or_post == "1"
       @companies = Company.search(params[:search], @company_or_post)
       @posts = Post.search(params[:search], @company_or_post)
       @companies_cnts = @companies.count
       @posts_cnts = @posts.count
-    else @company_or_post == "2"
+
+=begin     else @company_or_post == "2"
       @posts = Post.search(params[:search], @company_or_post)
       @companies = Company.search(params[:search], @company_or_post)
       @posts_cnts = @posts.count
       @companies_cnts = @companies.count
     end
+=end
+
   end
 
     def likes

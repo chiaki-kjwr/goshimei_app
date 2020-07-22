@@ -35,18 +35,18 @@
 <section class="py5 bg-light">
 <!----><!---->
 <div class="row">
-  <% if @company_or_post == "1" || @company_or_post == "2" %>
-    <% @companies.each do |company| %>
+  <%# if @company_or_post == "1" || @company_or_post == "2" %>
+    <%# @companies.each do |company| %>
     <% @posts.each do |post| %>
       <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
         <div class="card" id="cardIndex">
           <header class="title-header">
-            <h2><%= post.title %></h2>
+            <h3><%= post.title %></h3>
           </header>
           <div class="card-body">
             <div class="img-card">
-              <p class="tagline card-text text-xs-center"> <strong><%= company.name %></strong></p>
-              <%= image_tag company.profile_photo.url,class:"rounded-circle",size:"50x50"%>
+              <p class="tagline card-text text-xs-center"> <strong><%= post.company.name %></strong></p>
+              <%= image_tag post.company.profile_photo.url,class:"rounded-circle",size:"50x50"%>
               <h6><%= post.contents %></h6>
             </div>
             <div class="post-datails">
@@ -56,15 +56,15 @@
               </div>
             </div>
 				</div>
-            <%= link_to company_path(company),class:"btn btn-facebook btn-block" do %>
+            <%= link_to company_path(post.company),class:"btn btn-facebook btn-block" do %>
                 <i class="fas fa-search-plus"></i>エージェントの詳細をチェック
             <% end %>
 
       </div>
     </div>
       <% end %>
-        <%end %>
-      <%end %>
+        <%#end %>
+      <%#end %>
 </section>
 <div class="mb-4 actions text-center">
   <%= link_to "<<<ボシュウ一覧ページに戻る", posts_path,:style=>"color:black;"%>

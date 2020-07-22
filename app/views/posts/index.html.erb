@@ -13,7 +13,7 @@
       <div class="col-xs-12 col-sm-10 col-md-4" id="cardPostIndex">
         <div class="card" id="cardIndex">
           <header class="title-header">
-            <h2><%= post.title %></h2>
+            <h3><%= post.title %></h3>
           </header>
           <div class="card-body">
             <div class="img-card">
@@ -40,8 +40,7 @@
       </div>
     <% end %>
   </div>
-    <%= paginate @posts %>
+    <%#= paginate @posts %>
 </section>
-
 <%#   <div class="page">
     <%#= paginate @posts %>
