@@ -1,3 +1,5 @@
+$facebook-color:#3b5998;
+
 .h1 {
     font-size:80px ;
     font-family: "serif";
@@ -170,6 +172,19 @@
 
 .mt10 {
   margin-top: 5%;
+  position: relative;
+  color: white;
+  background:lighten($facebook-color,20%);
+  line-height: 1.4;
+  padding: 0.5em 0.5em 0.5em 1.8em;
+}
+
+.mt10:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f14a";
+  font-weight: 900;
+  position: absolute;
+  left : 0.5em;
 }
 
 .mt20 {
@@ -252,4 +267,10 @@ p {
     width: 25%;
     margin-left: 0 !important;
   }
+}
+
+.subtitle{
+  color:white;
+  font-size:12px;
+  font-weight: bold;
 }
