@@ -17,17 +17,15 @@
         </li>
       </ul>
 <!--Navbarから検索できる-->
-    <div class="btn"></div>
+    <div class="top-form">
       <%= form_tag(search_path, :method => 'get')do %>
-<%= select_tag(:option, options_for_select([["エージェントから検索", "1"],["投稿から検索","2"]]))%>
-        <%# <div class="input-group"> %>
-          <%= text_field_tag :search,'' ,placeholder:"フリーワードを入力"%>
+        <%= select_tag(:option, options_for_select([["エージェントから検索", "1"],["投稿から検索","2"]]))%>
+        <%= text_field_tag :search,'' ,placeholder:"フリーワードを入力..."%>
           <span class="input-group-btn">
             <button type="submit"><i class="fas fa-search"></i></button>
           </span>
-        <%# </div> %>
       <% end %>
-    </div>
-    </div>
+      </div>
+  </div>
   </nav>
 </div>
