@@ -21,12 +21,12 @@ h1 {
     height: 50px;
     border-radius: 50%;
     top: 50%;
-    /* border: dashed 1px white; */
     left: -15px;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     z-index: -1;
   }
+
   h2 {
     position: relative;
     color: #333;
@@ -46,12 +46,12 @@ h1 {
     height: 50px;
     border-radius: 50%;
     top: 50%;
-    /* border: dashed 1px white; */
     left: 400px;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     z-index: -1;
   }
+
   h2.title-red {
     position: relative;
     color: #333;
@@ -60,7 +60,6 @@ h1 {
     margin-bottom: 20px;
     padding-top: 40px;
   }
-
 
   h2.title-red:before{
     content: "";
@@ -75,7 +74,6 @@ h1 {
     transform: translateY(-50%);
     z-index: -1;
   }
-
 
   html, body,
   ul, ol, li,
@@ -100,8 +98,6 @@ h1 {
 
   .welcome-wrapper {
     padding: 180px 0 100px 0;
-    //background-image: image-url('phone.jpg');
-    //@extend: cover;
     margin: 0;
     height: 550px;
   }
@@ -123,7 +119,6 @@ h1 {
     margin-top: -15%;
     }
   }
-
 
   .welcome-wrapper h1 {
     opacity: 0.7;
@@ -186,25 +181,11 @@ h1 {
     color: #b3aeb5;
   }
 
-  // .heading h3 {
-  //   font-weight: normal;
-  // }
-
-  // .heading h2 {
-  //   //margin: 0 auto;
-  //   padding-top: 40px;
-  //   font-weight: normal;
-  // }
-  // .heading p {
-  //   padding-top: 40px;
-  // }
-
   .message-wrapper {
     text-align: center;
     margin-top: 0;
     padding-top: 0;
   }
-
 
   .message {
     padding: 15px 40px;
@@ -253,7 +234,6 @@ h1 {
 
 .mt20 {
   margin-top: 5%;
-  //margin-bottom: 0px;
 }
 
 .topTitle1 {
@@ -269,13 +249,11 @@ p {
   font-size: 20px;
 }
 
-
 .signIn {
   position: absolute;
   top: 80%;
   left: 20%;
 }
-
 
 .homeGoogleLogo {
   position: absolute;
@@ -289,7 +267,6 @@ p {
 .homeGoogle {
   position: absolute;
   left: 1%;
-  //top: 300%;
   background-color: #ea4335;
   color: #000000;
   text-decoration: none;
