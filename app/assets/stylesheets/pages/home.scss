@@ -1,21 +1,84 @@
 $facebook-color:#3b5998;
+$google-color:#ea4335;
 
-.h1 {
+h1 {
     font-size:80px ;
     font-family: "serif";
     color:#ddd;
     font-weight: 800;
+    position: relative;
+    color: #333;
+    text-shadow: 0 0 2px white;
   }
 
-  .h2{
-    font-family: "serif";
-    color:#ddd;
-    font-weight: bold;
+  h1:before{
+    content: "";
+    position: absolute;
+    background: $google-color;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    /* border: dashed 1px white; */
+    left: -15px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: -1;
   }
+  h2 {
+    position: relative;
+    color: #333;
+    text-shadow: 0 0 2px white;
+    font-weight: bold;
+    border-bottom: dashed 2px #6B63FF;
+    margin-bottom:20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  h2:before{
+    content: "";
+    position: absolute;
+    background-color: #F38076;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    /* border: dashed 1px white; */
+    left: 400px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+  h2.title-red {
+    position: relative;
+    color: #333;
+    text-shadow: 0 0 2px white;
+    font-weight: bold;
+    margin-bottom:20px;
+    padding-top: 40px;
+  }
+
+
+  h2.title-red:before{
+    content: "";
+    position: absolute;
+    background-color: #F38076;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 70%;
+    /* border: dashed 1px white; */
+    left: 360px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+
 
   html, body,
   ul, ol, li,
-  h1, h2, p, div {
+  h1, p, div {
     margin: 0;
     padding: 0;
   }
@@ -97,7 +160,7 @@ $facebook-color:#3b5998;
   }
 
   .service-wrapper {
-    height: 580px;
+    height: 400px;
     background-color: #f7f7f7;
     text-align: center;
   }
@@ -122,18 +185,18 @@ $facebook-color:#3b5998;
     color: #b3aeb5;
   }
 
-  .heading h3 {
-    font-weight: normal;
-  }
+  // .heading h3 {
+  //   font-weight: normal;
+  // }
 
-  .heading h2 {
-    //margin: 0 auto;
-    padding-top: 40px;
-    font-weight: normal;
-  }
-  .heading p {
-    padding-top: 40px;
-  }
+  // .heading h2 {
+  //   //margin: 0 auto;
+  //   padding-top: 40px;
+  //   font-weight: normal;
+  // }
+  // .heading p {
+  //   padding-top: 40px;
+  // }
 
   .message-wrapper {
     text-align: center;
