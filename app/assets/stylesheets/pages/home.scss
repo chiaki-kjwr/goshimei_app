@@ -1,8 +1,8 @@
-$facebook-color:#3b5998;
-$google-color:#ea4335;
+$facebook-color: #3b5998;
+$google-color: #ea4335;
 
 h1 {
-    font-size:80px ;
+    font-size: 80px;
     font-family: "serif";
     font-weight: 800;
     position: relative;
@@ -33,7 +33,7 @@ h1 {
     text-shadow: 0 0 2px white;
     font-weight: bold;
     border-bottom: dashed 2px #6B63FF;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     padding-bottom: 20px;
     margin-top: 20px;
   }
@@ -57,7 +57,7 @@ h1 {
     color: #333;
     text-shadow: 0 0 2px white;
     font-weight: bold;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     padding-top: 40px;
   }
 
@@ -70,7 +70,6 @@ h1 {
     height: 50px;
     border-radius: 50%;
     top: 70%;
-    /* border: dashed 1px white; */
     left: 360px;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -103,8 +102,8 @@ h1 {
     padding: 180px 0 100px 0;
     //background-image: image-url('phone.jpg');
     //@extend: cover;
-    margin:0;
-    height:550px;
+    margin: 0;
+    height: 550px;
   }
 
   @media screen and (min-width: 301px) {
@@ -117,11 +116,11 @@ h1 {
   @media screen and (max-width: 500px) {
     .subTitle {
     background-image: image-url('phone.jpg');
-    background-size:300px;
-    height:200px;
+    background-size: 300px;
+    height: 200px;
     }
     .topTitle1 {
-    margin-top:-15%;
+    margin-top: -15%;
     }
   }
 
@@ -168,8 +167,8 @@ h1 {
   }
 
   .container{
-    margin-right:100px!important;
-    margin-left:100px!important;
+    margin-right: 100px!important;
+    margin-left: 100px!important;
   }
 
   .heading {
@@ -239,7 +238,7 @@ h1 {
   margin-top: 5%;
   position: relative;
   color: white;
-  background:lighten($facebook-color,20%);
+  background: lighten($facebook-color, 20%);
   line-height: 1.4;
   padding: 0.5em 0.5em 0.5em 1.8em;
 }
@@ -267,7 +266,7 @@ h1 {
   top: 45%;
 }
 p {
-  font-size:20px;
+  font-size: 20px;
 }
 
 
@@ -336,10 +335,10 @@ p {
 
 .subtitle{
   color:white;
-  font-size:12px;
+  font-size: 12px;
   font-weight: bold;
 }
 
 .font-weight-bold{
-  font-size:18px;
+  font-size: 18px;
 }
