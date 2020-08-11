@@ -104,19 +104,19 @@ h1 {
 
   @media screen and (min-width: 301px) {
     .welcome-wrapper {
-    background-image: image-url('phone.jpg');
-    background-size: cover;
+      background-image: image-url('phone.jpg');
+      background-size: cover;
     }
   }
 
   @media screen and (max-width: 500px) {
     .subTitle {
-    background-image: image-url('phone.jpg');
-    background-size: 300px;
-    height: 200px;
+      background-image: image-url('phone.jpg');
+      background-size: 300px;
+      height: 200px;
     }
     .topTitle1 {
-    margin-top: -15%;
+      margin-top: -15%;
     }
   }
 
@@ -194,7 +194,6 @@ h1 {
 
   .registration{
     margin-top: 70px;
-    //padding-top:0;
     color: #5f5d60;
     text-align: center;
     margin-right: 50px;

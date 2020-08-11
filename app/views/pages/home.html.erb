@@ -1,110 +1,110 @@
 <% provide(:full_title, "Top") %>
   <!--タイトル-->
-  <div class="welcome-wrapper",id="wrapper">
-      <div class="top-image">
-          <h1 class="font-weight-bold mb-4 topTitle1"><br>ゴシメイ！</h1>
-          <h3 class="subTitle">
-            <p>信頼できる転職エージェントを、</p>
-            <p>自分で見つけよう。</p>
-          </h3>
-    <!--googleで新規登録（エラーが起きている為一旦コメントアウト）-->
-        <%
-=begin%>
-  <div class="homeGoogleLogo">
-            <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"btn btn-google btn-block" do %>
-            <i class="fab fa-google mr-2"></i><span>Googleで新規登録</span>
-            <% end %>
-          </div>
-<%
-=end%>
-        </div>
+  <div class="welcome-wrapper" id="wrapper">
+    <div class="top-image">
+      <h1 class="font-weight-bold mb-4 topTitle1"><br>ゴシメイ！</h1>
+      <h3 class="subTitle">
+        <p>信頼できる転職エージェントを、</p>
+        <p>自分で見つけよう。</p>
+      </h3>
+      <!--googleで新規登録（エラーが起きている為一旦コメントアウト）-->
+      <%= begin %>
+      <div class="homeGoogleLogo">
+        <%= link_to user_google_oauth2_omniauth_authorize_path, target: "_blank" ,class:"btn btn-google btn-block" do %>
+        <i class="fab fa-google mr-2"></i><span>Googleで新規登録</span>
+        <% end %>
+      </div>
+      <%= end %>
     </div>
+  </div>
 
-    <!--ゴシメイでできることの説明-->
-    <div class="col-lg-12 col-xl- col-sm-4 col-xs-4 text-center">
-      <h2 class="title-red">ゴシメイ！でできること</h2>
-      <p class="text-center">ゴシメイ！はご自身でマッチする転職エージェントを検索できるサービスです。</p>
+  <!--ゴシメイでできることの説明-->
+  <div class="col-lg-12 col-xl- col-sm-4 col-xs-4 text-center">
+    <h2 class="title-red">ゴシメイ！でできること</h2>
+    <p class="text-center">ゴシメイ！はご自身でマッチする転職エージェントを検索できるサービスです。</p>
+  </div>
+  <div class="row service-wrapper">
+    <div class="row">
+      <div class="col-lg-3 col-xl-4 col-sm-4 col-xs-4">
+        <%= image_tag('consultation.png',:class =>"w-100 rounded-circle")%>
+        <p class="text-contents">
+          <span class="font-weight-bold">専門性の高い転職エージェントに</span><br>
+          <span class="font-weight-bold">いつでも相談できます</span>
+        </p>
+      </div>
+      <div class="col-lg-3 col-xl-4 col-sm-4 col-xs-4">
+        <%= image_tag('nominate.png',:class =>"w-100 rounded-circle") %>
+        <p class="text-contents">
+          <span class="font-weight-bold">ぴったりの転職エージェントを指名できます</span>
+        </p>
+      </div>
+      <div class="col-lg-3 col-xl-4 col-sm-4 col-xs-4">
+        <%= image_tag('free.png',:class =>"w-100 rounded-circle") %>
+        <p class="text-contents">
+          <span class="font-weight-bold">無料でサービス利用できます</span>
+        </p>
+      </div>
     </div>
-    <div class="row service-wrapper">
-        <div class="row">
-          <div class="col-lg-3 col-xl-4 col-sm-4 col-xs-4">
-            <%= image_tag('consultation.png',:class =>"w-100 rounded-circle")%>
-            <p class="text-contents">
-              <span class="font-weight-bold">専門性の高い転職エージェントに</span><br>
-              <span class="font-weight-bold">いつでも相談できます</span>
-            </p>
-          </div>
-          <div class="col-lg-3 col-xl-4 col-sm-4 col-xs-4">
-          <%= image_tag('nominate.png',:class =>"w-100 rounded-circle") %>
-            <p class="text-contents">
-              <span class="font-weight-bold">ぴったりの転職エージェントを指名できます</span>
-            </p>
-          </div>
-          <div class="col-lg-3 col-xl-4 col-sm-4 col-xs-4">
-            <%= image_tag('free.png',:class =>"w-100 rounded-circle") %>
-            <p class="text-contents">
-              <span class="font-weight-bold">無料でサービス利用できます</span>
-            </p>
-          </div>
-        </div>
+  </div>
+  
+  <!--ゴシメイの使い方-->
+  <div class="Features py-0">
+    <h2>ゴシメイ！の使い方</h2>
+    <div class="mb-2 row text-center">
+      <div class="col-sm-8">
+        <h3 class="text-center mt10">①検索する</h3>
+        <span class="text-center font-weight-bold">業界、職種など自分にマッチしたエージェントを検索してみましょう</span>
+      </div>
+      <div class="col-sm-4">
+        <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
+      </div>
     </div>
-    <!--ゴシメイの使い方-->
-    <div class="Features py-0">
-        <h2>ゴシメイ！の使い方</h2>
-        <div class="mb-2 row text-center">
-          <div class="col-sm-8">
-            <h3 class="text-center mt10">①検索する</h3>
-            <span class="text-center font-weight-bold">業界、職種など自分にマッチしたエージェントを検索してみましょう</span>
-          </div>
-          <div class="col-sm-4">
-            <%= image_tag('search.png',:class =>"w-100 rounded-circle") %>
-          </div>
-        </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="mb-2 row text-center">
+      <div class="col-sm-4">
+        <%= image_tag('like.png',:class =>"w-100 rounded-circle") %>
+      </div>
+      <div class="col-sm-8">
+        <h3 class="text-center mt10">②お気に入り登録をする</h3>
+        <span class="text-center font-weight-bold">気になったエージェントはお気に入り登録ができます</span>
       </div>
     </div>
     <hr>
-    <div class="container">
+    <div class="Features py-0">
       <div class="mb-2 row text-center">
-        <div class="col-sm-4">
-          <%= image_tag('like.png',:class =>"w-100 rounded-circle") %>
-        </div>
         <div class="col-sm-8">
-          <h3 class="text-center mt10">②お気に入り登録をする</h3>
-          <span class="text-center font-weight-bold">気になったエージェントはお気に入り登録ができます</span>
+          <h3 class="text-center mt10">③チャットでメッセージを送る</h3>
+          <span class="text-center font-weight-bold">エージェントとの直接のやり取りも可能です</span>
+        </div>
+        <div class="col-sm-4">
+          <%= image_tag('chatting.png',:class =>"w-100 rounded-circle") %>
         </div>
       </div>
-    <hr>
-    <div class="Features py-0">
-        <div class="mb-2 row text-center">
-          <div class="col-sm-8">
-            <h3 class="text-center mt10">③チャットでメッセージを送る</h3>
-            <span class="text-center font-weight-bold">エージェントとの直接のやり取りも可能です</span>
-          </div>
-          <div class="col-sm-4">
-              <%= image_tag('chatting.png',:class =>"w-100 rounded-circle") %>
-          </div>
-        </div>
-      </div>
-    <hr>
-<!--ゴシメイへの登録-->
+    </div>
+  </div>
+  <hr>
+
+  <!--ゴシメイへの登録-->
   <div class="message-wrapper">
     <div class="registration text-center w-100">
       <h3>転職のパートナーを探してみませんか？</h3>
-        <% if user_signed_in? %>
-          <%= link_to user_path(current_user),class: "btn btn-facebook" do %>
-          <i class="fas fa-user"></i>マイページ >>
-          <% end %>
-        <%else%>
-          <%= link_to new_user_registration_path, class: "btn btn-facebook"  do %>
-          <i class="fas fa-cog"></i>新規登録画面へ >>
-          <% end %>
-          <%= link_to new_user_session_path, class: "btn btn-facebook" do %>
-          <i class="fas fa-smile"></i>アカウントをお持ちの方はこちら >>
-          <% end %>
-          <br>
-          <%= link_to users_guest_sign_in_path, class: "btn btn-google btn-lg",method: :post do %>
-          <i class="fas fa-user-check"></i>採用ご担当者様はこちら(ゲストログイン) >>
-          <%end%>
+      <% if user_signed_in? %>
+        <%= link_to user_path(current_user),class: "btn btn-facebook" do %>
+        <i class="fas fa-user"></i>マイページ >>
+        <% end %>
+      <%else%>
+        <%= link_to new_user_registration_path, class: "btn btn-facebook"  do %>
+        <i class="fas fa-cog"></i>新規登録画面へ >>
+        <% end %>
+        <%= link_to new_user_session_path, class: "btn btn-facebook" do %>
+        <i class="fas fa-smile"></i>アカウントをお持ちの方はこちら >>
+        <% end %>
+        <br>
+        <%= link_to users_guest_sign_in_path, class: "btn btn-google btn-lg",method: :post do %>
+        <i class="fas fa-user-check"></i>採用ご担当者様はこちら(ゲストログイン) >>
         <%end%>
-      </div>
+      <%end%>
+    </div>
   </div>
