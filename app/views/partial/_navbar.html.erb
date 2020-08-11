@@ -1,9 +1,9 @@
 <div class='fixed-top'>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom shadow">
     <a class="navbar-brand" href="/"><i class="far fa-id-card"></i>  ゴシメイ！</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav mr-auto">
@@ -16,16 +16,16 @@
         <% end %>
         </li>
       </ul>
-<!--Navbarから検索できる-->
-    <div class="top-form">
+      <!--Navbarから検索できる-->
+      <div class="top-form">
       <%= form_tag(search_path, :method => 'get')do %>
         <%= select_tag(:option, options_for_select([["エージェントから検索", "1"],["投稿から検索","2"]]))%>
         <%= text_field_tag :search,'' ,placeholder:"フリーワードを入力.."%>
-          <span class="input-group-btn">
-            <button type="submit"><i class="fas fa-search"></i></button>
-          </span>
+        <span class="input-group-btn">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </span>
       <% end %>
       </div>
-  </div>
+    </div>
   </nav>
 </div>
