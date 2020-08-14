@@ -1,19 +1,83 @@
-.h1 {
-    font-size:80px ;
+$facebook-color: #3b5998;
+$google-color: #ea4335;
+
+h1 {
+    font-size: 80px;
     font-family: "serif";
-    color:#ddd;
     font-weight: 800;
+    position: relative;
+    color: darken($google-color,20%);
+    text-shadow: 0 0 1px white;
+    padding: 1.5rem 2rem;
+    -webkit-text-stroke: 1px #333;
+    text-stroke: 1px #333;
   }
 
-  .h2{
-    font-family: "serif";
-    color:#ddd;
+  h1:before{
+    content: "";
+    position: absolute;
+    background: $google-color;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    left: -15px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+
+  h2 {
+    position: relative;
+    color: #333;
+    text-shadow: 0 0 2px white;
     font-weight: bold;
+    border-bottom: dashed 2px #6B63FF;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  h2:before{
+    content: "";
+    position: absolute;
+    background-color: #F38076;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    left: 400px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+
+  h2.title-red {
+    position: relative;
+    color: #333;
+    text-shadow: 0 0 2px white;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-top: 40px;
+  }
+
+  h2.title-red:before{
+    content: "";
+    position: absolute;
+    background-color: #F38076;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 70%;
+    left: 360px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: -1;
   }
 
   html, body,
   ul, ol, li,
-  h1, h2, p, div {
+  h1, p, div {
     margin: 0;
     padding: 0;
   }
@@ -34,10 +98,8 @@
 
   .welcome-wrapper {
     padding: 180px 0 100px 0;
-    //background-image: image-url('phone.jpg');
-    //@extend: cover;
-    margin:0;
-    height:550px;
+    margin: 0;
+    height: 550px;
   }
 
   @media screen and (min-width: 301px) {
@@ -50,14 +112,13 @@
   @media screen and (max-width: 500px) {
     .subTitle {
     background-image: image-url('phone.jpg');
-    background-size:300px;
-    height:200px;
+    background-size: 300px;
+    height: 200px;
     }
     .topTitle1 {
-    margin-top:-15%;
+    margin-top: -15%;
     }
   }
-
 
   .welcome-wrapper h1 {
     opacity: 0.7;
@@ -95,14 +156,14 @@
   }
 
   .service-wrapper {
-    height: 580px;
+    height: 400px;
     background-color: #f7f7f7;
     text-align: center;
   }
 
   .container{
-    margin-right:100px!important;
-    margin-left:100px!important;
+    margin-right: 100px!important;
+    margin-left: 100px!important;
   }
 
   .heading {
@@ -120,25 +181,11 @@
     color: #b3aeb5;
   }
 
-  .heading h3 {
-    font-weight: normal;
-  }
-
-  .heading h2 {
-    //margin: 0 auto;
-    padding-top: 40px;
-    font-weight: normal;
-  }
-  .heading p {
-    padding-top: 40px;
-  }
-
   .message-wrapper {
     text-align: center;
     margin-top: 0;
     padding-top: 0;
   }
-
 
   .message {
     padding: 15px 40px;
@@ -170,11 +217,23 @@
 
 .mt10 {
   margin-top: 5%;
+  position: relative;
+  color: white;
+  background: lighten($facebook-color, 20%);
+  line-height: 1.4;
+  padding: 0.5em 0.5em 0.5em 1.8em;
+}
+
+.mt10:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f14a";
+  font-weight: 900;
+  position: absolute;
+  left : 0.5em;
 }
 
 .mt20 {
   margin-top: 5%;
-  //margin-bottom: 0px;
 }
 
 .topTitle1 {
@@ -187,16 +246,14 @@
   top: 45%;
 }
 p {
-  font-size:16px;
+  font-size: 20px;
 }
-
 
 .signIn {
   position: absolute;
   top: 80%;
   left: 20%;
 }
-
 
 .homeGoogleLogo {
   position: absolute;
@@ -210,7 +267,6 @@ p {
 .homeGoogle {
   position: absolute;
   left: 1%;
-  //top: 300%;
   background-color: #ea4335;
   color: #000000;
   text-decoration: none;
@@ -252,4 +308,14 @@ p {
     width: 25%;
     margin-left: 0 !important;
   }
+}
+
+.subtitle {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.font-weight-bold {
+  font-size: 18px;
 }

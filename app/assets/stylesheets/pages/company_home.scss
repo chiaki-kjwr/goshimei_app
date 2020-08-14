@@ -15,7 +15,6 @@ ul,
 ol,
 li,
 h1,
-h2,
 p,
 div {
   margin: 0;
@@ -46,7 +45,7 @@ a {
 @media screen and (max-width: 700px) {
   .top-wrapper {
     height: 300px;
-    width:100%;
+    width: 100%;
   }
 }
 
@@ -70,8 +69,9 @@ a {
   top: 50%;
 }
 p {
-  font-size:16px;
+  font-size: 20px;
   top: 45%;
+  font-weight: bold;
 }
 
 .btn:hover {
@@ -99,7 +99,7 @@ p {
 }
 
 .service-wrapper {
-  height: 580px;
+  height: 400px;
   background-color: #f7f7f7;
   text-align: center;
 }
@@ -107,7 +107,7 @@ p {
 .container {
   margin-right: 100px !important;
   margin-left: 100px !important;
-  height:auto;
+  height: auto;
 }
 
 .heading {
@@ -159,15 +159,14 @@ p {
     top: 0%;
     font-size: 10px;
     width: 300px;
-    left:2%;
+    left: 2%;
   }
   .subTitle2{
-    left:5%;
+    left: 5%;
     display: none;
   }
 
 }
-
 
 .signIn {
   position: absolute;
@@ -210,7 +209,6 @@ p {
     height: 100px;
   }
 }
-
 
 @media screen and (max-width: 900px) {
 
