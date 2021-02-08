@@ -81,7 +81,7 @@ end
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'devise', '~> 4.6.1'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem "mini_magick"
 gem 'rails-i18n'
 gem 'pry-rails'
